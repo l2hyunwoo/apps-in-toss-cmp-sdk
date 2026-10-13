@@ -74,3 +74,11 @@ ESLint 10.12.0, typescript-eslint 8.71.1, ktlint 1.8.0을 적용했습니다. ty
 로컬에서 두 조합의 압축 패키지 생성·설치·린트·JVM 테스트와 actionlint 검사를 통과했습니다. 앱인토스 전용 생성 앱은 Android SDK 환경 변수를 제거한 상태에서도 검사했습니다. 생성 README와 워크플로의 원본 일치를 확인했습니다.
 
 원격 생성 앱 검사에서 프로젝트 이름이 `generated-app`일 때 Yarn 잠금 파일 항목 순서가 달라져 immutable 설치가 실패하는 문제를 발견했습니다. CLI에서 이름 치환 후 항목을 사전순으로 정렬하도록 수정하고 회귀 검사와 실제 자동 설치로 확인했습니다.
+
+## SDK 내부 JS 리소스 전환 (2026-10-14)
+
+별도 npm 브리지 패키지를 제거하고 SDK와 같은 버전의 Maven `web-resources` JAR에 JS를 포함했습니다. 저장소의 JS·TS 린트, Kotlin·Gradle 린트, Node 테스트 27개와 JVM 테스트 8개가 통과했습니다. 새 번들 테스트는 운영·mock 진입점 초기화와 운영 번들의 mock 제외를 확인합니다.
+
+압축한 CLI로 앱인토스 전용·전체 타깃 프로젝트를 생성해 Yarn immutable 설치, 린트와 공통 core JVM 테스트를 확인했습니다. 두 프로젝트의 직접 npm 런타임 의존성은 공식 웹 프레임워크 하나이며, 추출한 core·운영·mock 리소스가 SDK 원본과 일치했습니다. Maven 체크섬과 생성 CI 원본 일치도 확인했습니다. 앱인토스 전용 앱은 Android SDK 환경 변수 없이 JS/Wasm 호환 배포물과 `.ait` 생성을 통과했습니다.
+
+`Generated app CI`에 두 생성 조합의 SDK 리소스 추출·내용 일치와 의존성 검사를 추가했습니다. `actionlint`와 문서의 로컬 링크 검사도 통과했습니다. 이번 변경에서 Android·iOS 빌드, 브라우저 UI, 실제 토스앱 실행과 TDS 검수 승인은 확인하지 않았습니다.

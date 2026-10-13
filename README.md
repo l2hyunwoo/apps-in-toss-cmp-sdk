@@ -7,7 +7,7 @@ Compose Multiplatform(CMP)으로 앱인토스 웹앱을 만들고, 서비스가 
 ## 제공하는 기능
 
 - **Kotlin JS/Wasm SDK:** 토스 로그인, 익명 사용자 키, 텍스트 공유, 화면 닫기, 뒤로 가기·홈 이벤트, 안전 영역을 Kotlin API로 제공합니다.
-- **JS 브리지:** 공식 앱인토스 웹 SDK를 연결합니다. Kotlin SDK와 연결 계약을 분리해 공식 SDK의 특정 패치 버전에 대한 의존을 줄입니다.
+- **SDK 내부 JS 브리지:** 공식 앱인토스 웹 SDK를 연결합니다. Kotlin SDK와 연결 계약을 분리해 공식 SDK의 특정 패치 버전에 대한 의존을 줄입니다.
 - **생성 CLI:** 대화형 `create-ait-cmp-app`으로 앱인토스 전용 프로젝트를 만들고 Android·iOS·독립 웹 타깃을 선택할 수 있습니다.
 - **공유 예제:** 메모 목록·상세 화면과 데이터 조회·저장 계약을 각 호스트에서 사용하는 예제를 제공합니다.
 
@@ -16,7 +16,6 @@ Compose Multiplatform(CMP)으로 앱인토스 웹앱을 만들고, 서비스가 
 | 구성 요소 | 설명 |
 | --- | --- |
 | [Kotlin SDK](sdk/README.md) | 앱인토스 기능을 호출하는 Kotlin API |
-| [JS 브리지](packages/web-bridge/README.md) | 공식 웹 SDK 어댑터와 개발용 mock |
 | [생성 CLI](packages/create-ait-cmp-app/README.md) | 프로젝트 생성 도구 |
 | [공통 core](sample/shared-core/README.md) | 데이터 모델·API 클라이언트·저장 계약 |
 | [공통 UI](sample/shared-ui/README.md) | 재사용 가능한 Compose 화면 |

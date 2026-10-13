@@ -6,7 +6,7 @@
 
 `shared-core`에 서비스 모델·API 클라이언트·저장 계약을, `shared-ui`에 공통 화면을 둡니다. `appsInTossApp`은 토스 연동을 담당합니다. 선택한 타깃의 호스트 디렉터리, Gradle Wrapper, Yarn 잠금 파일, 린트 설정, 기본 GitHub Actions CI를 포함합니다.
 
-현재 SDK Maven 바이너리와 npm 브리지를 템플릿에 포함하므로 미배포 원격 SDK에 의존하지 않습니다. SDK 구현 소스는 복사하지 않습니다.
+현재 JS 리소스를 포함한 SDK Maven 바이너리를 템플릿에 포함하므로 미배포 원격 SDK에 의존하지 않습니다. SDK 구현 소스는 복사하지 않습니다.
 
 ## 사용
 

@@ -19,16 +19,16 @@ TDS 연동은 구현하지 않았습니다. 서비스에 필요하다면 React/D
 
 ## 공식 웹 SDK 버전과의 관계
 
-Kotlin SDK는 자체 JSON 브리지 계약만 사용합니다. 공식 웹 SDK를 업데이트해도 이 계약이 유지되면 Kotlin 라이브러리를 다시 빌드할 필요가 없습니다. 기본 연결 진입점은 공식 패키지를 가져오고, `adapter` 진입점은 호출자가 SDK 객체를 주입받습니다. 후자는 공식 패키지를 직접 import하지 않으며 peer 설치도 선택 사항입니다.
+Kotlin SDK는 자체 JSON 브리지 계약만 사용합니다. 공식 웹 SDK를 업데이트해도 이 계약이 유지되면 Kotlin 코드를 다시 빌드할 필요가 없습니다. 브리지는 SDK와 같은 버전의 `web-resources` Maven JAR에 포함되며 별도 npm 패키지를 설치하지 않습니다.
 
-```js
-import * as sdk from '@apps-in-toss/web-framework';
-import { createBridge } from '@l2hyunwoo/apps-in-toss-cmp-bridge/adapter';
-globalThis.aitCmpBridge = createBridge(sdk);
-```
+앱인토스 호스트의 `prepareAppsInTossBridge` 작업이 리소스를 빌드 디렉터리에 추출합니다. 웹 빌드 스크립트는 운영 빌드에서 `index.mjs`, 명시적인 mock 개발에서 `mock.mjs`를 번들링합니다. 운영 진입점은 앱에 설치된 `@apps-in-toss/web-framework`를 사용하고 `globalThis.aitCmpBridge`를 초기화합니다. 독립 웹·네이티브에는 이 리소스를 넣지 않습니다.
 
-기본 어댑터의 peer 범위는 `>=3.0.1 <4.0.0`입니다. 3.0.1과 3.8.0에서 사용하는 공개 함수의 존재를 자동 검사하고, 부분 SDK에서 빠진 기능과 명시적으로 지원하지 않는 기능을 `UNSUPPORTED`로 처리합니다. 이는 실제 토스앱의 모든 기능이나 범위 내 모든 중간 버전을 검증했다는 뜻은 아닙니다. 예제와 생성 앱의 3.8.0 고정은 실행 환경을 재현하기 위한 선택이며 Kotlin SDK의 의존성 제약이 아닙니다.
+생성 앱의 직접 npm 런타임 의존성은 `@apps-in-toss/web-framework` 하나입니다. 현재 고정 버전 3.8.0은 재현 가능한 설치를 위한 선택입니다. SDK는 npm peer 버전 범위를 강제하지 않습니다. 3.0.1과 3.8.0의 공개 함수 형태, 기능 부재와 명시적 미지원 처리를 검사하지만 모든 중간 버전이나 실제 토스앱 동작을 보장하지는 않습니다.
 
-공식 SDK의 함수 이름·인자·응답 또는 호스트 프로토콜이 바뀌면 JS 어댑터를 수정해야 합니다. 향후 모든 버전과의 무조건적인 호환은 보장할 수 없습니다. 다른 메이저 버전은 호환 여부를 확인한 뒤 지원 범위를 넓히거나, 같은 브리지 계약을 제공하는 별도 어댑터를 주입합니다. 기능 존재 검사만으로 응답 의미의 변경까지 감지할 수는 없습니다.
+공식 SDK의 함수 이름·인자·응답이나 호스트 프로토콜이 바뀌면 내부 JS 리소스 수정과 SDK 업데이트가 필요할 수 있습니다. 기능 존재 검사로 응답 의미의 변경까지 감지할 수는 없습니다.
 
-개발 도구·검사·템플릿 유지보수는 [개발 가이드](development.md), 지원 버전은 [호환성](compatibility.md)을 참고하세요.
+## TDS 연결
+
+현재 공통 화면은 Compose Material 3으로 렌더링하며 TDS를 기본 설치하지 않습니다. [공식 TDS 설치 안내](https://tossmini-docs.toss.im/tds-mobile/start/)의 TDS는 React·ReactDOM·Emotion과 Provider 설정이 필요합니다. 패키지 설치만으로 CMP Canvas 화면에 TDS가 적용되지는 않습니다. 실제 TDS를 사용하려면 앱인토스 호스트에 React/DOM 화면을 연결하고 해당 의존성을 추가해야 합니다.
+
+[공식 커뮤니티의 2025년 12월 답변](https://techchat-apps-in-toss.toss.im/t/tds/1820/2)은 TDS가 필수가 아니라고 안내합니다. 다만 [이전 모달 관련 답변](https://techchat-apps-in-toss.toss.im/t/tds/822/2)과 조건이 달라, 서비스 출시 전 [비게임 출시 가이드](https://developers-apps-in-toss.toss.im/checklist/app-nongame.html)와 실제 검수 기준을 확인해야 합니다. 이 예제의 CMP 화면은 실제 검수 승인을 확인하지 않았습니다. TDS 에셋과 컴포넌트는 사용 조건을 확인하고 앱인토스 호스트에 한정합니다.

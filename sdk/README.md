@@ -1,6 +1,6 @@
 # Kotlin SDK
 
-앱인토스 호스트 기능을 Kotlin JS·Wasm에서 호출하는 라이브러리입니다. 공식 웹 SDK 호출은 별도의 [JS 브리지](../packages/web-bridge/README.md)가 담당하며, Kotlin에는 JSON 기반 연결 계약만 노출합니다.
+앱인토스 호스트 기능을 Kotlin JS·Wasm에서 호출하는 라이브러리입니다. 공식 웹 SDK 호출은 SDK 내부 [JS 리소스](src/webMain/resources/ait-cmp-bridge)가 담당하며, Kotlin에는 JSON 기반 연결 계약만 노출합니다.
 
 ## 제공 API
 
@@ -21,7 +21,7 @@
 
 저장소에서는 `implementation(project(":sdk"))`로 참조합니다. 생성 앱에는 로컬 Maven 바이너리가 포함됩니다. 아직 원격 Maven에 배포하지 않았습니다.
 
-CMP 진입점보다 먼저 JS 브리지를 초기화하고, UI 호스트마다 클라이언트 하나를 소유합니다. API와 `close()`는 호스트 UI 스레드에서 호출합니다. 호스트 해제 시 `close()`를 호출해야 합니다. 연결 예제는 [앱인토스 진입점](../sample/appsInTossApp/src/webMain/kotlin/Main.kt)에 있습니다.
+웹 빌드가 SDK의 `web-resources` JAR를 추출하고 CMP 진입점보다 먼저 JS 브리지를 초기화합니다. 별도 npm 브리지 설치는 필요하지 않습니다. UI 호스트마다 클라이언트 하나를 소유합니다. API와 `close()`는 호스트 UI 스레드에서 호출합니다. 호스트 해제 시 `close()`를 호출해야 합니다. 연결 예제는 [앱인토스 진입점](../sample/appsInTossApp/src/webMain/kotlin/Main.kt)에 있습니다.
 
 로그인은 한 번에 하나만 처리하고 기본 제한 시간은 60초입니다. 코루틴 취소·제한 시간 초과 시 늦게 도착한 결과를 무시하고 연결을 해제합니다. 호스트의 로그인 창 자체를 닫지는 않습니다. 미지원 기능·호스트 부재·잘못된 응답을 구분하며 원본 오류의 민감한 내용을 노출하지 않습니다.
 
