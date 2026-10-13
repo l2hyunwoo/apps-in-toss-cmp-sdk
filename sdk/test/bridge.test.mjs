@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {createBridge} from '../src/core.mjs';
+import {createBridge} from '../src/webMain/resources/ait-cmp-bridge/core.mjs';
 function fixture() {
   const removed=[]; const listeners={};
   const sdk={Environment:{environment:'sandbox'}, TossAuth:{login:async()=>({authorizationCode:'secret',referrer:'SANDBOX'})}, Share:{sendMessage:async()=>{}}, Screen:{close:async()=>{}}, SafeArea:{get:()=>({top:10,left:0,right:0,bottom:20}),subscribe:({onEvent})=>{listeners.safe=onEvent;return()=>removed.push('safe');}},graniteEvent:{addEventListener:(name,{onEvent})=>{listeners[name]=onEvent;return()=>removed.push(name);}}};
@@ -48,8 +48,8 @@ test('injected adapter reports missing and explicitly unsupported APIs',()=>{
   b.subscribe(()=>assert.fail(),e=>assert.equal(JSON.parse(e).code,'UNSUPPORTED'));
 });
 
-test('adapter entry accepts an injected SDK without installing a global bridge',async()=>{
-  const {createBridge: factory}=await import('@l2hyunwoo/apps-in-toss-cmp-bridge/adapter');
+test('SDK resource accepts an injected SDK without installing a global bridge',async()=>{
+  const {createBridge: factory}=await import('../src/webMain/resources/ait-cmp-bridge/core.mjs');
   assert.equal(factory(fixture().sdk).host(),'sandbox');
 });
 
@@ -62,3 +62,21 @@ for (const name of ['toss-sdk-min','@apps-in-toss/web-framework']) {
     assert.equal(typeof sdk.User.getAnonymousKey.isSupported,'function');
   });
 }
+
+test('bundled SDK resources initialize their host and keep mock out of production',async()=>{
+  const {build}=await import('esbuild');
+  const {runInNewContext}=await import('node:vm');
+  for (const entry of ['mock','index']) {
+    const bundled=await build({entryPoints:[`sdk/src/webMain/resources/ait-cmp-bridge/${entry}.mjs`],bundle:true,write:false,format:'iife',platform:'browser',metafile:true,define:{'process.env.NODE_ENV':'"production"'}});
+    const context={console:{info(){}},setTimeout,clearTimeout,URL,TextEncoder,TextDecoder};
+    runInNewContext(bundled.outputFiles[0].text,context);
+    assert.equal(context.aitCmpBridge.host(),entry==='mock'?'mock':'browser');
+    if (entry==='index') assert.ok(Object.keys(bundled.metafile.inputs).every(p=>!p.endsWith('/mock.mjs')));
+    else {
+      let result;
+      context.aitCmpBridge.login(s=>{result=JSON.parse(s)},()=>assert.fail());
+      await new Promise(setImmediate);
+      assert.equal(result.authorizationCode,'mock-not-for-server');
+    }
+  }
+});

@@ -22,3 +22,13 @@ kotlin {
         }
     }
 }
+
+val sdkWebResources = configurations.create("sdkWebResources")
+dependencies {
+    add(sdkWebResources.name, "io.github.l2hyunwoo:apps-in-toss-sdk:0.1.0-SNAPSHOT:web-resources@jar")
+}
+tasks.register<Sync>("prepareAppsInTossBridge") {
+    dependsOn(sdkWebResources)
+    from({ sdkWebResources.map { zipTree(it) } })
+    into(layout.buildDirectory.dir("ait-cmp-sdk"))
+}

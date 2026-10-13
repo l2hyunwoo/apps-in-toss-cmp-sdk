@@ -18,8 +18,7 @@
     "lint:fix": "yarn lint:js --fix && yarn lint:kotlin --fix"
   },
   "dependencies": {
-    "@apps-in-toss/web-framework": "3.8.0",
-    "@l2hyunwoo/apps-in-toss-cmp-bridge": "file:vendor/npm/l2hyunwoo-apps-in-toss-cmp-bridge-0.1.0.tgz"
+    "@apps-in-toss/web-framework": "3.8.0"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

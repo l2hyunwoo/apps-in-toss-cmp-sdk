@@ -74,3 +74,11 @@ jobs:
       - name: 생성 앱 Kotlin JVM 테스트
         working-directory: ${{ env.APP_DIR }}
         run: ./gradlew :shared-core:jvmTest --no-daemon --console=plain
+      - name: SDK 내부 JS 리소스 연결 확인
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          ./gradlew :appsInTossApp:prepareAppsInTossBridge --no-daemon --console=plain
+          for file in core index mock; do
+            cmp "$GITHUB_WORKSPACE/sdk/src/webMain/resources/ait-cmp-bridge/$file.mjs" "appsInTossApp/build/ait-cmp-sdk/ait-cmp-bridge/$file.mjs"
+          done
+          node --input-type=module -e 'import assert from "node:assert/strict"; import fs from "node:fs"; const pkg=JSON.parse(fs.readFileSync("package.json")); assert.deepEqual(Object.keys(pkg.dependencies), ["@apps-in-toss/web-framework"]); assert.equal(fs.existsSync("vendor/npm"), false);'

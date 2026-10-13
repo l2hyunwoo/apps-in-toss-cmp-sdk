@@ -10,14 +10,15 @@ const standalone = command.endsWith(':web');
 const development = command.startsWith('dev');
 const app = standalone ? 'webApp' : 'appsInTossApp';
 const sample = await stat('sample').then(s => s.isDirectory()).catch(() => false);
-const task = `${sample ? ':sample' : ''}:${app}:composeCompatibilityBrowserDistribution`;
+const project = `${sample ? ':sample' : ''}:${app}`;
+const task = `${project}:composeCompatibilityBrowserDistribution`;
 const root = process.cwd();
 function run(binary, args) {
   const result = spawnSync(binary, args, {stdio:'inherit', cwd:root, shell:process.platform === 'win32'});
   if (result.error) throw result.error;
   if (result.status !== 0) process.exit(result.status ?? 1);
 }
-run(process.platform === 'win32' ? 'gradlew.bat' : './gradlew', [task, '--console=plain']);
+run(process.platform === 'win32' ? 'gradlew.bat' : './gradlew', [task, ...(standalone ? [] : [`${project}:prepareAppsInTossBridge`]), '--console=plain']);
 const source = join(root, sample ? 'sample' : '', app, 'build/dist/composeWebCompatibility/productionExecutable');
 const out = join(root, 'dist', (standalone ? 'web' : 'apps-in-toss') + (development ? '-dev' : ''));
 const useMock = command === 'dev';
@@ -27,9 +28,7 @@ const { rm } = await import('node:fs/promises');
 await rm(out, {recursive:true, force:true});
 await cp(source, out, {recursive:true});
 if (!standalone) {
-  const entry = sample
-    ? `packages/web-bridge/src/${useMock ? 'mock' : 'index'}.mjs`
-    : `node_modules/@l2hyunwoo/apps-in-toss-cmp-bridge/src/${useMock ? 'mock' : 'index'}.mjs`;
+  const entry = join(root, sample ? 'sample' : '', app, 'build/ait-cmp-sdk/ait-cmp-bridge', `${useMock ? 'mock' : 'index'}.mjs`);
   await build({entryPoints:[entry], outfile:join(out,'ait-bridge.js'), bundle:true, format:'iife', platform:'browser', minify:!development, define:{'process.env.NODE_ENV':JSON.stringify(development ? 'development' : 'production')}});
   const index = join(out, 'index.html');
   const html = await readFile(index,'utf8');

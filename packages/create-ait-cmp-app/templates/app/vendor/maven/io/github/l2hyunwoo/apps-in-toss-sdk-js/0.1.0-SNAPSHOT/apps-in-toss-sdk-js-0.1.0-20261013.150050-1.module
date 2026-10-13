@@ -44,11 +44,11 @@
         {
           "name": "sdk-js-0.1.0-SNAPSHOT.klib",
           "url": "apps-in-toss-sdk-js-0.1.0-SNAPSHOT.klib",
-          "size": 27094,
-          "sha512": "b051d2aa63c9b12cc70c43a9f9c35cdacc31e76b1137b960c24e6fe7d31e1badd669ebdf0d97cb3e5bb7f4a01012785a743788fab2d27f6f23d3d61f4df684e9",
-          "sha256": "ea6230173bf5de32e7b202694d501e2a284b7bf8d63168c442408221d84a7c74",
-          "sha1": "0906f4284590eb1a16c8cb59caf8142cd9d6a6ab",
-          "md5": "0c501370b4b64255b33b29856936f257"
+          "size": 29329,
+          "sha512": "160e48bd13816515f2ef5e06a79b1ceacf1f82e7727dabcfcc29ad189ccf6be5217f65901b4b348fde738c18923019437ff7111ac56e497d74b87a97d8de8cd5",
+          "sha256": "e86a9150164107b42811e928422e9b84f9bba4cc03c84be6174df0aeacfbee89",
+          "sha1": "0bd5175a7badc6db37c5f549dcf58a39d54edc1f",
+          "md5": "cd16e40bd10738745a2bc3c636dbeaf4"
         }
       ]
     },
@@ -95,11 +95,11 @@
         {
           "name": "sdk-js-0.1.0-SNAPSHOT.klib",
           "url": "apps-in-toss-sdk-js-0.1.0-SNAPSHOT.klib",
-          "size": 27094,
-          "sha512": "b051d2aa63c9b12cc70c43a9f9c35cdacc31e76b1137b960c24e6fe7d31e1badd669ebdf0d97cb3e5bb7f4a01012785a743788fab2d27f6f23d3d61f4df684e9",
-          "sha256": "ea6230173bf5de32e7b202694d501e2a284b7bf8d63168c442408221d84a7c74",
-          "sha1": "0906f4284590eb1a16c8cb59caf8142cd9d6a6ab",
-          "md5": "0c501370b4b64255b33b29856936f257"
+          "size": 29329,
+          "sha512": "160e48bd13816515f2ef5e06a79b1ceacf1f82e7727dabcfcc29ad189ccf6be5217f65901b4b348fde738c18923019437ff7111ac56e497d74b87a97d8de8cd5",
+          "sha256": "e86a9150164107b42811e928422e9b84f9bba4cc03c84be6174df0aeacfbee89",
+          "sha1": "0bd5175a7badc6db37c5f549dcf58a39d54edc1f",
+          "md5": "cd16e40bd10738745a2bc3c636dbeaf4"
         }
       ]
     }

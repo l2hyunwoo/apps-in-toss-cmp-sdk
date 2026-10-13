@@ -874,18 +874,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@l2hyunwoo/apps-in-toss-cmp-bridge@file:vendor/npm/l2hyunwoo-apps-in-toss-cmp-bridge-0.1.0.tgz::locator=ait-cmp-template%40workspace%3A.":
-  version: 0.1.0
-  resolution: "@l2hyunwoo/apps-in-toss-cmp-bridge@file:vendor/npm/l2hyunwoo-apps-in-toss-cmp-bridge-0.1.0.tgz#vendor/npm/l2hyunwoo-apps-in-toss-cmp-bridge-0.1.0.tgz::hash=e24c89&locator=ait-cmp-template%40workspace%3A."
-  peerDependencies:
-    "@apps-in-toss/web-framework": ">=3.0.1 <4.0.0"
-  peerDependenciesMeta:
-    "@apps-in-toss/web-framework":
-      optional: true
-  checksum: 10c0/2e68fd19bafa304bf4b5c68b3a9c80ef91ed8a97fc357b4063b1d49dbf00695f6d2b2da1e0e8d1d40625eee4796c8ca3c6c5d855c4d73147ca72000ba02d2db7
-  languageName: node
-  linkType: hard
-
 "@protobufjs/aspromise@npm:^1.1.1, @protobufjs/aspromise@npm:^1.1.2":
   version: 1.1.2
   resolution: "@protobufjs/aspromise@npm:1.1.2"
@@ -1164,7 +1152,6 @@ __metadata:
   dependencies:
     "@apps-in-toss/web-framework": "npm:3.8.0"
     "@eslint/js": "npm:10.0.1"
-    "@l2hyunwoo/apps-in-toss-cmp-bridge": "file:vendor/npm/l2hyunwoo-apps-in-toss-cmp-bridge-0.1.0.tgz"
     esbuild: "npm:0.28.2"
     eslint: "npm:10.12.0"
     globals: "npm:17.13.0"

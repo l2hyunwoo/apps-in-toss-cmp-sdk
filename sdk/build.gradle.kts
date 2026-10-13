@@ -19,6 +19,16 @@ kotlin {
         }
     }
 }
+val webBridgeResourcesJar = tasks.register<Jar>("webBridgeResourcesJar") {
+    archiveClassifier.set("web-resources")
+    from("src/webMain/resources")
+}
+configurations.create("webBridgeResources") {
+    isCanBeConsumed = true
+    isCanBeResolved = false
+    outgoing.artifact(webBridgeResourcesJar)
+}
+
 publishing {
     repositories {
         maven {
@@ -26,5 +36,8 @@ publishing {
             url = uri(rootProject.layout.buildDirectory.dir("template-maven"))
         }
     }
-    publications.withType<MavenPublication>().configureEach { artifactId = if (name == "kotlinMultiplatform") "apps-in-toss-sdk" else "apps-in-toss-sdk-${name.lowercase()}" }
+    publications.withType<MavenPublication>().configureEach {
+        artifactId = if (name == "kotlinMultiplatform") "apps-in-toss-sdk" else "apps-in-toss-sdk-${name.lowercase()}"
+        if (name == "kotlinMultiplatform") artifact(webBridgeResourcesJar)
+    }
 }
