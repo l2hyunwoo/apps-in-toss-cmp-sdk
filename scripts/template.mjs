@@ -57,7 +57,7 @@ if (!releaseVersion) await stripSourceMetadata(join(dest, 'vendor/maven'));
 const tooling=JSON.parse(await readFile('package.json','utf8'));
 const lintScripts=Object.fromEntries(Object.entries(tooling.scripts).filter(([name])=>name.startsWith('lint')));
 const lintDependencies=Object.fromEntries(Object.entries(tooling.devDependencies).filter(([name])=>name!=='toss-sdk-min'));
-const pkg={name:'ait-cmp-template',private:true,packageManager:'yarn@4.18.1',type:'module',engines:{node:'>=24'},scripts:{dev:'node scripts/web.mjs dev','dev:toss':'node scripts/web.mjs dev:toss',build:'node scripts/web.mjs build','dev:web':'node scripts/web.mjs dev:web','build:web':'node scripts/web.mjs build:web',...lintScripts},dependencies:{'@apps-in-toss/web-framework':'3.8.0'},devDependencies:lintDependencies};
+const pkg={name:'ait-cmp-template',private:true,packageManager:'yarn@4.18.1',type:'module',engines:{node:'>=24'},scripts:{dev:'node scripts/web.mjs dev','dev:toss':'node scripts/web.mjs dev:toss',build:'node scripts/web.mjs build','dev:web':'node scripts/web.mjs dev:web','build:web':'node scripts/web.mjs build:web',...lintScripts},dependencies:{'@apps-in-toss/web-framework':tooling.dependencies['@apps-in-toss/web-framework']},devDependencies:lintDependencies};
 await writeFile(join(dest,'package.json'),JSON.stringify(pkg,null,2)+'\n');
 await writeFile(join(dest,'settings.gradle.kts'),`pluginManagement {
     repositories {

@@ -23,7 +23,7 @@
     "release:prepare": "node scripts/prepare-release.mjs"
   },
   "dependencies": {
-    "@apps-in-toss/web-framework": "3.8.0"
+    "@apps-in-toss/web-framework": "3.9.0"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
