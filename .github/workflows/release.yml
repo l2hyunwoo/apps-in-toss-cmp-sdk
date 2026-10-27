@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: '검증할 버전 (업로드하지 않음, 예: 1.0.0-alpha01)'
+        description: '검증할 버전 (업로드하지 않음, 예: 1.0.0-alpha02)'
         required: true
-        default: '1.0.0-alpha01'
+        default: '1.0.0-alpha02'
         type: string
 
 permissions:
