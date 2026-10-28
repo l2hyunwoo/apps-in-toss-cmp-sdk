@@ -1,0 +1,16 @@
+{
+  "File.openPDFViewer": {
+    "bridge": "pdfViewer",
+    "capability": "PDF_VIEWER"
+  },
+  "File.saveBase64": {
+    "bridge": "fileSaveBase64",
+    "capability": "SAVE_FILE"
+  },
+  "openPDFViewer": {
+    "replaced": "File.openPDFViewer"
+  },
+  "saveBase64Data": {
+    "replaced": "File.saveBase64"
+  }
+}

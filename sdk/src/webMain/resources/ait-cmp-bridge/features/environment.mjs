@@ -1,0 +1,23 @@
+const ENVIRONMENT_VALUES = new Set(['deviceId', 'groupId', 'environment', 'tossAppVersion', 'deploymentId', 'initialURL']);
+const VERSION = /^(\d+\.\d+\.\d+|always|never)$/;
+
+export default ({sdk, available, requireCapability}) => ({
+  capabilities: {
+    // `in`은 getter를 읽지 않고 확인한다. host 밖에서 읽으면 예외가 난다.
+    ENVIRONMENT_INFO: () => typeof sdk.Environment === 'object' && [...ENVIRONMENT_VALUES].every(name => name in sdk.Environment) && typeof sdk.isMinVersionSupported === 'function',
+    NETWORK_STATUS: () => available(sdk.Environment?.getNetworkStatus),
+    SERVER_TIME: () => available(sdk.Environment?.getServerTime),
+  },
+  calls: {
+    environmentValue: ({name}) => {
+      if (!ENVIRONMENT_VALUES.has(name)) throw new TypeError('Unknown environment value');
+      return () => { requireCapability('ENVIRONMENT_INFO'); return sdk.Environment[name]; };
+    },
+    isMinVersionSupported: ({android, ios}) => {
+      if (![android, ios].every(v => typeof v === 'string' && VERSION.test(v))) throw new TypeError('Invalid minimum version');
+      return () => { requireCapability('ENVIRONMENT_INFO'); return sdk.isMinVersionSupported({android, ios}); };
+    },
+    networkStatus: () => () => { requireCapability('NETWORK_STATUS'); return sdk.Environment.getNetworkStatus(); },
+    serverTime: () => () => { requireCapability('SERVER_TIME'); return sdk.Environment.getServerTime(); },
+  },
+});

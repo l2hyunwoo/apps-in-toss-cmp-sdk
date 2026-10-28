@@ -1,0 +1,16 @@
+{
+  "Share.createLink": {
+    "bridge": "shareLink",
+    "capability": "SHARE_LINK"
+  },
+  "Share.sendMessage": {
+    "bridge": "share",
+    "capability": "SHARE"
+  },
+  "getTossShareLink": {
+    "replaced": "Share.createLink"
+  },
+  "share": {
+    "replaced": "Share.sendMessage"
+  }
+}

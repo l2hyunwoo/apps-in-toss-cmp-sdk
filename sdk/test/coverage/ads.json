@@ -1,0 +1,41 @@
+{
+  "GoogleAdMob.isAppsInTossAdMobLoaded": {
+    "bridge": "admobLoaded",
+    "capability": "ADMOB"
+  },
+  "GoogleAdMob.loadAppsInTossAdMob": {
+    "bridge": "admobLoad",
+    "capability": "ADMOB"
+  },
+  "GoogleAdMob.showAppsInTossAdMob": {
+    "bridge": "admobShow",
+    "capability": "ADMOB"
+  },
+  "TossAds.attach": {
+    "replaced": "TossAds.attachBanner"
+  },
+  "TossAds.attachBanner": {
+    "bridge": "bannerAttach",
+    "capability": "BANNER_AD"
+  },
+  "TossAds.destroy": {
+    "bridge": "bannerDestroy",
+    "capability": "BANNER_AD"
+  },
+  "TossAds.destroyAll": {
+    "bridge": "bannerDestroyAll",
+    "capability": "BANNER_AD"
+  },
+  "TossAds.initialize": {
+    "bridge": "bannerInitialize",
+    "capability": "BANNER_AD"
+  },
+  "loadFullScreenAd": {
+    "bridge": "loadFullScreenAd",
+    "capability": "FULL_SCREEN_AD"
+  },
+  "showFullScreenAd": {
+    "bridge": "showFullScreenAd",
+    "capability": "FULL_SCREEN_AD"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "Notification.requestAgreement": {
+    "bridge": "notificationAgreement",
+    "capability": "NOTIFICATION_AGREEMENT"
+  },
+  "requestNotificationAgreement": {
+    "replaced": "Notification.requestAgreement"
+  }
+}

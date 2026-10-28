@@ -1,0 +1,23 @@
+{
+  "Device.getAlbumItems": {
+    "bridge": "albumItemsGet",
+    "capability": "ALBUM"
+  },
+  "Device.getPhotos": {
+    "bridge": "photosGet",
+    "capability": "PHOTOS"
+  },
+  "Device.openCamera": {
+    "bridge": "cameraOpen",
+    "capability": "CAMERA"
+  },
+  "fetchAlbumItems": {
+    "replaced": "Device.getAlbumItems"
+  },
+  "fetchAlbumPhotos": {
+    "replaced": "Device.getPhotos"
+  },
+  "openCamera": {
+    "replaced": "Device.openCamera"
+  }
+}

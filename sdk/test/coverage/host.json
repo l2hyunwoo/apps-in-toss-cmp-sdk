@@ -1,0 +1,23 @@
+{
+  "SafeArea.get": {
+    "bridge": "hostEvents",
+    "capability": "HOST_EVENTS"
+  },
+  "SafeArea.subscribe": {
+    "bridge": "hostEvents",
+    "capability": "HOST_EVENTS"
+  },
+  "SafeAreaInsets.get": {
+    "replaced": "SafeArea.get"
+  },
+  "SafeAreaInsets.subscribe": {
+    "replaced": "SafeArea.subscribe"
+  },
+  "getSafeAreaInsets": {
+    "replaced": "SafeArea.get"
+  },
+  "graniteEvent.addEventListener": {
+    "bridge": "hostEvents",
+    "capability": "HOST_EVENTS"
+  }
+}

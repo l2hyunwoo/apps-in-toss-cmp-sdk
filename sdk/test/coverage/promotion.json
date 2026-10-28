@@ -1,0 +1,12 @@
+{
+  "Promotion.grantReward": {
+    "bridge": "promotionGrantReward",
+    "capability": "PROMOTION_REWARD"
+  },
+  "grantPromotionReward": {
+    "replaced": "Promotion.grantReward"
+  },
+  "grantPromotionRewardForGame": {
+    "replaced": "Promotion.grantReward"
+  }
+}

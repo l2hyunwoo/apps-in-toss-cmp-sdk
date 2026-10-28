@@ -1,0 +1,6 @@
+{
+  "NavigationBar.setOptions": {
+    "bridge": "navigationBarOptions",
+    "capability": "NAVIGATION_BAR"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "Review.request": {
+    "bridge": "reviewRequest",
+    "capability": "REVIEW"
+  },
+  "requestReview": {
+    "replaced": "Review.request"
+  }
+}

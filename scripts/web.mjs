@@ -23,7 +23,7 @@ const source = join(root, sample ? 'sample' : '', app, 'build/dist/composeWebCom
 const out = join(root, 'dist', (standalone ? 'web' : 'apps-in-toss') + (development ? '-dev' : ''));
 const useMock = command === 'dev';
 await mkdir(out, {recursive:true});
-// Clean only this script's output tree, never the project directory.
+// 이 스크립트의 출력 트리만 지우고 프로젝트 디렉터리는 지우지 않는다.
 const { rm } = await import('node:fs/promises');
 await rm(out, {recursive:true, force:true});
 await cp(source, out, {recursive:true});

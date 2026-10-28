@@ -1,0 +1,6 @@
+{
+  "Migration.getOriginStorage": {
+    "bridge": "migrationOriginStorage",
+    "capability": "ORIGIN_STORAGE_MIGRATION"
+  }
+}

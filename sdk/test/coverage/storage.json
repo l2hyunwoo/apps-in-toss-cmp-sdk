@@ -1,0 +1,26 @@
+{
+  "Storage.clearItems": {
+    "bridge": "storageClear",
+    "capability": "STORAGE"
+  },
+  "Storage.getItem": {
+    "bridge": "storageGet",
+    "capability": "STORAGE"
+  },
+  "Storage.getItems": {
+    "bridge": "storageGetItems",
+    "capability": "STORAGE_BATCH"
+  },
+  "Storage.removeItem": {
+    "bridge": "storageRemove",
+    "capability": "STORAGE"
+  },
+  "Storage.setItem": {
+    "bridge": "storageSet",
+    "capability": "STORAGE"
+  },
+  "Storage.setItems": {
+    "bridge": "storageSetItems",
+    "capability": "STORAGE_BATCH"
+  }
+}

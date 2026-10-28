@@ -26,7 +26,7 @@ fun main() {
                     client.events.collect { event ->
                         when (event) {
                             is HostEvent.SafeArea -> insets = event.insets
-                            HostEvent.Back -> if (!navigation.back()) client.closeScreen()
+                            HostEvent.Back -> if (!navigation.back()) client.screen.close()
                             HostEvent.Home -> navigation.selectedId = null
                         }
                     }
@@ -37,12 +37,12 @@ fun main() {
                 }
             }
         }
-        // The opaque Toss navigation bar already sits above the WebView, so the status-bar top inset would add a blank band.
+        // 불투명한 토스 내비게이션 바가 이미 WebView 위에 있으므로 status bar 상단 inset을 더하면 빈 띠가 생긴다.
         Box(Modifier.padding(bottom = insets.bottom.dp, start = insets.left.dp, end = insets.right.dp)) {
             ServiceApp(state = navigation, storage = storage, showBackButton = client.host == RuntimeHost.MOCK, onShare = { text ->
                 scope.launch {
                     try {
-                        client.shareText(text)
+                        client.share.sendMessage(text)
                     } catch (e: CancellationException) {
                         throw e
                     } catch (_: Exception) {
@@ -54,7 +54,7 @@ fun main() {
                 Button(enabled = client.supports(Capability.TOSS_LOGIN), onClick = {
                     scope.launch {
                         status = try {
-                            client.requestTossLogin()
+                            client.auth.login()
                             "인가 결과를 받았어요. 실제 서비스는 서버에서 교환해야 해요."
                         } catch (e: CancellationException) {
                             throw e

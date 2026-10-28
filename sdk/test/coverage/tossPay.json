@@ -1,0 +1,16 @@
+{
+  "TossPay.authorize": {
+    "bridge": "tossPayAuthorize",
+    "capability": "TOSS_PAY"
+  },
+  "TossPay.authorizeSubscription": {
+    "bridge": "tossPayAuthorizeSubscription",
+    "capability": "TOSS_PAY_SUBSCRIPTION"
+  },
+  "checkoutPayment": {
+    "replaced": "TossPay.authorize"
+  },
+  "requestTossPayPaysBilling": {
+    "replaced": "TossPay.authorizeSubscription"
+  }
+}

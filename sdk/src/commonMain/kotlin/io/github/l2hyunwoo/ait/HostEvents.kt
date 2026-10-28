@@ -1,8 +1,7 @@
 package io.github.l2hyunwoo.ait
 
-import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.double
-import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
 data class SafeAreaInsets(val top: Double, val left: Double, val right: Double, val bottom: Double)
@@ -12,8 +11,7 @@ sealed interface HostEvent {
     data class SafeArea(val insets: SafeAreaInsets) : HostEvent
 }
 
-internal fun decodeEvent(raw: String): HostEvent {
-    val obj = Json.parseToJsonElement(raw).jsonObject
+internal fun decodeEvent(obj: JsonObject): HostEvent {
     return when (obj.getValue("type").jsonPrimitive.content) {
         "back" -> HostEvent.Back
 

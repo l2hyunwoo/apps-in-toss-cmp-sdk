@@ -20,7 +20,7 @@ for(const file of ['LICENSE','.editorconfig','eslint.config.mjs','scripts/lint-k
 }
 await writeFile(join(dest,'_gitignore'), (await readFile('.gitignore','utf8')).replace('packages/create-ait-cmp-app/templates/app/vendor/\n',''));
 await writeFile(join(dest,'gradle.properties'), (await readFile('gradle.properties','utf8')).replace(/^sdkVersion=.*\r?\n?/gm,'').trimEnd()+'\n');
-// Yarn pack omits .github; restore the directory name when scaffolding.
+// Yarn pack은 .github를 빼므로 스캐폴딩할 때 디렉터리 이름을 되돌린다.
 await mkdir(join(dest,'_github/workflows'),{recursive:true});
 const ci=(await readFile('.github/workflows/ci.yml','utf8'))
   .replace('      - name: JS 테스트\n        run: yarn test\n','')
@@ -31,7 +31,7 @@ for(const module of ['shared-core','shared-ui','appsInTossApp','webApp','android
   await cp(join(root,'sample',module),join(dest,module),{recursive:true,filter:p=>!p.split('/').some(s=>['build','.gradle','xcuserdata'].includes(s))});
 }
 if (!releaseVersion) await cp('build/template-maven',join(dest,'vendor/maven'),{recursive:true,filter:p=>!p.includes('-sources.jar')});
-// The template ships binaries only; do not advertise omitted sources to Maven consumers.
+// 템플릿은 바이너리만 담으므로 빠진 소스를 Maven 소비자에게 알리지 않는다.
 async function stripSourceMetadata(directory) {
   for (const e of await readdir(directory, {withFileTypes:true})) {
     const p = join(directory, e.name);
@@ -179,7 +179,7 @@ async function transform(directory) {
       s=s.replaceAll('$SRCROOT/../..','$SRCROOT/..');
       s=s.replaceAll('INFOPLIST_KEY_CFBundleDisplayName = "Service sample";','INFOPLIST_KEY_CFBundleDisplayName = "__DISPLAY_NAME__";');
     }
-    if(p.endsWith('project.yml')) { await rm(p);continue; } // Generated Xcode project is sufficient.
+    if(p.endsWith('project.yml')) { await rm(p);continue; } // 생성된 Xcode 프로젝트로 충분하다.
     if(p.endsWith('AndroidManifest.xml')) s=s.replace('android:label="Service sample"','android:label="__DISPLAY_NAME__"');
     if(p.endsWith('ServiceApp.kt')) s=s.replace('나의 작은 서비스','__DISPLAY_NAME__');
     if(p.endsWith('index.html'))s=s.replace('<title>CMP 서비스</title>','<title>__DISPLAY_NAME__</title>');
@@ -188,13 +188,13 @@ async function transform(directory) {
 }
 await transform(dest);
 await chmod(join(dest,'gradlew'),0o755);
-// A nested template needs its own project boundary before Yarn resolves it.
+// 중첩된 템플릿은 Yarn이 해석하기 전에 자체 프로젝트 경계가 필요하다.
 await writeFile(join(dest,'yarn.lock'),'');
-// Generate the lock without linking packages into the bundled template.
+// 번들 템플릿에 패키지를 링크하지 않고 lock 파일을 생성한다.
 const locked=spawnSync(process.platform === 'win32' ? 'corepack.cmd' : 'corepack', ['yarn','install','--mode=update-lockfile'], {cwd:dest,stdio:'inherit',shell:process.platform==='win32'});
 if(locked.error)throw locked.error;
 if(locked.status!==0)process.exit(locked.status??1);
-// Avoid making the bundled template a nested Yarn project during pack.
+// pack 중에 번들 템플릿이 중첩 Yarn 프로젝트가 되지 않게 한다.
 await rename(join(dest,'yarn.lock'),join(dest,'_yarn.lock'));
 await rename(join(dest,'.yarnrc.yml'),join(dest,'_yarnrc.yml'));
 await rm(join(dest,'.yarn'),{recursive:true,force:true});

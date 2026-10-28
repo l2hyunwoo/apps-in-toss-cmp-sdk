@@ -6,142 +6,49 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.withTimeoutOrNull
 import kotlinx.serialization.json.*
 
-/** Own one client per UI host. Call methods and close() on the host UI thread. */
+/** UI 호스트마다 client를 하나씩 둔다. 메서드와 close()는 호스트 UI 스레드에서 호출한다. */
 class AppsInTossClient(private val transport: AppsInTossTransport, private val timeoutMillis: Long = 60_000) {
     init {
         require(timeoutMillis > 0)
     }
     val host: RuntimeHost get() = transport.host
     private var closed = false
-    private val loginMutex = Mutex()
     private val pending = mutableSetOf<() -> Unit>()
     fun supports(capability: Capability): Boolean = !closed && transport.supports(capability)
 
-    suspend fun requestTossLogin(): TossLoginAuthorization {
-        checkAvailable()
-        if (!loginMutex.tryLock()) throw AppsInTossException(ErrorCode.IN_PROGRESS, "A login is already in progress")
-        try {
-            val result = awaitResponse(transport::login)
-            return try {
-                val obj = Json.parseToJsonElement(result).jsonObject
-                val codeValue = obj.getValue("authorizationCode").jsonPrimitive
-                val referrerValue = obj.getValue("referrer").jsonPrimitive
-                require(codeValue.isString && referrerValue.isString)
-                val code = codeValue.content
-                val referrer = referrerValue.content
-                require(code.isNotBlank() && referrer in setOf("DEFAULT", "SANDBOX"))
-                TossLoginAuthorization(code, referrer)
-            } catch (_: Exception) {
-                throw AppsInTossException(ErrorCode.INVALID_RESPONSE, "Invalid login response")
-            }
-        } finally {
-            loginMutex.unlock()
-        }
-    }
+    val auth = AuthApi(this)
+    val user = UserApi(this)
+    val share = ShareApi(this)
+    val screen = ScreenApi(this)
+    val navigationBar = NavigationBarApi(this)
+    val storage = StorageApi(this)
+    val device = DeviceApi(this)
+    val media = MediaApi(this)
+    val contacts = ContactsApi(this)
+    val location = LocationApi(this)
+    val permissions = PermissionsApi(this)
+    val clipboard = ClipboardApi(this)
+    val environment = EnvironmentApi(this)
+    val game = GameApi(this)
+    val iap = IapApi(this)
+    val tossPay = TossPayApi(this)
+    val ads = AdsApi(this)
+    val promotion = PromotionApi(this)
+    val analytics = AnalyticsApi(this)
+    val review = ReviewApi(this)
+    val notification = NotificationApi(this)
+    val file = FileApi(this)
+    val migration = MigrationApi(this)
 
-    suspend fun getAnonymousKey(): String {
-        val result = awaitResponse(transport::anonymousKey)
-        return try {
-            val obj = Json.parseToJsonElement(result).jsonObject
-            val type = obj.getValue("type").jsonPrimitive
-            val hash = obj.getValue("hash").jsonPrimitive
-            require(type.isString && type.content == "HASH" && hash.isString && hash.content.isNotBlank())
-            hash.content
-        } catch (_: Exception) {
-            throw AppsInTossException(ErrorCode.INVALID_RESPONSE, "Invalid user key response")
-        }
-    }
-
-    suspend fun shareText(text: String) {
-        require(text.isNotBlank()) { "Share text cannot be blank" }
-        awaitResponse { success, failure -> transport.share(text, success, failure) }
-    }
-    suspend fun closeScreen() {
-        awaitResponse(transport::closeScreen)
-    }
-
-    suspend fun generateHaptic(type: HapticType) {
-        call("haptic", buildJsonObject { put("type", type.wire) })
-    }
-
-    /** Reads the host's persistent storage; returns null when the key is absent. */
-    suspend fun getStorageItem(key: String): String? {
-        val result = call("storageGet", storagePayload(key))
-        return decode("storage") {
-            val value = Json.parseToJsonElement(result)
-            if (value is JsonNull) null else value.jsonPrimitive.also { require(it.isString) }.content
-        }
-    }
-
-    suspend fun setStorageItem(key: String, value: String) {
-        call("storageSet", storagePayload(key) { put("value", value) })
-    }
-
-    suspend fun removeStorageItem(key: String) {
-        call("storageRemove", storagePayload(key))
-    }
-
-    suspend fun getGameProfile(): GameProfile {
-        val result = call("gameProfile", JsonObject(emptyMap()))
-        return decode("game profile") {
-            val obj = Json.parseToJsonElement(result).jsonObject
-            when (obj.getValue("statusCode").jsonPrimitive.content) {
-                "SUCCESS" -> GameProfile.Found(obj.string("nickname"), obj.string("profileImageUri"))
-                "PROFILE_NOT_FOUND" -> GameProfile.NotFound
-                else -> error("Unknown profile status")
-            }
-        }
-    }
-
-    suspend fun submitLeaderboardScore(score: Double): LeaderboardSubmitResult {
-        require(score.isFinite()) { "Score must be finite" }
-        val result = call("leaderboardSubmit", buildJsonObject { put("score", score.toString()) })
-        return decode("leaderboard") {
-            val status = Json.parseToJsonElement(result).jsonObject.getValue("statusCode").jsonPrimitive.content
-            LeaderboardSubmitResult.valueOf(status)
-        }
-    }
-
-    suspend fun openLeaderboard() {
-        call("leaderboardOpen", JsonObject(emptyMap()))
-    }
-
-    private suspend fun call(method: String, payload: JsonObject): String = awaitResponse { success, failure -> transport.call(method, payload.toString(), success, failure) }
-
-    private fun storagePayload(key: String, extra: JsonObjectBuilder.() -> Unit = {}): JsonObject {
-        require(key.isNotBlank()) { "Storage key cannot be blank" }
-        return buildJsonObject {
-            put("key", key)
-            extra()
-        }
-    }
-
-    private inline fun <T> decode(name: String, block: () -> T): T = try {
-        block()
-    } catch (_: Exception) {
-        throw AppsInTossException(ErrorCode.INVALID_RESPONSE, "Invalid $name response")
-    }
-
-    val events: Flow<HostEvent> = callbackFlow {
-        checkAvailable()
-        val cleanup = transport.subscribe({ raw ->
-            try {
-                trySend(decodeEvent(raw))
-            } catch (_: Exception) {
-                close(AppsInTossException(ErrorCode.INVALID_RESPONSE, "Invalid host event"))
-            }
-        }, { close(decodeError(it)) })
-        val stop: () -> Unit = { close(AppsInTossException(ErrorCode.HOST_UNAVAILABLE, "Client closed")) }
-        pending += stop
-        awaitClose {
-            pending -= stop
-            cleanup()
-        }
+    /** 뒤로 가기, 홈, safe-area 이벤트다. [Capability.HOST_EVENTS]가 필요하다. */
+    val events: Flow<HostEvent> = stream("hostEvents").map { event ->
+        decode("host event") { decodeEvent(event) }
     }
 
     fun close() {
@@ -151,9 +58,57 @@ class AppsInTossClient(private val transport: AppsInTossTransport, private val t
         pending.clear()
     }
 
-    private fun checkAvailable() {
+    internal fun checkAvailable() {
         if (closed) throw AppsInTossException(ErrorCode.HOST_UNAVAILABLE, "Client closed")
         if (host == RuntimeHost.BROWSER) throw AppsInTossException(ErrorCode.UNSUPPORTED, "Apps in Toss host is unavailable")
+    }
+
+    /** 일회성 bridge 요청을 보내고 원본 JSON 결과를 반환한다. */
+    internal suspend fun call(method: String, payload: JsonObject = EMPTY_PAYLOAD): String = awaitResponse { success, failure -> transport.call(method, payload.toString(), success, failure) }
+
+    /**
+     * bridge stream을 연다. 호스트 질문(`replyId`가 있는 이벤트)은 [answer]로 전달하고, 응답에 실패하면
+     * `null`로 회신한다. bridge는 이 값을 공식 기본값으로 처리한다.
+     */
+    internal fun stream(method: String, payload: JsonObject = EMPTY_PAYLOAD, answer: suspend (JsonObject) -> JsonElement = { JsonNull }): Flow<JsonObject> = callbackFlow {
+        checkAvailable()
+        val cleanup = transport.stream(method, payload.toString(), { raw ->
+            val event = try {
+                Json.parseToJsonElement(raw).jsonObject
+            } catch (_: Exception) {
+                close(AppsInTossException(ErrorCode.INVALID_RESPONSE, "Invalid $method event"))
+                return@stream
+            }
+            val replyId = (event["replyId"] as? JsonPrimitive)?.takeIf { it.isString }?.content
+            if (replyId == null) {
+                trySend(event)
+            } else {
+                launch {
+                    val value = try {
+                        answer(event)
+                    } catch (e: CancellationException) {
+                        throw e
+                    } catch (_: Exception) {
+                        JsonNull
+                    }
+                    runCatching {
+                        call(
+                            "reply",
+                            buildJsonObject {
+                                put("replyId", replyId)
+                                put("value", value)
+                            },
+                        )
+                    }
+                }
+            }
+        }, { close(decodeError(it)) })
+        val stop: () -> Unit = { close(AppsInTossException(ErrorCode.HOST_UNAVAILABLE, "Client closed")) }
+        pending += stop
+        awaitClose {
+            pending -= stop
+            cleanup()
+        }
     }
 
     private suspend fun awaitResponse(start: ((String) -> Unit, (String) -> Unit) -> (() -> Unit)): String {
@@ -204,4 +159,13 @@ class AppsInTossClient(private val transport: AppsInTossTransport, private val t
     }
 }
 
-private fun JsonObject.string(key: String): String = getValue(key).jsonPrimitive.also { require(it.isString) }.content
+internal val EMPTY_PAYLOAD = JsonObject(emptyMap())
+
+/** 모든 디코딩 실패를 [ErrorCode.INVALID_RESPONSE]로 바꾼다. */
+internal inline fun <T> decode(name: String, block: () -> T): T = try {
+    block()
+} catch (_: Exception) {
+    throw AppsInTossException(ErrorCode.INVALID_RESPONSE, "Invalid $name response")
+}
+
+internal fun JsonObject.string(key: String): String = getValue(key).jsonPrimitive.also { require(it.isString) }.content

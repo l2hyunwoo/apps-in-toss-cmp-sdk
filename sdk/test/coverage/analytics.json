@@ -1,0 +1,21 @@
+{
+  "Analytics.click": {
+    "bridge": "analyticsClick",
+    "capability": "ANALYTICS"
+  },
+  "Analytics.impression": {
+    "bridge": "analyticsImpression",
+    "capability": "ANALYTICS"
+  },
+  "Analytics.log": {
+    "bridge": "analyticsLog",
+    "capability": "ANALYTICS"
+  },
+  "Analytics.screen": {
+    "bridge": "analyticsScreen",
+    "capability": "ANALYTICS"
+  },
+  "eventLog": {
+    "replaced": "Analytics.log"
+  }
+}

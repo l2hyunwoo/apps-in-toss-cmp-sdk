@@ -1,0 +1,16 @@
+{
+  "Device.getLocation": {
+    "bridge": "locationGet",
+    "capability": "LOCATION"
+  },
+  "Device.subscribeLocation": {
+    "bridge": "locationSubscribe",
+    "capability": "LOCATION_UPDATES"
+  },
+  "getCurrentLocation": {
+    "replaced": "Device.getLocation"
+  },
+  "startUpdateLocation": {
+    "replaced": "Device.subscribeLocation"
+  }
+}

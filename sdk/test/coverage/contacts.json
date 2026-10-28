@@ -1,0 +1,9 @@
+{
+  "Device.getContacts": {
+    "bridge": "contactsGet",
+    "capability": "CONTACTS"
+  },
+  "fetchContacts": {
+    "replaced": "Device.getContacts"
+  }
+}

@@ -36,7 +36,7 @@ export function validate(field, value) {
   if (field === 'app-name' && !/^[a-z][a-z0-9-]{0,79}$/.test(value)) {
     throw new Error('appName must start with a lowercase letter and contain lowercase letters, digits and hyphens (max 80 characters).');
   }
-  // Reject control characters in display names before writing any files.
+  // 파일을 쓰기 전에 표시 이름의 제어 문자를 거부한다.
   // eslint-disable-next-line no-control-regex
   if (field === 'display-name' && (/[\u0000-\u001f\u007f]/.test(value) || value.length > 100)) {
     throw new Error('Display name must contain 1–100 characters without control characters.');
@@ -75,7 +75,7 @@ export function parseArgs(argv) {
 }
 
 export async function checkDirectory(directory) {
-  // Check every ancestor so a symlink cannot redirect a nominally safe destination.
+  // 안전해 보이는 대상 경로를 symlink가 다른 곳으로 돌리지 못하도록 모든 상위 경로를 검사한다.
   let current = path.parse(directory).root;
   for (const part of directory.slice(current.length).split(path.sep).filter(Boolean)) {
     current = path.join(current, part);
@@ -131,7 +131,7 @@ async function templateFiles(root, options, prefix = '') {
         content = Buffer.from(text.replace(/__(PROJECT_NAME|PACKAGE_NAME|APP_NAME|DISPLAY_NAME)__/g,
           (_, key) => escapeValue(metadata[key], relative)));
       }
-      // Package replacement can change the import order required by .editorconfig.
+      // 패키지 치환으로 .editorconfig가 요구하는 import 순서가 바뀔 수 있다.
       if (relative.endsWith('.kt')) {
         content = Buffer.from(content.toString('utf8').replace(/^(?:import [^\n]+\n)+/gm,
           block => `${block.trimEnd().split('\n').sort().join('\n')}\n`));
@@ -146,7 +146,7 @@ async function templateFiles(root, options, prefix = '') {
         content = Buffer.from(`${JSON.stringify(json, null, 2)}\n`);
       }
       if (relative === '_yarn.lock') {
-        // Yarn requires canonical entry order even when only the workspace name changes.
+        // workspace 이름만 바뀌어도 Yarn은 정규 항목 순서를 요구한다.
         const blocks = content.toString('utf8').replaceAll('ait-cmp-template', options.project).trimEnd().split('\n\n');
         const firstEntry = blocks.findIndex(block => block.startsWith('"'));
         if (firstEntry < 0) throw new Error('Bundled Yarn lockfile has no entries.');
@@ -228,7 +228,7 @@ export async function run(argv, context = {}) {
       log('Cancelled.'); return 0;
     }
     rl?.close();
-    // Render everything before creating a directory: invalid templates leave no output.
+    // 디렉터리를 만들기 전에 모두 렌더링한다. 그래서 잘못된 템플릿은 출력을 남기지 않는다.
     const files = await templateFiles(context.template ?? TEMPLATE, options);
     if (!files.length) throw new Error('Bundled template is empty.');
     await checkDirectory(directory);

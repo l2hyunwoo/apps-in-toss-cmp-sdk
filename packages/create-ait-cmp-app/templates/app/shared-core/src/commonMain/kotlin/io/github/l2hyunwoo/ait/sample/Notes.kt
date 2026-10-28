@@ -10,7 +10,7 @@ interface NotesRepository {
     suspend fun list(): List<Note>
 }
 
-// The transport owns HTTPS, authentication and platform-specific networking.
+// HTTPS, 인증, 플랫폼별 네트워킹은 transport가 맡는다.
 class NotesApiClient(private val getNotesJson: suspend () -> String) : NotesRepository {
     override suspend fun list(): List<Note> = parseNotes(getNotesJson())
 }

@@ -1,0 +1,16 @@
+{
+  "Clipboard.getText": {
+    "bridge": "clipboardGetText",
+    "capability": "CLIPBOARD"
+  },
+  "Clipboard.setText": {
+    "bridge": "clipboardSetText",
+    "capability": "CLIPBOARD"
+  },
+  "getClipboardText": {
+    "replaced": "Clipboard.getText"
+  },
+  "setClipboardText": {
+    "replaced": "Clipboard.setText"
+  }
+}

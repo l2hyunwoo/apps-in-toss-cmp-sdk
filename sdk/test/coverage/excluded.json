@@ -1,0 +1,77 @@
+{
+  "Accuracy": {
+    "excluded": "constant enum object; mapped to a Kotlin enum by location"
+  },
+  "FetchAlbumPhotosPermissionError": {
+    "excluded": "error class"
+  },
+  "FetchContactsPermissionError": {
+    "excluded": "error class"
+  },
+  "GetClipboardTextPermissionError": {
+    "excluded": "error class"
+  },
+  "GetCurrentLocationPermissionError": {
+    "excluded": "error class"
+  },
+  "OpenCameraPermissionError": {
+    "excluded": "error class"
+  },
+  "PermissionError": {
+    "excluded": "error class"
+  },
+  "Promotion.openContactsInvite": {
+    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  },
+  "SetClipboardTextPermissionError": {
+    "excluded": "error class"
+  },
+  "StartUpdateLocationPermissionError": {
+    "excluded": "error class"
+  },
+  "TossPay.checkoutPayment": {
+    "excluded": "deprecated alias of TossPay.authorize; not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  },
+  "TossPay.requestTossPayPaysBilling": {
+    "excluded": "deprecated alias of TossPay.authorizeSubscription; not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  },
+  "Viral.getCampaign": {
+    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  },
+  "Viral.share": {
+    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  },
+  "Viral.track": {
+    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  },
+  "appsInTossEvent.addEventListener": {
+    "excluded": "event map is empty in 3.9.0"
+  },
+  "contactsViral": {
+    "excluded": "deprecated without replacement; not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  },
+  "createAsyncBridge": {
+    "excluded": "framework internal helper"
+  },
+  "createConstantBridge": {
+    "excluded": "framework internal helper"
+  },
+  "createEventBridge": {
+    "excluded": "framework internal helper"
+  },
+  "getAppsInTossGlobals": {
+    "excluded": "framework internal helper"
+  },
+  "onVisibilityChangedByTransparentServiceWeb": {
+    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  },
+  "partner.addAccessoryButton": {
+    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  },
+  "partner.removeAccessoryButton": {
+    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  },
+  "tdsEvent.addEventListener": {
+    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
+  }
+}

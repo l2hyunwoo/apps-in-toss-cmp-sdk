@@ -1,0 +1,14 @@
+{
+  "getPermission": {
+    "bridge": "permissionGet",
+    "capability": "PERMISSIONS"
+  },
+  "openPermissionDialog": {
+    "bridge": "permissionDialog",
+    "capability": "PERMISSIONS"
+  },
+  "requestPermission": {
+    "bridge": "permissionRequest",
+    "capability": "PERMISSIONS"
+  }
+}

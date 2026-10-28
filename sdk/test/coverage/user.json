@@ -1,0 +1,30 @@
+{
+  "User.createAnonymousKeyAuthCode": {
+    "bridge": "anonymousKeyAuthCode",
+    "capability": "USER_KEY_AUTH_CODE"
+  },
+  "User.getAnonymousKey": {
+    "bridge": "anonymousKey",
+    "capability": "USER_ID"
+  },
+  "User.getConsentedData": {
+    "bridge": "consentedData",
+    "capability": "CONSENTED_DATA"
+  },
+  "User.getDeclaredAgeRange": {
+    "bridge": "declaredAgeRange",
+    "capability": "DECLARED_AGE_RANGE"
+  },
+  "getAnonymousKey": {
+    "replaced": "User.getAnonymousKey"
+  },
+  "getConsentedUserData": {
+    "replaced": "User.getConsentedData"
+  },
+  "getDeclaredAgeRange": {
+    "replaced": "User.getDeclaredAgeRange"
+  },
+  "getUserKeyForGame": {
+    "replaced": "User.getAnonymousKey"
+  }
+}

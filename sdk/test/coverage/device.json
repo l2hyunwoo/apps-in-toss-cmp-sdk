@@ -1,0 +1,30 @@
+{
+  "Device.locale": {
+    "bridge": "deviceValue",
+    "capability": "DEVICE_INFO"
+  },
+  "Device.openURL": {
+    "bridge": "openURL",
+    "capability": "OPEN_URL"
+  },
+  "Device.os": {
+    "bridge": "deviceValue",
+    "capability": "DEVICE_INFO"
+  },
+  "Device.triggerHaptic": {
+    "bridge": "haptic",
+    "capability": "HAPTIC"
+  },
+  "generateHapticFeedback": {
+    "replaced": "Device.triggerHaptic"
+  },
+  "getLocale": {
+    "replaced": "Device.locale"
+  },
+  "getPlatformOS": {
+    "replaced": "Device.os"
+  },
+  "openURL": {
+    "replaced": "Device.openURL"
+  }
+}
