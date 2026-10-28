@@ -1,23 +1,30 @@
 {
   "IAP.completeProductGrant": {
-    "planned": "M4"
+    "bridge": "iapCompleteGrant",
+    "capability": "IAP"
   },
   "IAP.createOneTimePurchaseOrder": {
-    "planned": "M4"
+    "bridge": "iapOneTimeOrder",
+    "capability": "IAP"
   },
   "IAP.createSubscriptionPurchaseOrder": {
-    "planned": "M4"
+    "bridge": "iapSubscriptionOrder",
+    "capability": "IAP_SUBSCRIPTION"
   },
   "IAP.getCompletedOrRefundedOrders": {
-    "planned": "M4"
+    "bridge": "iapCompletedOrders",
+    "capability": "IAP"
   },
   "IAP.getPendingOrders": {
-    "planned": "M4"
+    "bridge": "iapPendingOrders",
+    "capability": "IAP"
   },
   "IAP.getProductItemList": {
-    "planned": "M4"
+    "bridge": "iapProducts",
+    "capability": "IAP"
   },
   "IAP.getSubscriptionInfo": {
-    "planned": "M4"
+    "bridge": "iapSubscriptionInfo",
+    "capability": "IAP_SUBSCRIPTION"
   }
 }
