@@ -1,32 +1,41 @@
 {
   "GoogleAdMob.isAppsInTossAdMobLoaded": {
-    "planned": "M3"
+    "bridge": "admobLoaded",
+    "capability": "ADMOB"
   },
   "GoogleAdMob.loadAppsInTossAdMob": {
-    "planned": "M3"
+    "bridge": "admobLoad",
+    "capability": "ADMOB"
   },
   "GoogleAdMob.showAppsInTossAdMob": {
-    "planned": "M3"
+    "bridge": "admobShow",
+    "capability": "ADMOB"
   },
   "TossAds.attach": {
     "replaced": "TossAds.attachBanner"
   },
   "TossAds.attachBanner": {
-    "planned": "M3"
+    "bridge": "bannerAttach",
+    "capability": "BANNER_AD"
   },
   "TossAds.destroy": {
-    "planned": "M3"
+    "bridge": "bannerDestroy",
+    "capability": "BANNER_AD"
   },
   "TossAds.destroyAll": {
-    "planned": "M3"
+    "bridge": "bannerDestroyAll",
+    "capability": "BANNER_AD"
   },
   "TossAds.initialize": {
-    "planned": "M3"
+    "bridge": "bannerInitialize",
+    "capability": "BANNER_AD"
   },
   "loadFullScreenAd": {
-    "planned": "M3"
+    "bridge": "loadFullScreenAd",
+    "capability": "FULL_SCREEN_AD"
   },
   "showFullScreenAd": {
-    "planned": "M3"
+    "bridge": "showFullScreenAd",
+    "capability": "FULL_SCREEN_AD"
   }
 }
