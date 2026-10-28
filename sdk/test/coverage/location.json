@@ -1,9 +1,11 @@
 {
   "Device.getLocation": {
-    "planned": "M2"
+    "bridge": "locationGet",
+    "capability": "LOCATION"
   },
   "Device.subscribeLocation": {
-    "planned": "M2"
+    "bridge": "locationSubscribe",
+    "capability": "LOCATION_UPDATES"
   },
   "getCurrentLocation": {
     "replaced": "Device.getLocation"
