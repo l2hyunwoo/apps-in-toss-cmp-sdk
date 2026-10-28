@@ -67,7 +67,9 @@ enum class Capability {
 
     // iap, tossPay
     IAP,
+    IAP_SUBSCRIPTION,
     TOSS_PAY,
+    TOSS_PAY_SUBSCRIPTION,
 
     // promotion, analytics, review, notification, file, migration
     PROMOTION_REWARD,

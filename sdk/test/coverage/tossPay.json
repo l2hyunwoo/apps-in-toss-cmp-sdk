@@ -1,9 +1,11 @@
 {
   "TossPay.authorize": {
-    "planned": "M4"
+    "bridge": "tossPayAuthorize",
+    "capability": "TOSS_PAY"
   },
   "TossPay.authorizeSubscription": {
-    "planned": "M4"
+    "bridge": "tossPayAuthorizeSubscription",
+    "capability": "TOSS_PAY_SUBSCRIPTION"
   },
   "checkoutPayment": {
     "replaced": "TossPay.authorize"
