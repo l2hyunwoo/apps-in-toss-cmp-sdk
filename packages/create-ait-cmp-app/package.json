@@ -1,6 +1,6 @@
 {
   "name": "create-ait-cmp-app",
-  "version": "1.0.0-alpha02",
+  "version": "1.0.0-alpha03",
   "description": "앱인토스용 Compose Multiplatform 프로젝트 생성 도구",
   "type": "module",
   "bin": "cli.js",
