@@ -7,6 +7,7 @@ internal expect fun bridgeLogin(success: (String) -> Unit, failure: (String) -> 
 internal expect fun bridgeShare(text: String, success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
 internal expect fun bridgeClose(success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
 internal expect fun bridgeSubscribe(listener: (String) -> Unit, failure: (String) -> Unit): () -> Unit
+internal expect fun bridgeCall(method: String, payload: String, success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
 
 fun createAppsInTossClient(): AppsInTossClient = AppsInTossClient(object : AppsInTossTransport {
     override val host get() = when (bridgeHost()) {
@@ -21,4 +22,5 @@ fun createAppsInTossClient(): AppsInTossClient = AppsInTossClient(object : AppsI
     override fun share(text: String, success: (String) -> Unit, failure: (String) -> Unit) = bridgeShare(text, success, failure)
     override fun closeScreen(success: (String) -> Unit, failure: (String) -> Unit) = bridgeClose(success, failure)
     override fun subscribe(listener: (String) -> Unit, failure: (String) -> Unit) = bridgeSubscribe(listener, failure)
+    override fun call(method: String, payload: String, success: (String) -> Unit, failure: (String) -> Unit) = bridgeCall(method, payload, success, failure)
 })

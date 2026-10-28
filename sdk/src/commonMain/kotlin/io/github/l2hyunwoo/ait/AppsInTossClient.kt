@@ -12,7 +12,24 @@ import kotlinx.coroutines.withTimeoutOrNull
 import kotlinx.serialization.json.*
 
 enum class RuntimeHost { APPS_IN_TOSS, SANDBOX, MOCK, BROWSER }
-enum class Capability { TOSS_LOGIN, USER_ID, SHARE, CLOSE }
+enum class Capability { TOSS_LOGIN, USER_ID, SHARE, CLOSE, HAPTIC, STORAGE, GAME_PROFILE, LEADERBOARD }
+enum class HapticType(internal val wire: String) {
+    TICK_WEAK("tickWeak"),
+    TAP("tap"),
+    TICK_MEDIUM("tickMedium"),
+    SOFT_MEDIUM("softMedium"),
+    BASIC_WEAK("basicWeak"),
+    BASIC_MEDIUM("basicMedium"),
+    SUCCESS("success"),
+    ERROR("error"),
+    WIGGLE("wiggle"),
+    CONFETTI("confetti"),
+}
+sealed interface GameProfile {
+    data class Found(val nickname: String, val profileImageUri: String) : GameProfile
+    data object NotFound : GameProfile
+}
+enum class LeaderboardSubmitResult { SUCCESS, LEADERBOARD_NOT_FOUND, PROFILE_NOT_FOUND, UNPARSABLE_SCORE }
 data class TossLoginAuthorization(val authorizationCode: String, val referrer: String)
 data class SafeAreaInsets(val top: Double, val left: Double, val right: Double, val bottom: Double)
 sealed interface HostEvent {
@@ -31,6 +48,12 @@ interface AppsInTossTransport {
     fun share(text: String, success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
     fun closeScreen(success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
     fun subscribe(listener: (String) -> Unit, failure: (String) -> Unit): () -> Unit
+
+    /** Generic path for bridge methods added after the original transport contract. */
+    fun call(method: String, payload: String, success: (String) -> Unit, failure: (String) -> Unit): () -> Unit {
+        failure("""{"code":"UNSUPPORTED"}""")
+        return {}
+    }
 }
 
 /** Own one client per UI host. Call methods and close() on the host UI thread. */
@@ -85,6 +108,68 @@ class AppsInTossClient(private val transport: AppsInTossTransport, private val t
     }
     suspend fun closeScreen() {
         awaitResponse(transport::closeScreen)
+    }
+
+    suspend fun generateHaptic(type: HapticType) {
+        call("haptic", buildJsonObject { put("type", type.wire) })
+    }
+
+    /** Reads the host's persistent storage; returns null when the key is absent. */
+    suspend fun getStorageItem(key: String): String? {
+        val result = call("storageGet", storagePayload(key))
+        return decode("storage") {
+            val value = Json.parseToJsonElement(result)
+            if (value is JsonNull) null else value.jsonPrimitive.also { require(it.isString) }.content
+        }
+    }
+
+    suspend fun setStorageItem(key: String, value: String) {
+        call("storageSet", storagePayload(key) { put("value", value) })
+    }
+
+    suspend fun removeStorageItem(key: String) {
+        call("storageRemove", storagePayload(key))
+    }
+
+    suspend fun getGameProfile(): GameProfile {
+        val result = call("gameProfile", JsonObject(emptyMap()))
+        return decode("game profile") {
+            val obj = Json.parseToJsonElement(result).jsonObject
+            when (obj.getValue("statusCode").jsonPrimitive.content) {
+                "SUCCESS" -> GameProfile.Found(obj.string("nickname"), obj.string("profileImageUri"))
+                "PROFILE_NOT_FOUND" -> GameProfile.NotFound
+                else -> error("Unknown profile status")
+            }
+        }
+    }
+
+    suspend fun submitLeaderboardScore(score: Double): LeaderboardSubmitResult {
+        require(score.isFinite()) { "Score must be finite" }
+        val result = call("leaderboardSubmit", buildJsonObject { put("score", score.toString()) })
+        return decode("leaderboard") {
+            val status = Json.parseToJsonElement(result).jsonObject.getValue("statusCode").jsonPrimitive.content
+            LeaderboardSubmitResult.valueOf(status)
+        }
+    }
+
+    suspend fun openLeaderboard() {
+        call("leaderboardOpen", JsonObject(emptyMap()))
+    }
+
+    private suspend fun call(method: String, payload: JsonObject): String = awaitResponse { success, failure -> transport.call(method, payload.toString(), success, failure) }
+
+    private fun storagePayload(key: String, extra: JsonObjectBuilder.() -> Unit = {}): JsonObject {
+        require(key.isNotBlank()) { "Storage key cannot be blank" }
+        return buildJsonObject {
+            put("key", key)
+            extra()
+        }
+    }
+
+    private inline fun <T> decode(name: String, block: () -> T): T = try {
+        block()
+    } catch (_: Exception) {
+        throw AppsInTossException(ErrorCode.INVALID_RESPONSE, "Invalid $name response")
     }
 
     val events: Flow<HostEvent> = callbackFlow {
@@ -163,6 +248,8 @@ class AppsInTossClient(private val transport: AppsInTossTransport, private val t
         }
     }
 }
+
+private fun JsonObject.string(key: String): String = getValue(key).jsonPrimitive.also { require(it.isString) }.content
 
 private fun decodeError(raw: String): AppsInTossException {
     val code = runCatching { Json.parseToJsonElement(raw).jsonObject["code"]?.jsonPrimitive?.content }.getOrNull()

@@ -11,6 +11,7 @@ private external object Bridge {
     fun share(text: String, success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
     fun closeScreen(success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
     fun subscribe(listener: (String) -> Unit, failure: (String) -> Unit): () -> Unit
+    fun call(method: String, payload: String, success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
 }
 internal actual fun bridgeHost(): String = try {
     Bridge.host()
@@ -21,6 +22,7 @@ internal actual fun bridgeLogin(success: (String) -> Unit, failure: (String) -> 
 internal actual fun bridgeShare(text: String, success: (String) -> Unit, failure: (String) -> Unit) = Bridge.share(text, success, failure)
 internal actual fun bridgeClose(success: (String) -> Unit, failure: (String) -> Unit) = Bridge.closeScreen(success, failure)
 internal actual fun bridgeSubscribe(listener: (String) -> Unit, failure: (String) -> Unit) = Bridge.subscribe(listener, failure)
+internal actual fun bridgeCall(method: String, payload: String, success: (String) -> Unit, failure: (String) -> Unit) = Bridge.call(method, payload, success, failure)
 
 internal actual fun bridgeAnonymousKey(success: (String) -> Unit, failure: (String) -> Unit) = Bridge.anonymousKey(success, failure)
 
