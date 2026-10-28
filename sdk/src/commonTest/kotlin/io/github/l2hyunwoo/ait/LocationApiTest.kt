@@ -13,7 +13,7 @@ private const val HERE = """{"accessLocation":"FINE","timestamp":1700000000000,"
 private val here = Location(AccessLocation.FINE, 1.7e12, LocationCoords(37.5, 127.0, 0.0, 5.0, 0.0, -1.0))
 
 class LocationApiTest {
-    @Test fun getLocationSendsAccuracyAndDecodes() = runTest {
+    @Test fun `위치 조회는 정확도를 보내고 디코딩한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         t.reply = """{"permission":"allowed","value":$HERE}"""
@@ -30,7 +30,7 @@ class LocationApiTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun subscribeEmitsUpdatesAndCleansUpOnCancel() = runTest {
+    fun `위치 구독은 업데이트를 방출하고 취소하면 정리한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         val events = mutableListOf<PermissionResult<Location>>()
@@ -47,7 +47,7 @@ class LocationApiTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun subscribeCompletesAfterDenial() = runTest {
+    fun `위치 구독은 권한이 거부되면 완료된다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         val events = async { c.location.subscribeLocation(Accuracy.BALANCED, 0, 0.0).toList() }
@@ -60,7 +60,7 @@ class LocationApiTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun subscribeRejectsInvalidInputAndEvents() = runTest {
+    fun `위치 구독은 잘못된 입력과 이벤트를 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         assertFailsWith<IllegalArgumentException> { c.location.subscribeLocation(Accuracy.HIGH, -1, 0.0) }

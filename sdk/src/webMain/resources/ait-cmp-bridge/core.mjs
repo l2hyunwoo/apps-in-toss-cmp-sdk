@@ -3,7 +3,7 @@ import { FEATURES } from './features/index.mjs';
 const KNOWN_ERRORS = new Set(['PERMISSION_DENIED', 'USER_CANCELLED', 'HOST_UNAVAILABLE', 'UNSUPPORTED']);
 
 export function errorPayload(error) {
-  // Preserve recognized codes only; SDK messages can contain sensitive data.
+  // SDK 메시지에는 민감한 데이터가 들어 있을 수 있으므로 인식한 코드만 남긴다.
   return JSON.stringify({ code: KNOWN_ERRORS.has(error?.code) ? error.code : 'SDK_FAILURE' });
 }
 
@@ -82,7 +82,7 @@ export function createBridge(sdk, { mock = false } = {}) {
       const stop = () => {
         if (!active) return;
         active = false;
-        // Pending host questions settle with their fallback so the official SDK never waits forever.
+        // 대기 중인 host 질문은 fallback으로 끝내서 공식 SDK가 영원히 기다리지 않게 한다.
         for (const id of owned) { const pending = replies.get(id); replies.delete(id); pending?.resolve(pending.fallback); }
         owned.clear();
         const cleanup = release; release = null;

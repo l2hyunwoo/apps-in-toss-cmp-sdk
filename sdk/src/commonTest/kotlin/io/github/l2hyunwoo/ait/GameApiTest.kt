@@ -11,7 +11,7 @@ import kotlinx.coroutines.test.runTest
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class GameApiTest {
-    @Test fun infoOverlayHiddenEmitsAndCleansUp() = runTest {
+    @Test fun `정보 overlay가 사라지면 방출하고 정리한다`() = runTest {
         val t = FakeTransport().apply {
             streamStarted = {
                 onEvent("{}")
@@ -23,7 +23,7 @@ class GameApiTest {
         assertEquals(1, t.cleaned)
     }
 
-    @Test fun cancellationRunsCleanup() = runTest {
+    @Test fun `취소하면 cleanup을 실행한다`() = runTest {
         val t = FakeTransport()
         val job = async { AppsInTossClient(t).game.subscribeInfoOverlayHidden().toList() }
         runCurrent()
@@ -31,7 +31,7 @@ class GameApiTest {
         assertEquals(1, t.cleaned)
     }
 
-    @Test fun bridgeFailureEndsFlow() = runTest {
+    @Test fun `bridge 실패는 Flow를 끝낸다`() = runTest {
         val t = FakeTransport().apply { streamStarted = { streamFailure("""{"code":"UNSUPPORTED"}""") } }
         assertEquals(ErrorCode.UNSUPPORTED, assertFailsWith<AppsInTossException> { AppsInTossClient(t).game.subscribeInfoOverlayHidden().toList() }.code)
         assertEquals(1, t.cleaned)

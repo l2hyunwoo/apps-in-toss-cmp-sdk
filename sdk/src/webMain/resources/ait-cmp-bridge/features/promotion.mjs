@@ -1,4 +1,4 @@
-// Documented grant failures are numeric codes or UNKNOWN_ERROR; anything else stays a bridge failure.
+// 문서화된 지급 실패는 숫자 코드나 UNKNOWN_ERROR다. 그 밖의 것은 bridge 실패로 남긴다.
 const REWARD_ERROR = /^(\d+|UNKNOWN_ERROR)$/;
 
 export default ({sdk, available, requireCapability}) => ({

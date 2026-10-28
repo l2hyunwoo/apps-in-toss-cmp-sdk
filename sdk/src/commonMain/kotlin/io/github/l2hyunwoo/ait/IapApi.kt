@@ -4,18 +4,18 @@ import kotlinx.coroutines.flow.first
 import kotlinx.serialization.json.*
 
 /**
- * In-app purchases. The app's server decides every grant: call it from `grant` and return its answer.
- * When `grant` returns false, throws, or does not finish (cancellation or [AppsInTossClient.close]), the host
- * records the grant as failed. Recover such orders with [getPendingOrders] and [completeProductGrant].
+ * 인앱 결제다. 모든 지급은 앱 서버가 결정한다. `grant`에서 서버를 호출하고 그 응답을 반환한다.
+ * `grant`가 false를 반환하거나 예외를 던지거나 끝나지 않으면(취소 또는 [AppsInTossClient.close]) 호스트는
+ * 지급 실패로 기록한다. 이런 주문은 [getPendingOrders]와 [completeProductGrant]로 복구한다.
  */
 class IapApi internal constructor(private val client: AppsInTossClient) {
-    /** Opens the one-time order page; [grant] returns true once the app's server granted the order. Requires [Capability.IAP]. */
+    /** 단건 주문 페이지를 연다. 앱 서버가 주문을 지급하면 [grant]가 true를 반환한다. [Capability.IAP]가 필요하다. */
     suspend fun createOneTimePurchaseOrder(sku: String, grant: suspend (orderId: String) -> Boolean): PurchaseResult {
         require(sku.isNotBlank()) { "SKU cannot be blank" }
         return order("iapOneTimeOrder", buildJsonObject { put("sku", sku) }) { grant(it.string("orderId")) }
     }
 
-    /** Opens the subscription order page; a null [offerId] uses the base price. Requires [Capability.IAP_SUBSCRIPTION]. */
+    /** 구독 주문 페이지를 연다. [offerId]가 null이면 기본 가격을 쓴다. [Capability.IAP_SUBSCRIPTION]가 필요하다. */
     suspend fun createSubscriptionPurchaseOrder(
         sku: String,
         offerId: String? = null,
@@ -30,7 +30,7 @@ class IapApi internal constructor(private val client: AppsInTossClient) {
         return order("iapSubscriptionOrder", payload) { grant(it.string("orderId"), it.optionalString("subscriptionId")) }
     }
 
-    /** Requires [Capability.IAP]. */
+    /** [Capability.IAP]가 필요하다. */
     suspend fun getProductItemList(): List<IapProduct> {
         val result = client.call("iapProducts")
         return decode("product list") {
@@ -38,7 +38,7 @@ class IapApi internal constructor(private val client: AppsInTossClient) {
         }
     }
 
-    /** Orders that were paid but not yet reported as granted. Requires [Capability.IAP]. */
+    /** 결제는 됐지만 아직 지급 완료를 보고하지 않은 주문이다. [Capability.IAP]가 필요하다. */
     suspend fun getPendingOrders(): List<PendingOrder> {
         val result = client.call("iapPendingOrders")
         return decode("pending orders") {
@@ -49,7 +49,7 @@ class IapApi internal constructor(private val client: AppsInTossClient) {
         }
     }
 
-    /** Pass the previous page's [CompletedOrRefundedOrders.nextKey] as [key]; null reads the first page. Requires [Capability.IAP]. */
+    /** 이전 페이지의 [CompletedOrRefundedOrders.nextKey]를 [key]로 넘긴다. null이면 첫 페이지를 읽는다. [Capability.IAP]가 필요하다. */
     suspend fun getCompletedOrRefundedOrders(key: String? = null): CompletedOrRefundedOrders {
         require(key == null || key.isNotBlank()) { "Page key cannot be blank" }
         val result = client.call("iapCompletedOrders", buildJsonObject { put("key", key) })
@@ -66,14 +66,14 @@ class IapApi internal constructor(private val client: AppsInTossClient) {
         }
     }
 
-    /** Reports that the app's server granted [orderId]; returns the host's result. Requires [Capability.IAP]. */
+    /** 앱 서버가 [orderId]를 지급했음을 보고하고 호스트의 결과를 반환한다. [Capability.IAP]가 필요하다. */
     suspend fun completeProductGrant(orderId: String): Boolean {
         require(orderId.isNotBlank()) { "Order id cannot be blank" }
         val result = client.call("iapCompleteGrant", buildJsonObject { put("orderId", orderId) })
         return decode("grant completion") { Json.parseToJsonElement(result).jsonPrimitive.boolean }
     }
 
-    /** Requires [Capability.IAP_SUBSCRIPTION]. */
+    /** [Capability.IAP_SUBSCRIPTION]가 필요하다. */
     suspend fun getSubscriptionInfo(orderId: String): SubscriptionInfo {
         require(orderId.isNotBlank()) { "Order id cannot be blank" }
         val result = client.call("iapSubscriptionInfo", buildJsonObject { put("orderId", orderId) })
@@ -137,7 +137,7 @@ sealed interface PurchaseResult {
     data class Failure(val error: PurchaseError) : PurchaseResult
 }
 
-/** Documented order error codes. [PRODUCT_NOT_GRANTED_BY_PARTNER] follows a false or failed grant. */
+/** 문서화된 주문 오류 코드다. [PRODUCT_NOT_GRANTED_BY_PARTNER]는 지급이 false이거나 실패한 뒤에 온다. */
 enum class PurchaseError {
     INVALID_PRODUCT_ID,
     PAYMENT_PENDING,
@@ -166,7 +166,7 @@ enum class IapProductType { CONSUMABLE, NON_CONSUMABLE, SUBSCRIPTION }
 enum class RenewalCycle { WEEKLY, MONTHLY, YEARLY }
 enum class IapOfferType { FREE_TRIAL, NEW_SUBSCRIPTION, RETURNING }
 
-/** [renewalCycle] is set only for [IapProductType.SUBSCRIPTION]. */
+/** [renewalCycle]은 [IapProductType.SUBSCRIPTION]에서만 값이 있다. */
 data class IapProduct(
     val sku: String,
     val type: IapProductType,
@@ -178,7 +178,7 @@ data class IapProduct(
     val offers: List<IapOffer>,
 )
 
-/** [displayAmount] is null for [IapOfferType.FREE_TRIAL]. */
+/** [IapOfferType.FREE_TRIAL]에서는 [displayAmount]가 null이다. */
 data class IapOffer(val type: IapOfferType, val offerId: String, val period: String, val displayAmount: String?)
 
 data class PendingOrder(val orderId: String, val sku: String, val paymentCompletedDate: String)
@@ -187,7 +187,7 @@ enum class OrderStatus { COMPLETED, REFUNDED }
 data class CompletedOrRefundedOrder(val orderId: String, val sku: String, val status: OrderStatus, val date: String)
 data class CompletedOrRefundedOrders(val hasNext: Boolean, val nextKey: String?, val orders: List<CompletedOrRefundedOrder>)
 
-/** [status] stays a string: the official type admits values beyond the documented ones. */
+/** 공식 타입이 문서에 없는 값도 허용하므로 [status]는 문자열로 둔다. */
 data class SubscriptionInfo(
     val catalogId: Long,
     val status: String,

@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.test.runTest
 
 class PermissionsApiTest {
-    @Test fun sendsPermissionAndDecodesStatus() = runTest {
+    @Test fun `권한을 보내고 상태를 디코딩한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         t.reply = "\"notDetermined\""
@@ -18,7 +18,7 @@ class PermissionsApiTest {
         assertEquals("permissionDialog" to """{"name":"clipboard","access":"write"}""", t.calls.last())
     }
 
-    @Test fun rejectsMalformedStatus() = runTest {
+    @Test fun `형식이 잘못된 상태를 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         for (reply in listOf("\"notDetermined\"", "\"ALLOWED\"", "1")) {

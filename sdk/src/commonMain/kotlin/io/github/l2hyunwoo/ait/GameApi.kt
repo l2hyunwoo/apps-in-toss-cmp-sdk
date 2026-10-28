@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.serialization.json.*
 
 class GameApi internal constructor(private val client: AppsInTossClient) {
-    /** Requires [Capability.GAME_PROFILE]. */
+    /** [Capability.GAME_PROFILE]가 필요하다. */
     suspend fun getUserProfile(): GameProfile {
         val result = client.call("gameProfile")
         return decode("game profile") {
@@ -18,7 +18,7 @@ class GameApi internal constructor(private val client: AppsInTossClient) {
         }
     }
 
-    /** Requires [Capability.LEADERBOARD]. */
+    /** [Capability.LEADERBOARD]가 필요하다. */
     suspend fun setLeaderboardScore(score: Double): LeaderboardSubmitResult {
         require(score.isFinite()) { "Score must be finite" }
         val result = client.call("leaderboardSubmit", buildJsonObject { put("score", score.toString()) })
@@ -27,14 +27,14 @@ class GameApi internal constructor(private val client: AppsInTossClient) {
         }
     }
 
-    /** Requires [Capability.LEADERBOARD]. */
+    /** [Capability.LEADERBOARD]가 필요하다. */
     suspend fun openLeaderboard() {
         client.call("leaderboardOpen")
     }
 
     /**
-     * Emits each time the game info overlay fully disappears. Collect before it hides; a missed event is not redelivered.
-     * Never completes on its own. Requires [Capability.GAME_INFO_OVERLAY].
+     * 게임 정보 overlay가 완전히 사라질 때마다 방출한다. 사라지기 전에 수집해야 하며, 놓친 이벤트는 다시 전달하지 않는다.
+     * 스스로 완료되지 않는다. [Capability.GAME_INFO_OVERLAY]가 필요하다.
      */
     fun subscribeInfoOverlayHidden(): Flow<Unit> = client.stream("gameInfoOverlayHidden").map { }
 }

@@ -15,22 +15,22 @@ class AdsApi internal constructor(private val client: AppsInTossClient) {
     val admob = AdMobApi(client)
     val tossAds = TossAdsApi(client)
 
-    /** Preloads a full-screen ad and returns after the `loaded` event. Requires [Capability.FULL_SCREEN_AD]. */
+    /** 전면 광고를 미리 불러오고 `loaded` 이벤트 뒤에 반환한다. [Capability.FULL_SCREEN_AD]가 필요하다. */
     suspend fun loadFullScreenAd(adGroupId: String) {
         client.stream("loadFullScreenAd", adGroupPayload(adGroupId)).first { decode("full-screen ad load") { it.string("type") } == "loaded" }
     }
 
     /**
-     * Shows a preloaded full-screen ad. Completes after [FullScreenAdEvent.Dismissed] or [FullScreenAdEvent.FailedToShow];
-     * cancelling collection releases the official callbacks. Grant rewards only on [FullScreenAdEvent.UserEarnedReward].
-     * Requires [Capability.FULL_SCREEN_AD].
+     * 미리 불러온 전면 광고를 보여 준다. [FullScreenAdEvent.Dismissed]나 [FullScreenAdEvent.FailedToShow] 뒤에 완료되고,
+     * 수집을 취소하면 공식 콜백을 해제한다. 보상은 [FullScreenAdEvent.UserEarnedReward]에서만 지급한다.
+     * [Capability.FULL_SCREEN_AD]가 필요하다.
      */
     fun showFullScreenAd(adGroupId: String): Flow<FullScreenAdEvent> = client.adEvents("showFullScreenAd", adGroupPayload(adGroupId))
 }
 
-/** Official v2 compatibility alias for AdMob. Prefer [AdsApi.loadFullScreenAd] and [AdsApi.showFullScreenAd]. */
+/** AdMob용 공식 v2 호환 별칭이다. [AdsApi.loadFullScreenAd]와 [AdsApi.showFullScreenAd]를 우선 쓴다. */
 class AdMobApi internal constructor(private val client: AppsInTossClient) {
-    /** Preloads an AdMob ad and returns after the `loaded` event. Requires [Capability.ADMOB]. */
+    /** AdMob 광고를 미리 불러오고 `loaded` 이벤트 뒤에 반환한다. [Capability.ADMOB]가 필요하다. */
     suspend fun loadAppsInTossAdMob(adGroupId: String, referrer: String? = null): AdMobLoadResult {
         val payload = JsonObject(adGroupPayload(adGroupId) + ("referrer" to JsonPrimitive(referrer)))
         val event = client.stream("admobLoad", payload).first { decode("AdMob load") { it.string("type") } == "loaded" }
@@ -49,10 +49,10 @@ class AdMobApi internal constructor(private val client: AppsInTossClient) {
         }
     }
 
-    /** Shows a preloaded AdMob ad; same completion rules as [AdsApi.showFullScreenAd]. Requires [Capability.ADMOB]. */
+    /** 미리 불러온 AdMob 광고를 보여 준다. 완료 규칙은 [AdsApi.showFullScreenAd]와 같다. [Capability.ADMOB]가 필요하다. */
     fun showAppsInTossAdMob(adGroupId: String): Flow<FullScreenAdEvent> = client.adEvents("admobShow", adGroupPayload(adGroupId))
 
-    /** Requires [Capability.ADMOB]. */
+    /** [Capability.ADMOB]가 필요하다. */
     suspend fun isAppsInTossAdMobLoaded(adGroupId: String): Boolean {
         val result = client.call("admobLoaded", adGroupPayload(adGroupId))
         return decode("AdMob loaded") { Json.parseToJsonElement(result).jsonPrimitive.also { require(!it.isString) }.boolean }
@@ -60,16 +60,16 @@ class AdMobApi internal constructor(private val client: AppsInTossClient) {
 }
 
 class TossAdsApi internal constructor(private val client: AppsInTossClient) {
-    /** Initializes the banner SDK once before [attachBanner]. Requires [Capability.BANNER_AD]. */
+    /** [attachBanner] 전에 배너 SDK를 한 번 초기화한다. [Capability.BANNER_AD]가 필요하다. */
     suspend fun initialize() {
         client.call("bannerInitialize")
     }
 
     /**
-     * Attaches a banner. The bridge places its own HTML element over the Compose canvas at [bounds]; only that
-     * element takes pointer input. The banner lives until [BannerHandle.destroy], [destroy] of its slot,
-     * [destroyAll], or cancellation of [scope]. [onEvent] and [onError] run in [scope]; bridge failures end the banner.
-     * Requires [Capability.BANNER_AD].
+     * 배너를 붙인다. bridge는 자체 HTML 요소를 [bounds] 위치의 Compose canvas 위에 올리며, 그 요소만
+     * 포인터 입력을 받는다. 배너는 [BannerHandle.destroy], 해당 slot의 [destroy], [destroyAll] 또는 [scope]
+     * 취소 때까지 유지된다. [onEvent]와 [onError]는 [scope]에서 실행되고, bridge가 실패하면 배너가 끝난다.
+     * [Capability.BANNER_AD]가 필요하다.
      */
     fun attachBanner(
         scope: CoroutineScope,
@@ -93,7 +93,7 @@ class TossAdsApi internal constructor(private val client: AppsInTossClient) {
         var sent = bounds
         handle.job = scope.launch {
             try {
-                // The bridge asks for bounds again after each answer, so this waits for the next change.
+                // bridge는 응답할 때마다 bounds를 다시 물으므로 여기서는 다음 변경을 기다린다.
                 client.stream("bannerAttach", payload) { handle.bounds.first { it != sent }.also { sent = it }.toJson() }
                     .takeWhile { decode("banner event") { it.string("type") } != "destroyed" }
                     .collect { event -> decode("banner event") { event.toBannerEvent() }?.let(onEvent) }
@@ -104,35 +104,35 @@ class TossAdsApi internal constructor(private val client: AppsInTossClient) {
         return handle
     }
 
-    /** Destroys the banner slot with [slotId] from a [BannerEvent]. Requires [Capability.BANNER_AD]. */
+    /** [BannerEvent]의 [slotId]에 해당하는 배너 slot을 제거한다. [Capability.BANNER_AD]가 필요하다. */
     suspend fun destroy(slotId: String) {
         require(slotId.isNotEmpty()) { "slotId is required" }
         client.call("bannerDestroy", buildJsonObject { put("slotId", slotId) })
     }
 
-    /** Destroys every banner slot. Requires [Capability.BANNER_AD]. */
+    /** 모든 배너 slot을 제거한다. [Capability.BANNER_AD]가 필요하다. */
     suspend fun destroyAll() {
         client.call("bannerDestroyAll")
     }
 }
 
-/** A banner attached by [TossAdsApi.attachBanner]. Call from the host UI thread. */
+/** [TossAdsApi.attachBanner]로 붙인 배너다. 호스트 UI 스레드에서 호출한다. */
 class BannerHandle internal constructor(initial: BannerBounds) {
     internal val bounds = MutableStateFlow(initial)
     internal var job: Job? = null
 
-    /** Moves the banner element. Requires [Capability.BANNER_AD]. */
+    /** 배너 요소를 옮긴다. [Capability.BANNER_AD]가 필요하다. */
     fun updateBounds(bounds: BannerBounds) {
         this.bounds.value = bounds
     }
 
-    /** Destroys the banner and removes its element from the DOM. Requires [Capability.BANNER_AD]. */
+    /** 배너를 제거하고 그 요소를 DOM에서 뺀다. [Capability.BANNER_AD]가 필요하다. */
     fun destroy() {
         job?.cancel()
     }
 }
 
-/** Banner position in CSS px from the viewport's top-left corner. On web, Compose dp equal CSS px. */
+/** viewport 왼쪽 위 모서리 기준의 배너 위치(CSS px)다. 웹에서는 Compose dp가 CSS px와 같다. */
 data class BannerBounds(val left: Double, val top: Double, val width: Double, val height: Double) {
     init {
         require(listOf(left, top, width, height).all { it.isFinite() } && width >= 0 && height >= 0) { "Bounds must be finite with non-negative size" }
@@ -189,7 +189,7 @@ private fun AppsInTossClient.adEvents(method: String, payload: JsonObject): Flow
         it != FullScreenAdEvent.Dismissed && it != FullScreenAdEvent.FailedToShow
     }
 
-// Unknown event types from newer SDKs are skipped so existing ad flows keep working.
+// 기존 광고 흐름이 계속 동작하도록 새 SDK의 알 수 없는 이벤트 타입은 건너뛴다.
 private fun JsonObject.toAdEvent(): FullScreenAdEvent? = when (string("type")) {
     "requested" -> FullScreenAdEvent.Requested
 

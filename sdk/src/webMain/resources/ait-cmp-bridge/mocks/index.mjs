@@ -23,5 +23,5 @@ import notification from './notification.mjs';
 import file from './file.mjs';
 import migration from './migration.mjs';
 
-// Each mock exports an object of official SDK namespaces; mock.mjs merges them.
+// 각 mock은 공식 SDK namespace 객체를 export하고, mock.mjs가 이를 병합한다.
 export const MOCKS = [host, auth, user, share, screen, navigationBar, storage, device, media, contacts, location, permissions, clipboard, environment, game, iap, tossPay, ads, promotion, analytics, review, notification, file, migration];

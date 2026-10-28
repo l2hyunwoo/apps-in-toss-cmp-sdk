@@ -7,7 +7,7 @@ class EnvironmentApiTest {
     private val transport = FakeTransport()
     private val environment = AppsInTossClient(transport).environment
 
-    @Test fun valuesSendTheirNameAndDecode() = runTest {
+    @Test fun `환경 값은 이름을 보내고 디코딩한다`() = runTest {
         transport.reply = "\"value\""
         assertEquals("value", environment.deviceId())
         assertEquals("value", environment.groupId())
@@ -22,7 +22,7 @@ class EnvironmentApiTest {
         )
     }
 
-    @Test fun asyncCallsDecode() = runTest {
+    @Test fun `비동기 호출 결과를 디코딩한다`() = runTest {
         transport.reply = "\"5G\""
         assertEquals(NetworkStatus.CELLULAR_5G, environment.getNetworkStatus())
         transport.reply = "\"SATELLITE\""
@@ -36,7 +36,7 @@ class EnvironmentApiTest {
         assertEquals("isMinVersionSupported" to """{"android":"5.245.0","ios":"always"}""", transport.calls.last())
     }
 
-    @Test fun malformedResponsesAreInvalid() = runTest {
+    @Test fun `형식이 잘못된 응답은 INVALID_RESPONSE다`() = runTest {
         transport.reply = "\"web\""
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { environment.environment() }.code)
         transport.reply = "null"
@@ -47,7 +47,7 @@ class EnvironmentApiTest {
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { environment.getServerTime() }.code)
     }
 
-    @Test fun invalidVersionsAreRejected() = runTest {
+    @Test fun `잘못된 버전을 거부한다`() = runTest {
         assertFailsWith<IllegalArgumentException> { environment.isMinVersionSupported("5.0", "always") }
         assertFailsWith<IllegalArgumentException> { environment.isMinVersionSupported("5.0.0", "sometimes") }
         assertTrue(transport.calls.isEmpty())

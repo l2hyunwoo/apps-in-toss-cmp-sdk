@@ -1,7 +1,7 @@
 const supported = fn => Object.assign(fn, {isSupported: () => true});
 const SHOW_EVENTS = [{type: 'requested'}, {type: 'show'}, {type: 'impression'}, {type: 'userEarnedReward', data: {unitType: 'mock-coin', unitAmount: 1}}, {type: 'dismissed'}];
 
-// Emits events on later ticks like the host does, and stops after cleanup.
+// host처럼 이후 tick에 이벤트를 내보내고, cleanup 후에는 멈춘다.
 function play(events, onEvent) {
   let active = true;
   events.reduce((previous, event) => previous.then(() => { if (active) onEvent(event); }), Promise.resolve());

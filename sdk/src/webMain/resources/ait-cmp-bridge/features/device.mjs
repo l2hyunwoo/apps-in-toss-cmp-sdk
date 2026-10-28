@@ -4,7 +4,7 @@ const DEVICE_VALUES = new Set(['locale', 'os']);
 export default ({sdk, available, requireCapability}) => ({
   capabilities: {
     HAPTIC: () => available(sdk.Device?.triggerHaptic),
-    // `in` checks the getters without reading them; reading outside a host throws.
+    // `in`은 getter를 읽지 않고 확인한다. host 밖에서 읽으면 예외가 난다.
     DEVICE_INFO: () => typeof sdk.Device === 'object' && [...DEVICE_VALUES].every(name => name in sdk.Device),
     OPEN_URL: () => available(sdk.Device?.openURL),
   },

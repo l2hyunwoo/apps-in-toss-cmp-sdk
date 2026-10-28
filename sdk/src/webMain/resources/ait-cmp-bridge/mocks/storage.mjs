@@ -1,5 +1,5 @@
 const memory = new Map();
-// Prefix keys so the mock never collides with app-owned localStorage entries.
+// 앱이 쓰는 localStorage 항목과 겹치지 않도록 키에 접두사를 붙인다.
 const local = (() => { try { return globalThis.localStorage ?? null; } catch { return null; } })();
 const key = k => `ait-mock-storage:${k}`;
 

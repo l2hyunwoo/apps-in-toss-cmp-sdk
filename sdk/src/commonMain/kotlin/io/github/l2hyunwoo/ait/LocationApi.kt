@@ -6,16 +6,16 @@ import kotlinx.coroutines.flow.transformWhile
 import kotlinx.serialization.json.*
 
 class LocationApi internal constructor(private val client: AppsInTossClient) {
-    /** Reads the current location once. Requires [Capability.LOCATION]. */
+    /** 현재 위치를 한 번 읽는다. [Capability.LOCATION]가 필요하다. */
     suspend fun getLocation(accuracy: Accuracy): PermissionResult<Location> {
         val result = client.call("locationGet", buildJsonObject { put("accuracy", accuracy.value) })
         return decode("location") { Json.parseToJsonElement(result).jsonObject.permissionResult { it.jsonObject.location() } }
     }
 
     /**
-     * Emits location updates until cancelled; cancelling runs the official cleanup.
-     * Emits [PermissionResult.Denied] once and completes when the permission is denied.
-     * Requires [Capability.LOCATION_UPDATES].
+     * 취소될 때까지 위치 업데이트를 방출한다. 취소하면 공식 cleanup을 실행한다.
+     * 권한이 거부되면 [PermissionResult.Denied]를 한 번 방출하고 완료한다.
+     * [Capability.LOCATION_UPDATES]가 필요하다.
      */
     fun subscribeLocation(accuracy: Accuracy, timeIntervalMillis: Long, distanceIntervalMeters: Double): Flow<PermissionResult<Location>> {
         require(timeIntervalMillis >= 0 && distanceIntervalMeters.isFinite() && distanceIntervalMeters >= 0)
@@ -55,7 +55,7 @@ class LocationApi internal constructor(private val client: AppsInTossClient) {
     }
 }
 
-/** Official `Accuracy` constants. */
+/** 공식 `Accuracy` 상수다. */
 enum class Accuracy(internal val value: Int) {
     LOWEST(1),
     LOW(2),
@@ -65,7 +65,7 @@ enum class Accuracy(internal val value: Int) {
     BEST_FOR_NAVIGATION(6),
 }
 
-/** [accessLocation] is reported on Android only. [timestamp] is epoch milliseconds. */
+/** [accessLocation]은 Android에서만 전달된다. [timestamp]는 epoch 밀리초다. */
 data class Location(val accessLocation: AccessLocation?, val timestamp: Double, val coords: LocationCoords)
 data class LocationCoords(
     val latitude: Double,

@@ -1,4 +1,4 @@
-// Documented failures of User.getConsentedData; they are thrown with `error.code`.
+// User.getConsentedData의 문서화된 실패다. `error.code`와 함께 throw된다.
 const CONSENTED_DATA_ERRORS = new Set(['USER_DECLINED', 'UNAVAILABLE', 'TERMS_NOT_SET', 'INVALID_REQUEST', 'CANCELED', 'CONSENTED_USER_DATA_AGREEMENT_FAILED', 'CONSENTED_USER_DATA_INVALID_DATA']);
 
 export default ({sdk, available, requireCapability}) => ({

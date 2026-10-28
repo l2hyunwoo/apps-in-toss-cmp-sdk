@@ -23,5 +23,5 @@ import notification from './notification.mjs';
 import file from './file.mjs';
 import migration from './migration.mjs';
 
-// Each feature returns {capabilities, calls, streams}; core rejects duplicate names.
+// 각 feature는 {capabilities, calls, streams}를 반환하고, core는 중복 이름을 거부한다.
 export const FEATURES = [host, auth, user, share, screen, navigationBar, storage, device, media, contacts, location, permissions, clipboard, environment, game, iap, tossPay, ads, promotion, analytics, review, notification, file, migration];

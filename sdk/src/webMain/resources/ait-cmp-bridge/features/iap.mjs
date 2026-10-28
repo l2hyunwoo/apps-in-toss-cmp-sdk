@@ -1,4 +1,4 @@
-// Documented order outcomes. Other codes stay opaque failures.
+// 문서화된 주문 결과다. 다른 코드는 세부 정보 없이 실패로 넘긴다.
 const ORDER_ERRORS = new Set(['INVALID_PRODUCT_ID', 'PAYMENT_PENDING', 'NETWORK_ERROR', 'INVALID_USER_ENVIRONMENT', 'ITEM_ALREADY_OWNED', 'APP_MARKET_VERIFICATION_FAILED', 'TOSS_SERVER_VERIFICATION_FAILED', 'INTERNAL_ERROR', 'KOREAN_ACCOUNT_ONLY', 'USER_CANCELED', 'PRODUCT_NOT_GRANTED_BY_PARTNER']);
 
 function requireString(value, name) {
@@ -13,7 +13,7 @@ function order(start) {
   return ({emit, fail, ask}) => {
     try {
       return start({
-        // Only a strict `true` from Kotlin grants; a missing or failed answer is `false`.
+        // Kotlin이 엄격한 `true`를 줄 때에만 지급한다. 답이 없거나 실패하면 `false`다.
         grant: event => ask({type:'grant', ...event}, false).then(value => value === true),
         onEvent: event => emit({type:'success', data: event.data}),
         onError: error => { if (ORDER_ERRORS.has(error?.code)) emit({type:'error', code: error.code}); else fail(versionError(error)); },

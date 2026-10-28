@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.test.runTest
 
 class MediaApiTest {
-    @Test fun sendsOptionsAndDecodesImages() = runTest {
+    @Test fun `옵션을 보내고 이미지를 디코딩한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         t.reply = """{"permission":"allowed","value":[{"id":"p1","dataUri":"aGk="}]}"""
@@ -23,7 +23,7 @@ class MediaApiTest {
         assertEquals("cameraOpen" to """{"maxWidth":512,"base64":false}""", t.calls.last())
     }
 
-    @Test fun deniedPermissionIsAResult() = runTest {
+    @Test fun `거부된 권한은 결과로 돌아온다`() = runTest {
         val t = FakeTransport().apply { reply = """{"permission":"denied"}""" }
         val c = AppsInTossClient(t)
         assertEquals(PermissionResult.Denied, c.media.getPhotos())
@@ -31,7 +31,7 @@ class MediaApiTest {
         assertEquals(PermissionResult.Denied, c.media.openCamera())
     }
 
-    @Test fun rejectsInvalidInputAndResponses() = runTest {
+    @Test fun `잘못된 입력과 응답을 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         assertFailsWith<IllegalArgumentException> { c.media.getPhotos(maxCount = 0) }

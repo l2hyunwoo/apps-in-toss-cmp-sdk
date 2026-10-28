@@ -12,7 +12,7 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeoutOrNull
 import kotlinx.serialization.json.*
 
-/** Own one client per UI host. Call methods and close() on the host UI thread. */
+/** UI 호스트마다 client를 하나씩 둔다. 메서드와 close()는 호스트 UI 스레드에서 호출한다. */
 class AppsInTossClient(private val transport: AppsInTossTransport, private val timeoutMillis: Long = 60_000) {
     init {
         require(timeoutMillis > 0)
@@ -46,7 +46,7 @@ class AppsInTossClient(private val transport: AppsInTossTransport, private val t
     val file = FileApi(this)
     val migration = MigrationApi(this)
 
-    /** Back, home and safe-area events. Requires [Capability.HOST_EVENTS]. */
+    /** 뒤로 가기, 홈, safe-area 이벤트다. [Capability.HOST_EVENTS]가 필요하다. */
     val events: Flow<HostEvent> = stream("hostEvents").map { event ->
         decode("host event") { decodeEvent(event) }
     }
@@ -63,12 +63,12 @@ class AppsInTossClient(private val transport: AppsInTossTransport, private val t
         if (host == RuntimeHost.BROWSER) throw AppsInTossException(ErrorCode.UNSUPPORTED, "Apps in Toss host is unavailable")
     }
 
-    /** Sends a one-shot bridge request and returns the raw JSON result. */
+    /** 일회성 bridge 요청을 보내고 원본 JSON 결과를 반환한다. */
     internal suspend fun call(method: String, payload: JsonObject = EMPTY_PAYLOAD): String = awaitResponse { success, failure -> transport.call(method, payload.toString(), success, failure) }
 
     /**
-     * Opens a bridge stream. Host questions (events with `replyId`) go to [answer]; a failed answer
-     * replies `null`, which the bridge treats as the official fallback value.
+     * bridge stream을 연다. 호스트 질문(`replyId`가 있는 이벤트)은 [answer]로 전달하고, 응답에 실패하면
+     * `null`로 회신한다. bridge는 이 값을 공식 기본값으로 처리한다.
      */
     internal fun stream(method: String, payload: JsonObject = EMPTY_PAYLOAD, answer: suspend (JsonObject) -> JsonElement = { JsonNull }): Flow<JsonObject> = callbackFlow {
         checkAvailable()
@@ -161,7 +161,7 @@ class AppsInTossClient(private val transport: AppsInTossTransport, private val t
 
 internal val EMPTY_PAYLOAD = JsonObject(emptyMap())
 
-/** Maps any decoding failure to [ErrorCode.INVALID_RESPONSE]. */
+/** 모든 디코딩 실패를 [ErrorCode.INVALID_RESPONSE]로 바꾼다. */
 internal inline fun <T> decode(name: String, block: () -> T): T = try {
     block()
 } catch (_: Exception) {

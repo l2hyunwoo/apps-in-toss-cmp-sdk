@@ -9,7 +9,7 @@ export function isPermissionError(sdk, error) {
   return typeof sdk.PermissionError === 'function' && error instanceof sdk.PermissionError;
 }
 
-/** Denial is a result: a denied permission returns before `run` so the protected function is never called. */
+/** 거부는 결과다. 권한이 거부되면 `run` 전에 반환하므로 보호된 함수는 호출되지 않는다. */
 export async function guarded(sdk, fn, run) {
   if (await fn.getPermission() === 'denied') return {permission: 'denied'};
   try {

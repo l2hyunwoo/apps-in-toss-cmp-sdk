@@ -4,9 +4,9 @@ import kotlinx.serialization.json.*
 
 class MigrationApi internal constructor(private val client: AppsInTossClient) {
     /**
-     * Reads localStorage, IndexedDB and OPFS of the previous and current origins. Migrate only when both
-     * `errors` lists are empty: records that are not plain JSON are skipped and reported there.
-     * Requires [Capability.ORIGIN_STORAGE_MIGRATION].
+     * 이전 origin과 현재 origin의 localStorage, IndexedDB, OPFS를 읽는다. 두 `errors` 목록이 모두 비어 있을 때만
+     * 이전한다. 일반 JSON이 아닌 레코드는 건너뛰고 그 목록에 보고한다.
+     * [Capability.ORIGIN_STORAGE_MIGRATION]이 필요하다.
      */
     suspend fun getOriginStorage(): OriginStorage {
         val result = client.call("migrationOriginStorage")
@@ -29,7 +29,7 @@ data class OriginStorageDump(
 
 data class IndexedDbDatabase(val name: String, val version: Long, val objectStores: List<IndexedDbObjectStore>)
 
-/** [keyPathJson] is the JSON text of the key path (a string or an array), or null for out-of-line keys. */
+/** [keyPathJson]은 key path(문자열 또는 배열)의 JSON 텍스트이고, out-of-line key이면 null이다. */
 data class IndexedDbObjectStore(
     val name: String,
     val keyPathJson: String?,
@@ -40,15 +40,15 @@ data class IndexedDbObjectStore(
 
 data class IndexedDbIndex(val name: String, val keyPathJson: String, val multiEntry: Boolean, val unique: Boolean)
 
-/** Keys and value as JSON text; decode them with your app's types. */
+/** 키와 값은 JSON 텍스트다. 앱의 타입으로 디코딩한다. */
 data class IndexedDbRecord(val keyJson: String, val primaryKeyJson: String, val valueJson: String)
 
 data class OpfsSnapshot(val directories: List<String>, val files: List<OpfsFile>)
 
-/** [data] is the file content as base64. [lastModified] is in Unix epoch milliseconds. */
+/** [data]는 base64로 된 파일 내용이다. [lastModified]는 Unix epoch 밀리초다. */
 data class OpfsFile(val path: String, val type: String, val lastModified: Long, val data: String)
 
-/** [storage] is `localStorage`, `indexedDB` or `opfs`. */
+/** [storage]는 `localStorage`, `indexedDB`, `opfs` 중 하나다. */
 data class OriginStorageError(val storage: String, val message: String)
 
 private fun JsonObject.toDump(): OriginStorageDump {

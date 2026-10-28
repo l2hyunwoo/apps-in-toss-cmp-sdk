@@ -13,7 +13,7 @@ function requireName(name) {
 }
 
 export default ({sdk, requireCapability}) => {
-  // screen/impression/click take log_name next to the params, so a param cannot use that key.
+  // screen/impression/click은 params 옆에 log_name을 받으므로 param은 그 키를 쓸 수 없다.
   const logger = name => ({logName, params}) => {
     if (logName !== undefined) requireName(logName);
     requireParams(params);

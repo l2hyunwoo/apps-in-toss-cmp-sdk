@@ -14,7 +14,7 @@ export default {
         assert.equal(createBridge(base()).supports('CONSENTED_DATA'), false);
         await assert.rejects(callBridge(createBridge(base()), 'consentedData', payload), {code: 'UNSUPPORTED'});
         assert.deepEqual(await callBridge(bridge(), 'consentedData', payload), {data: {USER_NAME: 'n'}});
-        // Documented failures become results; other errors stay opaque.
+        // 문서화된 실패는 결과가 되고, 다른 오류는 세부 정보 없이 실패로 넘긴다.
         assert.deepEqual(await callBridge(bridge(async () => { throw {code: 'USER_DECLINED', message: 'private'}; }), 'consentedData', payload), {errorCode: 'USER_DECLINED'});
         await assert.rejects(callBridge(bridge(async () => { throw {code: 'OTHER', message: 'private'}; }), 'consentedData', payload), {code: 'SDK_FAILURE'});
         await assert.rejects(callBridge(bridge(async () => undefined), 'consentedData', payload), {code: 'UNSUPPORTED'});

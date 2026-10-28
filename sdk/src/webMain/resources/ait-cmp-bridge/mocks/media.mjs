@@ -1,4 +1,4 @@
-// 1x1 transparent PNG.
+// 1x1 투명 PNG다.
 const PIXEL = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
 const image = (id, base64) => ({id, dataUri: base64 ? PIXEL : `data:image/png;base64,${PIXEL}`});
 const gated = fn => Object.assign(fn, {getPermission: async () => 'allowed', openPermissionDialog: async () => 'allowed'});

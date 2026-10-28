@@ -8,7 +8,7 @@ const clipboard = settle => ({PermissionError, Clipboard: {
 export default {
   calls: {
     clipboardGetText: {payload: {}, capability: 'CLIPBOARD', sdk: clipboard, expect: {permission: 'allowed', value: 'copied'}},
-    // The stub denies writes: permission denial must arrive as a result, not a failure.
+    // stub은 쓰기를 거부한다. 권한 거부는 실패가 아니라 결과로 와야 한다.
     clipboardSetText: {payload: {text: 't'}, invalid: [{}, {text: 1}], capability: 'CLIPBOARD', sdk: clipboard, expect: {permission: 'denied'}},
   },
   streams: {},

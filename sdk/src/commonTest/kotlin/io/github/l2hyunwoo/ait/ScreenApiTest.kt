@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.test.runTest
 
 class ScreenApiTest {
-    @Test fun settersSendOfficialKeys() = runTest {
+    @Test fun `설정 호출은 공식 키를 보낸다`() = runTest {
         val t = FakeTransport().apply { reply = """{"enabled":true}""" }
         val c = AppsInTossClient(t)
         assertTrue(c.screen.setAwakeMode(true))
@@ -19,7 +19,7 @@ class ScreenApiTest {
         assertEquals("screenOrientation" to """{"type":"landscape"}""", t.calls.last())
     }
 
-    @Test fun malformedStateIsInvalid() = runTest {
+    @Test fun `형식이 잘못된 상태는 INVALID_RESPONSE다`() = runTest {
         val c = AppsInTossClient(FakeTransport().apply { reply = "{}" })
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { c.screen.setAwakeMode(true) }.code)
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { c.screen.setSecure(true) }.code)

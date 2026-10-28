@@ -1,7 +1,7 @@
 import { guarded, isPermissionError } from './permissions.mjs';
 
 function accuracy(value) {
-  // Official Accuracy enum values: Lowest = 1 ... BestForNavigation = 6.
+  // 공식 Accuracy enum 값: Lowest = 1 ... BestForNavigation = 6.
   if (!Number.isInteger(value) || value < 1 || value > 6) throw new TypeError('Unknown accuracy');
   return value;
 }

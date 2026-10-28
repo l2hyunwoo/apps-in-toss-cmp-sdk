@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.test.runTest
 
 class UserApiTest {
-    @Test fun anonymousKeyAuthCode() = runTest {
+    @Test fun `익명 키 인증 코드를 발급하고 응답을 검증한다`() = runTest {
         val t = FakeTransport().apply { reply = """{"code":"c1","expiresIn":300}""" }
         val c = AppsInTossClient(t)
         assertEquals(AnonymousKeyAuthCode("c1", 300), c.user.createAnonymousKeyAuthCode())
@@ -13,7 +13,7 @@ class UserApiTest {
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { c.user.createAnonymousKeyAuthCode() }.code)
     }
 
-    @Test fun consentedDataResults() = runTest {
+    @Test fun `동의 데이터 결과를 디코딩하고 입력을 검증한다`() = runTest {
         val t = FakeTransport().apply { reply = """{"data":{"USER_NAME":"nunu","USER_PHONE":"010"}}""" }
         val c = AppsInTossClient(t)
         assertEquals(ConsentedDataResult.Consented(mapOf("USER_NAME" to "nunu", "USER_PHONE" to "010")), c.user.getConsentedData("cud_delivery"))
@@ -30,7 +30,7 @@ class UserApiTest {
         assertEquals(sent, t.calls.size)
     }
 
-    @Test fun declaredAgeRange() = runTest {
+    @Test fun `사용자가 밝힌 연령대를 읽고 응답을 검증한다`() = runTest {
         val t = FakeTransport().apply { reply = """{"status":"SHARING","lowerBound":18,"activeParentalControls":["communicationLimits"],"isEligibleForAgeFeatures":true}""" }
         val c = AppsInTossClient(t)
         assertEquals(

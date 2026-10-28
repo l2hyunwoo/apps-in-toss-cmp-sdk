@@ -14,7 +14,7 @@ class MigrationApiTest {
          "errors":[{"storage":"opfs","message":"m"}]}
     """.trimIndent()
 
-    @Test fun getOriginStorageDecodesDumps() = runTest {
+    @Test fun `origin 저장소 덤프를 디코딩한다`() = runTest {
         val t = FakeTransport().apply { reply = """{"previous":${dump("https://web.tossmini.com")},"current":${dump("https://apps.tossmini.com")}}""" }
         val storage = AppsInTossClient(t).migration.getOriginStorage()
         assertEquals("migrationOriginStorage" to "{}", t.calls.single())
@@ -33,7 +33,7 @@ class MigrationApiTest {
         assertEquals(listOf(OriginStorageError("opfs", "m")), current.errors)
     }
 
-    @Test fun getOriginStorageRejectsMalformedResponses() = runTest {
+    @Test fun `origin 저장소 조회는 형식이 잘못된 응답을 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         val valid = dump("o")

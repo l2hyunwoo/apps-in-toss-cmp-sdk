@@ -3,7 +3,7 @@ package io.github.l2hyunwoo.ait
 import kotlinx.serialization.json.*
 
 class UserApi internal constructor(private val client: AppsInTossClient) {
-    /** Returns the anonymous user key hash. Requires [Capability.USER_ID]. */
+    /** 익명 사용자 키 해시를 반환한다. [Capability.USER_ID]가 필요하다. */
     suspend fun getAnonymousKey(): String {
         val result = client.call("anonymousKey")
         return decode("user key") {
@@ -13,7 +13,7 @@ class UserApi internal constructor(private val client: AppsInTossClient) {
         }
     }
 
-    /** Issues a one-time code that your server exchanges for the anonymous key. Requires [Capability.USER_KEY_AUTH_CODE]. */
+    /** 서버가 익명 키로 교환할 일회용 코드를 발급한다. [Capability.USER_KEY_AUTH_CODE]가 필요하다. */
     suspend fun createAnonymousKeyAuthCode(): AnonymousKeyAuthCode {
         val result = client.call("anonymousKeyAuthCode")
         return decode("anonymous key auth code") {
@@ -23,8 +23,8 @@ class UserApi internal constructor(private val client: AppsInTossClient) {
     }
 
     /**
-     * Requests the data bundle registered as [consentedUserDataKey] and shows the terms when consent is needed.
-     * Requires [Capability.CONSENTED_DATA].
+     * [consentedUserDataKey]로 등록한 데이터 묶음을 요청하고, 동의가 필요하면 약관을 보여 준다.
+     * [Capability.CONSENTED_DATA]가 필요하다.
      */
     suspend fun getConsentedData(consentedUserDataKey: String, shouldRequestAgreementWhenUserDeclined: Boolean? = null): ConsentedDataResult {
         require(consentedUserDataKey.isNotBlank()) { "consentedUserDataKey cannot be blank" }
@@ -44,7 +44,7 @@ class UserApi internal constructor(private val client: AppsInTossClient) {
         }
     }
 
-    /** Reads the iOS declared age range for [ageGates]. Requires [Capability.DECLARED_AGE_RANGE]. */
+    /** [ageGates]에 대한 iOS 신고 연령대를 읽는다. [Capability.DECLARED_AGE_RANGE]가 필요하다. */
     suspend fun getDeclaredAgeRange(ageGates: List<Int>): DeclaredAgeRange {
         val result = client.call("declaredAgeRange", buildJsonObject { putJsonArray("ageGates") { ageGates.forEach { add(it) } } })
         return decode("declared age range") {
@@ -64,11 +64,11 @@ class UserApi internal constructor(private val client: AppsInTossClient) {
     private fun JsonObject.optional(key: String): JsonPrimitive? = get(key)?.takeUnless { it is JsonNull }?.jsonPrimitive
 }
 
-/** Send [code] to your server before [expiresIn] seconds pass; it is single-use. */
+/** [expiresIn]초가 지나기 전에 [code]를 서버로 보낸다. 한 번만 쓸 수 있다. */
 data class AnonymousKeyAuthCode(val code: String, val expiresIn: Int)
 
 sealed interface ConsentedDataResult {
-    /** Keys are the official `ConsentedUserDataKey` names such as `USER_NAME`; items without a value are absent. */
+    /** 키는 `USER_NAME` 같은 공식 `ConsentedUserDataKey` 이름이다. 값이 없는 항목은 빠진다. */
     data class Consented(val data: Map<String, String>) : ConsentedDataResult
     data class Failed(val code: ConsentedDataError) : ConsentedDataResult
 }

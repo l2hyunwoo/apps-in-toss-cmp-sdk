@@ -15,7 +15,7 @@ function place(element, {left, top, width, height}) {
 function slotEvent(type, payload) {
   const event = {type, slotId: payload?.slotId, adGroupId: payload?.adGroupId};
   if (payload?.adMetadata?.creativeId !== undefined) Object.assign(event, {creativeId: payload.adMetadata.creativeId, requestId: payload.adMetadata.requestId});
-  // Only the numeric code crosses the bridge; SDK messages can contain sensitive data.
+  // SDK 메시지에는 민감한 데이터가 들어 있을 수 있으므로 숫자 코드만 bridge를 넘긴다.
   if (type === 'failedToRender') event.code = payload?.error?.code;
   return event;
 }
@@ -66,8 +66,8 @@ export default ({sdk, available, requireCapability}) => {
         return adStream('ADMOB', () => sdk.GoogleAdMob.loadAppsInTossAdMob, referrer == null ? {adGroupId} : {adGroupId, referrer});
       },
       admobShow: ({adGroupId}) => { requireAdGroupId(adGroupId); return adStream('ADMOB', () => sdk.GoogleAdMob.showAppsInTossAdMob, {adGroupId}); },
-      // The Compose canvas cannot host DOM, so the banner gets its own element over the canvas.
-      // Kotlin answers each `bounds` question when the bounds change; the stop fallback (null) ends the loop.
+      // Compose canvas는 DOM을 담을 수 없으므로 배너는 canvas 위에 자체 요소를 둔다.
+      // Kotlin은 bounds가 바뀔 때 각 `bounds` 질문에 답하고, stop fallback(null)이 루프를 끝낸다.
       bannerAttach: ({adGroupId, bounds, ...options}) => {
         requireAdGroupId(adGroupId);
         if (!validBounds(bounds)) throw new TypeError('bounds must be finite CSS px with non-negative size');

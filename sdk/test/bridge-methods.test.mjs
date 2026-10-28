@@ -9,7 +9,7 @@ for (const part of FIXTURES) for (const kind of ['calls', 'streams']) Object.ass
 const {methods} = createBridge(base());
 const ctx = {createBridge, base, callBridge, tick, assert};
 
-test('every bridge method has a fixture', () => {
+test('모든 bridge 메서드에 fixture가 있다', () => {
   for (const kind of ['calls', 'streams']) {
     const missing = methods[kind].filter(name => !fixtures[kind][name]);
     assert.deepEqual(missing, [], `${kind} without fixture`);
@@ -18,7 +18,7 @@ test('every bridge method has a fixture', () => {
 });
 
 for (const [method, f] of Object.entries(fixtures.calls)) {
-  test(`call ${method}`, async () => {
+  test(`${method} 호출`, async () => {
     for (const payload of f.invalid ?? []) {
       assert.throws(() => createBridge({...base(), ...f.sdk?.(v => v)}).call(method, JSON.stringify(payload), () => {}, () => {}), TypeError, JSON.stringify(payload));
     }
@@ -47,7 +47,7 @@ for (const [method, f] of Object.entries(fixtures.calls)) {
 }
 
 for (const [method, f] of Object.entries(fixtures.streams)) {
-  test(`stream ${method}`, async () => {
+  test(`${method} stream`, async () => {
     let error;
     createBridge({Environment: {environment: 'web'}}).stream(method, JSON.stringify(f.payload ?? {}), () => assert.fail(), e => { error = JSON.parse(e); });
     assert.equal(error.code, 'HOST_UNAVAILABLE');
@@ -55,7 +55,7 @@ for (const [method, f] of Object.entries(fixtures.streams)) {
   });
 }
 
-test('unknown and inherited method names are rejected', () => {
+test('알 수 없는 메서드 이름과 상속된 메서드 이름을 거부한다', () => {
   const b = createBridge(base());
   for (const name of ['nope', 'constructor', '__proto__']) {
     assert.throws(() => b.call(name, '{}', () => {}, () => {}), TypeError);
@@ -63,9 +63,9 @@ test('unknown and inherited method names are rejected', () => {
   }
 });
 
-test('stream host questions settle with the fallback on stop and resolve on reply', async () => {
+test('stream host 질문은 stop 시 fallback으로 끝나고 reply 시 resolve된다', async () => {
   const b = createBridge(base());
-  // Exercise core ask/reply through a throwaway stream entry.
+  // 일회용 stream 항목으로 core ask/reply를 실행한다.
   const answers = [];
   const probe = {streams: {}};
   probe.streams.probe = () => ({ask}) => { ask({type: 'q1'}, false).then(v => answers.push(v)); ask({type: 'q2'}, false).then(v => answers.push(v)); return () => {}; };

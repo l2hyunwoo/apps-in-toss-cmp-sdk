@@ -6,7 +6,7 @@ import kotlinx.serialization.json.*
 class AuthApi internal constructor(private val client: AppsInTossClient) {
     private val loginMutex = Mutex()
 
-    /** Requires [Capability.TOSS_LOGIN]. Fails with [ErrorCode.IN_PROGRESS] while another login runs. */
+    /** [Capability.TOSS_LOGIN]가 필요하다. 다른 로그인이 진행 중이면 [ErrorCode.IN_PROGRESS]로 실패한다. */
     suspend fun login(): TossLoginAuthorization {
         client.checkAvailable()
         if (!loginMutex.tryLock()) throw AppsInTossException(ErrorCode.IN_PROGRESS, "A login is already in progress")
@@ -24,13 +24,13 @@ class AuthApi internal constructor(private val client: AppsInTossClient) {
         }
     }
 
-    /** Returns whether the user linked Toss login. Requires [Capability.TOSS_LOGIN_INTEGRATION]. */
+    /** 사용자가 토스 로그인을 연동했는지 반환한다. [Capability.TOSS_LOGIN_INTEGRATION]가 필요하다. */
     suspend fun isIntegrated(): Boolean {
         val result = client.call("isIntegrated")
         return decode("login integration") { Json.parseToJsonElement(result).jsonPrimitive.boolean }
     }
 
-    /** Signs the transaction [txId] with the Toss certificate. Requires [Capability.TOSS_SIGN]. */
+    /** 토스 인증서로 거래 [txId]에 서명한다. [Capability.TOSS_SIGN]가 필요하다. */
     suspend fun sign(txId: String) {
         require(txId.isNotBlank()) { "txId cannot be blank" }
         client.call("sign", buildJsonObject { put("txId", txId) })

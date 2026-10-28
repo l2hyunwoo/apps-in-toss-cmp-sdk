@@ -7,7 +7,7 @@ class DeviceApiTest {
     private val transport = FakeTransport()
     private val device = AppsInTossClient(transport).device
 
-    @Test fun valuesAndOpenURLSendPayloadsAndDecode() = runTest {
+    @Test fun `기기 값과 openURL은 payload를 보내고 디코딩한다`() = runTest {
         transport.reply = "\"ko-KR\""
         assertEquals("ko-KR", device.locale())
         transport.reply = "\"ios\""
@@ -20,14 +20,14 @@ class DeviceApiTest {
         )
     }
 
-    @Test fun malformedValuesAreInvalid() = runTest {
+    @Test fun `형식이 잘못된 값은 INVALID_RESPONSE다`() = runTest {
         transport.reply = "\"windows\""
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { device.os() }.code)
         transport.reply = "1"
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { device.locale() }.code)
     }
 
-    @Test fun blankURLIsRejected() = runTest {
+    @Test fun `빈 URL을 거부한다`() = runTest {
         assertFailsWith<IllegalArgumentException> { device.openURL(" ") }
         assertTrue(transport.calls.isEmpty())
     }

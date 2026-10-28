@@ -11,7 +11,7 @@ const iap = settle => ({IAP: {
   getSubscriptionInfo: supported(async ({params}) => settle({subscription: {orderId: params.orderId}})),
 }});
 
-// Fake official order: records the grant promise so tests can see what processProductGrant resolved to.
+// 가짜 공식 주문이다. 테스트가 processProductGrant의 resolve 값을 볼 수 있도록 grant promise를 기록한다.
 function orderSdk(base, method) {
   const state = {cleaned: 0, grants: []};
   const fn = supported(({options, onEvent, onError}) => {
@@ -32,7 +32,7 @@ function orderRun(method, payload, officialMethod, grantParams, expectedQuestion
       return {state, bridge, events, failures, stop};
     };
 
-    // Kotlin grants: strict true reaches the official callback, then success ends the order.
+    // Kotlin이 지급한다. 엄격한 true가 공식 callback에 전달되고, 이어서 success가 주문을 끝낸다.
     let o = open();
     o.state.purchase(grantParams);
     const {replyId, ...question} = o.events[0];
@@ -44,7 +44,7 @@ function orderRun(method, payload, officialMethod, grantParams, expectedQuestion
     o.stop(); o.stop();
     assert.equal(o.state.cleaned, 1);
 
-    // Kotlin grant threw (reply null) or replied a non-boolean: the official callback gets false.
+    // Kotlin grant가 throw했거나(reply null) boolean이 아닌 값을 답하면 공식 callback은 false를 받는다.
     for (const value of [null, 'true']) {
       o = open();
       o.state.purchase(grantParams);
@@ -55,7 +55,7 @@ function orderRun(method, payload, officialMethod, grantParams, expectedQuestion
       o.stop();
     }
 
-    // Collection cancelled or client closed (both stop the stream): the pending grant settles false.
+    // 수집이 취소되거나 client가 닫히면(둘 다 stream을 멈춘다) 대기 중인 grant는 false로 끝난다.
     o = open();
     o.state.purchase(grantParams);
     const pending = o.events[0].replyId;
@@ -63,12 +63,12 @@ function orderRun(method, payload, officialMethod, grantParams, expectedQuestion
     assert.equal(await o.state.grants[0], false);
     assert.equal(o.state.cleaned, 1);
     await callBridge(o.bridge, 'reply', {replyId: pending, value: true});
-    // A grant requested after stop never waits for Kotlin.
+    // stop 후에 요청한 grant는 Kotlin을 기다리지 않는다.
     assert.equal(await o.state.purchase(grantParams), false);
     assert.equal(o.events.length, 1);
     await tick();
 
-    // Undocumented and version errors do not leak SDK details.
+    // 문서화되지 않은 오류와 버전 오류는 SDK 세부 정보를 노출하지 않는다.
     o = open();
     o.state.onError({code: 'SOMETHING', message: 'private'});
     assert.deepEqual(o.failures, [{code: 'SDK_FAILURE'}]);

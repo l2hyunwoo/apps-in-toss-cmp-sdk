@@ -37,7 +37,7 @@ fun main() {
                 }
             }
         }
-        // The opaque Toss navigation bar already sits above the WebView, so the status-bar top inset would add a blank band.
+        // 불투명한 토스 내비게이션 바가 이미 WebView 위에 있으므로 status bar 상단 inset을 더하면 빈 띠가 생긴다.
         Box(Modifier.padding(bottom = insets.bottom.dp, start = insets.left.dp, end = insets.right.dp)) {
             ServiceApp(state = navigation, storage = storage, showBackButton = client.host == RuntimeHost.MOCK, onShare = { text ->
                 scope.launch {

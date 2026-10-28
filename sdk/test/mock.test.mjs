@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {FIXTURES} from './fixtures/index.mjs';
 import {tick} from './helpers.mjs';
 
-test('mock bridge answers every method with a result or UNSUPPORTED', async () => {
+test('mock bridge는 모든 메서드에 결과나 UNSUPPORTED로 답한다', async () => {
   const info = console.info; console.info = () => {};
   try {
     const {bridge} = await import('../src/webMain/resources/ait-cmp-bridge/mock.mjs');

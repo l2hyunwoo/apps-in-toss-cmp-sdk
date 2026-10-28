@@ -3,7 +3,7 @@ package io.github.l2hyunwoo.ait
 import kotlinx.serialization.json.*
 
 class MediaApi internal constructor(private val client: AppsInTossClient) {
-    /** Reads photos from the album; with [base64] `dataUri` holds base64 data. Requires [Capability.PHOTOS]. */
+    /** 앨범에서 사진을 읽는다. [base64]를 켜면 `dataUri`에 base64 데이터가 담긴다. [Capability.PHOTOS]가 필요하다. */
     suspend fun getPhotos(maxCount: Int = 10, maxWidth: Int = 1024, base64: Boolean = false): PermissionResult<List<ImageResponse>> {
         require(maxCount > 0 && maxWidth > 0)
         val result = client.call(
@@ -17,7 +17,7 @@ class MediaApi internal constructor(private val client: AppsInTossClient) {
         return decode("photos") { Json.parseToJsonElement(result).jsonObject.permissionResult { it.jsonArray.map { image -> image.jsonObject.image() } } }
     }
 
-    /** Lets the user pick album items; a cancelled picker returns an empty list. Requires [Capability.ALBUM]. */
+    /** 사용자가 앨범 항목을 고르게 한다. 선택을 취소하면 빈 목록을 반환한다. [Capability.ALBUM]가 필요하다. */
     suspend fun getAlbumItems(
         types: Set<AlbumItemType> = setOf(AlbumItemType.PHOTO),
         maxCount: Int = 10,
@@ -44,7 +44,7 @@ class MediaApi internal constructor(private val client: AppsInTossClient) {
         }
     }
 
-    /** Opens the camera and returns the captured image. Requires [Capability.CAMERA]. */
+    /** 카메라를 열고 촬영한 이미지를 반환한다. [Capability.CAMERA]가 필요하다. */
     suspend fun openCamera(base64: Boolean = false, maxWidth: Int = 1024): PermissionResult<ImageResponse> {
         require(maxWidth > 0)
         val result = client.call(

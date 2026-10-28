@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.test.runTest
 
 class ContactsApiTest {
-    @Test fun sendsPageAndDecodesContacts() = runTest {
+    @Test fun `페이지 정보를 보내고 연락처를 디코딩한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         t.reply = """{"permission":"allowed","value":{"result":[{"name":"김","phoneNumber":"010"}],"nextOffset":10,"done":false}}"""
@@ -17,7 +17,7 @@ class ContactsApiTest {
         assertEquals(PermissionResult.Denied, c.contacts.getContacts(10, 0))
     }
 
-    @Test fun rejectsInvalidInputAndResponses() = runTest {
+    @Test fun `잘못된 입력과 응답을 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         assertFailsWith<IllegalArgumentException> { c.contacts.getContacts(0, 0) }

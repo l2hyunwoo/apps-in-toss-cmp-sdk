@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.test.runTest
 
 class AuthApiTest {
-    @Test fun isIntegratedDecodesBoolean() = runTest {
+    @Test fun `로그인 연동 여부를 Boolean으로 디코딩한다`() = runTest {
         val t = FakeTransport().apply { reply = "true" }
         val c = AppsInTossClient(t)
         assertTrue(c.auth.isIntegrated())
@@ -13,7 +13,7 @@ class AuthApiTest {
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { c.auth.isIntegrated() }.code)
     }
 
-    @Test fun signSendsTxIdAndRejectsBlank() = runTest {
+    @Test fun `서명은 txId를 보내고 빈 값을 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         assertFailsWith<IllegalArgumentException> { c.auth.sign(" ") }

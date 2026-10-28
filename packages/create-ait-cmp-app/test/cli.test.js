@@ -10,7 +10,7 @@ import { run, parseArgs, validate } from '../cli.js';
 const args = ['my-app', '--yes', '--package', 'io.example.myapp', '--app-name', 'my-app', '--display-name', '내 앱', '--skip-install'];
 async function fixture(t) {
   const temp = await mkdtemp(path.join(os.tmpdir(), 'ait-cli-'));
-  // Resolve the platform temp directory before testing explicit symlink protection.
+  // 명시적 symlink 보호를 테스트하기 전에 플랫폼 임시 디렉터리 경로를 해석한다.
   const { realpath } = await import('node:fs/promises');
   const cwd = await realpath(temp);
   t.after(() => rm(cwd, { recursive: true, force: true }));
@@ -39,7 +39,7 @@ async function fixture(t) {
   return { cwd, template, context, output: () => output, binary };
 }
 
-test('default generation preserves binary and executable, updates npm names and excludes optional targets', async t => {
+test('기본 생성은 바이너리와 실행 권한을 보존하고 npm 이름을 갱신하며 선택 타깃을 제외한다', async t => {
   const f = await fixture(t);
   assert.equal(await run(args, f.context), 0);
   const root = path.join(f.cwd, 'my-app');
@@ -64,7 +64,7 @@ test('default generation preserves binary and executable, updates npm names and 
   assert.doesNotMatch(f.output(), /assembleDebug/);
 });
 
-test('all targets and a parent path containing spaces', async t => {
+test('모든 타깃과 공백이 든 상위 경로로 생성한다', async t => {
   const f = await fixture(t);
   await mkdir(path.join(f.cwd, 'space here'));
   assert.equal(await run(['space here/my-app', ...args.slice(1), '--targets=apps-in-toss,android,ios,web'], f.context), 0);
@@ -75,7 +75,7 @@ test('all targets and a parent path containing spaces', async t => {
   assert.match(f.output(), /Xcode/);
 });
 
-test('metadata uses JSON, Kotlin and XML escaping', async t => {
+test('메타데이터에 JSON, Kotlin, XML 이스케이프를 적용한다', async t => {
   const f = await fixture(t);
   const title = '내 "앱" & <title> \\ $value';
   const argv = [...args]; argv[argv.indexOf('--display-name') + 1] = title;
@@ -89,7 +89,7 @@ test('metadata uses JSON, Kotlin and XML escaping', async t => {
   assert.match(await readFile(path.join(root, 'title.properties'), 'utf8'), /\\ /);
 });
 
-test('nonempty directories and files are preserved', async t => {
+test('비어 있지 않은 디렉터리와 파일을 보존한다', async t => {
   const f = await fixture(t);
   const destination = path.join(f.cwd, 'my-app');
   await mkdir(destination);
@@ -99,7 +99,7 @@ test('nonempty directories and files are preserved', async t => {
   assert.deepEqual(await readdir(destination), ['precious.txt']);
 });
 
-test('.git-only and empty directories are accepted', async t => {
+test('.git만 있는 디렉터리와 빈 디렉터리를 허용한다', async t => {
   for (const git of [false, true]) {
     const f = await fixture(t);
     await mkdir(path.join(f.cwd, 'my-app'));
@@ -109,7 +109,7 @@ test('.git-only and empty directories are accepted', async t => {
   }
 });
 
-test('target and ancestor symlinks are refused', async t => {
+test('대상과 상위 경로의 symlink를 거부한다', async t => {
   const f = await fixture(t);
   await mkdir(path.join(f.cwd, 'actual'));
   await symlink(path.join(f.cwd, 'actual'), path.join(f.cwd, 'my-app'));
@@ -118,7 +118,7 @@ test('target and ancestor symlinks are refused', async t => {
   assert.deepEqual(await readdir(path.join(f.cwd, 'actual')), []);
 });
 
-test('invalid and missing inputs fail without output files', async t => {
+test('잘못되거나 빠진 입력은 출력 파일 없이 실패한다', async t => {
   const f = await fixture(t);
   for (const argv of [[], ['my-app'], ['my-app', '--yes'], ['my-app', '--force'], [...args, '--targets', 'android'], [...args, '--targets', 'apps-in-toss,web,web'], [...args, '--package', 'bad']]) {
     await assert.rejects(run(argv, f.context));
@@ -131,7 +131,7 @@ test('invalid and missing inputs fail without output files', async t => {
   assert.throws(() => parseArgs(['--yes=false']));
 });
 
-test('interactive prompts skip supplied values, retry validation and confirm', async t => {
+test('대화형 프롬프트는 주어진 값을 건너뛰고 검증을 재시도하고 확인을 받는다', async t => {
   const f = await fixture(t);
   const questions = [];
   const answers = ['bad_package', 'io.example.app', 'yes'];
@@ -143,7 +143,7 @@ test('interactive prompts skip supplied values, retry validation and confirm', a
   assert.match(f.output(), /Package must/);
 });
 
-test('interactive defaults and cancellation leave no destination', async t => {
+test('대화형 기본값과 취소는 대상 디렉터리를 남기지 않는다', async t => {
   const f = await fixture(t);
   let count = 0;
   f.context.ask = async () => { count++; return ''; };
@@ -153,14 +153,14 @@ test('interactive defaults and cancellation leave no destination', async t => {
   assert.match(f.output(), /Cancelled/);
 });
 
-test('Ctrl+C cancellation before generation leaves no destination', async t => {
+test('생성 전에 Ctrl+C로 취소하면 대상 디렉터리를 남기지 않는다', async t => {
   const f = await fixture(t);
   f.context.ask = async () => { throw Object.assign(new Error('aborted'), { code: 'ABORT_ERR' }); };
   assert.equal(await run([], f.context), 130);
   assert.deepEqual(await readdir(f.cwd), ['template']);
 });
 
-test('installation failure preserves generated files and returns failure', async t => {
+test('설치가 실패하면 생성한 파일을 보존하고 실패를 반환한다', async t => {
   const f = await fixture(t);
   f.context.install = async directory => {
     assert.ok((await lstat(path.join(directory, 'package.json'))).isFile());
@@ -171,7 +171,7 @@ test('installation failure preserves generated files and returns failure', async
   assert.match(f.output(), /Retry corepack yarn install --immutable/);
 });
 
-test('help, version and actual nonTTY entry point', async t => {
+test('help, version과 실제 비TTY 진입점을 확인한다', async t => {
   const f = await fixture(t);
   await run(['--help'], f.context);
   await run(['--version'], f.context);
@@ -184,7 +184,7 @@ test('help, version and actual nonTTY entry point', async t => {
 });
 
 
-test('npm-style symlink executable runs the CLI', async t => {
+test('npm 방식 symlink 실행 파일로 CLI를 실행한다', async t => {
   const f = await fixture(t);
   const executable = fileURLToPath(new URL('../cli.js', import.meta.url));
   const link = path.join(f.cwd, 'create-ait-cmp-app');
@@ -195,7 +195,7 @@ test('npm-style symlink executable runs the CLI', async t => {
 });
 
 
-test('Git worktree .git file is allowed and preserved', async t => {
+test('Git worktree의 .git 파일을 허용하고 보존한다', async t => {
   const f = await fixture(t);
   const destination = path.join(f.cwd, 'my-app');
   await mkdir(destination);
@@ -204,7 +204,7 @@ test('Git worktree .git file is allowed and preserved', async t => {
   assert.equal(await readFile(path.join(destination, '.git'), 'utf8'), 'gitdir: ../existing-worktree\n');
 });
 
-test('non-directory destination and symlink .git are refused', async t => {
+test('디렉터리가 아닌 대상과 symlink .git을 거부한다', async t => {
   const f = await fixture(t);
   const destination = path.join(f.cwd, 'my-app');
   await writeFile(destination, 'precious');
@@ -218,7 +218,7 @@ test('non-directory destination and symlink .git are refused', async t => {
   assert.deepEqual(await readdir(path.join(f.cwd, 'git-data')), []);
 });
 
-test('Unicode and markdown punctuation are valid display names but newlines are rejected', async t => {
+test('Unicode와 markdown 구두점은 표시 이름으로 허용하고 줄바꿈은 거부한다', async t => {
   const f = await fixture(t);
   const title = '앱 👋 "quoted" $value `code` [link](url) <>&';
   const argv = [...args]; argv[argv.indexOf('--display-name') + 1] = title;

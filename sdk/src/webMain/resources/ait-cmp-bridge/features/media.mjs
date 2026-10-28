@@ -28,7 +28,7 @@ export default ({sdk, available, requireCapability}) => ({
       const options = {types, maxCount: positive(maxCount, 'maxCount'), maxWidth: positive(maxWidth, 'maxWidth'), base64: flag(base64)};
       return () => {
         requireCapability('ALBUM');
-        // getAlbumItems has no getPermission member; it reports denial with the NOT_ALLOWED code.
+        // getAlbumItems에는 getPermission 멤버가 없고, 거부를 NOT_ALLOWED 코드로 알린다.
         return Promise.resolve(sdk.Device.getAlbumItems(options)).then(value => ({permission: 'allowed', value}), error => {
           if (error?.code === 'NOT_ALLOWED') return {permission: 'denied'};
           throw error;

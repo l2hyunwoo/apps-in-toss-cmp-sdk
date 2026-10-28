@@ -16,7 +16,7 @@ export default ({sdk, available, requireCapability}) => ({
     },
   },
   streams: {
-    // A stream, not a call: the promise settles only when the user closes the viewer, which can outlast the call timeout.
+    // call이 아니라 stream이다. promise는 사용자가 뷰어를 닫을 때에만 끝나며, 이는 call timeout보다 길 수 있다.
     pdfViewer: ({data, filename}) => {
       requireText(data, 'data');
       if (filename !== undefined) requireText(filename, 'filename');

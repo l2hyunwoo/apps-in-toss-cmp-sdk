@@ -1,5 +1,5 @@
 class PermissionError extends Error {}
-// Every mock permission is allowed so the protected mock functions always run.
+// 보호된 mock 함수가 항상 실행되도록 모든 mock 권한을 허용한다.
 const status = async () => 'allowed';
 
 export default {

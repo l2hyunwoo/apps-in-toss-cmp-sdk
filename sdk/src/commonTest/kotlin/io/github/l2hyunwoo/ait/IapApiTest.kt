@@ -8,7 +8,7 @@ import kotlinx.coroutines.test.*
 class IapApiTest {
     private val order = """{"orderId":"o1","displayName":"Coin","displayAmount":"1,000원","amount":1000,"currency":"KRW","fraction":0,"miniAppIconUrl":null}"""
 
-    // Both order kinds behind one shape so every grant case runs for each.
+    // 모든 지급 사례를 두 주문 종류에서 실행하도록 한 형태로 묶는다.
     private val kinds: List<Pair<String, suspend (AppsInTossClient, suspend (String) -> Boolean) -> PurchaseResult>> = listOf(
         "iapOneTimeOrder" to { c, grant -> c.iap.createOneTimePurchaseOrder("coin") { grant(it) } },
         "iapSubscriptionOrder" to { c, grant -> c.iap.createSubscriptionPurchaseOrder("premium", "trial") { id, _ -> grant(id) } },
@@ -16,7 +16,7 @@ class IapApiTest {
 
     private fun replies(t: FakeTransport) = t.calls.filter { it.first == "reply" }.map { it.second }
 
-    @Test fun grantSuccessSendsTrueAndDecodesOrder() = runTest {
+    @Test fun `지급에 성공하면 true를 보내고 주문을 디코딩한다`() = runTest {
         for ((method, purchase) in kinds) {
             val t = FakeTransport()
             val granted = mutableListOf<String>()
@@ -38,7 +38,7 @@ class IapApiTest {
         }
     }
 
-    @Test fun grantThrowingRepliesNullSoBridgeUsesFalse() = runTest {
+    @Test fun `지급이 예외를 던지면 null로 답해 bridge가 false를 쓴다`() = runTest {
         for ((_, purchase) in kinds) {
             val t = FakeTransport()
             val result = async { purchase(AppsInTossClient(t)) { error("server down") } }
@@ -51,7 +51,7 @@ class IapApiTest {
         }
     }
 
-    @Test fun cancellationDuringGrantStopsStreamWithoutReply() = runTest {
+    @Test fun `지급 중 취소하면 답하지 않고 stream을 멈춘다`() = runTest {
         for ((_, purchase) in kinds) {
             val t = FakeTransport()
             val gate = CompletableDeferred<Boolean>()
@@ -65,7 +65,7 @@ class IapApiTest {
         }
     }
 
-    @Test fun closeDuringGrantStopsStreamWithoutReply() = runTest {
+    @Test fun `지급 중 close하면 답하지 않고 stream을 멈춘다`() = runTest {
         for ((_, purchase) in kinds) {
             val t = FakeTransport()
             val c = AppsInTossClient(t)
@@ -81,7 +81,7 @@ class IapApiTest {
         }
     }
 
-    @Test fun orderPayloadsOutcomesAndValidation() = runTest {
+    @Test fun `주문 payload와 결과와 검증을 확인한다`() = runTest {
         val t = FakeTransport().apply { streamStarted = { onEvent("""{"type":"error","code":"USER_CANCELED"}""") } }
         val c = AppsInTossClient(t)
         assertEquals(PurchaseResult.Failure(PurchaseError.USER_CANCELED), c.iap.createOneTimePurchaseOrder("coin") { true })
@@ -100,7 +100,7 @@ class IapApiTest {
         assertEquals(streams, t.streams.size)
     }
 
-    @Test fun subscriptionGrantReceivesSubscriptionId() = runTest {
+    @Test fun `구독 지급은 subscriptionId를 받는다`() = runTest {
         val t = FakeTransport()
         var received: Pair<String, String?>? = null
         val result = async {
@@ -117,7 +117,7 @@ class IapApiTest {
         assertIs<PurchaseResult.Success>(result.await())
     }
 
-    @Test fun queriesSendPayloadsAndDecodeResponses() = runTest {
+    @Test fun `조회는 payload를 보내고 응답을 디코딩한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         t.reply = """{"products":[
@@ -164,7 +164,7 @@ class IapApiTest {
         assertEquals("iapSubscriptionInfo" to """{"orderId":"o1"}""", t.calls.last())
     }
 
-    @Test fun queriesRejectInvalidInputAndResponses() = runTest {
+    @Test fun `조회는 잘못된 입력과 응답을 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         assertFailsWith<IllegalArgumentException> { c.iap.completeProductGrant(" ") }

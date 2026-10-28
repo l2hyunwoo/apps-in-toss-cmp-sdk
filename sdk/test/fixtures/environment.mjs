@@ -1,4 +1,4 @@
-// Environment stubs must keep `environment`, so these fixtures run the standard checks themselves.
+// Environment stub은 `environment`를 유지해야 하므로 이 fixture가 표준 검사를 직접 실행한다.
 const environment = (settle, extra = {}) => ({
   Environment: {
     environment: 'sandbox', deviceId: 'device', groupId: 'group', tossAppVersion: '5.270.0', deploymentId: 'local', initialURL: 'intoss://app',

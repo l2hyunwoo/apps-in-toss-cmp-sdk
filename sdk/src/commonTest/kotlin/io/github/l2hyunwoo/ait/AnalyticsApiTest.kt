@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.test.runTest
 
 class AnalyticsApiTest {
-    @Test fun logsSendPayloads() = runTest {
+    @Test fun `로그 호출은 payload를 보낸다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         c.analytics.log("purchase", LogType.EVENT, mapOf("id" to 7, "price" to 1.5, "ok" to true, "name" to "x", "none" to null))
@@ -17,7 +17,7 @@ class AnalyticsApiTest {
         assertEquals("analyticsClick" to """{"logName":"buy","params":{}}""", t.calls.last())
     }
 
-    @Test fun logsRejectInvalidInput() = runTest {
+    @Test fun `로그 호출은 잘못된 입력을 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         assertFailsWith<IllegalArgumentException> { c.analytics.log(" ", LogType.INFO) }

@@ -6,7 +6,7 @@ import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 
 class NotificationApiTest {
-    @Test fun requestAgreementDecodesResultAndCleansUp() = runTest {
+    @Test fun `동의 요청은 결과를 디코딩하고 정리한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         val result = async { c.notification.requestAgreement("template") }
@@ -17,7 +17,7 @@ class NotificationApiTest {
         assertEquals(1, t.cleaned)
     }
 
-    @Test fun requestAgreementRejectsInvalidInputAndEvents() = runTest {
+    @Test fun `동의 요청은 잘못된 입력과 이벤트를 거부한다`() = runTest {
         val t = FakeTransport().apply { streamStarted = { onEvent("""{"type":"maybe"}""") } }
         val c = AppsInTossClient(t)
         assertFailsWith<IllegalArgumentException> { c.notification.requestAgreement(" ") }

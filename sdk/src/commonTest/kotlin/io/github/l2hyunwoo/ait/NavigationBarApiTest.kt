@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.test.runTest
 
 class NavigationBarApiTest {
-    @Test fun sendsOnlyGivenOptions() = runTest {
+    @Test fun `넘긴 옵션만 보낸다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         c.navigationBar.setOptions(theme = NavigationBarTheme.DARK)
@@ -15,7 +15,7 @@ class NavigationBarApiTest {
         assertEquals("""{"backgroundColor":null}""", t.calls.last().second)
     }
 
-    @Test fun rejectsInvalidColor() = runTest {
+    @Test fun `잘못된 색을 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         for (hex in listOf("red", "#FFF", "3182F6", "#3182F6A")) {

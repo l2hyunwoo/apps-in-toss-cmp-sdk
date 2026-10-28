@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.*
 import kotlinx.serialization.json.*
 
-/** Fake bridge: records calls and lets tests complete them or push stream events. */
+/** 가짜 bridge다. 호출을 기록하고, 테스트가 호출을 완료하거나 stream 이벤트를 넣게 한다. */
 internal class FakeTransport(override val host: RuntimeHost = RuntimeHost.SANDBOX) : AppsInTossTransport {
     val calls = mutableListOf<Pair<String, String>>()
     var reply: String? = "null"
@@ -37,7 +37,7 @@ internal class FakeTransport(override val host: RuntimeHost = RuntimeHost.SANDBO
 }
 
 class ClientTest {
-    @Test fun unsupported() = runTest {
+    @Test fun `브라우저 호스트에서는 UNSUPPORTED로 실패한다`() = runTest {
         val client = AppsInTossClient(FakeTransport(RuntimeHost.BROWSER))
         assertFalse(client.supports(Capability.TOSS_LOGIN))
         assertEquals(ErrorCode.UNSUPPORTED, assertFailsWith<AppsInTossException> { client.auth.login() }.code)
@@ -46,7 +46,7 @@ class ClientTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun loginValidationConcurrencyAndCleanup() = runTest {
+    fun `로그인 응답을 검증하고 중복 요청을 막고 정리한다`() = runTest {
         val transport = FakeTransport().apply { reply = null }
         val client = AppsInTossClient(transport)
         val first = async { client.auth.login() }
@@ -63,7 +63,7 @@ class ClientTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun cancellationTimeoutCloseAndLateResults() = runTest {
+    fun `취소와 시간 초과와 close 뒤 늦게 온 결과를 무시하고 정리한다`() = runTest {
         val t = FakeTransport().apply { reply = null }
         val c = AppsInTossClient(t, 10)
         val cancelled = async { c.auth.login() }
@@ -85,7 +85,7 @@ class ClientTest {
         assertEquals(3, t.cleaned)
     }
 
-    @Test fun userKeyIsStrictlyValidated() = runTest {
+    @Test fun `사용자 키를 엄격하게 검증한다`() = runTest {
         val t = FakeTransport()
         val client = AppsInTossClient(t)
         t.reply = """{"type":"HASH","hash":"user-key"}"""
@@ -94,24 +94,24 @@ class ClientTest {
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { client.user.getAnonymousKey() }.code)
     }
 
-    @Test fun enclosingTimeoutRemainsCancellation() = runTest {
+    @Test fun `바깥 withTimeout은 취소로 끝난다`() = runTest {
         val c = AppsInTossClient(FakeTransport().apply { reply = null }, 10_000)
         assertNull(withTimeoutOrNull(1) { c.auth.login() })
     }
 
-    @Test fun eventsDecodeAndRemoveListener() = runTest {
+    @Test fun `이벤트를 디코딩하고 리스너를 제거한다`() = runTest {
         val t = FakeTransport().apply { streamStarted = { onEvent("""{"type":"back"}""") } }
         assertEquals(HostEvent.Back, AppsInTossClient(t).events.first())
         assertEquals("hostEvents", t.streams.single().first)
         assertEquals(1, t.cleaned)
     }
 
-    @Test fun invalidEventFailsStream() = runTest {
+    @Test fun `잘못된 이벤트는 stream을 실패시킨다`() = runTest {
         val t = FakeTransport().apply { streamStarted = { onEvent("""{"type":"safeArea","top":"1"}""") } }
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { AppsInTossClient(t).events.first() }.code)
     }
 
-    @Test fun migratedApisSendPayloadsAndDecodeResponses() = runTest {
+    @Test fun `이전된 API는 payload를 보내고 응답을 디코딩한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         c.share.sendMessage("hi")
@@ -141,7 +141,7 @@ class ClientTest {
         assertEquals("leaderboardOpen", t.calls.last().first)
     }
 
-    @Test fun migratedApisRejectInvalidInputAndResponses() = runTest {
+    @Test fun `이전된 API는 잘못된 입력과 응답을 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         assertFailsWith<IllegalArgumentException> { c.storage.getItem(" ") }
@@ -155,7 +155,7 @@ class ClientTest {
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { c.game.getUserProfile() }.code)
     }
 
-    @Test fun bridgeFailureCodesAreWhitelisted() = runTest {
+    @Test fun `bridge 실패 코드는 허용 목록으로 거른다`() = runTest {
         val t = FakeTransport().apply { reply = null }
         val c = AppsInTossClient(t)
         val result = async { runCatching { c.screen.close() }.exceptionOrNull() }
@@ -166,7 +166,7 @@ class ClientTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun streamRepliesToHostQuestions() = runTest {
+    fun `stream은 호스트 질문에 답한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         val answers = ArrayDeque(listOf<() -> JsonElement>({ JsonPrimitive(true) }, { error("grant failed") }))
@@ -185,7 +185,7 @@ class ClientTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun closeEndsOpenStreams() = runTest {
+    fun `close는 열린 stream을 끝낸다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         val collected = async { runCatching { c.stream("probe").toList() }.exceptionOrNull() }

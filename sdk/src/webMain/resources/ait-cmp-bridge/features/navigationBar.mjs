@@ -13,7 +13,7 @@ export default ({sdk, available, requireCapability}) => ({
         if (typeof payload[name] !== 'boolean') throw new TypeError(`${name} must be a boolean`);
         options[name] = payload[name];
       }
-      // `null` is meaningful: it resets the background to the theme default.
+      // `null`에는 의미가 있다. 배경을 테마 기본값으로 되돌린다.
       if (payload.backgroundColor !== undefined) {
         if (payload.backgroundColor !== null && (typeof payload.backgroundColor !== 'string' || !COLOR.test(payload.backgroundColor))) throw new TypeError('backgroundColor must be #RRGGBB or #RRGGBBAA');
         options.backgroundColor = payload.backgroundColor;

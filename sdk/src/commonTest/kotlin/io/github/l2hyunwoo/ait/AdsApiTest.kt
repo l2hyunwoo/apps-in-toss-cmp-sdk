@@ -7,7 +7,7 @@ import kotlinx.coroutines.test.*
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class AdsApiTest {
-    @Test fun loadFullScreenAdWaitsForLoaded() = runTest {
+    @Test fun `전면 광고 로드는 loaded 이벤트를 기다린다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         val load = async { c.ads.loadFullScreenAd("ad") }
@@ -20,7 +20,7 @@ class AdsApiTest {
         assertFailsWith<IllegalArgumentException> { c.ads.loadFullScreenAd(" ") }
     }
 
-    @Test fun showFullScreenAdCompletesAfterDismissed() = runTest {
+    @Test fun `전면 광고 표시는 닫힌 뒤 완료된다`() = runTest {
         val t = FakeTransport().apply {
             streamStarted = {
                 listOf("""{"type":"requested"}""", """{"type":"show"}""", """{"type":"impression"}""", """{"type":"future"}""", """{"type":"userEarnedReward","data":{"unitType":"coin","unitAmount":10}}""", """{"type":"dismissed"}""", """{"type":"clicked"}""").forEach(onEvent)
@@ -35,7 +35,7 @@ class AdsApiTest {
         assertEquals(1, t.cleaned)
     }
 
-    @Test fun cancellingShowRunsCleanupImmediately() = runTest {
+    @Test fun `광고 표시를 취소하면 바로 cleanup을 실행한다`() = runTest {
         val t = FakeTransport()
         val events = mutableListOf<FullScreenAdEvent>()
         val job = launch { AppsInTossClient(t).ads.showFullScreenAd("ad").collect { events += it } }
@@ -47,13 +47,13 @@ class AdsApiTest {
         assertEquals(1, t.cleaned)
     }
 
-    @Test fun malformedAdEventsFail() = runTest {
+    @Test fun `형식이 잘못된 광고 이벤트는 실패한다`() = runTest {
         val t = FakeTransport().apply { streamStarted = { onEvent("""{"type":"userEarnedReward","data":{"unitType":"coin","unitAmount":"10"}}""") } }
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { AppsInTossClient(t).ads.admob.showAppsInTossAdMob("ad").toList() }.code)
         assertEquals("admobShow", t.streams.single().first)
     }
 
-    @Test fun admobLoadDecodesResultAndLoadedState() = runTest {
+    @Test fun `AdMob 로드는 결과와 로드 상태를 디코딩한다`() = runTest {
         val t = FakeTransport().apply {
             streamStarted = {
                 onEvent(
@@ -77,7 +77,7 @@ class AdsApiTest {
         assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { c.ads.admob.isAppsInTossAdMobLoaded("ad") }.code)
     }
 
-    @Test fun tossAdsCallsSendPayloads() = runTest {
+    @Test fun `토스 광고 호출은 payload를 보낸다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         c.ads.tossAds.initialize()
@@ -88,7 +88,7 @@ class AdsApiTest {
         assertFailsWith<IllegalArgumentException> { BannerBounds(0.0, 0.0, -1.0, 10.0) }
     }
 
-    @Test fun bannerHandleUpdatesBoundsAndDestroys() = runTest {
+    @Test fun `배너 핸들은 위치를 갱신하고 배너를 제거한다`() = runTest {
         val t = FakeTransport().apply { reply = "null" }
         val c = AppsInTossClient(t)
         val events = mutableListOf<BannerEvent>()
@@ -116,7 +116,7 @@ class AdsApiTest {
         assertTrue(errors.isEmpty())
     }
 
-    @Test fun bannerEndsOnDestroyedAndReportsFailures() = runTest {
+    @Test fun `배너는 제거되면 끝나고 실패를 보고한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         val errors = mutableListOf<ErrorCode>()

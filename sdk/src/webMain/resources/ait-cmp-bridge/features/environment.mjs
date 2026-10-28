@@ -3,7 +3,7 @@ const VERSION = /^(\d+\.\d+\.\d+|always|never)$/;
 
 export default ({sdk, available, requireCapability}) => ({
   capabilities: {
-    // `in` checks the getters without reading them; reading outside a host throws.
+    // `in`은 getter를 읽지 않고 확인한다. host 밖에서 읽으면 예외가 난다.
     ENVIRONMENT_INFO: () => typeof sdk.Environment === 'object' && [...ENVIRONMENT_VALUES].every(name => name in sdk.Environment) && typeof sdk.isMinVersionSupported === 'function',
     NETWORK_STATUS: () => available(sdk.Environment?.getNetworkStatus),
     SERVER_TIME: () => available(sdk.Environment?.getServerTime),

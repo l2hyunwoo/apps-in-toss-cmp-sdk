@@ -1,4 +1,4 @@
-// IndexedDB keys and values are structured-clone data; only plain JSON values can cross the bridge.
+// IndexedDB 키와 값은 structured-clone 데이터이고, 일반 JSON 값만 bridge를 넘을 수 있다.
 function jsonSafe(value) {
   if (value === null || typeof value === 'string' || typeof value === 'boolean') return true;
   if (typeof value === 'number') return Number.isFinite(value);
@@ -15,7 +15,7 @@ function base64(buffer) {
   return btoa(binary);
 }
 
-// Skipped records are reported in `errors` so apps that check errors before migrating never copy a partial store.
+// 건너뛴 레코드를 `errors`에 알려서, 마이그레이션 전에 오류를 확인하는 앱이 일부만 있는 저장소를 복사하지 않게 한다.
 function dump({origin, localStorage, indexedDB, opfs, errors}) {
   const problems = errors.map(({storage, message}) => ({storage, message}));
   return {

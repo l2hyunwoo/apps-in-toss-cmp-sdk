@@ -7,7 +7,7 @@ import {base} from './helpers.mjs';
 const dir = new URL('./coverage/', import.meta.url);
 const TOP_LEVEL = new Set(['host', 'supports', 'call', 'stream']);
 
-/** Lists official exports without invoking getters (they read `window`). */
+/** getter를 호출하지 않고 공식 export를 나열한다(getter는 `window`를 읽는다). */
 export function officialNames(sdk) {
   const names = [];
   for (const [key, descriptor] of Object.entries(Object.getOwnPropertyDescriptors(sdk))) {
@@ -49,7 +49,7 @@ async function loadManifest() {
 const bridge = createBridge(base());
 const bridgeMethods = [...bridge.methods.calls, ...bridge.methods.streams];
 
-test('every official 3.9.0 export is classified', async () => {
+test('공식 3.9.0 export를 모두 분류한다', async () => {
   const manifest = await loadManifest();
   const names = officialNames(await import('@apps-in-toss/web-framework'));
   assert.deepEqual(checkCoverage(manifest, names, bridgeMethods), []);
@@ -57,7 +57,7 @@ test('every official 3.9.0 export is classified', async () => {
   if (planned.length) console.info(`[coverage] ${planned.length} planned entries remain`);
 });
 
-test('coverage check reports a removed entry', async () => {
+test('coverage 검사가 제거된 항목을 보고한다', async () => {
   const manifest = await loadManifest();
   const names = officialNames(await import('@apps-in-toss/web-framework'));
   const [first] = Object.keys(manifest).filter(n => manifest[n].bridge);
@@ -67,7 +67,7 @@ test('coverage check reports a removed entry', async () => {
   assert.ok(checkCoverage({...manifest, [first]: {bridge: 'nope', capability: 'X'}}, names, bridgeMethods).some(p => p.startsWith('missing bridge method')));
 });
 
-test('every bridge method is referenced by the manifest', async () => {
+test('manifest가 모든 bridge 메서드를 참조한다', async () => {
   const manifest = await loadManifest();
   const used = new Set(Object.values(manifest).map(e => e.bridge).filter(Boolean));
   assert.deepEqual(bridgeMethods.filter(m => m !== 'reply' && !used.has(m)), []);

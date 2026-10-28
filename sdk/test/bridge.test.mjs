@@ -3,13 +3,13 @@ import assert from 'node:assert/strict';
 import {createBridge} from '../src/webMain/resources/ait-cmp-bridge/core.mjs';
 import {callBridge} from './helpers.mjs';
 
-test('plain browser is unavailable, never silently mocked', async () => {
+test('일반 브라우저에서는 사용할 수 없고 몰래 mock으로 바뀌지 않는다', async () => {
   const b = createBridge({Environment: {get environment() { throw Error('no host'); }}});
   assert.equal(b.host(), 'browser');
   await assert.rejects(callBridge(b, 'login', {}), {code: 'HOST_UNAVAILABLE'});
 });
 
-test('duplicate feature entries are rejected', async () => {
+test('중복 feature 항목을 거부한다', async () => {
   const {FEATURES} = await import('../src/webMain/resources/ait-cmp-bridge/features/index.mjs');
   FEATURES.push(() => ({calls: {login: () => () => null}}));
   try {
@@ -19,18 +19,18 @@ test('duplicate feature entries are rejected', async () => {
   }
 });
 
-test('minimum SDK reports APIs it does not have as unsupported', async () => {
+test('최소 SDK는 없는 API를 unsupported로 보고한다', async () => {
   const {FIXTURES} = await import('./fixtures/index.mjs');
   const min = await import('toss-sdk-min');
   const b = createBridge({...min, Environment: {environment: 'sandbox'}});
-  // Fixtures list capabilities whose official API is missing in 3.0.1 as `absentInMin`.
+  // fixture는 3.0.1에 공식 API가 없는 capability를 `absentInMin`에 나열한다.
   for (const capability of FIXTURES.flatMap(f => f.absentInMin ?? [])) {
     assert.equal(b.supports(capability), false, capability);
   }
 });
 
 for (const name of ['toss-sdk-min', '@apps-in-toss/web-framework']) {
-  test(`official SDK public API shape: ${name}`, async () => {
+  test(`공식 SDK 공개 API 형태: ${name}`, async () => {
     const sdk = await import(name);
     for (const [namespace, method] of [['TossAuth','login'],['User','getAnonymousKey'],['Share','sendMessage'],['Screen','close'],['SafeArea','get'],['SafeArea','subscribe'],['graniteEvent','addEventListener'],['Storage','getItem'],['Storage','setItem'],['Storage','removeItem'],['Game','getUserProfile'],['Game','setLeaderboardScore'],['Game','openLeaderboard'],['Device','triggerHaptic']]) {
       assert.equal(typeof sdk[namespace]?.[method], 'function', `${namespace}.${method}`);
@@ -40,7 +40,7 @@ for (const name of ['toss-sdk-min', '@apps-in-toss/web-framework']) {
   });
 }
 
-test('bundled SDK resources initialize their host and keep mock out of production', async () => {
+test('번들된 SDK 리소스는 host를 초기화하고 production에 mock을 넣지 않는다', async () => {
   const {build} = await import('esbuild');
   const {runInNewContext} = await import('node:vm');
   for (const entry of ['mock', 'index']) {

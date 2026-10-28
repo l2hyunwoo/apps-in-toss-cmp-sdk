@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.test.*
 
 class TossPayApiTest {
-    @Test fun authorizeSendsTokensAndDecodesResults() = runTest {
+    @Test fun `인증은 토큰을 보내고 결과를 디코딩한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         t.reply = """{"success":true}"""
@@ -15,7 +15,7 @@ class TossPayApiTest {
         assertEquals("tossPayAuthorizeSubscription" to """{"wrappedToken":"wrapped"}""", t.calls.last())
     }
 
-    @Test fun authorizeRejectsInvalidInputAndResponses() = runTest {
+    @Test fun `인증은 잘못된 입력과 응답을 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         assertFailsWith<IllegalArgumentException> { c.tossPay.authorize(" ") }

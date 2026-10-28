@@ -14,7 +14,7 @@ const tossAds = (settle, log = []) => ({TossAds: {
   destroyAll: supported(() => { log.push('destroyAll'); }),
 }});
 
-/** Fake official callback API: records the latest params and counts cleanup calls. */
+/** 가짜 공식 callback API다. 최신 params를 기록하고 cleanup 호출 횟수를 센다. */
 function official() {
   const state = {cleaned: 0};
   state.fn = supported(params => { state.params = params; return () => { state.cleaned++; }; });

@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.test.runTest
 
 class PromotionApiTest {
-    @Test fun grantRewardSendsPayloadAndDecodesResults() = runTest {
+    @Test fun `보상 지급은 payload를 보내고 결과를 디코딩한다`() = runTest {
         val t = FakeTransport().apply { reply = """{"key":"reward-key"}""" }
         val c = AppsInTossClient(t)
         assertEquals(PromotionRewardResult.Granted("reward-key"), c.promotion.grantReward("CODE", 1000))
@@ -13,7 +13,7 @@ class PromotionApiTest {
         assertEquals(PromotionRewardResult.Failed("4113"), c.promotion.grantReward("CODE", 1000))
     }
 
-    @Test fun grantRewardRejectsInvalidInputAndResponses() = runTest {
+    @Test fun `보상 지급은 잘못된 입력과 응답을 거부한다`() = runTest {
         val t = FakeTransport()
         val c = AppsInTossClient(t)
         assertFailsWith<IllegalArgumentException> { c.promotion.grantReward(" ", 1) }
