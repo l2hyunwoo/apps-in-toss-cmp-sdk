@@ -1,3 +1,5 @@
+const HAPTIC_TYPES = new Set(['tickWeak', 'tap', 'tickMedium', 'softMedium', 'basicWeak', 'basicMedium', 'success', 'error', 'wiggle', 'confetti']);
+
 export function createBridge(sdk, { mock = false } = {}) {
   function host() {
     try {
@@ -24,9 +26,43 @@ export function createBridge(sdk, { mock = false } = {}) {
     if (host() === 'browser') return false;
     try {
       if (capability === 'USER_ID') return typeof sdk.User?.getAnonymousKey === 'function' && sdk.User.getAnonymousKey.isSupported?.() === true;
-      const method = {TOSS_LOGIN: sdk.TossAuth?.login, SHARE: sdk.Share?.sendMessage, CLOSE: sdk.Screen?.close}[capability];
-      return typeof method === 'function' && (typeof method.isSupported !== 'function' || method.isSupported());
+      if (capability === 'STORAGE') return ['getItem', 'setItem', 'removeItem'].every(name => typeof sdk.Storage?.[name] === 'function');
+      if (capability === 'LEADERBOARD') return [sdk.Game?.setLeaderboardScore, sdk.Game?.openLeaderboard].every(available);
+      const method = {TOSS_LOGIN: sdk.TossAuth?.login, SHARE: sdk.Share?.sendMessage, CLOSE: sdk.Screen?.close, HAPTIC: sdk.generateHapticFeedback, GAME_PROFILE: sdk.Game?.getUserProfile}[capability];
+      return available(method);
     } catch { return false; }
+  }
+  function available(method) {
+    return typeof method === 'function' && (typeof method.isSupported !== 'function' || method.isSupported());
+  }
+  // Each entry validates its JSON payload, checks the capability, then calls the official SDK.
+  const calls = {
+    haptic: ({type}) => {
+      if (!HAPTIC_TYPES.has(type)) throw new TypeError('Unknown haptic type');
+      return () => { requireCapability('HAPTIC'); return sdk.generateHapticFeedback({type}); };
+    },
+    storageGet: ({key}) => { requireKey(key); return () => { requireCapability('STORAGE'); return sdk.Storage.getItem(key); }; },
+    storageSet: ({key, value}) => {
+      requireKey(key);
+      if (typeof value !== 'string') throw new TypeError('Storage value must be a string');
+      return () => { requireCapability('STORAGE'); return sdk.Storage.setItem(key, value); };
+    },
+    storageRemove: ({key}) => { requireKey(key); return () => { requireCapability('STORAGE'); return sdk.Storage.removeItem(key); }; },
+    gameProfile: () => () => {
+      requireCapability('GAME_PROFILE');
+      return Promise.resolve(sdk.Game.getUserProfile()).then(result => { if (result == null) throw {code:'UNSUPPORTED'}; return result; });
+    },
+    leaderboardSubmit: ({score}) => {
+      if (typeof score !== 'string' || !Number.isFinite(Number(score))) throw new TypeError('Score must be a finite number string');
+      return () => {
+        requireCapability('LEADERBOARD');
+        return Promise.resolve(sdk.Game.setLeaderboardScore({score})).then(result => { if (result == null) throw {code:'UNSUPPORTED'}; return result; });
+      };
+    },
+    leaderboardOpen: () => () => { requireCapability('LEADERBOARD'); return sdk.Game.openLeaderboard(); },
+  };
+  function requireKey(key) {
+    if (typeof key !== 'string' || !key.trim()) throw new TypeError('Storage key is required');
   }
   function requireCapability(capability) {
     if (!supported(capability)) throw {code:'UNSUPPORTED'};
@@ -46,6 +82,11 @@ export function createBridge(sdk, { mock = false } = {}) {
       return request(() => { requireCapability('SHARE'); return sdk.Share.sendMessage({message: text}); }, success, failure);
     },
     closeScreen: (success, failure) => request(() => { requireCapability('CLOSE'); return sdk.Screen.close(); }, success, failure),
+    call(method, payload, success, failure) {
+      const prepare = Object.hasOwn(calls, method) ? calls[method] : null;
+      if (!prepare) throw new TypeError('Unknown bridge method');
+      return request(prepare(JSON.parse(payload)), success, failure);
+    },
     subscribe(listener, failure) {
       let active = true;
       const removers = [];

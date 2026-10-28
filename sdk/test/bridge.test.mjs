@@ -56,9 +56,11 @@ test('SDK resource accepts an injected SDK without installing a global bridge',a
 for (const name of ['toss-sdk-min','@apps-in-toss/web-framework']) {
   test(`official SDK public API shape: ${name}`,async()=>{
     const sdk=await import(name);
-    for (const [namespace,method] of [['TossAuth','login'],['User','getAnonymousKey'],['Share','sendMessage'],['Screen','close'],['SafeArea','get'],['SafeArea','subscribe'],['graniteEvent','addEventListener']]) {
+    for (const [namespace,method] of [['TossAuth','login'],['User','getAnonymousKey'],['Share','sendMessage'],['Screen','close'],['SafeArea','get'],['SafeArea','subscribe'],['graniteEvent','addEventListener'],['Storage','getItem'],['Storage','setItem'],['Storage','removeItem'],['Game','getUserProfile'],['Game','setLeaderboardScore'],['Game','openLeaderboard']]) {
       assert.equal(typeof sdk[namespace]?.[method],'function',`${namespace}.${method}`);
     }
+    assert.equal(typeof sdk.generateHapticFeedback,'function');
+    for (const method of ['getUserProfile','setLeaderboardScore','openLeaderboard']) assert.equal(typeof sdk.Game[method].isSupported,'function',method);
     assert.equal(typeof sdk.User.getAnonymousKey.isSupported,'function');
   });
 }
@@ -79,4 +81,51 @@ test('bundled SDK resources initialize their host and keep mock out of productio
       assert.equal(result.authorizationCode,'mock-not-for-server');
     }
   }
+});
+
+function gameFixture() {
+  const {sdk}=fixture(); const store=new Map(); const haptics=[]; const scores=[];
+  Object.assign(sdk,{
+    generateHapticFeedback:async o=>{haptics.push(o.type)},
+    Storage:{getItem:async k=>store.get(k)??null,setItem:async(k,v)=>{store.set(k,v)},removeItem:async k=>{store.delete(k)}},
+    Game:{
+      getUserProfile:Object.assign(async()=>({statusCode:'SUCCESS',nickname:'n',profileImageUri:''}),{isSupported:()=>true}),
+      setLeaderboardScore:Object.assign(async({score})=>{scores.push(score);return {statusCode:'SUCCESS'}},{isSupported:()=>true}),
+      openLeaderboard:Object.assign(async()=>{},{isSupported:()=>true})
+    }
+  });
+  return {sdk,store,haptics,scores};
+}
+const callBridge=(b,method,payload)=>new Promise((resolve,reject)=>b.call(method,JSON.stringify(payload),s=>resolve(JSON.parse(s)),e=>reject(JSON.parse(e))));
+
+test('game APIs dispatch to the official SDK',async()=>{
+  const {sdk,store,haptics,scores}=gameFixture(); const b=createBridge(sdk);
+  for (const cap of ['HAPTIC','STORAGE','GAME_PROFILE','LEADERBOARD']) assert.equal(b.supports(cap),true,cap);
+  await callBridge(b,'haptic',{type:'confetti'}); assert.deepEqual(haptics,['confetti']);
+  assert.equal(await callBridge(b,'storageGet',{key:'k'}),null);
+  await callBridge(b,'storageSet',{key:'k',value:'v'}); assert.equal(store.get('k'),'v');
+  assert.equal(await callBridge(b,'storageGet',{key:'k'}),'v');
+  await callBridge(b,'storageRemove',{key:'k'}); assert.equal(store.has('k'),false);
+  assert.equal((await callBridge(b,'gameProfile',{})).nickname,'n');
+  assert.equal((await callBridge(b,'leaderboardSubmit',{score:'7'})).statusCode,'SUCCESS'); assert.deepEqual(scores,['7']);
+  await callBridge(b,'leaderboardOpen',{});
+});
+
+test('game APIs validate input and report unsupported hosts',async()=>{
+  const {sdk}=gameFixture(); const b=createBridge(sdk);
+  assert.throws(()=>b.call('haptic',JSON.stringify({type:'boom'}),()=>{},()=>{}),TypeError);
+  assert.throws(()=>b.call('storageSet',JSON.stringify({key:' ',value:'v'}),()=>{},()=>{}),TypeError);
+  assert.throws(()=>b.call('leaderboardSubmit',JSON.stringify({score:'abc'}),()=>{},()=>{}),TypeError);
+  assert.throws(()=>b.call('constructor','{}',()=>{},()=>{}),TypeError);
+  sdk.Game.setLeaderboardScore.isSupported=()=>false;
+  assert.equal(b.supports('LEADERBOARD'),false);
+  await assert.rejects(callBridge(b,'leaderboardOpen',{}),{code:'UNSUPPORTED'});
+  sdk.Game.getUserProfile=Object.assign(async()=>undefined,{isSupported:()=>true});
+  await assert.rejects(callBridge(b,'gameProfile',{}),{code:'UNSUPPORTED'});
+  delete sdk.Storage;
+  assert.equal(b.supports('STORAGE'),false);
+  await assert.rejects(callBridge(b,'storageGet',{key:'k'}),{code:'UNSUPPORTED'});
+  const browser=createBridge({Environment:{environment:'web'}});
+  assert.equal(browser.supports('HAPTIC'),false);
+  await assert.rejects(callBridge(browser,'haptic',{type:'tap'}),{code:'HOST_UNAVAILABLE'});
 });

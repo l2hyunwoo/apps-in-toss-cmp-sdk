@@ -12,10 +12,14 @@
 | `getAnonymousKey()` | 익명 사용자 키 반환 |
 | `shareText(text)` | 일반 텍스트 공유 |
 | `closeScreen()` | 호스트 화면 닫기 |
+| `generateHaptic(type)` | 햅틱 피드백(`HapticType`) |
+| `getStorageItem(key)`, `setStorageItem(key, value)`, `removeStorageItem(key)` | 토스앱 로컬 저장소 읽기·쓰기·삭제 |
+| `getGameProfile()` | 토스게임센터 프로필(`GameProfile.Found`/`NotFound`) |
+| `submitLeaderboardScore(score)`, `openLeaderboard()` | 게임센터 리더보드 점수 제출·열기 |
 | `events` | 뒤로 가기·홈·안전 영역 이벤트 Flow |
 | `close()` | 진행 중 요청·이벤트 연결 정리 |
 
-`RuntimeHost`, `Capability`, `HostEvent`, `ErrorCode`, `AppsInTossException`으로 상태와 실패를 구분합니다. 익명 키는 인증 증명이 아니며, 로그인 인가 코드의 서버 교환은 서비스가 구현해야 합니다.
+`RuntimeHost`, `Capability`, `HostEvent`, `ErrorCode`, `AppsInTossException`으로 상태와 실패를 구분합니다. 게임 API는 `Capability.HAPTIC`, `STORAGE`, `GAME_PROFILE`, `LEADERBOARD`로 지원 여부를 먼저 확인합니다. 토스앱 버전이 최소 지원 버전보다 낮아 공식 SDK가 결과를 돌려주지 않으면 `ErrorCode.UNSUPPORTED`로 실패합니다. 리더보드는 콘솔 설정이 없으면 `LEADERBOARD_NOT_FOUND`를 반환합니다. 익명 키는 인증 증명이 아니며, 로그인 인가 코드의 서버 교환은 서비스가 구현해야 합니다.
 
 ## 연결과 수명
 
