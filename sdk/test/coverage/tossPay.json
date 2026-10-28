@@ -1,0 +1,14 @@
+{
+  "TossPay.authorize": {
+    "planned": "M4"
+  },
+  "TossPay.authorizeSubscription": {
+    "planned": "M4"
+  },
+  "checkoutPayment": {
+    "replaced": "TossPay.authorize"
+  },
+  "requestTossPayPaysBilling": {
+    "replaced": "TossPay.authorizeSubscription"
+  }
+}

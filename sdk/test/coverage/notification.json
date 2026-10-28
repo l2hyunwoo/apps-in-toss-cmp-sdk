@@ -1,0 +1,8 @@
+{
+  "Notification.requestAgreement": {
+    "planned": "M5"
+  },
+  "requestNotificationAgreement": {
+    "replaced": "Notification.requestAgreement"
+  }
+}

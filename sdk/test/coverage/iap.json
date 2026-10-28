@@ -1,0 +1,23 @@
+{
+  "IAP.completeProductGrant": {
+    "planned": "M4"
+  },
+  "IAP.createOneTimePurchaseOrder": {
+    "planned": "M4"
+  },
+  "IAP.createSubscriptionPurchaseOrder": {
+    "planned": "M4"
+  },
+  "IAP.getCompletedOrRefundedOrders": {
+    "planned": "M4"
+  },
+  "IAP.getPendingOrders": {
+    "planned": "M4"
+  },
+  "IAP.getProductItemList": {
+    "planned": "M4"
+  },
+  "IAP.getSubscriptionInfo": {
+    "planned": "M4"
+  }
+}

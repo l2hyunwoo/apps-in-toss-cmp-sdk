@@ -1,0 +1,11 @@
+{
+  "Promotion.grantReward": {
+    "planned": "M5"
+  },
+  "grantPromotionReward": {
+    "replaced": "Promotion.grantReward"
+  },
+  "grantPromotionRewardForGame": {
+    "replaced": "Promotion.grantReward"
+  }
+}

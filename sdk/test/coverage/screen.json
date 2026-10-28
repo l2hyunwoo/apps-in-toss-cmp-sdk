@@ -1,0 +1,33 @@
+{
+  "Screen.close": {
+    "bridge": "closeScreen",
+    "capability": "CLOSE"
+  },
+  "Screen.setAwakeMode": {
+    "planned": "M1"
+  },
+  "Screen.setIosSwipeBack": {
+    "planned": "M1"
+  },
+  "Screen.setOrientation": {
+    "planned": "M1"
+  },
+  "Screen.setSecure": {
+    "planned": "M1"
+  },
+  "closeView": {
+    "replaced": "Screen.close"
+  },
+  "setDeviceOrientation": {
+    "replaced": "Screen.setOrientation"
+  },
+  "setIosSwipeGestureEnabled": {
+    "replaced": "Screen.setIosSwipeBack"
+  },
+  "setScreenAwakeMode": {
+    "replaced": "Screen.setAwakeMode"
+  },
+  "setSecureScreen": {
+    "replaced": "Screen.setSecure"
+  }
+}

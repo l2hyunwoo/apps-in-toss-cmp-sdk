@@ -1,0 +1,14 @@
+{
+  "Device.getLocation": {
+    "planned": "M2"
+  },
+  "Device.subscribeLocation": {
+    "planned": "M2"
+  },
+  "getCurrentLocation": {
+    "replaced": "Device.getLocation"
+  },
+  "startUpdateLocation": {
+    "replaced": "Device.subscribeLocation"
+  }
+}

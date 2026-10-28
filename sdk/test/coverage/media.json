@@ -1,0 +1,20 @@
+{
+  "Device.getAlbumItems": {
+    "planned": "M2"
+  },
+  "Device.getPhotos": {
+    "planned": "M2"
+  },
+  "Device.openCamera": {
+    "planned": "M2"
+  },
+  "fetchAlbumItems": {
+    "replaced": "Device.getAlbumItems"
+  },
+  "fetchAlbumPhotos": {
+    "replaced": "Device.getPhotos"
+  },
+  "openCamera": {
+    "replaced": "Device.openCamera"
+  }
+}

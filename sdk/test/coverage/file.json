@@ -1,0 +1,14 @@
+{
+  "File.openPDFViewer": {
+    "planned": "M5"
+  },
+  "File.saveBase64": {
+    "planned": "M5"
+  },
+  "openPDFViewer": {
+    "replaced": "File.openPDFViewer"
+  },
+  "saveBase64Data": {
+    "replaced": "File.saveBase64"
+  }
+}

@@ -26,7 +26,7 @@ fun main() {
                     client.events.collect { event ->
                         when (event) {
                             is HostEvent.SafeArea -> insets = event.insets
-                            HostEvent.Back -> if (!navigation.back()) client.closeScreen()
+                            HostEvent.Back -> if (!navigation.back()) client.screen.close()
                             HostEvent.Home -> navigation.selectedId = null
                         }
                     }
@@ -42,7 +42,7 @@ fun main() {
             ServiceApp(state = navigation, storage = storage, showBackButton = client.host == RuntimeHost.MOCK, onShare = { text ->
                 scope.launch {
                     try {
-                        client.shareText(text)
+                        client.share.sendMessage(text)
                     } catch (e: CancellationException) {
                         throw e
                     } catch (_: Exception) {
@@ -54,7 +54,7 @@ fun main() {
                 Button(enabled = client.supports(Capability.TOSS_LOGIN), onClick = {
                     scope.launch {
                         status = try {
-                            client.requestTossLogin()
+                            client.auth.login()
                             "인가 결과를 받았어요. 실제 서비스는 서버에서 교환해야 해요."
                         } catch (e: CancellationException) {
                             throw e

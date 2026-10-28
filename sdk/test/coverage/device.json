@@ -1,0 +1,27 @@
+{
+  "Device.locale": {
+    "planned": "M1"
+  },
+  "Device.openURL": {
+    "planned": "M1"
+  },
+  "Device.os": {
+    "planned": "M1"
+  },
+  "Device.triggerHaptic": {
+    "bridge": "haptic",
+    "capability": "HAPTIC"
+  },
+  "generateHapticFeedback": {
+    "replaced": "Device.triggerHaptic"
+  },
+  "getLocale": {
+    "replaced": "Device.locale"
+  },
+  "getPlatformOS": {
+    "replaced": "Device.os"
+  },
+  "openURL": {
+    "replaced": "Device.openURL"
+  }
+}

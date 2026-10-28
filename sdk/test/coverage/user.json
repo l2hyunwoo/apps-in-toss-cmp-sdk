@@ -1,0 +1,27 @@
+{
+  "User.createAnonymousKeyAuthCode": {
+    "planned": "M1"
+  },
+  "User.getAnonymousKey": {
+    "bridge": "anonymousKey",
+    "capability": "USER_ID"
+  },
+  "User.getConsentedData": {
+    "planned": "M1"
+  },
+  "User.getDeclaredAgeRange": {
+    "planned": "M1"
+  },
+  "getAnonymousKey": {
+    "replaced": "User.getAnonymousKey"
+  },
+  "getConsentedUserData": {
+    "replaced": "User.getConsentedData"
+  },
+  "getDeclaredAgeRange": {
+    "replaced": "User.getDeclaredAgeRange"
+  },
+  "getUserKeyForGame": {
+    "replaced": "User.getAnonymousKey"
+  }
+}

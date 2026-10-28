@@ -1,0 +1,11 @@
+{
+  "getPermission": {
+    "planned": "M2"
+  },
+  "openPermissionDialog": {
+    "planned": "M2"
+  },
+  "requestPermission": {
+    "planned": "M2"
+  }
+}

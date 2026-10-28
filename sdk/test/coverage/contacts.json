@@ -1,0 +1,8 @@
+{
+  "Device.getContacts": {
+    "planned": "M2"
+  },
+  "fetchContacts": {
+    "replaced": "Device.getContacts"
+  }
+}

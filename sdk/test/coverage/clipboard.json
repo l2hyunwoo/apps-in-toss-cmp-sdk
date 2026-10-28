@@ -1,0 +1,14 @@
+{
+  "Clipboard.getText": {
+    "planned": "M1"
+  },
+  "Clipboard.setText": {
+    "planned": "M1"
+  },
+  "getClipboardText": {
+    "replaced": "Clipboard.getText"
+  },
+  "setClipboardText": {
+    "replaced": "Clipboard.setText"
+  }
+}

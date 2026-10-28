@@ -1,5 +1,14 @@
 package io.github.l2hyunwoo.ait
 
+import kotlinx.serialization.json.*
+
+class DeviceApi internal constructor(private val client: AppsInTossClient) {
+    /** Requires [Capability.HAPTIC]. */
+    suspend fun triggerHaptic(type: HapticType) {
+        client.call("haptic", buildJsonObject { put("type", type.wire) })
+    }
+}
+
 enum class HapticType(internal val wire: String) {
     TICK_WEAK("tickWeak"),
     TAP("tap"),

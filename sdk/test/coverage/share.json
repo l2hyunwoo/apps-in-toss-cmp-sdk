@@ -1,0 +1,15 @@
+{
+  "Share.createLink": {
+    "planned": "M1"
+  },
+  "Share.sendMessage": {
+    "bridge": "share",
+    "capability": "SHARE"
+  },
+  "getTossShareLink": {
+    "replaced": "Share.createLink"
+  },
+  "share": {
+    "replaced": "Share.sendMessage"
+  }
+}

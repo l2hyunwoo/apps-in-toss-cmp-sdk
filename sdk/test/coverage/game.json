@@ -1,0 +1,26 @@
+{
+  "Game.getUserProfile": {
+    "bridge": "gameProfile",
+    "capability": "GAME_PROFILE"
+  },
+  "Game.openLeaderboard": {
+    "bridge": "leaderboardOpen",
+    "capability": "LEADERBOARD"
+  },
+  "Game.setLeaderboardScore": {
+    "bridge": "leaderboardSubmit",
+    "capability": "LEADERBOARD"
+  },
+  "Game.subscribeInfoOverlayHidden": {
+    "planned": "M1"
+  },
+  "getGameCenterGameProfile": {
+    "replaced": "Game.getUserProfile"
+  },
+  "openGameCenterLeaderboard": {
+    "replaced": "Game.openLeaderboard"
+  },
+  "submitGameCenterLeaderBoardScore": {
+    "replaced": "Game.setLeaderboardScore"
+  }
+}

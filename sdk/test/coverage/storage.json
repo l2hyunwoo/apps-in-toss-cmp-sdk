@@ -1,0 +1,23 @@
+{
+  "Storage.clearItems": {
+    "planned": "M1"
+  },
+  "Storage.getItem": {
+    "bridge": "storageGet",
+    "capability": "STORAGE"
+  },
+  "Storage.getItems": {
+    "planned": "M1"
+  },
+  "Storage.removeItem": {
+    "bridge": "storageRemove",
+    "capability": "STORAGE"
+  },
+  "Storage.setItem": {
+    "bridge": "storageSet",
+    "capability": "STORAGE"
+  },
+  "Storage.setItems": {
+    "planned": "M1"
+  }
+}

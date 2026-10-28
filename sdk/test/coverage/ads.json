@@ -1,0 +1,32 @@
+{
+  "GoogleAdMob.isAppsInTossAdMobLoaded": {
+    "planned": "M3"
+  },
+  "GoogleAdMob.loadAppsInTossAdMob": {
+    "planned": "M3"
+  },
+  "GoogleAdMob.showAppsInTossAdMob": {
+    "planned": "M3"
+  },
+  "TossAds.attach": {
+    "replaced": "TossAds.attachBanner"
+  },
+  "TossAds.attachBanner": {
+    "planned": "M3"
+  },
+  "TossAds.destroy": {
+    "planned": "M3"
+  },
+  "TossAds.destroyAll": {
+    "planned": "M3"
+  },
+  "TossAds.initialize": {
+    "planned": "M3"
+  },
+  "loadFullScreenAd": {
+    "planned": "M3"
+  },
+  "showFullScreenAd": {
+    "planned": "M3"
+  }
+}

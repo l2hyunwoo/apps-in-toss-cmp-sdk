@@ -1,0 +1,54 @@
+{
+  "Environment.deploymentId": {
+    "planned": "M1"
+  },
+  "Environment.deviceId": {
+    "planned": "M1"
+  },
+  "Environment.environment": {
+    "bridge": "host",
+    "capability": "HOST_EVENTS"
+  },
+  "Environment.getNetworkStatus": {
+    "planned": "M1"
+  },
+  "Environment.getServerTime": {
+    "planned": "M1"
+  },
+  "Environment.groupId": {
+    "planned": "M1"
+  },
+  "Environment.initialURL": {
+    "planned": "M1"
+  },
+  "Environment.tossAppVersion": {
+    "planned": "M1"
+  },
+  "env.getDeploymentId": {
+    "replaced": "Environment.deploymentId"
+  },
+  "getDeviceId": {
+    "replaced": "Environment.deviceId"
+  },
+  "getGroupId": {
+    "replaced": "Environment.groupId"
+  },
+  "getNetworkStatus": {
+    "replaced": "Environment.getNetworkStatus"
+  },
+  "getOperationalEnvironment": {
+    "replaced": "Environment.environment"
+  },
+  "getSchemeUri": {
+    "replaced": "Environment.initialURL"
+  },
+  "getServerTime": {
+    "replaced": "Environment.getServerTime"
+  },
+  "getTossAppVersion": {
+    "replaced": "Environment.tossAppVersion"
+  },
+  "isMinVersionSupported": {
+    "planned": "M1"
+  }
+}
