@@ -1,9 +1,11 @@
 {
   "File.openPDFViewer": {
-    "planned": "M5"
+    "bridge": "pdfViewer",
+    "capability": "PDF_VIEWER"
   },
   "File.saveBase64": {
-    "planned": "M5"
+    "bridge": "fileSaveBase64",
+    "capability": "SAVE_FILE"
   },
   "openPDFViewer": {
     "replaced": "File.openPDFViewer"

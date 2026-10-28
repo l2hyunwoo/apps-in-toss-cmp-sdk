@@ -1,6 +1,7 @@
 {
   "Review.request": {
-    "planned": "M5"
+    "bridge": "reviewRequest",
+    "capability": "REVIEW"
   },
   "requestReview": {
     "replaced": "Review.request"

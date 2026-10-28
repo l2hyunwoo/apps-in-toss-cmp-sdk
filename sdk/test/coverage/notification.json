@@ -1,6 +1,7 @@
 {
   "Notification.requestAgreement": {
-    "planned": "M5"
+    "bridge": "notificationAgreement",
+    "capability": "NOTIFICATION_AGREEMENT"
   },
   "requestNotificationAgreement": {
     "replaced": "Notification.requestAgreement"
