@@ -11,51 +11,6 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.withTimeoutOrNull
 import kotlinx.serialization.json.*
 
-enum class RuntimeHost { APPS_IN_TOSS, SANDBOX, MOCK, BROWSER }
-enum class Capability { TOSS_LOGIN, USER_ID, SHARE, CLOSE, HAPTIC, STORAGE, GAME_PROFILE, LEADERBOARD }
-enum class HapticType(internal val wire: String) {
-    TICK_WEAK("tickWeak"),
-    TAP("tap"),
-    TICK_MEDIUM("tickMedium"),
-    SOFT_MEDIUM("softMedium"),
-    BASIC_WEAK("basicWeak"),
-    BASIC_MEDIUM("basicMedium"),
-    SUCCESS("success"),
-    ERROR("error"),
-    WIGGLE("wiggle"),
-    CONFETTI("confetti"),
-}
-sealed interface GameProfile {
-    data class Found(val nickname: String, val profileImageUri: String) : GameProfile
-    data object NotFound : GameProfile
-}
-enum class LeaderboardSubmitResult { SUCCESS, LEADERBOARD_NOT_FOUND, PROFILE_NOT_FOUND, UNPARSABLE_SCORE }
-data class TossLoginAuthorization(val authorizationCode: String, val referrer: String)
-data class SafeAreaInsets(val top: Double, val left: Double, val right: Double, val bottom: Double)
-sealed interface HostEvent {
-    data object Back : HostEvent
-    data object Home : HostEvent
-    data class SafeArea(val insets: SafeAreaInsets) : HostEvent
-}
-enum class ErrorCode { UNSUPPORTED, PERMISSION_DENIED, USER_CANCELLED, TIMEOUT, HOST_UNAVAILABLE, INVALID_RESPONSE, SDK_FAILURE, IN_PROGRESS }
-class AppsInTossException(val code: ErrorCode, message: String) : Exception(message)
-
-interface AppsInTossTransport {
-    val host: RuntimeHost
-    fun supports(capability: Capability): Boolean = host != RuntimeHost.BROWSER
-    fun anonymousKey(success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
-    fun login(success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
-    fun share(text: String, success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
-    fun closeScreen(success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
-    fun subscribe(listener: (String) -> Unit, failure: (String) -> Unit): () -> Unit
-
-    /** Generic path for bridge methods added after the original transport contract. */
-    fun call(method: String, payload: String, success: (String) -> Unit, failure: (String) -> Unit): () -> Unit {
-        failure("""{"code":"UNSUPPORTED"}""")
-        return {}
-    }
-}
-
 /** Own one client per UI host. Call methods and close() on the host UI thread. */
 class AppsInTossClient(private val transport: AppsInTossTransport, private val timeoutMillis: Long = 60_000) {
     init {
@@ -250,29 +205,3 @@ class AppsInTossClient(private val transport: AppsInTossTransport, private val t
 }
 
 private fun JsonObject.string(key: String): String = getValue(key).jsonPrimitive.also { require(it.isString) }.content
-
-private fun decodeError(raw: String): AppsInTossException {
-    val code = runCatching { Json.parseToJsonElement(raw).jsonObject["code"]?.jsonPrimitive?.content }.getOrNull()
-    val known = ErrorCode.entries.firstOrNull { it.name == code } ?: ErrorCode.SDK_FAILURE
-    return AppsInTossException(known, "Apps in Toss request failed ($known)")
-}
-
-private fun decodeEvent(raw: String): HostEvent {
-    val obj = Json.parseToJsonElement(raw).jsonObject
-    return when (obj.getValue("type").jsonPrimitive.content) {
-        "back" -> HostEvent.Back
-
-        "home" -> HostEvent.Home
-
-        "safeArea" -> {
-            fun inset(key: String): Double {
-                val value = obj.getValue(key).jsonPrimitive
-                require(!value.isString)
-                return value.double.also { require(it.isFinite() && it >= 0) }
-            }
-            HostEvent.SafeArea(SafeAreaInsets(inset("top"), inset("left"), inset("right"), inset("bottom")))
-        }
-
-        else -> error("Unknown host event")
-    }
-}
