@@ -19,13 +19,12 @@ test('duplicate feature entries are rejected', async () => {
   }
 });
 
-// Capabilities whose official API does not exist in the minimum supported SDK (3.0.1).
-export const ABSENT_IN_MIN = [];
-
 test('minimum SDK reports APIs it does not have as unsupported', async () => {
+  const {FIXTURES} = await import('./fixtures/index.mjs');
   const min = await import('toss-sdk-min');
   const b = createBridge({...min, Environment: {environment: 'sandbox'}});
-  for (const capability of ABSENT_IN_MIN) {
+  // Fixtures list capabilities whose official API is missing in 3.0.1 as `absentInMin`.
+  for (const capability of FIXTURES.flatMap(f => f.absentInMin ?? [])) {
     assert.equal(b.supports(capability), false, capability);
   }
 });

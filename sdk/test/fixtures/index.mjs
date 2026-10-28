@@ -26,5 +26,6 @@ import migration from './migration.mjs';
 // Feature fixtures for bridge-methods.test.mjs. Shape:
 //   calls[method] = {payload, invalid?, capability, sdk: settle => namespaces, expect?, run?}
 //   streams[method] = {payload, run: async ctx => {}}
+//   absentInMin = [capability, ...] missing from the minimum SDK (3.0.1)
 // `settle(value)` returns the value for the success case and a never-settled promise for the late case.
 export const FIXTURES = [host, auth, user, share, screen, navigationBar, storage, device, media, contacts, location, permissions, clipboard, environment, game, iap, tossPay, ads, promotion, analytics, review, notification, file, migration];
