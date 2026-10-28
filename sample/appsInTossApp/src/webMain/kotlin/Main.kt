@@ -37,7 +37,8 @@ fun main() {
                 }
             }
         }
-        Box(Modifier.padding(top = insets.top.dp, bottom = insets.bottom.dp, start = insets.left.dp, end = insets.right.dp)) {
+        // The opaque Toss navigation bar already sits above the WebView, so the status-bar top inset would add a blank band.
+        Box(Modifier.padding(bottom = insets.bottom.dp, start = insets.left.dp, end = insets.right.dp)) {
             ServiceApp(state = navigation, storage = storage, showBackButton = client.host == RuntimeHost.MOCK, onShare = { text ->
                 scope.launch {
                     try {
