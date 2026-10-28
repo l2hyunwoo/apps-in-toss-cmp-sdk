@@ -1,6 +1,7 @@
 {
   "Share.createLink": {
-    "planned": "M1"
+    "bridge": "shareLink",
+    "capability": "SHARE_LINK"
   },
   "Share.sendMessage": {
     "bridge": "share",

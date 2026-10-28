@@ -4,16 +4,20 @@
     "capability": "CLOSE"
   },
   "Screen.setAwakeMode": {
-    "planned": "M1"
+    "bridge": "screenAwakeMode",
+    "capability": "SCREEN_AWAKE"
   },
   "Screen.setIosSwipeBack": {
-    "planned": "M1"
+    "bridge": "screenIosSwipeBack",
+    "capability": "IOS_SWIPE_BACK"
   },
   "Screen.setOrientation": {
-    "planned": "M1"
+    "bridge": "screenOrientation",
+    "capability": "ORIENTATION"
   },
   "Screen.setSecure": {
-    "planned": "M1"
+    "bridge": "screenSecure",
+    "capability": "SECURE_SCREEN"
   },
   "closeView": {
     "replaced": "Screen.close"

@@ -12,7 +12,8 @@
     "capability": "LEADERBOARD"
   },
   "Game.subscribeInfoOverlayHidden": {
-    "planned": "M1"
+    "bridge": "gameInfoOverlayHidden",
+    "capability": "GAME_INFO_OVERLAY"
   },
   "getGameCenterGameProfile": {
     "replaced": "Game.getUserProfile"
