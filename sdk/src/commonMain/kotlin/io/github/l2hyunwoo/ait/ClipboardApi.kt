@@ -4,27 +4,18 @@ import kotlinx.serialization.json.*
 
 class ClipboardApi internal constructor(private val client: AppsInTossClient) {
     /** Reads clipboard text; an empty clipboard gives an empty string. Requires [Capability.CLIPBOARD]. */
-    suspend fun getText(): ClipboardText {
+    suspend fun getText(): PermissionResult<String> {
         val result = client.call("clipboardGetText")
         return decode("clipboard") {
-            val obj = Json.parseToJsonElement(result).jsonObject
-            if (obj.isDenied()) ClipboardText.PermissionDenied else ClipboardText.Text(obj.string("text"))
+            Json.parseToJsonElement(result).jsonObject.permissionResult { it.jsonPrimitive.also { value -> require(value.isString) }.content }
         }
     }
 
     /** Requires [Capability.CLIPBOARD]. */
-    suspend fun setText(text: String): ClipboardWriteResult {
+    suspend fun setText(text: String): PermissionResult<Unit> {
         val result = client.call("clipboardSetText", buildJsonObject { put("text", text) })
         return decode("clipboard") {
-            if (Json.parseToJsonElement(result).jsonObject.isDenied()) ClipboardWriteResult.PERMISSION_DENIED else ClipboardWriteResult.SUCCESS
+            Json.parseToJsonElement(result).jsonObject.permissionResult { require(it is JsonNull) }
         }
     }
-
-    private fun JsonObject.isDenied(): Boolean = this["permission"]?.let { require(it.jsonPrimitive.content == "denied") } != null
 }
-
-sealed interface ClipboardText {
-    data class Text(val text: String) : ClipboardText
-    data object PermissionDenied : ClipboardText
-}
-enum class ClipboardWriteResult { SUCCESS, PERMISSION_DENIED }

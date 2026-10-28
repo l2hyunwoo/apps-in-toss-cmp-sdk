@@ -8,21 +8,21 @@ class ClipboardApiTest {
     private val clipboard = AppsInTossClient(transport).clipboard
 
     @Test fun textAndWritesDecode() = runTest {
-        transport.reply = """{"text":"copied"}"""
-        assertEquals(ClipboardText.Text("copied"), clipboard.getText())
-        transport.reply = "{}"
-        assertEquals(ClipboardWriteResult.SUCCESS, clipboard.setText("t"))
+        transport.reply = """{"permission":"allowed","value":"copied"}"""
+        assertEquals(PermissionResult.Granted("copied"), clipboard.getText())
+        transport.reply = """{"permission":"allowed","value":null}"""
+        assertEquals(PermissionResult.Granted(Unit), clipboard.setText("t"))
         assertEquals(listOf("clipboardGetText" to "{}", "clipboardSetText" to """{"text":"t"}"""), transport.calls)
     }
 
     @Test fun permissionDenialIsAResult() = runTest {
         transport.reply = """{"permission":"denied"}"""
-        assertEquals(ClipboardText.PermissionDenied, clipboard.getText())
-        assertEquals(ClipboardWriteResult.PERMISSION_DENIED, clipboard.setText("t"))
+        assertEquals(PermissionResult.Denied, clipboard.getText())
+        assertEquals(PermissionResult.Denied, clipboard.setText("t"))
     }
 
     @Test fun malformedResponsesAreInvalid() = runTest {
-        for (reply in listOf("{}", """{"text":1}""", """{"permission":"granted"}""", "null")) {
+        for (reply in listOf("{}", """{"permission":"allowed","value":1}""", """{"permission":"granted"}""", "null")) {
             transport.reply = reply
             assertEquals(ErrorCode.INVALID_RESPONSE, assertFailsWith<AppsInTossException> { clipboard.getText() }.code, reply)
         }

@@ -1,8 +1,9 @@
 let text = '';
+const allowed = fn => Object.assign(fn, {getPermission: async () => 'allowed', openPermissionDialog: async () => 'allowed'});
 
 export default {
   Clipboard: {
-    getText: async () => text,
-    setText: async value => { text = value; },
+    getText: allowed(async () => text),
+    setText: allowed(async value => { text = value; }),
   },
 };
