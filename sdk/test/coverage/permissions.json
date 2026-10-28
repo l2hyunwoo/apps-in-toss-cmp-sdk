@@ -1,11 +1,14 @@
 {
   "getPermission": {
-    "planned": "M2"
+    "bridge": "permissionGet",
+    "capability": "PERMISSIONS"
   },
   "openPermissionDialog": {
-    "planned": "M2"
+    "bridge": "permissionDialog",
+    "capability": "PERMISSIONS"
   },
   "requestPermission": {
-    "planned": "M2"
+    "bridge": "permissionRequest",
+    "capability": "PERMISSIONS"
   }
 }

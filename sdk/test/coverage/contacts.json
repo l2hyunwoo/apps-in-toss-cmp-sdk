@@ -1,6 +1,7 @@
 {
   "Device.getContacts": {
-    "planned": "M2"
+    "bridge": "contactsGet",
+    "capability": "CONTACTS"
   },
   "fetchContacts": {
     "replaced": "Device.getContacts"

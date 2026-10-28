@@ -1,12 +1,15 @@
 {
   "Device.getAlbumItems": {
-    "planned": "M2"
+    "bridge": "albumItemsGet",
+    "capability": "ALBUM"
   },
   "Device.getPhotos": {
-    "planned": "M2"
+    "bridge": "photosGet",
+    "capability": "PHOTOS"
   },
   "Device.openCamera": {
-    "planned": "M2"
+    "bridge": "cameraOpen",
+    "capability": "CAMERA"
   },
   "fetchAlbumItems": {
     "replaced": "Device.getAlbumItems"
