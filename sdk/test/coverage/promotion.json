@@ -1,6 +1,7 @@
 {
   "Promotion.grantReward": {
-    "planned": "M5"
+    "bridge": "promotionGrantReward",
+    "capability": "PROMOTION_REWARD"
   },
   "grantPromotionReward": {
     "replaced": "Promotion.grantReward"

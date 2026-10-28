@@ -1,5 +1,6 @@
 {
   "Migration.getOriginStorage": {
-    "planned": "M5"
+    "bridge": "migrationOriginStorage",
+    "capability": "ORIGIN_STORAGE_MIGRATION"
   }
 }

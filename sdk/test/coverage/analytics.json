@@ -1,15 +1,19 @@
 {
   "Analytics.click": {
-    "planned": "M5"
+    "bridge": "analyticsClick",
+    "capability": "ANALYTICS"
   },
   "Analytics.impression": {
-    "planned": "M5"
+    "bridge": "analyticsImpression",
+    "capability": "ANALYTICS"
   },
   "Analytics.log": {
-    "planned": "M5"
+    "bridge": "analyticsLog",
+    "capability": "ANALYTICS"
   },
   "Analytics.screen": {
-    "planned": "M5"
+    "bridge": "analyticsScreen",
+    "capability": "ANALYTICS"
   },
   "eventLog": {
     "replaced": "Analytics.log"
