@@ -1,5 +1,7 @@
 package io.github.l2hyunwoo.ait
 
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import kotlinx.serialization.json.*
 
 class GameApi internal constructor(private val client: AppsInTossClient) {
@@ -29,6 +31,12 @@ class GameApi internal constructor(private val client: AppsInTossClient) {
     suspend fun openLeaderboard() {
         client.call("leaderboardOpen")
     }
+
+    /**
+     * Emits each time the game info overlay fully disappears. Collect before it hides; a missed event is not redelivered.
+     * Never completes on its own. Requires [Capability.GAME_INFO_OVERLAY].
+     */
+    fun subscribeInfoOverlayHidden(): Flow<Unit> = client.stream("gameInfoOverlayHidden").map { }
 }
 
 sealed interface GameProfile {

@@ -1,5 +1,6 @@
 {
   "NavigationBar.setOptions": {
-    "planned": "M1"
+    "bridge": "navigationBarOptions",
+    "capability": "NAVIGATION_BAR"
   }
 }
