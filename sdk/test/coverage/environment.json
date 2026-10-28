@@ -1,28 +1,35 @@
 {
   "Environment.deploymentId": {
-    "planned": "M1"
+    "bridge": "environmentValue",
+    "capability": "ENVIRONMENT_INFO"
   },
   "Environment.deviceId": {
-    "planned": "M1"
+    "bridge": "environmentValue",
+    "capability": "ENVIRONMENT_INFO"
   },
   "Environment.environment": {
-    "bridge": "host",
-    "capability": "HOST_EVENTS"
+    "bridge": "environmentValue",
+    "capability": "ENVIRONMENT_INFO"
   },
   "Environment.getNetworkStatus": {
-    "planned": "M1"
+    "bridge": "networkStatus",
+    "capability": "NETWORK_STATUS"
   },
   "Environment.getServerTime": {
-    "planned": "M1"
+    "bridge": "serverTime",
+    "capability": "SERVER_TIME"
   },
   "Environment.groupId": {
-    "planned": "M1"
+    "bridge": "environmentValue",
+    "capability": "ENVIRONMENT_INFO"
   },
   "Environment.initialURL": {
-    "planned": "M1"
+    "bridge": "environmentValue",
+    "capability": "ENVIRONMENT_INFO"
   },
   "Environment.tossAppVersion": {
-    "planned": "M1"
+    "bridge": "environmentValue",
+    "capability": "ENVIRONMENT_INFO"
   },
   "env.getDeploymentId": {
     "replaced": "Environment.deploymentId"
@@ -49,6 +56,7 @@
     "replaced": "Environment.tossAppVersion"
   },
   "isMinVersionSupported": {
-    "planned": "M1"
+    "bridge": "isMinVersionSupported",
+    "capability": "ENVIRONMENT_INFO"
   }
 }

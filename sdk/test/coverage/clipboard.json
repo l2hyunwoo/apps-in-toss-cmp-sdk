@@ -1,9 +1,11 @@
 {
   "Clipboard.getText": {
-    "planned": "M1"
+    "bridge": "clipboardGetText",
+    "capability": "CLIPBOARD"
   },
   "Clipboard.setText": {
-    "planned": "M1"
+    "bridge": "clipboardSetText",
+    "capability": "CLIPBOARD"
   },
   "getClipboardText": {
     "replaced": "Clipboard.getText"

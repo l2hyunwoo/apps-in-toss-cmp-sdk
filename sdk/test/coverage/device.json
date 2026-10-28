@@ -1,12 +1,15 @@
 {
   "Device.locale": {
-    "planned": "M1"
+    "bridge": "deviceValue",
+    "capability": "DEVICE_INFO"
   },
   "Device.openURL": {
-    "planned": "M1"
+    "bridge": "openURL",
+    "capability": "OPEN_URL"
   },
   "Device.os": {
-    "planned": "M1"
+    "bridge": "deviceValue",
+    "capability": "DEVICE_INFO"
   },
   "Device.triggerHaptic": {
     "bridge": "haptic",

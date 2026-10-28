@@ -1,13 +1,15 @@
 {
   "Storage.clearItems": {
-    "planned": "M1"
+    "bridge": "storageClear",
+    "capability": "STORAGE"
   },
   "Storage.getItem": {
     "bridge": "storageGet",
     "capability": "STORAGE"
   },
   "Storage.getItems": {
-    "planned": "M1"
+    "bridge": "storageGetItems",
+    "capability": "STORAGE_BATCH"
   },
   "Storage.removeItem": {
     "bridge": "storageRemove",
@@ -18,6 +20,7 @@
     "capability": "STORAGE"
   },
   "Storage.setItems": {
-    "planned": "M1"
+    "bridge": "storageSetItems",
+    "capability": "STORAGE_BATCH"
   }
 }
