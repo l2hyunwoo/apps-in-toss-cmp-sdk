@@ -27,6 +27,8 @@ Maven Central의 `io.github.l2hyunwoo:apps-in-toss-sdk`를 참조합니다. 생�
 
 웹 빌드가 SDK의 `web-resources` JAR를 추출하고 CMP 진입점보다 먼저 JS 브리지를 초기화합니다. 별도 npm 브리지 설치는 필요하지 않습니다. UI 호스트마다 클라이언트 하나를 소유합니다. API와 `close()`는 호스트 UI 스레드에서 호출합니다. 호스트 해제 시 `close()`를 호출해야 합니다. 연결 예제는 [앱인토스 진입점](../sample/appsInTossApp/src/webMain/kotlin/Main.kt)에 있습니다.
 
+`HostEvent.SafeArea`의 `top`은 상태바 여백입니다. 기본 불투명 내비게이션 바를 쓰면 WebView가 이미 내비게이션 바 아래에서 시작하므로 `top`을 적용하지 않습니다. 하단·좌우 값만 적용합니다.
+
 로그인은 한 번에 하나만 처리하고 기본 제한 시간은 60초입니다. 코루틴 취소·제한 시간 초과 시 늦게 도착한 결과를 무시하고 연결을 해제합니다. 호스트의 로그인 창 자체를 닫지는 않습니다. 미지원 기능·호스트 부재·잘못된 응답을 구분하며 원본 오류의 민감한 내용을 노출하지 않습니다.
 
 JS·Wasm이 호스트 연동 대상이며, JVM 타깃은 계약 테스트용입니다. Android·iOS 앱은 [공통 UI](../sample/shared-ui/README.md)와 [서비스 로직](../sample/shared-core/README.md)을 재사용합니다.
