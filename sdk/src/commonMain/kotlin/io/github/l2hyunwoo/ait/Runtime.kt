@@ -1,9 +1,9 @@
 package io.github.l2hyunwoo.ait
 
-enum class RuntimeHost { APPS_IN_TOSS, SANDBOX, MOCK, BROWSER }
+public enum class RuntimeHost { APPS_IN_TOSS, SANDBOX, MOCK, BROWSER }
 
 /** 현재 호스트가 실행할 수 있는 기능 묶음이다. 각 API는 필요한 capability를 문서에 적는다. */
-enum class Capability {
+public enum class Capability {
     HOST_EVENTS,
 
     // auth

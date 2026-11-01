@@ -2,9 +2,9 @@ package io.github.l2hyunwoo.ait
 
 import kotlinx.serialization.json.*
 
-class ContactsApi internal constructor(private val client: AppsInTossClient) {
+public class ContactsApi internal constructor(private val client: AppsInTossClient) {
     /** 연락처를 한 페이지 읽는다. 처음에는 0을, 그다음에는 [ContactResult.nextOffset]을 넘긴다. [Capability.CONTACTS]가 필요하다. */
-    suspend fun getContacts(size: Int, offset: Int, contains: String? = null): PermissionResult<ContactResult> {
+    public suspend fun getContacts(size: Int, offset: Int, contains: String? = null): PermissionResult<ContactResult> {
         require(size > 0 && offset >= 0)
         val result = client.call(
             "contactsGet",
@@ -28,5 +28,5 @@ class ContactsApi internal constructor(private val client: AppsInTossClient) {
     }
 }
 
-data class ContactEntity(val name: String, val phoneNumber: String)
-data class ContactResult(val result: List<ContactEntity>, val nextOffset: Int?, val done: Boolean)
+public data class ContactEntity(val name: String, val phoneNumber: String)
+public data class ContactResult(val result: List<ContactEntity>, val nextOffset: Int?, val done: Boolean)

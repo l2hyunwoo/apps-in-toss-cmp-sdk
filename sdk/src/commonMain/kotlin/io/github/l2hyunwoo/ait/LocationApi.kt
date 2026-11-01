@@ -5,9 +5,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.transformWhile
 import kotlinx.serialization.json.*
 
-class LocationApi internal constructor(private val client: AppsInTossClient) {
+public class LocationApi internal constructor(private val client: AppsInTossClient) {
     /** 현재 위치를 한 번 읽는다. [Capability.LOCATION]가 필요하다. */
-    suspend fun getLocation(accuracy: Accuracy): PermissionResult<Location> {
+    public suspend fun getLocation(accuracy: Accuracy): PermissionResult<Location> {
         val result = client.call("locationGet", buildJsonObject { put("accuracy", accuracy.value) })
         return decode("location") { Json.parseToJsonElement(result).jsonObject.permissionResult { it.jsonObject.location() } }
     }
@@ -17,7 +17,7 @@ class LocationApi internal constructor(private val client: AppsInTossClient) {
      * 권한이 거부되면 [PermissionResult.Denied]를 한 번 방출하고 완료한다.
      * [Capability.LOCATION_UPDATES]가 필요하다.
      */
-    fun subscribeLocation(accuracy: Accuracy, timeIntervalMillis: Long, distanceIntervalMeters: Double): Flow<PermissionResult<Location>> {
+    public fun subscribeLocation(accuracy: Accuracy, timeIntervalMillis: Long, distanceIntervalMeters: Double): Flow<PermissionResult<Location>> {
         require(timeIntervalMillis >= 0 && distanceIntervalMeters.isFinite() && distanceIntervalMeters >= 0)
         val payload = buildJsonObject {
             put("accuracy", accuracy.value)
@@ -56,7 +56,7 @@ class LocationApi internal constructor(private val client: AppsInTossClient) {
 }
 
 /** 공식 `Accuracy` 상수다. */
-enum class Accuracy(internal val value: Int) {
+public enum class Accuracy(internal val value: Int) {
     LOWEST(1),
     LOW(2),
     BALANCED(3),
@@ -66,8 +66,8 @@ enum class Accuracy(internal val value: Int) {
 }
 
 /** [accessLocation]은 Android에서만 전달된다. [timestamp]는 epoch 밀리초다. */
-data class Location(val accessLocation: AccessLocation?, val timestamp: Double, val coords: LocationCoords)
-data class LocationCoords(
+public data class Location(val accessLocation: AccessLocation?, val timestamp: Double, val coords: LocationCoords)
+public data class LocationCoords(
     val latitude: Double,
     val longitude: Double,
     val altitude: Double,
@@ -75,4 +75,4 @@ data class LocationCoords(
     val altitudeAccuracy: Double,
     val heading: Double,
 )
-enum class AccessLocation { FINE, COARSE }
+public enum class AccessLocation { FINE, COARSE }

@@ -1,0 +1,1685 @@
+// Klib ABI Dump
+// Targets: [js, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.l2hyunwoo:sdk>
+final enum class io.github.l2hyunwoo.ait/AccessLocation : kotlin/Enum<io.github.l2hyunwoo.ait/AccessLocation> { // io.github.l2hyunwoo.ait/AccessLocation|null[0]
+    enum entry COARSE // io.github.l2hyunwoo.ait/AccessLocation.COARSE|null[0]
+    enum entry FINE // io.github.l2hyunwoo.ait/AccessLocation.FINE|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/AccessLocation.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/AccessLocation> // io.github.l2hyunwoo.ait/AccessLocation.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/AccessLocation // io.github.l2hyunwoo.ait/AccessLocation.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/AccessLocation> // io.github.l2hyunwoo.ait/AccessLocation.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/Accuracy : kotlin/Enum<io.github.l2hyunwoo.ait/Accuracy> { // io.github.l2hyunwoo.ait/Accuracy|null[0]
+    enum entry BALANCED // io.github.l2hyunwoo.ait/Accuracy.BALANCED|null[0]
+    enum entry BEST_FOR_NAVIGATION // io.github.l2hyunwoo.ait/Accuracy.BEST_FOR_NAVIGATION|null[0]
+    enum entry HIGH // io.github.l2hyunwoo.ait/Accuracy.HIGH|null[0]
+    enum entry HIGHEST // io.github.l2hyunwoo.ait/Accuracy.HIGHEST|null[0]
+    enum entry LOW // io.github.l2hyunwoo.ait/Accuracy.LOW|null[0]
+    enum entry LOWEST // io.github.l2hyunwoo.ait/Accuracy.LOWEST|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/Accuracy.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/Accuracy> // io.github.l2hyunwoo.ait/Accuracy.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/Accuracy // io.github.l2hyunwoo.ait/Accuracy.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/Accuracy> // io.github.l2hyunwoo.ait/Accuracy.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/AlbumItemType : kotlin/Enum<io.github.l2hyunwoo.ait/AlbumItemType> { // io.github.l2hyunwoo.ait/AlbumItemType|null[0]
+    enum entry PHOTO // io.github.l2hyunwoo.ait/AlbumItemType.PHOTO|null[0]
+    enum entry VIDEO // io.github.l2hyunwoo.ait/AlbumItemType.VIDEO|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/AlbumItemType.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/AlbumItemType> // io.github.l2hyunwoo.ait/AlbumItemType.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/AlbumItemType // io.github.l2hyunwoo.ait/AlbumItemType.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/AlbumItemType> // io.github.l2hyunwoo.ait/AlbumItemType.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/BannerTheme : kotlin/Enum<io.github.l2hyunwoo.ait/BannerTheme> { // io.github.l2hyunwoo.ait/BannerTheme|null[0]
+    enum entry AUTO // io.github.l2hyunwoo.ait/BannerTheme.AUTO|null[0]
+    enum entry DARK // io.github.l2hyunwoo.ait/BannerTheme.DARK|null[0]
+    enum entry LIGHT // io.github.l2hyunwoo.ait/BannerTheme.LIGHT|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/BannerTheme.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/BannerTheme> // io.github.l2hyunwoo.ait/BannerTheme.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/BannerTheme // io.github.l2hyunwoo.ait/BannerTheme.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/BannerTheme> // io.github.l2hyunwoo.ait/BannerTheme.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/BannerTone : kotlin/Enum<io.github.l2hyunwoo.ait/BannerTone> { // io.github.l2hyunwoo.ait/BannerTone|null[0]
+    enum entry BLACK_AND_WHITE // io.github.l2hyunwoo.ait/BannerTone.BLACK_AND_WHITE|null[0]
+    enum entry GREY // io.github.l2hyunwoo.ait/BannerTone.GREY|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/BannerTone.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/BannerTone> // io.github.l2hyunwoo.ait/BannerTone.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/BannerTone // io.github.l2hyunwoo.ait/BannerTone.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/BannerTone> // io.github.l2hyunwoo.ait/BannerTone.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/BannerVariant : kotlin/Enum<io.github.l2hyunwoo.ait/BannerVariant> { // io.github.l2hyunwoo.ait/BannerVariant|null[0]
+    enum entry CARD // io.github.l2hyunwoo.ait/BannerVariant.CARD|null[0]
+    enum entry EXPANDED // io.github.l2hyunwoo.ait/BannerVariant.EXPANDED|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/BannerVariant.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/BannerVariant> // io.github.l2hyunwoo.ait/BannerVariant.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/BannerVariant // io.github.l2hyunwoo.ait/BannerVariant.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/BannerVariant> // io.github.l2hyunwoo.ait/BannerVariant.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/Capability : kotlin/Enum<io.github.l2hyunwoo.ait/Capability> { // io.github.l2hyunwoo.ait/Capability|null[0]
+    enum entry ADMOB // io.github.l2hyunwoo.ait/Capability.ADMOB|null[0]
+    enum entry ALBUM // io.github.l2hyunwoo.ait/Capability.ALBUM|null[0]
+    enum entry ANALYTICS // io.github.l2hyunwoo.ait/Capability.ANALYTICS|null[0]
+    enum entry BANNER_AD // io.github.l2hyunwoo.ait/Capability.BANNER_AD|null[0]
+    enum entry CAMERA // io.github.l2hyunwoo.ait/Capability.CAMERA|null[0]
+    enum entry CLIPBOARD // io.github.l2hyunwoo.ait/Capability.CLIPBOARD|null[0]
+    enum entry CLOSE // io.github.l2hyunwoo.ait/Capability.CLOSE|null[0]
+    enum entry CONSENTED_DATA // io.github.l2hyunwoo.ait/Capability.CONSENTED_DATA|null[0]
+    enum entry CONTACTS // io.github.l2hyunwoo.ait/Capability.CONTACTS|null[0]
+    enum entry DECLARED_AGE_RANGE // io.github.l2hyunwoo.ait/Capability.DECLARED_AGE_RANGE|null[0]
+    enum entry DEVICE_INFO // io.github.l2hyunwoo.ait/Capability.DEVICE_INFO|null[0]
+    enum entry ENVIRONMENT_INFO // io.github.l2hyunwoo.ait/Capability.ENVIRONMENT_INFO|null[0]
+    enum entry FULL_SCREEN_AD // io.github.l2hyunwoo.ait/Capability.FULL_SCREEN_AD|null[0]
+    enum entry GAME_INFO_OVERLAY // io.github.l2hyunwoo.ait/Capability.GAME_INFO_OVERLAY|null[0]
+    enum entry GAME_PROFILE // io.github.l2hyunwoo.ait/Capability.GAME_PROFILE|null[0]
+    enum entry HAPTIC // io.github.l2hyunwoo.ait/Capability.HAPTIC|null[0]
+    enum entry HOST_EVENTS // io.github.l2hyunwoo.ait/Capability.HOST_EVENTS|null[0]
+    enum entry IAP // io.github.l2hyunwoo.ait/Capability.IAP|null[0]
+    enum entry IAP_SUBSCRIPTION // io.github.l2hyunwoo.ait/Capability.IAP_SUBSCRIPTION|null[0]
+    enum entry IOS_SWIPE_BACK // io.github.l2hyunwoo.ait/Capability.IOS_SWIPE_BACK|null[0]
+    enum entry LEADERBOARD // io.github.l2hyunwoo.ait/Capability.LEADERBOARD|null[0]
+    enum entry LOCATION // io.github.l2hyunwoo.ait/Capability.LOCATION|null[0]
+    enum entry LOCATION_UPDATES // io.github.l2hyunwoo.ait/Capability.LOCATION_UPDATES|null[0]
+    enum entry NAVIGATION_BAR // io.github.l2hyunwoo.ait/Capability.NAVIGATION_BAR|null[0]
+    enum entry NETWORK_STATUS // io.github.l2hyunwoo.ait/Capability.NETWORK_STATUS|null[0]
+    enum entry NOTIFICATION_AGREEMENT // io.github.l2hyunwoo.ait/Capability.NOTIFICATION_AGREEMENT|null[0]
+    enum entry OPEN_URL // io.github.l2hyunwoo.ait/Capability.OPEN_URL|null[0]
+    enum entry ORIENTATION // io.github.l2hyunwoo.ait/Capability.ORIENTATION|null[0]
+    enum entry ORIGIN_STORAGE_MIGRATION // io.github.l2hyunwoo.ait/Capability.ORIGIN_STORAGE_MIGRATION|null[0]
+    enum entry PDF_VIEWER // io.github.l2hyunwoo.ait/Capability.PDF_VIEWER|null[0]
+    enum entry PERMISSIONS // io.github.l2hyunwoo.ait/Capability.PERMISSIONS|null[0]
+    enum entry PHOTOS // io.github.l2hyunwoo.ait/Capability.PHOTOS|null[0]
+    enum entry PROMOTION_REWARD // io.github.l2hyunwoo.ait/Capability.PROMOTION_REWARD|null[0]
+    enum entry REVIEW // io.github.l2hyunwoo.ait/Capability.REVIEW|null[0]
+    enum entry SAVE_FILE // io.github.l2hyunwoo.ait/Capability.SAVE_FILE|null[0]
+    enum entry SCREEN_AWAKE // io.github.l2hyunwoo.ait/Capability.SCREEN_AWAKE|null[0]
+    enum entry SECURE_SCREEN // io.github.l2hyunwoo.ait/Capability.SECURE_SCREEN|null[0]
+    enum entry SERVER_TIME // io.github.l2hyunwoo.ait/Capability.SERVER_TIME|null[0]
+    enum entry SHARE // io.github.l2hyunwoo.ait/Capability.SHARE|null[0]
+    enum entry SHARE_LINK // io.github.l2hyunwoo.ait/Capability.SHARE_LINK|null[0]
+    enum entry STORAGE // io.github.l2hyunwoo.ait/Capability.STORAGE|null[0]
+    enum entry STORAGE_BATCH // io.github.l2hyunwoo.ait/Capability.STORAGE_BATCH|null[0]
+    enum entry TOSS_LOGIN // io.github.l2hyunwoo.ait/Capability.TOSS_LOGIN|null[0]
+    enum entry TOSS_LOGIN_INTEGRATION // io.github.l2hyunwoo.ait/Capability.TOSS_LOGIN_INTEGRATION|null[0]
+    enum entry TOSS_PAY // io.github.l2hyunwoo.ait/Capability.TOSS_PAY|null[0]
+    enum entry TOSS_PAY_SUBSCRIPTION // io.github.l2hyunwoo.ait/Capability.TOSS_PAY_SUBSCRIPTION|null[0]
+    enum entry TOSS_SIGN // io.github.l2hyunwoo.ait/Capability.TOSS_SIGN|null[0]
+    enum entry USER_ID // io.github.l2hyunwoo.ait/Capability.USER_ID|null[0]
+    enum entry USER_KEY_AUTH_CODE // io.github.l2hyunwoo.ait/Capability.USER_KEY_AUTH_CODE|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/Capability.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/Capability> // io.github.l2hyunwoo.ait/Capability.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/Capability // io.github.l2hyunwoo.ait/Capability.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/Capability> // io.github.l2hyunwoo.ait/Capability.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/ConsentedDataError : kotlin/Enum<io.github.l2hyunwoo.ait/ConsentedDataError> { // io.github.l2hyunwoo.ait/ConsentedDataError|null[0]
+    enum entry CANCELED // io.github.l2hyunwoo.ait/ConsentedDataError.CANCELED|null[0]
+    enum entry CONSENTED_USER_DATA_AGREEMENT_FAILED // io.github.l2hyunwoo.ait/ConsentedDataError.CONSENTED_USER_DATA_AGREEMENT_FAILED|null[0]
+    enum entry CONSENTED_USER_DATA_INVALID_DATA // io.github.l2hyunwoo.ait/ConsentedDataError.CONSENTED_USER_DATA_INVALID_DATA|null[0]
+    enum entry INVALID_REQUEST // io.github.l2hyunwoo.ait/ConsentedDataError.INVALID_REQUEST|null[0]
+    enum entry TERMS_NOT_SET // io.github.l2hyunwoo.ait/ConsentedDataError.TERMS_NOT_SET|null[0]
+    enum entry UNAVAILABLE // io.github.l2hyunwoo.ait/ConsentedDataError.UNAVAILABLE|null[0]
+    enum entry USER_DECLINED // io.github.l2hyunwoo.ait/ConsentedDataError.USER_DECLINED|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/ConsentedDataError.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/ConsentedDataError> // io.github.l2hyunwoo.ait/ConsentedDataError.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/ConsentedDataError // io.github.l2hyunwoo.ait/ConsentedDataError.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/ConsentedDataError> // io.github.l2hyunwoo.ait/ConsentedDataError.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus : kotlin/Enum<io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus> { // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus|null[0]
+    enum entry DECLINED_SHARING // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus.DECLINED_SHARING|null[0]
+    enum entry FAILED // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus.FAILED|null[0]
+    enum entry INVALID_REQUEST // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus.INVALID_REQUEST|null[0]
+    enum entry NOT_AVAILABLE // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus.NOT_AVAILABLE|null[0]
+    enum entry SHARING // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus.SHARING|null[0]
+    enum entry UNSUPPORTED_OS // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus.UNSUPPORTED_OS|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus> // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus> // io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/DeviceOrientation : kotlin/Enum<io.github.l2hyunwoo.ait/DeviceOrientation> { // io.github.l2hyunwoo.ait/DeviceOrientation|null[0]
+    enum entry LANDSCAPE // io.github.l2hyunwoo.ait/DeviceOrientation.LANDSCAPE|null[0]
+    enum entry PORTRAIT // io.github.l2hyunwoo.ait/DeviceOrientation.PORTRAIT|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/DeviceOrientation.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/DeviceOrientation> // io.github.l2hyunwoo.ait/DeviceOrientation.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/DeviceOrientation // io.github.l2hyunwoo.ait/DeviceOrientation.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/DeviceOrientation> // io.github.l2hyunwoo.ait/DeviceOrientation.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/DeviceOs : kotlin/Enum<io.github.l2hyunwoo.ait/DeviceOs> { // io.github.l2hyunwoo.ait/DeviceOs|null[0]
+    enum entry ANDROID // io.github.l2hyunwoo.ait/DeviceOs.ANDROID|null[0]
+    enum entry IOS // io.github.l2hyunwoo.ait/DeviceOs.IOS|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/DeviceOs.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/DeviceOs> // io.github.l2hyunwoo.ait/DeviceOs.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/DeviceOs // io.github.l2hyunwoo.ait/DeviceOs.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/DeviceOs> // io.github.l2hyunwoo.ait/DeviceOs.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/ErrorCode : kotlin/Enum<io.github.l2hyunwoo.ait/ErrorCode> { // io.github.l2hyunwoo.ait/ErrorCode|null[0]
+    enum entry HOST_UNAVAILABLE // io.github.l2hyunwoo.ait/ErrorCode.HOST_UNAVAILABLE|null[0]
+    enum entry INVALID_RESPONSE // io.github.l2hyunwoo.ait/ErrorCode.INVALID_RESPONSE|null[0]
+    enum entry IN_PROGRESS // io.github.l2hyunwoo.ait/ErrorCode.IN_PROGRESS|null[0]
+    enum entry PERMISSION_DENIED // io.github.l2hyunwoo.ait/ErrorCode.PERMISSION_DENIED|null[0]
+    enum entry SDK_FAILURE // io.github.l2hyunwoo.ait/ErrorCode.SDK_FAILURE|null[0]
+    enum entry TIMEOUT // io.github.l2hyunwoo.ait/ErrorCode.TIMEOUT|null[0]
+    enum entry UNSUPPORTED // io.github.l2hyunwoo.ait/ErrorCode.UNSUPPORTED|null[0]
+    enum entry USER_CANCELLED // io.github.l2hyunwoo.ait/ErrorCode.USER_CANCELLED|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/ErrorCode.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/ErrorCode> // io.github.l2hyunwoo.ait/ErrorCode.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/ErrorCode // io.github.l2hyunwoo.ait/ErrorCode.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/ErrorCode> // io.github.l2hyunwoo.ait/ErrorCode.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/HapticType : kotlin/Enum<io.github.l2hyunwoo.ait/HapticType> { // io.github.l2hyunwoo.ait/HapticType|null[0]
+    enum entry BASIC_MEDIUM // io.github.l2hyunwoo.ait/HapticType.BASIC_MEDIUM|null[0]
+    enum entry BASIC_WEAK // io.github.l2hyunwoo.ait/HapticType.BASIC_WEAK|null[0]
+    enum entry CONFETTI // io.github.l2hyunwoo.ait/HapticType.CONFETTI|null[0]
+    enum entry ERROR // io.github.l2hyunwoo.ait/HapticType.ERROR|null[0]
+    enum entry SOFT_MEDIUM // io.github.l2hyunwoo.ait/HapticType.SOFT_MEDIUM|null[0]
+    enum entry SUCCESS // io.github.l2hyunwoo.ait/HapticType.SUCCESS|null[0]
+    enum entry TAP // io.github.l2hyunwoo.ait/HapticType.TAP|null[0]
+    enum entry TICK_MEDIUM // io.github.l2hyunwoo.ait/HapticType.TICK_MEDIUM|null[0]
+    enum entry TICK_WEAK // io.github.l2hyunwoo.ait/HapticType.TICK_WEAK|null[0]
+    enum entry WIGGLE // io.github.l2hyunwoo.ait/HapticType.WIGGLE|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/HapticType.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/HapticType> // io.github.l2hyunwoo.ait/HapticType.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/HapticType // io.github.l2hyunwoo.ait/HapticType.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/HapticType> // io.github.l2hyunwoo.ait/HapticType.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/IapOfferType : kotlin/Enum<io.github.l2hyunwoo.ait/IapOfferType> { // io.github.l2hyunwoo.ait/IapOfferType|null[0]
+    enum entry FREE_TRIAL // io.github.l2hyunwoo.ait/IapOfferType.FREE_TRIAL|null[0]
+    enum entry NEW_SUBSCRIPTION // io.github.l2hyunwoo.ait/IapOfferType.NEW_SUBSCRIPTION|null[0]
+    enum entry RETURNING // io.github.l2hyunwoo.ait/IapOfferType.RETURNING|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/IapOfferType.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/IapOfferType> // io.github.l2hyunwoo.ait/IapOfferType.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/IapOfferType // io.github.l2hyunwoo.ait/IapOfferType.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/IapOfferType> // io.github.l2hyunwoo.ait/IapOfferType.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/IapProductType : kotlin/Enum<io.github.l2hyunwoo.ait/IapProductType> { // io.github.l2hyunwoo.ait/IapProductType|null[0]
+    enum entry CONSUMABLE // io.github.l2hyunwoo.ait/IapProductType.CONSUMABLE|null[0]
+    enum entry NON_CONSUMABLE // io.github.l2hyunwoo.ait/IapProductType.NON_CONSUMABLE|null[0]
+    enum entry SUBSCRIPTION // io.github.l2hyunwoo.ait/IapProductType.SUBSCRIPTION|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/IapProductType.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/IapProductType> // io.github.l2hyunwoo.ait/IapProductType.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/IapProductType // io.github.l2hyunwoo.ait/IapProductType.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/IapProductType> // io.github.l2hyunwoo.ait/IapProductType.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/LeaderboardSubmitResult : kotlin/Enum<io.github.l2hyunwoo.ait/LeaderboardSubmitResult> { // io.github.l2hyunwoo.ait/LeaderboardSubmitResult|null[0]
+    enum entry LEADERBOARD_NOT_FOUND // io.github.l2hyunwoo.ait/LeaderboardSubmitResult.LEADERBOARD_NOT_FOUND|null[0]
+    enum entry PROFILE_NOT_FOUND // io.github.l2hyunwoo.ait/LeaderboardSubmitResult.PROFILE_NOT_FOUND|null[0]
+    enum entry SUCCESS // io.github.l2hyunwoo.ait/LeaderboardSubmitResult.SUCCESS|null[0]
+    enum entry UNPARSABLE_SCORE // io.github.l2hyunwoo.ait/LeaderboardSubmitResult.UNPARSABLE_SCORE|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/LeaderboardSubmitResult.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/LeaderboardSubmitResult> // io.github.l2hyunwoo.ait/LeaderboardSubmitResult.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/LeaderboardSubmitResult // io.github.l2hyunwoo.ait/LeaderboardSubmitResult.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/LeaderboardSubmitResult> // io.github.l2hyunwoo.ait/LeaderboardSubmitResult.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/LogType : kotlin/Enum<io.github.l2hyunwoo.ait/LogType> { // io.github.l2hyunwoo.ait/LogType|null[0]
+    enum entry CLICK // io.github.l2hyunwoo.ait/LogType.CLICK|null[0]
+    enum entry DEBUG // io.github.l2hyunwoo.ait/LogType.DEBUG|null[0]
+    enum entry ERROR // io.github.l2hyunwoo.ait/LogType.ERROR|null[0]
+    enum entry EVENT // io.github.l2hyunwoo.ait/LogType.EVENT|null[0]
+    enum entry IMPRESSION // io.github.l2hyunwoo.ait/LogType.IMPRESSION|null[0]
+    enum entry INFO // io.github.l2hyunwoo.ait/LogType.INFO|null[0]
+    enum entry POPUP // io.github.l2hyunwoo.ait/LogType.POPUP|null[0]
+    enum entry SCREEN // io.github.l2hyunwoo.ait/LogType.SCREEN|null[0]
+    enum entry WARN // io.github.l2hyunwoo.ait/LogType.WARN|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/LogType.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/LogType> // io.github.l2hyunwoo.ait/LogType.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/LogType // io.github.l2hyunwoo.ait/LogType.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/LogType> // io.github.l2hyunwoo.ait/LogType.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/NavigationBarTheme : kotlin/Enum<io.github.l2hyunwoo.ait/NavigationBarTheme> { // io.github.l2hyunwoo.ait/NavigationBarTheme|null[0]
+    enum entry DARK // io.github.l2hyunwoo.ait/NavigationBarTheme.DARK|null[0]
+    enum entry LIGHT // io.github.l2hyunwoo.ait/NavigationBarTheme.LIGHT|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/NavigationBarTheme.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/NavigationBarTheme> // io.github.l2hyunwoo.ait/NavigationBarTheme.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/NavigationBarTheme // io.github.l2hyunwoo.ait/NavigationBarTheme.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/NavigationBarTheme> // io.github.l2hyunwoo.ait/NavigationBarTheme.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/NetworkStatus : kotlin/Enum<io.github.l2hyunwoo.ait/NetworkStatus> { // io.github.l2hyunwoo.ait/NetworkStatus|null[0]
+    enum entry CELLULAR_2G // io.github.l2hyunwoo.ait/NetworkStatus.CELLULAR_2G|null[0]
+    enum entry CELLULAR_3G // io.github.l2hyunwoo.ait/NetworkStatus.CELLULAR_3G|null[0]
+    enum entry CELLULAR_4G // io.github.l2hyunwoo.ait/NetworkStatus.CELLULAR_4G|null[0]
+    enum entry CELLULAR_5G // io.github.l2hyunwoo.ait/NetworkStatus.CELLULAR_5G|null[0]
+    enum entry OFFLINE // io.github.l2hyunwoo.ait/NetworkStatus.OFFLINE|null[0]
+    enum entry UNKNOWN // io.github.l2hyunwoo.ait/NetworkStatus.UNKNOWN|null[0]
+    enum entry WIFI // io.github.l2hyunwoo.ait/NetworkStatus.WIFI|null[0]
+    enum entry WWAN // io.github.l2hyunwoo.ait/NetworkStatus.WWAN|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/NetworkStatus.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/NetworkStatus> // io.github.l2hyunwoo.ait/NetworkStatus.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/NetworkStatus // io.github.l2hyunwoo.ait/NetworkStatus.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/NetworkStatus> // io.github.l2hyunwoo.ait/NetworkStatus.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/NotificationAgreementResult : kotlin/Enum<io.github.l2hyunwoo.ait/NotificationAgreementResult> { // io.github.l2hyunwoo.ait/NotificationAgreementResult|null[0]
+    enum entry AGREEMENT_REJECTED // io.github.l2hyunwoo.ait/NotificationAgreementResult.AGREEMENT_REJECTED|null[0]
+    enum entry ALREADY_AGREED // io.github.l2hyunwoo.ait/NotificationAgreementResult.ALREADY_AGREED|null[0]
+    enum entry NEW_AGREEMENT // io.github.l2hyunwoo.ait/NotificationAgreementResult.NEW_AGREEMENT|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/NotificationAgreementResult.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/NotificationAgreementResult> // io.github.l2hyunwoo.ait/NotificationAgreementResult.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/NotificationAgreementResult // io.github.l2hyunwoo.ait/NotificationAgreementResult.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/NotificationAgreementResult> // io.github.l2hyunwoo.ait/NotificationAgreementResult.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/OperationalEnvironment : kotlin/Enum<io.github.l2hyunwoo.ait/OperationalEnvironment> { // io.github.l2hyunwoo.ait/OperationalEnvironment|null[0]
+    enum entry SANDBOX // io.github.l2hyunwoo.ait/OperationalEnvironment.SANDBOX|null[0]
+    enum entry TOSS // io.github.l2hyunwoo.ait/OperationalEnvironment.TOSS|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/OperationalEnvironment.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/OperationalEnvironment> // io.github.l2hyunwoo.ait/OperationalEnvironment.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/OperationalEnvironment // io.github.l2hyunwoo.ait/OperationalEnvironment.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/OperationalEnvironment> // io.github.l2hyunwoo.ait/OperationalEnvironment.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/OrderStatus : kotlin/Enum<io.github.l2hyunwoo.ait/OrderStatus> { // io.github.l2hyunwoo.ait/OrderStatus|null[0]
+    enum entry COMPLETED // io.github.l2hyunwoo.ait/OrderStatus.COMPLETED|null[0]
+    enum entry REFUNDED // io.github.l2hyunwoo.ait/OrderStatus.REFUNDED|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/OrderStatus.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/OrderStatus> // io.github.l2hyunwoo.ait/OrderStatus.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/OrderStatus // io.github.l2hyunwoo.ait/OrderStatus.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/OrderStatus> // io.github.l2hyunwoo.ait/OrderStatus.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/Permission : kotlin/Enum<io.github.l2hyunwoo.ait/Permission> { // io.github.l2hyunwoo.ait/Permission|null[0]
+    enum entry CAMERA // io.github.l2hyunwoo.ait/Permission.CAMERA|null[0]
+    enum entry CLIPBOARD_READ // io.github.l2hyunwoo.ait/Permission.CLIPBOARD_READ|null[0]
+    enum entry CLIPBOARD_WRITE // io.github.l2hyunwoo.ait/Permission.CLIPBOARD_WRITE|null[0]
+    enum entry CONTACTS_READ // io.github.l2hyunwoo.ait/Permission.CONTACTS_READ|null[0]
+    enum entry CONTACTS_WRITE // io.github.l2hyunwoo.ait/Permission.CONTACTS_WRITE|null[0]
+    enum entry GEOLOCATION // io.github.l2hyunwoo.ait/Permission.GEOLOCATION|null[0]
+    enum entry MICROPHONE // io.github.l2hyunwoo.ait/Permission.MICROPHONE|null[0]
+    enum entry PHOTOS_READ // io.github.l2hyunwoo.ait/Permission.PHOTOS_READ|null[0]
+    enum entry PHOTOS_WRITE // io.github.l2hyunwoo.ait/Permission.PHOTOS_WRITE|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/Permission.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/Permission> // io.github.l2hyunwoo.ait/Permission.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/Permission // io.github.l2hyunwoo.ait/Permission.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/Permission> // io.github.l2hyunwoo.ait/Permission.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/PermissionDialogResult : kotlin/Enum<io.github.l2hyunwoo.ait/PermissionDialogResult> { // io.github.l2hyunwoo.ait/PermissionDialogResult|null[0]
+    enum entry ALLOWED // io.github.l2hyunwoo.ait/PermissionDialogResult.ALLOWED|null[0]
+    enum entry DENIED // io.github.l2hyunwoo.ait/PermissionDialogResult.DENIED|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/PermissionDialogResult.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/PermissionDialogResult> // io.github.l2hyunwoo.ait/PermissionDialogResult.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/PermissionDialogResult // io.github.l2hyunwoo.ait/PermissionDialogResult.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/PermissionDialogResult> // io.github.l2hyunwoo.ait/PermissionDialogResult.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/PermissionStatus : kotlin/Enum<io.github.l2hyunwoo.ait/PermissionStatus> { // io.github.l2hyunwoo.ait/PermissionStatus|null[0]
+    enum entry ALLOWED // io.github.l2hyunwoo.ait/PermissionStatus.ALLOWED|null[0]
+    enum entry DENIED // io.github.l2hyunwoo.ait/PermissionStatus.DENIED|null[0]
+    enum entry NOT_DETERMINED // io.github.l2hyunwoo.ait/PermissionStatus.NOT_DETERMINED|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/PermissionStatus.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/PermissionStatus> // io.github.l2hyunwoo.ait/PermissionStatus.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/PermissionStatus // io.github.l2hyunwoo.ait/PermissionStatus.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/PermissionStatus> // io.github.l2hyunwoo.ait/PermissionStatus.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/PurchaseError : kotlin/Enum<io.github.l2hyunwoo.ait/PurchaseError> { // io.github.l2hyunwoo.ait/PurchaseError|null[0]
+    enum entry APP_MARKET_VERIFICATION_FAILED // io.github.l2hyunwoo.ait/PurchaseError.APP_MARKET_VERIFICATION_FAILED|null[0]
+    enum entry INTERNAL_ERROR // io.github.l2hyunwoo.ait/PurchaseError.INTERNAL_ERROR|null[0]
+    enum entry INVALID_PRODUCT_ID // io.github.l2hyunwoo.ait/PurchaseError.INVALID_PRODUCT_ID|null[0]
+    enum entry INVALID_USER_ENVIRONMENT // io.github.l2hyunwoo.ait/PurchaseError.INVALID_USER_ENVIRONMENT|null[0]
+    enum entry ITEM_ALREADY_OWNED // io.github.l2hyunwoo.ait/PurchaseError.ITEM_ALREADY_OWNED|null[0]
+    enum entry KOREAN_ACCOUNT_ONLY // io.github.l2hyunwoo.ait/PurchaseError.KOREAN_ACCOUNT_ONLY|null[0]
+    enum entry NETWORK_ERROR // io.github.l2hyunwoo.ait/PurchaseError.NETWORK_ERROR|null[0]
+    enum entry PAYMENT_PENDING // io.github.l2hyunwoo.ait/PurchaseError.PAYMENT_PENDING|null[0]
+    enum entry PRODUCT_NOT_GRANTED_BY_PARTNER // io.github.l2hyunwoo.ait/PurchaseError.PRODUCT_NOT_GRANTED_BY_PARTNER|null[0]
+    enum entry TOSS_SERVER_VERIFICATION_FAILED // io.github.l2hyunwoo.ait/PurchaseError.TOSS_SERVER_VERIFICATION_FAILED|null[0]
+    enum entry USER_CANCELED // io.github.l2hyunwoo.ait/PurchaseError.USER_CANCELED|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/PurchaseError.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/PurchaseError> // io.github.l2hyunwoo.ait/PurchaseError.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/PurchaseError // io.github.l2hyunwoo.ait/PurchaseError.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/PurchaseError> // io.github.l2hyunwoo.ait/PurchaseError.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/RenewalCycle : kotlin/Enum<io.github.l2hyunwoo.ait/RenewalCycle> { // io.github.l2hyunwoo.ait/RenewalCycle|null[0]
+    enum entry MONTHLY // io.github.l2hyunwoo.ait/RenewalCycle.MONTHLY|null[0]
+    enum entry WEEKLY // io.github.l2hyunwoo.ait/RenewalCycle.WEEKLY|null[0]
+    enum entry YEARLY // io.github.l2hyunwoo.ait/RenewalCycle.YEARLY|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/RenewalCycle.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/RenewalCycle> // io.github.l2hyunwoo.ait/RenewalCycle.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/RenewalCycle // io.github.l2hyunwoo.ait/RenewalCycle.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/RenewalCycle> // io.github.l2hyunwoo.ait/RenewalCycle.values|values#static(){}[0]
+}
+
+final enum class io.github.l2hyunwoo.ait/RuntimeHost : kotlin/Enum<io.github.l2hyunwoo.ait/RuntimeHost> { // io.github.l2hyunwoo.ait/RuntimeHost|null[0]
+    enum entry APPS_IN_TOSS // io.github.l2hyunwoo.ait/RuntimeHost.APPS_IN_TOSS|null[0]
+    enum entry BROWSER // io.github.l2hyunwoo.ait/RuntimeHost.BROWSER|null[0]
+    enum entry MOCK // io.github.l2hyunwoo.ait/RuntimeHost.MOCK|null[0]
+    enum entry SANDBOX // io.github.l2hyunwoo.ait/RuntimeHost.SANDBOX|null[0]
+
+    final val entries // io.github.l2hyunwoo.ait/RuntimeHost.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.l2hyunwoo.ait/RuntimeHost> // io.github.l2hyunwoo.ait/RuntimeHost.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.l2hyunwoo.ait/RuntimeHost // io.github.l2hyunwoo.ait/RuntimeHost.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.l2hyunwoo.ait/RuntimeHost> // io.github.l2hyunwoo.ait/RuntimeHost.values|values#static(){}[0]
+}
+
+abstract interface io.github.l2hyunwoo.ait/AppsInTossTransport { // io.github.l2hyunwoo.ait/AppsInTossTransport|null[0]
+    abstract val host // io.github.l2hyunwoo.ait/AppsInTossTransport.host|{}host[0]
+        abstract fun <get-host>(): io.github.l2hyunwoo.ait/RuntimeHost // io.github.l2hyunwoo.ait/AppsInTossTransport.host.<get-host>|<get-host>(){}[0]
+
+    abstract fun call(kotlin/String, kotlin/String, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function1<kotlin/String, kotlin/Unit>): kotlin/Function0<kotlin/Unit> // io.github.l2hyunwoo.ait/AppsInTossTransport.call|call(kotlin.String;kotlin.String;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function1<kotlin.String,kotlin.Unit>){}[0]
+    abstract fun stream(kotlin/String, kotlin/String, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function1<kotlin/String, kotlin/Unit>): kotlin/Function0<kotlin/Unit> // io.github.l2hyunwoo.ait/AppsInTossTransport.stream|stream(kotlin.String;kotlin.String;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function1<kotlin.String,kotlin.Unit>){}[0]
+    open fun supports(io.github.l2hyunwoo.ait/Capability): kotlin/Boolean // io.github.l2hyunwoo.ait/AppsInTossTransport.supports|supports(io.github.l2hyunwoo.ait.Capability){}[0]
+}
+
+sealed interface <#A: out kotlin/Any?> io.github.l2hyunwoo.ait/PermissionResult { // io.github.l2hyunwoo.ait/PermissionResult|null[0]
+    final class <#A1: kotlin/Any?> Granted : io.github.l2hyunwoo.ait/PermissionResult<#A1> { // io.github.l2hyunwoo.ait/PermissionResult.Granted|null[0]
+        constructor <init>(#A1) // io.github.l2hyunwoo.ait/PermissionResult.Granted.<init>|<init>(1:0){}[0]
+
+        final val value // io.github.l2hyunwoo.ait/PermissionResult.Granted.value|{}value[0]
+            final fun <get-value>(): #A1 // io.github.l2hyunwoo.ait/PermissionResult.Granted.value.<get-value>|<get-value>(){}[0]
+
+        final fun component1(): #A1 // io.github.l2hyunwoo.ait/PermissionResult.Granted.component1|component1(){}[0]
+        final fun copy(#A1 = ...): io.github.l2hyunwoo.ait/PermissionResult.Granted<#A1> // io.github.l2hyunwoo.ait/PermissionResult.Granted.copy|copy(1:0){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/PermissionResult.Granted.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/PermissionResult.Granted.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/PermissionResult.Granted.toString|toString(){}[0]
+    }
+
+    final object Denied : io.github.l2hyunwoo.ait/PermissionResult<kotlin/Nothing> { // io.github.l2hyunwoo.ait/PermissionResult.Denied|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/PermissionResult.Denied.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/PermissionResult.Denied.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/PermissionResult.Denied.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.l2hyunwoo.ait/BannerEvent { // io.github.l2hyunwoo.ait/BannerEvent|null[0]
+    abstract val adGroupId // io.github.l2hyunwoo.ait/BannerEvent.adGroupId|{}adGroupId[0]
+        abstract fun <get-adGroupId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.adGroupId.<get-adGroupId>|<get-adGroupId>(){}[0]
+    abstract val slotId // io.github.l2hyunwoo.ait/BannerEvent.slotId|{}slotId[0]
+        abstract fun <get-slotId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.slotId.<get-slotId>|<get-slotId>(){}[0]
+
+    final class Clicked : io.github.l2hyunwoo.ait/BannerEvent { // io.github.l2hyunwoo.ait/BannerEvent.Clicked|null[0]
+        constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/BannerEvent.Clicked.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+
+        final val adGroupId // io.github.l2hyunwoo.ait/BannerEvent.Clicked.adGroupId|{}adGroupId[0]
+            final fun <get-adGroupId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Clicked.adGroupId.<get-adGroupId>|<get-adGroupId>(){}[0]
+        final val creativeId // io.github.l2hyunwoo.ait/BannerEvent.Clicked.creativeId|{}creativeId[0]
+            final fun <get-creativeId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Clicked.creativeId.<get-creativeId>|<get-creativeId>(){}[0]
+        final val requestId // io.github.l2hyunwoo.ait/BannerEvent.Clicked.requestId|{}requestId[0]
+            final fun <get-requestId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Clicked.requestId.<get-requestId>|<get-requestId>(){}[0]
+        final val slotId // io.github.l2hyunwoo.ait/BannerEvent.Clicked.slotId|{}slotId[0]
+            final fun <get-slotId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Clicked.slotId.<get-slotId>|<get-slotId>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Clicked.component1|component1(){}[0]
+        final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Clicked.component2|component2(){}[0]
+        final fun component3(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Clicked.component3|component3(){}[0]
+        final fun component4(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Clicked.component4|component4(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/BannerEvent.Clicked // io.github.l2hyunwoo.ait/BannerEvent.Clicked.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/BannerEvent.Clicked.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/BannerEvent.Clicked.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Clicked.toString|toString(){}[0]
+    }
+
+    final class FailedToRender : io.github.l2hyunwoo.ait/BannerEvent { // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender|null[0]
+        constructor <init>(kotlin/String, kotlin/String, kotlin/Int) // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.<init>|<init>(kotlin.String;kotlin.String;kotlin.Int){}[0]
+
+        final val adGroupId // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.adGroupId|{}adGroupId[0]
+            final fun <get-adGroupId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.adGroupId.<get-adGroupId>|<get-adGroupId>(){}[0]
+        final val errorCode // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.errorCode|{}errorCode[0]
+            final fun <get-errorCode>(): kotlin/Int // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.errorCode.<get-errorCode>|<get-errorCode>(){}[0]
+        final val slotId // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.slotId|{}slotId[0]
+            final fun <get-slotId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.slotId.<get-slotId>|<get-slotId>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.component1|component1(){}[0]
+        final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.component2|component2(){}[0]
+        final fun component3(): kotlin/Int // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.component3|component3(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Int = ...): io.github.l2hyunwoo.ait/BannerEvent.FailedToRender // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.copy|copy(kotlin.String;kotlin.String;kotlin.Int){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.FailedToRender.toString|toString(){}[0]
+    }
+
+    final class Impression : io.github.l2hyunwoo.ait/BannerEvent { // io.github.l2hyunwoo.ait/BannerEvent.Impression|null[0]
+        constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/BannerEvent.Impression.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+
+        final val adGroupId // io.github.l2hyunwoo.ait/BannerEvent.Impression.adGroupId|{}adGroupId[0]
+            final fun <get-adGroupId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Impression.adGroupId.<get-adGroupId>|<get-adGroupId>(){}[0]
+        final val creativeId // io.github.l2hyunwoo.ait/BannerEvent.Impression.creativeId|{}creativeId[0]
+            final fun <get-creativeId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Impression.creativeId.<get-creativeId>|<get-creativeId>(){}[0]
+        final val requestId // io.github.l2hyunwoo.ait/BannerEvent.Impression.requestId|{}requestId[0]
+            final fun <get-requestId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Impression.requestId.<get-requestId>|<get-requestId>(){}[0]
+        final val slotId // io.github.l2hyunwoo.ait/BannerEvent.Impression.slotId|{}slotId[0]
+            final fun <get-slotId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Impression.slotId.<get-slotId>|<get-slotId>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Impression.component1|component1(){}[0]
+        final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Impression.component2|component2(){}[0]
+        final fun component3(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Impression.component3|component3(){}[0]
+        final fun component4(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Impression.component4|component4(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/BannerEvent.Impression // io.github.l2hyunwoo.ait/BannerEvent.Impression.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/BannerEvent.Impression.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/BannerEvent.Impression.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Impression.toString|toString(){}[0]
+    }
+
+    final class NoFill : io.github.l2hyunwoo.ait/BannerEvent { // io.github.l2hyunwoo.ait/BannerEvent.NoFill|null[0]
+        constructor <init>(kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/BannerEvent.NoFill.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+        final val adGroupId // io.github.l2hyunwoo.ait/BannerEvent.NoFill.adGroupId|{}adGroupId[0]
+            final fun <get-adGroupId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.NoFill.adGroupId.<get-adGroupId>|<get-adGroupId>(){}[0]
+        final val slotId // io.github.l2hyunwoo.ait/BannerEvent.NoFill.slotId|{}slotId[0]
+            final fun <get-slotId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.NoFill.slotId.<get-slotId>|<get-slotId>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.NoFill.component1|component1(){}[0]
+        final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.NoFill.component2|component2(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/BannerEvent.NoFill // io.github.l2hyunwoo.ait/BannerEvent.NoFill.copy|copy(kotlin.String;kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/BannerEvent.NoFill.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/BannerEvent.NoFill.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.NoFill.toString|toString(){}[0]
+    }
+
+    final class Rendered : io.github.l2hyunwoo.ait/BannerEvent { // io.github.l2hyunwoo.ait/BannerEvent.Rendered|null[0]
+        constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/BannerEvent.Rendered.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+
+        final val adGroupId // io.github.l2hyunwoo.ait/BannerEvent.Rendered.adGroupId|{}adGroupId[0]
+            final fun <get-adGroupId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Rendered.adGroupId.<get-adGroupId>|<get-adGroupId>(){}[0]
+        final val creativeId // io.github.l2hyunwoo.ait/BannerEvent.Rendered.creativeId|{}creativeId[0]
+            final fun <get-creativeId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Rendered.creativeId.<get-creativeId>|<get-creativeId>(){}[0]
+        final val requestId // io.github.l2hyunwoo.ait/BannerEvent.Rendered.requestId|{}requestId[0]
+            final fun <get-requestId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Rendered.requestId.<get-requestId>|<get-requestId>(){}[0]
+        final val slotId // io.github.l2hyunwoo.ait/BannerEvent.Rendered.slotId|{}slotId[0]
+            final fun <get-slotId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Rendered.slotId.<get-slotId>|<get-slotId>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Rendered.component1|component1(){}[0]
+        final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Rendered.component2|component2(){}[0]
+        final fun component3(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Rendered.component3|component3(){}[0]
+        final fun component4(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Rendered.component4|component4(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/BannerEvent.Rendered // io.github.l2hyunwoo.ait/BannerEvent.Rendered.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/BannerEvent.Rendered.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/BannerEvent.Rendered.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Rendered.toString|toString(){}[0]
+    }
+
+    final class Viewable : io.github.l2hyunwoo.ait/BannerEvent { // io.github.l2hyunwoo.ait/BannerEvent.Viewable|null[0]
+        constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/BannerEvent.Viewable.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+
+        final val adGroupId // io.github.l2hyunwoo.ait/BannerEvent.Viewable.adGroupId|{}adGroupId[0]
+            final fun <get-adGroupId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Viewable.adGroupId.<get-adGroupId>|<get-adGroupId>(){}[0]
+        final val creativeId // io.github.l2hyunwoo.ait/BannerEvent.Viewable.creativeId|{}creativeId[0]
+            final fun <get-creativeId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Viewable.creativeId.<get-creativeId>|<get-creativeId>(){}[0]
+        final val requestId // io.github.l2hyunwoo.ait/BannerEvent.Viewable.requestId|{}requestId[0]
+            final fun <get-requestId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Viewable.requestId.<get-requestId>|<get-requestId>(){}[0]
+        final val slotId // io.github.l2hyunwoo.ait/BannerEvent.Viewable.slotId|{}slotId[0]
+            final fun <get-slotId>(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Viewable.slotId.<get-slotId>|<get-slotId>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Viewable.component1|component1(){}[0]
+        final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Viewable.component2|component2(){}[0]
+        final fun component3(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Viewable.component3|component3(){}[0]
+        final fun component4(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Viewable.component4|component4(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/BannerEvent.Viewable // io.github.l2hyunwoo.ait/BannerEvent.Viewable.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/BannerEvent.Viewable.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/BannerEvent.Viewable.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/BannerEvent.Viewable.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.l2hyunwoo.ait/ConsentedDataResult { // io.github.l2hyunwoo.ait/ConsentedDataResult|null[0]
+    final class Consented : io.github.l2hyunwoo.ait/ConsentedDataResult { // io.github.l2hyunwoo.ait/ConsentedDataResult.Consented|null[0]
+        constructor <init>(kotlin.collections/Map<kotlin/String, kotlin/String>) // io.github.l2hyunwoo.ait/ConsentedDataResult.Consented.<init>|<init>(kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+
+        final val data // io.github.l2hyunwoo.ait/ConsentedDataResult.Consented.data|{}data[0]
+            final fun <get-data>(): kotlin.collections/Map<kotlin/String, kotlin/String> // io.github.l2hyunwoo.ait/ConsentedDataResult.Consented.data.<get-data>|<get-data>(){}[0]
+
+        final fun component1(): kotlin.collections/Map<kotlin/String, kotlin/String> // io.github.l2hyunwoo.ait/ConsentedDataResult.Consented.component1|component1(){}[0]
+        final fun copy(kotlin.collections/Map<kotlin/String, kotlin/String> = ...): io.github.l2hyunwoo.ait/ConsentedDataResult.Consented // io.github.l2hyunwoo.ait/ConsentedDataResult.Consented.copy|copy(kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/ConsentedDataResult.Consented.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/ConsentedDataResult.Consented.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/ConsentedDataResult.Consented.toString|toString(){}[0]
+    }
+
+    final class Failed : io.github.l2hyunwoo.ait/ConsentedDataResult { // io.github.l2hyunwoo.ait/ConsentedDataResult.Failed|null[0]
+        constructor <init>(io.github.l2hyunwoo.ait/ConsentedDataError) // io.github.l2hyunwoo.ait/ConsentedDataResult.Failed.<init>|<init>(io.github.l2hyunwoo.ait.ConsentedDataError){}[0]
+
+        final val code // io.github.l2hyunwoo.ait/ConsentedDataResult.Failed.code|{}code[0]
+            final fun <get-code>(): io.github.l2hyunwoo.ait/ConsentedDataError // io.github.l2hyunwoo.ait/ConsentedDataResult.Failed.code.<get-code>|<get-code>(){}[0]
+
+        final fun component1(): io.github.l2hyunwoo.ait/ConsentedDataError // io.github.l2hyunwoo.ait/ConsentedDataResult.Failed.component1|component1(){}[0]
+        final fun copy(io.github.l2hyunwoo.ait/ConsentedDataError = ...): io.github.l2hyunwoo.ait/ConsentedDataResult.Failed // io.github.l2hyunwoo.ait/ConsentedDataResult.Failed.copy|copy(io.github.l2hyunwoo.ait.ConsentedDataError){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/ConsentedDataResult.Failed.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/ConsentedDataResult.Failed.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/ConsentedDataResult.Failed.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.l2hyunwoo.ait/FullScreenAdEvent { // io.github.l2hyunwoo.ait/FullScreenAdEvent|null[0]
+    final class UserEarnedReward : io.github.l2hyunwoo.ait/FullScreenAdEvent { // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward|null[0]
+        constructor <init>(kotlin/String, kotlin/Double) // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.<init>|<init>(kotlin.String;kotlin.Double){}[0]
+
+        final val unitAmount // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.unitAmount|{}unitAmount[0]
+            final fun <get-unitAmount>(): kotlin/Double // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.unitAmount.<get-unitAmount>|<get-unitAmount>(){}[0]
+        final val unitType // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.unitType|{}unitType[0]
+            final fun <get-unitType>(): kotlin/String // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.unitType.<get-unitType>|<get-unitType>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.component1|component1(){}[0]
+        final fun component2(): kotlin/Double // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.component2|component2(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/Double = ...): io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.copy|copy(kotlin.String;kotlin.Double){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/FullScreenAdEvent.UserEarnedReward.toString|toString(){}[0]
+    }
+
+    final object Clicked : io.github.l2hyunwoo.ait/FullScreenAdEvent { // io.github.l2hyunwoo.ait/FullScreenAdEvent.Clicked|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/FullScreenAdEvent.Clicked.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/FullScreenAdEvent.Clicked.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/FullScreenAdEvent.Clicked.toString|toString(){}[0]
+    }
+
+    final object Dismissed : io.github.l2hyunwoo.ait/FullScreenAdEvent { // io.github.l2hyunwoo.ait/FullScreenAdEvent.Dismissed|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/FullScreenAdEvent.Dismissed.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/FullScreenAdEvent.Dismissed.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/FullScreenAdEvent.Dismissed.toString|toString(){}[0]
+    }
+
+    final object FailedToShow : io.github.l2hyunwoo.ait/FullScreenAdEvent { // io.github.l2hyunwoo.ait/FullScreenAdEvent.FailedToShow|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/FullScreenAdEvent.FailedToShow.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/FullScreenAdEvent.FailedToShow.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/FullScreenAdEvent.FailedToShow.toString|toString(){}[0]
+    }
+
+    final object Impression : io.github.l2hyunwoo.ait/FullScreenAdEvent { // io.github.l2hyunwoo.ait/FullScreenAdEvent.Impression|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/FullScreenAdEvent.Impression.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/FullScreenAdEvent.Impression.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/FullScreenAdEvent.Impression.toString|toString(){}[0]
+    }
+
+    final object Requested : io.github.l2hyunwoo.ait/FullScreenAdEvent { // io.github.l2hyunwoo.ait/FullScreenAdEvent.Requested|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/FullScreenAdEvent.Requested.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/FullScreenAdEvent.Requested.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/FullScreenAdEvent.Requested.toString|toString(){}[0]
+    }
+
+    final object Show : io.github.l2hyunwoo.ait/FullScreenAdEvent { // io.github.l2hyunwoo.ait/FullScreenAdEvent.Show|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/FullScreenAdEvent.Show.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/FullScreenAdEvent.Show.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/FullScreenAdEvent.Show.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.l2hyunwoo.ait/GameProfile { // io.github.l2hyunwoo.ait/GameProfile|null[0]
+    final class Found : io.github.l2hyunwoo.ait/GameProfile { // io.github.l2hyunwoo.ait/GameProfile.Found|null[0]
+        constructor <init>(kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/GameProfile.Found.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+        final val nickname // io.github.l2hyunwoo.ait/GameProfile.Found.nickname|{}nickname[0]
+            final fun <get-nickname>(): kotlin/String // io.github.l2hyunwoo.ait/GameProfile.Found.nickname.<get-nickname>|<get-nickname>(){}[0]
+        final val profileImageUri // io.github.l2hyunwoo.ait/GameProfile.Found.profileImageUri|{}profileImageUri[0]
+            final fun <get-profileImageUri>(): kotlin/String // io.github.l2hyunwoo.ait/GameProfile.Found.profileImageUri.<get-profileImageUri>|<get-profileImageUri>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/GameProfile.Found.component1|component1(){}[0]
+        final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/GameProfile.Found.component2|component2(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/GameProfile.Found // io.github.l2hyunwoo.ait/GameProfile.Found.copy|copy(kotlin.String;kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/GameProfile.Found.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/GameProfile.Found.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/GameProfile.Found.toString|toString(){}[0]
+    }
+
+    final object NotFound : io.github.l2hyunwoo.ait/GameProfile { // io.github.l2hyunwoo.ait/GameProfile.NotFound|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/GameProfile.NotFound.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/GameProfile.NotFound.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/GameProfile.NotFound.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.l2hyunwoo.ait/HostEvent { // io.github.l2hyunwoo.ait/HostEvent|null[0]
+    final class SafeArea : io.github.l2hyunwoo.ait/HostEvent { // io.github.l2hyunwoo.ait/HostEvent.SafeArea|null[0]
+        constructor <init>(io.github.l2hyunwoo.ait/SafeAreaInsets) // io.github.l2hyunwoo.ait/HostEvent.SafeArea.<init>|<init>(io.github.l2hyunwoo.ait.SafeAreaInsets){}[0]
+
+        final val insets // io.github.l2hyunwoo.ait/HostEvent.SafeArea.insets|{}insets[0]
+            final fun <get-insets>(): io.github.l2hyunwoo.ait/SafeAreaInsets // io.github.l2hyunwoo.ait/HostEvent.SafeArea.insets.<get-insets>|<get-insets>(){}[0]
+
+        final fun component1(): io.github.l2hyunwoo.ait/SafeAreaInsets // io.github.l2hyunwoo.ait/HostEvent.SafeArea.component1|component1(){}[0]
+        final fun copy(io.github.l2hyunwoo.ait/SafeAreaInsets = ...): io.github.l2hyunwoo.ait/HostEvent.SafeArea // io.github.l2hyunwoo.ait/HostEvent.SafeArea.copy|copy(io.github.l2hyunwoo.ait.SafeAreaInsets){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/HostEvent.SafeArea.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/HostEvent.SafeArea.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/HostEvent.SafeArea.toString|toString(){}[0]
+    }
+
+    final object Back : io.github.l2hyunwoo.ait/HostEvent { // io.github.l2hyunwoo.ait/HostEvent.Back|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/HostEvent.Back.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/HostEvent.Back.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/HostEvent.Back.toString|toString(){}[0]
+    }
+
+    final object Home : io.github.l2hyunwoo.ait/HostEvent { // io.github.l2hyunwoo.ait/HostEvent.Home|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/HostEvent.Home.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/HostEvent.Home.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/HostEvent.Home.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.l2hyunwoo.ait/NavigationBarBackground { // io.github.l2hyunwoo.ait/NavigationBarBackground|null[0]
+    final class Color : io.github.l2hyunwoo.ait/NavigationBarBackground { // io.github.l2hyunwoo.ait/NavigationBarBackground.Color|null[0]
+        constructor <init>(kotlin/String) // io.github.l2hyunwoo.ait/NavigationBarBackground.Color.<init>|<init>(kotlin.String){}[0]
+
+        final val hex // io.github.l2hyunwoo.ait/NavigationBarBackground.Color.hex|{}hex[0]
+            final fun <get-hex>(): kotlin/String // io.github.l2hyunwoo.ait/NavigationBarBackground.Color.hex.<get-hex>|<get-hex>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/NavigationBarBackground.Color.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.l2hyunwoo.ait/NavigationBarBackground.Color // io.github.l2hyunwoo.ait/NavigationBarBackground.Color.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/NavigationBarBackground.Color.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/NavigationBarBackground.Color.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/NavigationBarBackground.Color.toString|toString(){}[0]
+    }
+
+    final object ThemeDefault : io.github.l2hyunwoo.ait/NavigationBarBackground { // io.github.l2hyunwoo.ait/NavigationBarBackground.ThemeDefault|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/NavigationBarBackground.ThemeDefault.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/NavigationBarBackground.ThemeDefault.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/NavigationBarBackground.ThemeDefault.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.l2hyunwoo.ait/PromotionRewardResult { // io.github.l2hyunwoo.ait/PromotionRewardResult|null[0]
+    final class Failed : io.github.l2hyunwoo.ait/PromotionRewardResult { // io.github.l2hyunwoo.ait/PromotionRewardResult.Failed|null[0]
+        constructor <init>(kotlin/String) // io.github.l2hyunwoo.ait/PromotionRewardResult.Failed.<init>|<init>(kotlin.String){}[0]
+
+        final val errorCode // io.github.l2hyunwoo.ait/PromotionRewardResult.Failed.errorCode|{}errorCode[0]
+            final fun <get-errorCode>(): kotlin/String // io.github.l2hyunwoo.ait/PromotionRewardResult.Failed.errorCode.<get-errorCode>|<get-errorCode>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/PromotionRewardResult.Failed.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.l2hyunwoo.ait/PromotionRewardResult.Failed // io.github.l2hyunwoo.ait/PromotionRewardResult.Failed.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/PromotionRewardResult.Failed.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/PromotionRewardResult.Failed.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/PromotionRewardResult.Failed.toString|toString(){}[0]
+    }
+
+    final class Granted : io.github.l2hyunwoo.ait/PromotionRewardResult { // io.github.l2hyunwoo.ait/PromotionRewardResult.Granted|null[0]
+        constructor <init>(kotlin/String) // io.github.l2hyunwoo.ait/PromotionRewardResult.Granted.<init>|<init>(kotlin.String){}[0]
+
+        final val key // io.github.l2hyunwoo.ait/PromotionRewardResult.Granted.key|{}key[0]
+            final fun <get-key>(): kotlin/String // io.github.l2hyunwoo.ait/PromotionRewardResult.Granted.key.<get-key>|<get-key>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/PromotionRewardResult.Granted.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.l2hyunwoo.ait/PromotionRewardResult.Granted // io.github.l2hyunwoo.ait/PromotionRewardResult.Granted.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/PromotionRewardResult.Granted.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/PromotionRewardResult.Granted.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/PromotionRewardResult.Granted.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.l2hyunwoo.ait/PurchaseResult { // io.github.l2hyunwoo.ait/PurchaseResult|null[0]
+    final class Failure : io.github.l2hyunwoo.ait/PurchaseResult { // io.github.l2hyunwoo.ait/PurchaseResult.Failure|null[0]
+        constructor <init>(io.github.l2hyunwoo.ait/PurchaseError) // io.github.l2hyunwoo.ait/PurchaseResult.Failure.<init>|<init>(io.github.l2hyunwoo.ait.PurchaseError){}[0]
+
+        final val error // io.github.l2hyunwoo.ait/PurchaseResult.Failure.error|{}error[0]
+            final fun <get-error>(): io.github.l2hyunwoo.ait/PurchaseError // io.github.l2hyunwoo.ait/PurchaseResult.Failure.error.<get-error>|<get-error>(){}[0]
+
+        final fun component1(): io.github.l2hyunwoo.ait/PurchaseError // io.github.l2hyunwoo.ait/PurchaseResult.Failure.component1|component1(){}[0]
+        final fun copy(io.github.l2hyunwoo.ait/PurchaseError = ...): io.github.l2hyunwoo.ait/PurchaseResult.Failure // io.github.l2hyunwoo.ait/PurchaseResult.Failure.copy|copy(io.github.l2hyunwoo.ait.PurchaseError){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/PurchaseResult.Failure.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/PurchaseResult.Failure.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseResult.Failure.toString|toString(){}[0]
+    }
+
+    final class Success : io.github.l2hyunwoo.ait/PurchaseResult { // io.github.l2hyunwoo.ait/PurchaseResult.Success|null[0]
+        constructor <init>(io.github.l2hyunwoo.ait/PurchaseOrder) // io.github.l2hyunwoo.ait/PurchaseResult.Success.<init>|<init>(io.github.l2hyunwoo.ait.PurchaseOrder){}[0]
+
+        final val order // io.github.l2hyunwoo.ait/PurchaseResult.Success.order|{}order[0]
+            final fun <get-order>(): io.github.l2hyunwoo.ait/PurchaseOrder // io.github.l2hyunwoo.ait/PurchaseResult.Success.order.<get-order>|<get-order>(){}[0]
+
+        final fun component1(): io.github.l2hyunwoo.ait/PurchaseOrder // io.github.l2hyunwoo.ait/PurchaseResult.Success.component1|component1(){}[0]
+        final fun copy(io.github.l2hyunwoo.ait/PurchaseOrder = ...): io.github.l2hyunwoo.ait/PurchaseResult.Success // io.github.l2hyunwoo.ait/PurchaseResult.Success.copy|copy(io.github.l2hyunwoo.ait.PurchaseOrder){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/PurchaseResult.Success.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/PurchaseResult.Success.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseResult.Success.toString|toString(){}[0]
+    }
+}
+
+final class io.github.l2hyunwoo.ait/AdMobApi { // io.github.l2hyunwoo.ait/AdMobApi|null[0]
+    final fun showAppsInTossAdMob(kotlin/String): kotlinx.coroutines.flow/Flow<io.github.l2hyunwoo.ait/FullScreenAdEvent> // io.github.l2hyunwoo.ait/AdMobApi.showAppsInTossAdMob|showAppsInTossAdMob(kotlin.String){}[0]
+    final suspend fun isAppsInTossAdMobLoaded(kotlin/String): kotlin/Boolean // io.github.l2hyunwoo.ait/AdMobApi.isAppsInTossAdMobLoaded|isAppsInTossAdMobLoaded(kotlin.String){}[0]
+    final suspend fun loadAppsInTossAdMob(kotlin/String, kotlin/String? = ...): io.github.l2hyunwoo.ait/AdMobLoadResult // io.github.l2hyunwoo.ait/AdMobApi.loadAppsInTossAdMob|loadAppsInTossAdMob(kotlin.String;kotlin.String?){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/AdMobLoadResult { // io.github.l2hyunwoo.ait/AdMobLoadResult|null[0]
+    constructor <init>(kotlin/String, kotlin/String, io.github.l2hyunwoo.ait/AdMobResponseInfo) // io.github.l2hyunwoo.ait/AdMobLoadResult.<init>|<init>(kotlin.String;kotlin.String;io.github.l2hyunwoo.ait.AdMobResponseInfo){}[0]
+
+    final val adGroupId // io.github.l2hyunwoo.ait/AdMobLoadResult.adGroupId|{}adGroupId[0]
+        final fun <get-adGroupId>(): kotlin/String // io.github.l2hyunwoo.ait/AdMobLoadResult.adGroupId.<get-adGroupId>|<get-adGroupId>(){}[0]
+    final val adUnitId // io.github.l2hyunwoo.ait/AdMobLoadResult.adUnitId|{}adUnitId[0]
+        final fun <get-adUnitId>(): kotlin/String // io.github.l2hyunwoo.ait/AdMobLoadResult.adUnitId.<get-adUnitId>|<get-adUnitId>(){}[0]
+    final val responseInfo // io.github.l2hyunwoo.ait/AdMobLoadResult.responseInfo|{}responseInfo[0]
+        final fun <get-responseInfo>(): io.github.l2hyunwoo.ait/AdMobResponseInfo // io.github.l2hyunwoo.ait/AdMobLoadResult.responseInfo.<get-responseInfo>|<get-responseInfo>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/AdMobLoadResult.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/AdMobLoadResult.component2|component2(){}[0]
+    final fun component3(): io.github.l2hyunwoo.ait/AdMobResponseInfo // io.github.l2hyunwoo.ait/AdMobLoadResult.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., io.github.l2hyunwoo.ait/AdMobResponseInfo = ...): io.github.l2hyunwoo.ait/AdMobLoadResult // io.github.l2hyunwoo.ait/AdMobLoadResult.copy|copy(kotlin.String;kotlin.String;io.github.l2hyunwoo.ait.AdMobResponseInfo){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/AdMobLoadResult.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/AdMobLoadResult.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/AdMobLoadResult.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/AdMobResponseInfo { // io.github.l2hyunwoo.ait/AdMobResponseInfo|null[0]
+    constructor <init>(kotlin.collections/List<io.github.l2hyunwoo.ait/AdNetworkInfo>, io.github.l2hyunwoo.ait/AdNetworkInfo?, kotlin/String?) // io.github.l2hyunwoo.ait/AdMobResponseInfo.<init>|<init>(kotlin.collections.List<io.github.l2hyunwoo.ait.AdNetworkInfo>;io.github.l2hyunwoo.ait.AdNetworkInfo?;kotlin.String?){}[0]
+
+    final val adNetworkInfoArray // io.github.l2hyunwoo.ait/AdMobResponseInfo.adNetworkInfoArray|{}adNetworkInfoArray[0]
+        final fun <get-adNetworkInfoArray>(): kotlin.collections/List<io.github.l2hyunwoo.ait/AdNetworkInfo> // io.github.l2hyunwoo.ait/AdMobResponseInfo.adNetworkInfoArray.<get-adNetworkInfoArray>|<get-adNetworkInfoArray>(){}[0]
+    final val loadedAdNetworkInfo // io.github.l2hyunwoo.ait/AdMobResponseInfo.loadedAdNetworkInfo|{}loadedAdNetworkInfo[0]
+        final fun <get-loadedAdNetworkInfo>(): io.github.l2hyunwoo.ait/AdNetworkInfo? // io.github.l2hyunwoo.ait/AdMobResponseInfo.loadedAdNetworkInfo.<get-loadedAdNetworkInfo>|<get-loadedAdNetworkInfo>(){}[0]
+    final val responseId // io.github.l2hyunwoo.ait/AdMobResponseInfo.responseId|{}responseId[0]
+        final fun <get-responseId>(): kotlin/String? // io.github.l2hyunwoo.ait/AdMobResponseInfo.responseId.<get-responseId>|<get-responseId>(){}[0]
+
+    final fun component1(): kotlin.collections/List<io.github.l2hyunwoo.ait/AdNetworkInfo> // io.github.l2hyunwoo.ait/AdMobResponseInfo.component1|component1(){}[0]
+    final fun component2(): io.github.l2hyunwoo.ait/AdNetworkInfo? // io.github.l2hyunwoo.ait/AdMobResponseInfo.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // io.github.l2hyunwoo.ait/AdMobResponseInfo.component3|component3(){}[0]
+    final fun copy(kotlin.collections/List<io.github.l2hyunwoo.ait/AdNetworkInfo> = ..., io.github.l2hyunwoo.ait/AdNetworkInfo? = ..., kotlin/String? = ...): io.github.l2hyunwoo.ait/AdMobResponseInfo // io.github.l2hyunwoo.ait/AdMobResponseInfo.copy|copy(kotlin.collections.List<io.github.l2hyunwoo.ait.AdNetworkInfo>;io.github.l2hyunwoo.ait.AdNetworkInfo?;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/AdMobResponseInfo.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/AdMobResponseInfo.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/AdMobResponseInfo.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/AdNetworkInfo { // io.github.l2hyunwoo.ait/AdNetworkInfo|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/String, kotlin/String?) // io.github.l2hyunwoo.ait/AdNetworkInfo.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String?){}[0]
+
+    final val adNetworkClassName // io.github.l2hyunwoo.ait/AdNetworkInfo.adNetworkClassName|{}adNetworkClassName[0]
+        final fun <get-adNetworkClassName>(): kotlin/String? // io.github.l2hyunwoo.ait/AdNetworkInfo.adNetworkClassName.<get-adNetworkClassName>|<get-adNetworkClassName>(){}[0]
+    final val adSourceId // io.github.l2hyunwoo.ait/AdNetworkInfo.adSourceId|{}adSourceId[0]
+        final fun <get-adSourceId>(): kotlin/String // io.github.l2hyunwoo.ait/AdNetworkInfo.adSourceId.<get-adSourceId>|<get-adSourceId>(){}[0]
+    final val adSourceInstanceId // io.github.l2hyunwoo.ait/AdNetworkInfo.adSourceInstanceId|{}adSourceInstanceId[0]
+        final fun <get-adSourceInstanceId>(): kotlin/String // io.github.l2hyunwoo.ait/AdNetworkInfo.adSourceInstanceId.<get-adSourceInstanceId>|<get-adSourceInstanceId>(){}[0]
+    final val adSourceInstanceName // io.github.l2hyunwoo.ait/AdNetworkInfo.adSourceInstanceName|{}adSourceInstanceName[0]
+        final fun <get-adSourceInstanceName>(): kotlin/String // io.github.l2hyunwoo.ait/AdNetworkInfo.adSourceInstanceName.<get-adSourceInstanceName>|<get-adSourceInstanceName>(){}[0]
+    final val adSourceName // io.github.l2hyunwoo.ait/AdNetworkInfo.adSourceName|{}adSourceName[0]
+        final fun <get-adSourceName>(): kotlin/String // io.github.l2hyunwoo.ait/AdNetworkInfo.adSourceName.<get-adSourceName>|<get-adSourceName>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/AdNetworkInfo.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/AdNetworkInfo.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.l2hyunwoo.ait/AdNetworkInfo.component3|component3(){}[0]
+    final fun component4(): kotlin/String // io.github.l2hyunwoo.ait/AdNetworkInfo.component4|component4(){}[0]
+    final fun component5(): kotlin/String? // io.github.l2hyunwoo.ait/AdNetworkInfo.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String? = ...): io.github.l2hyunwoo.ait/AdNetworkInfo // io.github.l2hyunwoo.ait/AdNetworkInfo.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/AdNetworkInfo.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/AdNetworkInfo.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/AdNetworkInfo.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/AdsApi { // io.github.l2hyunwoo.ait/AdsApi|null[0]
+    final val admob // io.github.l2hyunwoo.ait/AdsApi.admob|{}admob[0]
+        final fun <get-admob>(): io.github.l2hyunwoo.ait/AdMobApi // io.github.l2hyunwoo.ait/AdsApi.admob.<get-admob>|<get-admob>(){}[0]
+    final val tossAds // io.github.l2hyunwoo.ait/AdsApi.tossAds|{}tossAds[0]
+        final fun <get-tossAds>(): io.github.l2hyunwoo.ait/TossAdsApi // io.github.l2hyunwoo.ait/AdsApi.tossAds.<get-tossAds>|<get-tossAds>(){}[0]
+
+    final fun showFullScreenAd(kotlin/String): kotlinx.coroutines.flow/Flow<io.github.l2hyunwoo.ait/FullScreenAdEvent> // io.github.l2hyunwoo.ait/AdsApi.showFullScreenAd|showFullScreenAd(kotlin.String){}[0]
+    final suspend fun loadFullScreenAd(kotlin/String) // io.github.l2hyunwoo.ait/AdsApi.loadFullScreenAd|loadFullScreenAd(kotlin.String){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/AlbumItemResponse { // io.github.l2hyunwoo.ait/AlbumItemResponse|null[0]
+    constructor <init>(kotlin/String, kotlin/String, io.github.l2hyunwoo.ait/AlbumItemType) // io.github.l2hyunwoo.ait/AlbumItemResponse.<init>|<init>(kotlin.String;kotlin.String;io.github.l2hyunwoo.ait.AlbumItemType){}[0]
+
+    final val dataUri // io.github.l2hyunwoo.ait/AlbumItemResponse.dataUri|{}dataUri[0]
+        final fun <get-dataUri>(): kotlin/String // io.github.l2hyunwoo.ait/AlbumItemResponse.dataUri.<get-dataUri>|<get-dataUri>(){}[0]
+    final val id // io.github.l2hyunwoo.ait/AlbumItemResponse.id|{}id[0]
+        final fun <get-id>(): kotlin/String // io.github.l2hyunwoo.ait/AlbumItemResponse.id.<get-id>|<get-id>(){}[0]
+    final val type // io.github.l2hyunwoo.ait/AlbumItemResponse.type|{}type[0]
+        final fun <get-type>(): io.github.l2hyunwoo.ait/AlbumItemType // io.github.l2hyunwoo.ait/AlbumItemResponse.type.<get-type>|<get-type>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/AlbumItemResponse.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/AlbumItemResponse.component2|component2(){}[0]
+    final fun component3(): io.github.l2hyunwoo.ait/AlbumItemType // io.github.l2hyunwoo.ait/AlbumItemResponse.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., io.github.l2hyunwoo.ait/AlbumItemType = ...): io.github.l2hyunwoo.ait/AlbumItemResponse // io.github.l2hyunwoo.ait/AlbumItemResponse.copy|copy(kotlin.String;kotlin.String;io.github.l2hyunwoo.ait.AlbumItemType){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/AlbumItemResponse.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/AlbumItemResponse.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/AlbumItemResponse.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/AnalyticsApi { // io.github.l2hyunwoo.ait/AnalyticsApi|null[0]
+    final suspend fun click(kotlin/String? = ..., kotlin.collections/Map<kotlin/String, kotlin/Any?> = ...) // io.github.l2hyunwoo.ait/AnalyticsApi.click|click(kotlin.String?;kotlin.collections.Map<kotlin.String,kotlin.Any?>){}[0]
+    final suspend fun impression(kotlin/String? = ..., kotlin.collections/Map<kotlin/String, kotlin/Any?> = ...) // io.github.l2hyunwoo.ait/AnalyticsApi.impression|impression(kotlin.String?;kotlin.collections.Map<kotlin.String,kotlin.Any?>){}[0]
+    final suspend fun log(kotlin/String, io.github.l2hyunwoo.ait/LogType, kotlin.collections/Map<kotlin/String, kotlin/Any?> = ...) // io.github.l2hyunwoo.ait/AnalyticsApi.log|log(kotlin.String;io.github.l2hyunwoo.ait.LogType;kotlin.collections.Map<kotlin.String,kotlin.Any?>){}[0]
+    final suspend fun screen(kotlin/String? = ..., kotlin.collections/Map<kotlin/String, kotlin/Any?> = ...) // io.github.l2hyunwoo.ait/AnalyticsApi.screen|screen(kotlin.String?;kotlin.collections.Map<kotlin.String,kotlin.Any?>){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/AnonymousKeyAuthCode { // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode|null[0]
+    constructor <init>(kotlin/String, kotlin/Int) // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.<init>|<init>(kotlin.String;kotlin.Int){}[0]
+
+    final val code // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.code|{}code[0]
+        final fun <get-code>(): kotlin/String // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.code.<get-code>|<get-code>(){}[0]
+    final val expiresIn // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.expiresIn|{}expiresIn[0]
+        final fun <get-expiresIn>(): kotlin/Int // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.expiresIn.<get-expiresIn>|<get-expiresIn>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.component1|component1(){}[0]
+    final fun component2(): kotlin/Int // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Int = ...): io.github.l2hyunwoo.ait/AnonymousKeyAuthCode // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.copy|copy(kotlin.String;kotlin.Int){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/AnonymousKeyAuthCode.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/AppsInTossClient { // io.github.l2hyunwoo.ait/AppsInTossClient|null[0]
+    constructor <init>(io.github.l2hyunwoo.ait/AppsInTossTransport, kotlin/Long = ...) // io.github.l2hyunwoo.ait/AppsInTossClient.<init>|<init>(io.github.l2hyunwoo.ait.AppsInTossTransport;kotlin.Long){}[0]
+
+    final val ads // io.github.l2hyunwoo.ait/AppsInTossClient.ads|{}ads[0]
+        final fun <get-ads>(): io.github.l2hyunwoo.ait/AdsApi // io.github.l2hyunwoo.ait/AppsInTossClient.ads.<get-ads>|<get-ads>(){}[0]
+    final val analytics // io.github.l2hyunwoo.ait/AppsInTossClient.analytics|{}analytics[0]
+        final fun <get-analytics>(): io.github.l2hyunwoo.ait/AnalyticsApi // io.github.l2hyunwoo.ait/AppsInTossClient.analytics.<get-analytics>|<get-analytics>(){}[0]
+    final val auth // io.github.l2hyunwoo.ait/AppsInTossClient.auth|{}auth[0]
+        final fun <get-auth>(): io.github.l2hyunwoo.ait/AuthApi // io.github.l2hyunwoo.ait/AppsInTossClient.auth.<get-auth>|<get-auth>(){}[0]
+    final val clipboard // io.github.l2hyunwoo.ait/AppsInTossClient.clipboard|{}clipboard[0]
+        final fun <get-clipboard>(): io.github.l2hyunwoo.ait/ClipboardApi // io.github.l2hyunwoo.ait/AppsInTossClient.clipboard.<get-clipboard>|<get-clipboard>(){}[0]
+    final val contacts // io.github.l2hyunwoo.ait/AppsInTossClient.contacts|{}contacts[0]
+        final fun <get-contacts>(): io.github.l2hyunwoo.ait/ContactsApi // io.github.l2hyunwoo.ait/AppsInTossClient.contacts.<get-contacts>|<get-contacts>(){}[0]
+    final val device // io.github.l2hyunwoo.ait/AppsInTossClient.device|{}device[0]
+        final fun <get-device>(): io.github.l2hyunwoo.ait/DeviceApi // io.github.l2hyunwoo.ait/AppsInTossClient.device.<get-device>|<get-device>(){}[0]
+    final val environment // io.github.l2hyunwoo.ait/AppsInTossClient.environment|{}environment[0]
+        final fun <get-environment>(): io.github.l2hyunwoo.ait/EnvironmentApi // io.github.l2hyunwoo.ait/AppsInTossClient.environment.<get-environment>|<get-environment>(){}[0]
+    final val events // io.github.l2hyunwoo.ait/AppsInTossClient.events|{}events[0]
+        final fun <get-events>(): kotlinx.coroutines.flow/Flow<io.github.l2hyunwoo.ait/HostEvent> // io.github.l2hyunwoo.ait/AppsInTossClient.events.<get-events>|<get-events>(){}[0]
+    final val file // io.github.l2hyunwoo.ait/AppsInTossClient.file|{}file[0]
+        final fun <get-file>(): io.github.l2hyunwoo.ait/FileApi // io.github.l2hyunwoo.ait/AppsInTossClient.file.<get-file>|<get-file>(){}[0]
+    final val game // io.github.l2hyunwoo.ait/AppsInTossClient.game|{}game[0]
+        final fun <get-game>(): io.github.l2hyunwoo.ait/GameApi // io.github.l2hyunwoo.ait/AppsInTossClient.game.<get-game>|<get-game>(){}[0]
+    final val host // io.github.l2hyunwoo.ait/AppsInTossClient.host|{}host[0]
+        final fun <get-host>(): io.github.l2hyunwoo.ait/RuntimeHost // io.github.l2hyunwoo.ait/AppsInTossClient.host.<get-host>|<get-host>(){}[0]
+    final val iap // io.github.l2hyunwoo.ait/AppsInTossClient.iap|{}iap[0]
+        final fun <get-iap>(): io.github.l2hyunwoo.ait/IapApi // io.github.l2hyunwoo.ait/AppsInTossClient.iap.<get-iap>|<get-iap>(){}[0]
+    final val location // io.github.l2hyunwoo.ait/AppsInTossClient.location|{}location[0]
+        final fun <get-location>(): io.github.l2hyunwoo.ait/LocationApi // io.github.l2hyunwoo.ait/AppsInTossClient.location.<get-location>|<get-location>(){}[0]
+    final val media // io.github.l2hyunwoo.ait/AppsInTossClient.media|{}media[0]
+        final fun <get-media>(): io.github.l2hyunwoo.ait/MediaApi // io.github.l2hyunwoo.ait/AppsInTossClient.media.<get-media>|<get-media>(){}[0]
+    final val migration // io.github.l2hyunwoo.ait/AppsInTossClient.migration|{}migration[0]
+        final fun <get-migration>(): io.github.l2hyunwoo.ait/MigrationApi // io.github.l2hyunwoo.ait/AppsInTossClient.migration.<get-migration>|<get-migration>(){}[0]
+    final val navigationBar // io.github.l2hyunwoo.ait/AppsInTossClient.navigationBar|{}navigationBar[0]
+        final fun <get-navigationBar>(): io.github.l2hyunwoo.ait/NavigationBarApi // io.github.l2hyunwoo.ait/AppsInTossClient.navigationBar.<get-navigationBar>|<get-navigationBar>(){}[0]
+    final val notification // io.github.l2hyunwoo.ait/AppsInTossClient.notification|{}notification[0]
+        final fun <get-notification>(): io.github.l2hyunwoo.ait/NotificationApi // io.github.l2hyunwoo.ait/AppsInTossClient.notification.<get-notification>|<get-notification>(){}[0]
+    final val permissions // io.github.l2hyunwoo.ait/AppsInTossClient.permissions|{}permissions[0]
+        final fun <get-permissions>(): io.github.l2hyunwoo.ait/PermissionsApi // io.github.l2hyunwoo.ait/AppsInTossClient.permissions.<get-permissions>|<get-permissions>(){}[0]
+    final val promotion // io.github.l2hyunwoo.ait/AppsInTossClient.promotion|{}promotion[0]
+        final fun <get-promotion>(): io.github.l2hyunwoo.ait/PromotionApi // io.github.l2hyunwoo.ait/AppsInTossClient.promotion.<get-promotion>|<get-promotion>(){}[0]
+    final val review // io.github.l2hyunwoo.ait/AppsInTossClient.review|{}review[0]
+        final fun <get-review>(): io.github.l2hyunwoo.ait/ReviewApi // io.github.l2hyunwoo.ait/AppsInTossClient.review.<get-review>|<get-review>(){}[0]
+    final val screen // io.github.l2hyunwoo.ait/AppsInTossClient.screen|{}screen[0]
+        final fun <get-screen>(): io.github.l2hyunwoo.ait/ScreenApi // io.github.l2hyunwoo.ait/AppsInTossClient.screen.<get-screen>|<get-screen>(){}[0]
+    final val share // io.github.l2hyunwoo.ait/AppsInTossClient.share|{}share[0]
+        final fun <get-share>(): io.github.l2hyunwoo.ait/ShareApi // io.github.l2hyunwoo.ait/AppsInTossClient.share.<get-share>|<get-share>(){}[0]
+    final val storage // io.github.l2hyunwoo.ait/AppsInTossClient.storage|{}storage[0]
+        final fun <get-storage>(): io.github.l2hyunwoo.ait/StorageApi // io.github.l2hyunwoo.ait/AppsInTossClient.storage.<get-storage>|<get-storage>(){}[0]
+    final val tossPay // io.github.l2hyunwoo.ait/AppsInTossClient.tossPay|{}tossPay[0]
+        final fun <get-tossPay>(): io.github.l2hyunwoo.ait/TossPayApi // io.github.l2hyunwoo.ait/AppsInTossClient.tossPay.<get-tossPay>|<get-tossPay>(){}[0]
+    final val user // io.github.l2hyunwoo.ait/AppsInTossClient.user|{}user[0]
+        final fun <get-user>(): io.github.l2hyunwoo.ait/UserApi // io.github.l2hyunwoo.ait/AppsInTossClient.user.<get-user>|<get-user>(){}[0]
+
+    final fun close() // io.github.l2hyunwoo.ait/AppsInTossClient.close|close(){}[0]
+    final fun supports(io.github.l2hyunwoo.ait/Capability): kotlin/Boolean // io.github.l2hyunwoo.ait/AppsInTossClient.supports|supports(io.github.l2hyunwoo.ait.Capability){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/AppsInTossException : kotlin/Exception { // io.github.l2hyunwoo.ait/AppsInTossException|null[0]
+    constructor <init>(io.github.l2hyunwoo.ait/ErrorCode, kotlin/String) // io.github.l2hyunwoo.ait/AppsInTossException.<init>|<init>(io.github.l2hyunwoo.ait.ErrorCode;kotlin.String){}[0]
+
+    final val code // io.github.l2hyunwoo.ait/AppsInTossException.code|{}code[0]
+        final fun <get-code>(): io.github.l2hyunwoo.ait/ErrorCode // io.github.l2hyunwoo.ait/AppsInTossException.code.<get-code>|<get-code>(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/AuthApi { // io.github.l2hyunwoo.ait/AuthApi|null[0]
+    final suspend fun isIntegrated(): kotlin/Boolean // io.github.l2hyunwoo.ait/AuthApi.isIntegrated|isIntegrated(){}[0]
+    final suspend fun login(): io.github.l2hyunwoo.ait/TossLoginAuthorization // io.github.l2hyunwoo.ait/AuthApi.login|login(){}[0]
+    final suspend fun sign(kotlin/String) // io.github.l2hyunwoo.ait/AuthApi.sign|sign(kotlin.String){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/BannerBounds { // io.github.l2hyunwoo.ait/BannerBounds|null[0]
+    constructor <init>(kotlin/Double, kotlin/Double, kotlin/Double, kotlin/Double) // io.github.l2hyunwoo.ait/BannerBounds.<init>|<init>(kotlin.Double;kotlin.Double;kotlin.Double;kotlin.Double){}[0]
+
+    final val height // io.github.l2hyunwoo.ait/BannerBounds.height|{}height[0]
+        final fun <get-height>(): kotlin/Double // io.github.l2hyunwoo.ait/BannerBounds.height.<get-height>|<get-height>(){}[0]
+    final val left // io.github.l2hyunwoo.ait/BannerBounds.left|{}left[0]
+        final fun <get-left>(): kotlin/Double // io.github.l2hyunwoo.ait/BannerBounds.left.<get-left>|<get-left>(){}[0]
+    final val top // io.github.l2hyunwoo.ait/BannerBounds.top|{}top[0]
+        final fun <get-top>(): kotlin/Double // io.github.l2hyunwoo.ait/BannerBounds.top.<get-top>|<get-top>(){}[0]
+    final val width // io.github.l2hyunwoo.ait/BannerBounds.width|{}width[0]
+        final fun <get-width>(): kotlin/Double // io.github.l2hyunwoo.ait/BannerBounds.width.<get-width>|<get-width>(){}[0]
+
+    final fun component1(): kotlin/Double // io.github.l2hyunwoo.ait/BannerBounds.component1|component1(){}[0]
+    final fun component2(): kotlin/Double // io.github.l2hyunwoo.ait/BannerBounds.component2|component2(){}[0]
+    final fun component3(): kotlin/Double // io.github.l2hyunwoo.ait/BannerBounds.component3|component3(){}[0]
+    final fun component4(): kotlin/Double // io.github.l2hyunwoo.ait/BannerBounds.component4|component4(){}[0]
+    final fun copy(kotlin/Double = ..., kotlin/Double = ..., kotlin/Double = ..., kotlin/Double = ...): io.github.l2hyunwoo.ait/BannerBounds // io.github.l2hyunwoo.ait/BannerBounds.copy|copy(kotlin.Double;kotlin.Double;kotlin.Double;kotlin.Double){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/BannerBounds.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/BannerBounds.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/BannerBounds.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/BannerHandle { // io.github.l2hyunwoo.ait/BannerHandle|null[0]
+    final fun destroy() // io.github.l2hyunwoo.ait/BannerHandle.destroy|destroy(){}[0]
+    final fun updateBounds(io.github.l2hyunwoo.ait/BannerBounds) // io.github.l2hyunwoo.ait/BannerHandle.updateBounds|updateBounds(io.github.l2hyunwoo.ait.BannerBounds){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/ClipboardApi { // io.github.l2hyunwoo.ait/ClipboardApi|null[0]
+    final suspend fun getText(): io.github.l2hyunwoo.ait/PermissionResult<kotlin/String> // io.github.l2hyunwoo.ait/ClipboardApi.getText|getText(){}[0]
+    final suspend fun setText(kotlin/String): io.github.l2hyunwoo.ait/PermissionResult<kotlin/Unit> // io.github.l2hyunwoo.ait/ClipboardApi.setText|setText(kotlin.String){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/CompletedOrRefundedOrder { // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder|null[0]
+    constructor <init>(kotlin/String, kotlin/String, io.github.l2hyunwoo.ait/OrderStatus, kotlin/String) // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.<init>|<init>(kotlin.String;kotlin.String;io.github.l2hyunwoo.ait.OrderStatus;kotlin.String){}[0]
+
+    final val date // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.date|{}date[0]
+        final fun <get-date>(): kotlin/String // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.date.<get-date>|<get-date>(){}[0]
+    final val orderId // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.orderId|{}orderId[0]
+        final fun <get-orderId>(): kotlin/String // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.orderId.<get-orderId>|<get-orderId>(){}[0]
+    final val sku // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.sku|{}sku[0]
+        final fun <get-sku>(): kotlin/String // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.sku.<get-sku>|<get-sku>(){}[0]
+    final val status // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.status|{}status[0]
+        final fun <get-status>(): io.github.l2hyunwoo.ait/OrderStatus // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.status.<get-status>|<get-status>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.component2|component2(){}[0]
+    final fun component3(): io.github.l2hyunwoo.ait/OrderStatus // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.component3|component3(){}[0]
+    final fun component4(): kotlin/String // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., io.github.l2hyunwoo.ait/OrderStatus = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/CompletedOrRefundedOrder // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.copy|copy(kotlin.String;kotlin.String;io.github.l2hyunwoo.ait.OrderStatus;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/CompletedOrRefundedOrder.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/CompletedOrRefundedOrders { // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders|null[0]
+    constructor <init>(kotlin/Boolean, kotlin/String?, kotlin.collections/List<io.github.l2hyunwoo.ait/CompletedOrRefundedOrder>) // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.<init>|<init>(kotlin.Boolean;kotlin.String?;kotlin.collections.List<io.github.l2hyunwoo.ait.CompletedOrRefundedOrder>){}[0]
+
+    final val hasNext // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.hasNext|{}hasNext[0]
+        final fun <get-hasNext>(): kotlin/Boolean // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.hasNext.<get-hasNext>|<get-hasNext>(){}[0]
+    final val nextKey // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.nextKey|{}nextKey[0]
+        final fun <get-nextKey>(): kotlin/String? // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.nextKey.<get-nextKey>|<get-nextKey>(){}[0]
+    final val orders // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.orders|{}orders[0]
+        final fun <get-orders>(): kotlin.collections/List<io.github.l2hyunwoo.ait/CompletedOrRefundedOrder> // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.orders.<get-orders>|<get-orders>(){}[0]
+
+    final fun component1(): kotlin/Boolean // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.component1|component1(){}[0]
+    final fun component2(): kotlin/String? // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/List<io.github.l2hyunwoo.ait/CompletedOrRefundedOrder> // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.component3|component3(){}[0]
+    final fun copy(kotlin/Boolean = ..., kotlin/String? = ..., kotlin.collections/List<io.github.l2hyunwoo.ait/CompletedOrRefundedOrder> = ...): io.github.l2hyunwoo.ait/CompletedOrRefundedOrders // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.copy|copy(kotlin.Boolean;kotlin.String?;kotlin.collections.List<io.github.l2hyunwoo.ait.CompletedOrRefundedOrder>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/CompletedOrRefundedOrders.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/ContactEntity { // io.github.l2hyunwoo.ait/ContactEntity|null[0]
+    constructor <init>(kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/ContactEntity.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+    final val name // io.github.l2hyunwoo.ait/ContactEntity.name|{}name[0]
+        final fun <get-name>(): kotlin/String // io.github.l2hyunwoo.ait/ContactEntity.name.<get-name>|<get-name>(){}[0]
+    final val phoneNumber // io.github.l2hyunwoo.ait/ContactEntity.phoneNumber|{}phoneNumber[0]
+        final fun <get-phoneNumber>(): kotlin/String // io.github.l2hyunwoo.ait/ContactEntity.phoneNumber.<get-phoneNumber>|<get-phoneNumber>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/ContactEntity.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/ContactEntity.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/ContactEntity // io.github.l2hyunwoo.ait/ContactEntity.copy|copy(kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/ContactEntity.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/ContactEntity.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/ContactEntity.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/ContactResult { // io.github.l2hyunwoo.ait/ContactResult|null[0]
+    constructor <init>(kotlin.collections/List<io.github.l2hyunwoo.ait/ContactEntity>, kotlin/Int?, kotlin/Boolean) // io.github.l2hyunwoo.ait/ContactResult.<init>|<init>(kotlin.collections.List<io.github.l2hyunwoo.ait.ContactEntity>;kotlin.Int?;kotlin.Boolean){}[0]
+
+    final val done // io.github.l2hyunwoo.ait/ContactResult.done|{}done[0]
+        final fun <get-done>(): kotlin/Boolean // io.github.l2hyunwoo.ait/ContactResult.done.<get-done>|<get-done>(){}[0]
+    final val nextOffset // io.github.l2hyunwoo.ait/ContactResult.nextOffset|{}nextOffset[0]
+        final fun <get-nextOffset>(): kotlin/Int? // io.github.l2hyunwoo.ait/ContactResult.nextOffset.<get-nextOffset>|<get-nextOffset>(){}[0]
+    final val result // io.github.l2hyunwoo.ait/ContactResult.result|{}result[0]
+        final fun <get-result>(): kotlin.collections/List<io.github.l2hyunwoo.ait/ContactEntity> // io.github.l2hyunwoo.ait/ContactResult.result.<get-result>|<get-result>(){}[0]
+
+    final fun component1(): kotlin.collections/List<io.github.l2hyunwoo.ait/ContactEntity> // io.github.l2hyunwoo.ait/ContactResult.component1|component1(){}[0]
+    final fun component2(): kotlin/Int? // io.github.l2hyunwoo.ait/ContactResult.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean // io.github.l2hyunwoo.ait/ContactResult.component3|component3(){}[0]
+    final fun copy(kotlin.collections/List<io.github.l2hyunwoo.ait/ContactEntity> = ..., kotlin/Int? = ..., kotlin/Boolean = ...): io.github.l2hyunwoo.ait/ContactResult // io.github.l2hyunwoo.ait/ContactResult.copy|copy(kotlin.collections.List<io.github.l2hyunwoo.ait.ContactEntity>;kotlin.Int?;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/ContactResult.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/ContactResult.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/ContactResult.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/ContactsApi { // io.github.l2hyunwoo.ait/ContactsApi|null[0]
+    final suspend fun getContacts(kotlin/Int, kotlin/Int, kotlin/String? = ...): io.github.l2hyunwoo.ait/PermissionResult<io.github.l2hyunwoo.ait/ContactResult> // io.github.l2hyunwoo.ait/ContactsApi.getContacts|getContacts(kotlin.Int;kotlin.Int;kotlin.String?){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/DeclaredAgeRange { // io.github.l2hyunwoo.ait/DeclaredAgeRange|null[0]
+    constructor <init>(io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus, kotlin/Int?, kotlin/Int?, kotlin/String?, kotlin.collections/List<kotlin/String>, kotlin/Boolean?, kotlin/String?) // io.github.l2hyunwoo.ait/DeclaredAgeRange.<init>|<init>(io.github.l2hyunwoo.ait.DeclaredAgeRangeStatus;kotlin.Int?;kotlin.Int?;kotlin.String?;kotlin.collections.List<kotlin.String>;kotlin.Boolean?;kotlin.String?){}[0]
+
+    final val activeParentalControls // io.github.l2hyunwoo.ait/DeclaredAgeRange.activeParentalControls|{}activeParentalControls[0]
+        final fun <get-activeParentalControls>(): kotlin.collections/List<kotlin/String> // io.github.l2hyunwoo.ait/DeclaredAgeRange.activeParentalControls.<get-activeParentalControls>|<get-activeParentalControls>(){}[0]
+    final val ageRangeDeclaration // io.github.l2hyunwoo.ait/DeclaredAgeRange.ageRangeDeclaration|{}ageRangeDeclaration[0]
+        final fun <get-ageRangeDeclaration>(): kotlin/String? // io.github.l2hyunwoo.ait/DeclaredAgeRange.ageRangeDeclaration.<get-ageRangeDeclaration>|<get-ageRangeDeclaration>(){}[0]
+    final val errorCode // io.github.l2hyunwoo.ait/DeclaredAgeRange.errorCode|{}errorCode[0]
+        final fun <get-errorCode>(): kotlin/String? // io.github.l2hyunwoo.ait/DeclaredAgeRange.errorCode.<get-errorCode>|<get-errorCode>(){}[0]
+    final val isEligibleForAgeFeatures // io.github.l2hyunwoo.ait/DeclaredAgeRange.isEligibleForAgeFeatures|{}isEligibleForAgeFeatures[0]
+        final fun <get-isEligibleForAgeFeatures>(): kotlin/Boolean? // io.github.l2hyunwoo.ait/DeclaredAgeRange.isEligibleForAgeFeatures.<get-isEligibleForAgeFeatures>|<get-isEligibleForAgeFeatures>(){}[0]
+    final val lowerBound // io.github.l2hyunwoo.ait/DeclaredAgeRange.lowerBound|{}lowerBound[0]
+        final fun <get-lowerBound>(): kotlin/Int? // io.github.l2hyunwoo.ait/DeclaredAgeRange.lowerBound.<get-lowerBound>|<get-lowerBound>(){}[0]
+    final val status // io.github.l2hyunwoo.ait/DeclaredAgeRange.status|{}status[0]
+        final fun <get-status>(): io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus // io.github.l2hyunwoo.ait/DeclaredAgeRange.status.<get-status>|<get-status>(){}[0]
+    final val upperBound // io.github.l2hyunwoo.ait/DeclaredAgeRange.upperBound|{}upperBound[0]
+        final fun <get-upperBound>(): kotlin/Int? // io.github.l2hyunwoo.ait/DeclaredAgeRange.upperBound.<get-upperBound>|<get-upperBound>(){}[0]
+
+    final fun component1(): io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus // io.github.l2hyunwoo.ait/DeclaredAgeRange.component1|component1(){}[0]
+    final fun component2(): kotlin/Int? // io.github.l2hyunwoo.ait/DeclaredAgeRange.component2|component2(){}[0]
+    final fun component3(): kotlin/Int? // io.github.l2hyunwoo.ait/DeclaredAgeRange.component3|component3(){}[0]
+    final fun component4(): kotlin/String? // io.github.l2hyunwoo.ait/DeclaredAgeRange.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/List<kotlin/String> // io.github.l2hyunwoo.ait/DeclaredAgeRange.component5|component5(){}[0]
+    final fun component6(): kotlin/Boolean? // io.github.l2hyunwoo.ait/DeclaredAgeRange.component6|component6(){}[0]
+    final fun component7(): kotlin/String? // io.github.l2hyunwoo.ait/DeclaredAgeRange.component7|component7(){}[0]
+    final fun copy(io.github.l2hyunwoo.ait/DeclaredAgeRangeStatus = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/String? = ..., kotlin.collections/List<kotlin/String> = ..., kotlin/Boolean? = ..., kotlin/String? = ...): io.github.l2hyunwoo.ait/DeclaredAgeRange // io.github.l2hyunwoo.ait/DeclaredAgeRange.copy|copy(io.github.l2hyunwoo.ait.DeclaredAgeRangeStatus;kotlin.Int?;kotlin.Int?;kotlin.String?;kotlin.collections.List<kotlin.String>;kotlin.Boolean?;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/DeclaredAgeRange.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/DeclaredAgeRange.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/DeclaredAgeRange.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/DeviceApi { // io.github.l2hyunwoo.ait/DeviceApi|null[0]
+    final suspend fun locale(): kotlin/String // io.github.l2hyunwoo.ait/DeviceApi.locale|locale(){}[0]
+    final suspend fun openURL(kotlin/String) // io.github.l2hyunwoo.ait/DeviceApi.openURL|openURL(kotlin.String){}[0]
+    final suspend fun os(): io.github.l2hyunwoo.ait/DeviceOs // io.github.l2hyunwoo.ait/DeviceApi.os|os(){}[0]
+    final suspend fun triggerHaptic(io.github.l2hyunwoo.ait/HapticType) // io.github.l2hyunwoo.ait/DeviceApi.triggerHaptic|triggerHaptic(io.github.l2hyunwoo.ait.HapticType){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/EnvironmentApi { // io.github.l2hyunwoo.ait/EnvironmentApi|null[0]
+    final suspend fun deploymentId(): kotlin/String // io.github.l2hyunwoo.ait/EnvironmentApi.deploymentId|deploymentId(){}[0]
+    final suspend fun deviceId(): kotlin/String // io.github.l2hyunwoo.ait/EnvironmentApi.deviceId|deviceId(){}[0]
+    final suspend fun environment(): io.github.l2hyunwoo.ait/OperationalEnvironment // io.github.l2hyunwoo.ait/EnvironmentApi.environment|environment(){}[0]
+    final suspend fun getNetworkStatus(): io.github.l2hyunwoo.ait/NetworkStatus // io.github.l2hyunwoo.ait/EnvironmentApi.getNetworkStatus|getNetworkStatus(){}[0]
+    final suspend fun getServerTime(): kotlin/Long? // io.github.l2hyunwoo.ait/EnvironmentApi.getServerTime|getServerTime(){}[0]
+    final suspend fun groupId(): kotlin/String // io.github.l2hyunwoo.ait/EnvironmentApi.groupId|groupId(){}[0]
+    final suspend fun initialURL(): kotlin/String // io.github.l2hyunwoo.ait/EnvironmentApi.initialURL|initialURL(){}[0]
+    final suspend fun isMinVersionSupported(kotlin/String, kotlin/String): kotlin/Boolean // io.github.l2hyunwoo.ait/EnvironmentApi.isMinVersionSupported|isMinVersionSupported(kotlin.String;kotlin.String){}[0]
+    final suspend fun tossAppVersion(): kotlin/String // io.github.l2hyunwoo.ait/EnvironmentApi.tossAppVersion|tossAppVersion(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/FileApi { // io.github.l2hyunwoo.ait/FileApi|null[0]
+    final suspend fun openPDFViewer(kotlin/String, kotlin/String? = ...) // io.github.l2hyunwoo.ait/FileApi.openPDFViewer|openPDFViewer(kotlin.String;kotlin.String?){}[0]
+    final suspend fun saveBase64(kotlin/String, kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/FileApi.saveBase64|saveBase64(kotlin.String;kotlin.String;kotlin.String){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/GameApi { // io.github.l2hyunwoo.ait/GameApi|null[0]
+    final fun subscribeInfoOverlayHidden(): kotlinx.coroutines.flow/Flow<kotlin/Unit> // io.github.l2hyunwoo.ait/GameApi.subscribeInfoOverlayHidden|subscribeInfoOverlayHidden(){}[0]
+    final suspend fun getUserProfile(): io.github.l2hyunwoo.ait/GameProfile // io.github.l2hyunwoo.ait/GameApi.getUserProfile|getUserProfile(){}[0]
+    final suspend fun openLeaderboard() // io.github.l2hyunwoo.ait/GameApi.openLeaderboard|openLeaderboard(){}[0]
+    final suspend fun setLeaderboardScore(kotlin/Double): io.github.l2hyunwoo.ait/LeaderboardSubmitResult // io.github.l2hyunwoo.ait/GameApi.setLeaderboardScore|setLeaderboardScore(kotlin.Double){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/IapApi { // io.github.l2hyunwoo.ait/IapApi|null[0]
+    final suspend fun completeProductGrant(kotlin/String): kotlin/Boolean // io.github.l2hyunwoo.ait/IapApi.completeProductGrant|completeProductGrant(kotlin.String){}[0]
+    final suspend fun createOneTimePurchaseOrder(kotlin/String, kotlin.coroutines/SuspendFunction1<kotlin/String, kotlin/Boolean>): io.github.l2hyunwoo.ait/PurchaseResult // io.github.l2hyunwoo.ait/IapApi.createOneTimePurchaseOrder|createOneTimePurchaseOrder(kotlin.String;kotlin.coroutines.SuspendFunction1<kotlin.String,kotlin.Boolean>){}[0]
+    final suspend fun createSubscriptionPurchaseOrder(kotlin/String, kotlin/String? = ..., kotlin.coroutines/SuspendFunction2<kotlin/String, kotlin/String?, kotlin/Boolean>): io.github.l2hyunwoo.ait/PurchaseResult // io.github.l2hyunwoo.ait/IapApi.createSubscriptionPurchaseOrder|createSubscriptionPurchaseOrder(kotlin.String;kotlin.String?;kotlin.coroutines.SuspendFunction2<kotlin.String,kotlin.String?,kotlin.Boolean>){}[0]
+    final suspend fun getCompletedOrRefundedOrders(kotlin/String? = ...): io.github.l2hyunwoo.ait/CompletedOrRefundedOrders // io.github.l2hyunwoo.ait/IapApi.getCompletedOrRefundedOrders|getCompletedOrRefundedOrders(kotlin.String?){}[0]
+    final suspend fun getPendingOrders(): kotlin.collections/List<io.github.l2hyunwoo.ait/PendingOrder> // io.github.l2hyunwoo.ait/IapApi.getPendingOrders|getPendingOrders(){}[0]
+    final suspend fun getProductItemList(): kotlin.collections/List<io.github.l2hyunwoo.ait/IapProduct> // io.github.l2hyunwoo.ait/IapApi.getProductItemList|getProductItemList(){}[0]
+    final suspend fun getSubscriptionInfo(kotlin/String): io.github.l2hyunwoo.ait/SubscriptionInfo // io.github.l2hyunwoo.ait/IapApi.getSubscriptionInfo|getSubscriptionInfo(kotlin.String){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/IapOffer { // io.github.l2hyunwoo.ait/IapOffer|null[0]
+    constructor <init>(io.github.l2hyunwoo.ait/IapOfferType, kotlin/String, kotlin/String, kotlin/String?) // io.github.l2hyunwoo.ait/IapOffer.<init>|<init>(io.github.l2hyunwoo.ait.IapOfferType;kotlin.String;kotlin.String;kotlin.String?){}[0]
+
+    final val displayAmount // io.github.l2hyunwoo.ait/IapOffer.displayAmount|{}displayAmount[0]
+        final fun <get-displayAmount>(): kotlin/String? // io.github.l2hyunwoo.ait/IapOffer.displayAmount.<get-displayAmount>|<get-displayAmount>(){}[0]
+    final val offerId // io.github.l2hyunwoo.ait/IapOffer.offerId|{}offerId[0]
+        final fun <get-offerId>(): kotlin/String // io.github.l2hyunwoo.ait/IapOffer.offerId.<get-offerId>|<get-offerId>(){}[0]
+    final val period // io.github.l2hyunwoo.ait/IapOffer.period|{}period[0]
+        final fun <get-period>(): kotlin/String // io.github.l2hyunwoo.ait/IapOffer.period.<get-period>|<get-period>(){}[0]
+    final val type // io.github.l2hyunwoo.ait/IapOffer.type|{}type[0]
+        final fun <get-type>(): io.github.l2hyunwoo.ait/IapOfferType // io.github.l2hyunwoo.ait/IapOffer.type.<get-type>|<get-type>(){}[0]
+
+    final fun component1(): io.github.l2hyunwoo.ait/IapOfferType // io.github.l2hyunwoo.ait/IapOffer.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/IapOffer.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.l2hyunwoo.ait/IapOffer.component3|component3(){}[0]
+    final fun component4(): kotlin/String? // io.github.l2hyunwoo.ait/IapOffer.component4|component4(){}[0]
+    final fun copy(io.github.l2hyunwoo.ait/IapOfferType = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String? = ...): io.github.l2hyunwoo.ait/IapOffer // io.github.l2hyunwoo.ait/IapOffer.copy|copy(io.github.l2hyunwoo.ait.IapOfferType;kotlin.String;kotlin.String;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/IapOffer.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/IapOffer.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/IapOffer.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/IapProduct { // io.github.l2hyunwoo.ait/IapProduct|null[0]
+    constructor <init>(kotlin/String, io.github.l2hyunwoo.ait/IapProductType, kotlin/String, kotlin/String, kotlin/String, kotlin/String, io.github.l2hyunwoo.ait/RenewalCycle?, kotlin.collections/List<io.github.l2hyunwoo.ait/IapOffer>) // io.github.l2hyunwoo.ait/IapProduct.<init>|<init>(kotlin.String;io.github.l2hyunwoo.ait.IapProductType;kotlin.String;kotlin.String;kotlin.String;kotlin.String;io.github.l2hyunwoo.ait.RenewalCycle?;kotlin.collections.List<io.github.l2hyunwoo.ait.IapOffer>){}[0]
+
+    final val description // io.github.l2hyunwoo.ait/IapProduct.description|{}description[0]
+        final fun <get-description>(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.description.<get-description>|<get-description>(){}[0]
+    final val displayAmount // io.github.l2hyunwoo.ait/IapProduct.displayAmount|{}displayAmount[0]
+        final fun <get-displayAmount>(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.displayAmount.<get-displayAmount>|<get-displayAmount>(){}[0]
+    final val displayName // io.github.l2hyunwoo.ait/IapProduct.displayName|{}displayName[0]
+        final fun <get-displayName>(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.displayName.<get-displayName>|<get-displayName>(){}[0]
+    final val iconUrl // io.github.l2hyunwoo.ait/IapProduct.iconUrl|{}iconUrl[0]
+        final fun <get-iconUrl>(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.iconUrl.<get-iconUrl>|<get-iconUrl>(){}[0]
+    final val offers // io.github.l2hyunwoo.ait/IapProduct.offers|{}offers[0]
+        final fun <get-offers>(): kotlin.collections/List<io.github.l2hyunwoo.ait/IapOffer> // io.github.l2hyunwoo.ait/IapProduct.offers.<get-offers>|<get-offers>(){}[0]
+    final val renewalCycle // io.github.l2hyunwoo.ait/IapProduct.renewalCycle|{}renewalCycle[0]
+        final fun <get-renewalCycle>(): io.github.l2hyunwoo.ait/RenewalCycle? // io.github.l2hyunwoo.ait/IapProduct.renewalCycle.<get-renewalCycle>|<get-renewalCycle>(){}[0]
+    final val sku // io.github.l2hyunwoo.ait/IapProduct.sku|{}sku[0]
+        final fun <get-sku>(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.sku.<get-sku>|<get-sku>(){}[0]
+    final val type // io.github.l2hyunwoo.ait/IapProduct.type|{}type[0]
+        final fun <get-type>(): io.github.l2hyunwoo.ait/IapProductType // io.github.l2hyunwoo.ait/IapProduct.type.<get-type>|<get-type>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.component1|component1(){}[0]
+    final fun component2(): io.github.l2hyunwoo.ait/IapProductType // io.github.l2hyunwoo.ait/IapProduct.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.component3|component3(){}[0]
+    final fun component4(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.component4|component4(){}[0]
+    final fun component5(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.component5|component5(){}[0]
+    final fun component6(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.component6|component6(){}[0]
+    final fun component7(): io.github.l2hyunwoo.ait/RenewalCycle? // io.github.l2hyunwoo.ait/IapProduct.component7|component7(){}[0]
+    final fun component8(): kotlin.collections/List<io.github.l2hyunwoo.ait/IapOffer> // io.github.l2hyunwoo.ait/IapProduct.component8|component8(){}[0]
+    final fun copy(kotlin/String = ..., io.github.l2hyunwoo.ait/IapProductType = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., io.github.l2hyunwoo.ait/RenewalCycle? = ..., kotlin.collections/List<io.github.l2hyunwoo.ait/IapOffer> = ...): io.github.l2hyunwoo.ait/IapProduct // io.github.l2hyunwoo.ait/IapProduct.copy|copy(kotlin.String;io.github.l2hyunwoo.ait.IapProductType;kotlin.String;kotlin.String;kotlin.String;kotlin.String;io.github.l2hyunwoo.ait.RenewalCycle?;kotlin.collections.List<io.github.l2hyunwoo.ait.IapOffer>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/IapProduct.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/IapProduct.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/IapProduct.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/ImageResponse { // io.github.l2hyunwoo.ait/ImageResponse|null[0]
+    constructor <init>(kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/ImageResponse.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+    final val dataUri // io.github.l2hyunwoo.ait/ImageResponse.dataUri|{}dataUri[0]
+        final fun <get-dataUri>(): kotlin/String // io.github.l2hyunwoo.ait/ImageResponse.dataUri.<get-dataUri>|<get-dataUri>(){}[0]
+    final val id // io.github.l2hyunwoo.ait/ImageResponse.id|{}id[0]
+        final fun <get-id>(): kotlin/String // io.github.l2hyunwoo.ait/ImageResponse.id.<get-id>|<get-id>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/ImageResponse.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/ImageResponse.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/ImageResponse // io.github.l2hyunwoo.ait/ImageResponse.copy|copy(kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/ImageResponse.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/ImageResponse.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/ImageResponse.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/IndexedDbDatabase { // io.github.l2hyunwoo.ait/IndexedDbDatabase|null[0]
+    constructor <init>(kotlin/String, kotlin/Long, kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbObjectStore>) // io.github.l2hyunwoo.ait/IndexedDbDatabase.<init>|<init>(kotlin.String;kotlin.Long;kotlin.collections.List<io.github.l2hyunwoo.ait.IndexedDbObjectStore>){}[0]
+
+    final val name // io.github.l2hyunwoo.ait/IndexedDbDatabase.name|{}name[0]
+        final fun <get-name>(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbDatabase.name.<get-name>|<get-name>(){}[0]
+    final val objectStores // io.github.l2hyunwoo.ait/IndexedDbDatabase.objectStores|{}objectStores[0]
+        final fun <get-objectStores>(): kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbObjectStore> // io.github.l2hyunwoo.ait/IndexedDbDatabase.objectStores.<get-objectStores>|<get-objectStores>(){}[0]
+    final val version // io.github.l2hyunwoo.ait/IndexedDbDatabase.version|{}version[0]
+        final fun <get-version>(): kotlin/Long // io.github.l2hyunwoo.ait/IndexedDbDatabase.version.<get-version>|<get-version>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbDatabase.component1|component1(){}[0]
+    final fun component2(): kotlin/Long // io.github.l2hyunwoo.ait/IndexedDbDatabase.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbObjectStore> // io.github.l2hyunwoo.ait/IndexedDbDatabase.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Long = ..., kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbObjectStore> = ...): io.github.l2hyunwoo.ait/IndexedDbDatabase // io.github.l2hyunwoo.ait/IndexedDbDatabase.copy|copy(kotlin.String;kotlin.Long;kotlin.collections.List<io.github.l2hyunwoo.ait.IndexedDbObjectStore>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/IndexedDbDatabase.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/IndexedDbDatabase.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbDatabase.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/IndexedDbIndex { // io.github.l2hyunwoo.ait/IndexedDbIndex|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/Boolean, kotlin/Boolean) // io.github.l2hyunwoo.ait/IndexedDbIndex.<init>|<init>(kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean){}[0]
+
+    final val keyPathJson // io.github.l2hyunwoo.ait/IndexedDbIndex.keyPathJson|{}keyPathJson[0]
+        final fun <get-keyPathJson>(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbIndex.keyPathJson.<get-keyPathJson>|<get-keyPathJson>(){}[0]
+    final val multiEntry // io.github.l2hyunwoo.ait/IndexedDbIndex.multiEntry|{}multiEntry[0]
+        final fun <get-multiEntry>(): kotlin/Boolean // io.github.l2hyunwoo.ait/IndexedDbIndex.multiEntry.<get-multiEntry>|<get-multiEntry>(){}[0]
+    final val name // io.github.l2hyunwoo.ait/IndexedDbIndex.name|{}name[0]
+        final fun <get-name>(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbIndex.name.<get-name>|<get-name>(){}[0]
+    final val unique // io.github.l2hyunwoo.ait/IndexedDbIndex.unique|{}unique[0]
+        final fun <get-unique>(): kotlin/Boolean // io.github.l2hyunwoo.ait/IndexedDbIndex.unique.<get-unique>|<get-unique>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbIndex.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbIndex.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean // io.github.l2hyunwoo.ait/IndexedDbIndex.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // io.github.l2hyunwoo.ait/IndexedDbIndex.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): io.github.l2hyunwoo.ait/IndexedDbIndex // io.github.l2hyunwoo.ait/IndexedDbIndex.copy|copy(kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/IndexedDbIndex.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/IndexedDbIndex.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbIndex.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/IndexedDbObjectStore { // io.github.l2hyunwoo.ait/IndexedDbObjectStore|null[0]
+    constructor <init>(kotlin/String, kotlin/String?, kotlin/Boolean, kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbIndex>, kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbRecord>) // io.github.l2hyunwoo.ait/IndexedDbObjectStore.<init>|<init>(kotlin.String;kotlin.String?;kotlin.Boolean;kotlin.collections.List<io.github.l2hyunwoo.ait.IndexedDbIndex>;kotlin.collections.List<io.github.l2hyunwoo.ait.IndexedDbRecord>){}[0]
+
+    final val autoIncrement // io.github.l2hyunwoo.ait/IndexedDbObjectStore.autoIncrement|{}autoIncrement[0]
+        final fun <get-autoIncrement>(): kotlin/Boolean // io.github.l2hyunwoo.ait/IndexedDbObjectStore.autoIncrement.<get-autoIncrement>|<get-autoIncrement>(){}[0]
+    final val indexes // io.github.l2hyunwoo.ait/IndexedDbObjectStore.indexes|{}indexes[0]
+        final fun <get-indexes>(): kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbIndex> // io.github.l2hyunwoo.ait/IndexedDbObjectStore.indexes.<get-indexes>|<get-indexes>(){}[0]
+    final val keyPathJson // io.github.l2hyunwoo.ait/IndexedDbObjectStore.keyPathJson|{}keyPathJson[0]
+        final fun <get-keyPathJson>(): kotlin/String? // io.github.l2hyunwoo.ait/IndexedDbObjectStore.keyPathJson.<get-keyPathJson>|<get-keyPathJson>(){}[0]
+    final val name // io.github.l2hyunwoo.ait/IndexedDbObjectStore.name|{}name[0]
+        final fun <get-name>(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbObjectStore.name.<get-name>|<get-name>(){}[0]
+    final val records // io.github.l2hyunwoo.ait/IndexedDbObjectStore.records|{}records[0]
+        final fun <get-records>(): kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbRecord> // io.github.l2hyunwoo.ait/IndexedDbObjectStore.records.<get-records>|<get-records>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbObjectStore.component1|component1(){}[0]
+    final fun component2(): kotlin/String? // io.github.l2hyunwoo.ait/IndexedDbObjectStore.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean // io.github.l2hyunwoo.ait/IndexedDbObjectStore.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbIndex> // io.github.l2hyunwoo.ait/IndexedDbObjectStore.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbRecord> // io.github.l2hyunwoo.ait/IndexedDbObjectStore.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String? = ..., kotlin/Boolean = ..., kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbIndex> = ..., kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbRecord> = ...): io.github.l2hyunwoo.ait/IndexedDbObjectStore // io.github.l2hyunwoo.ait/IndexedDbObjectStore.copy|copy(kotlin.String;kotlin.String?;kotlin.Boolean;kotlin.collections.List<io.github.l2hyunwoo.ait.IndexedDbIndex>;kotlin.collections.List<io.github.l2hyunwoo.ait.IndexedDbRecord>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/IndexedDbObjectStore.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/IndexedDbObjectStore.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbObjectStore.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/IndexedDbRecord { // io.github.l2hyunwoo.ait/IndexedDbRecord|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/IndexedDbRecord.<init>|<init>(kotlin.String;kotlin.String;kotlin.String){}[0]
+
+    final val keyJson // io.github.l2hyunwoo.ait/IndexedDbRecord.keyJson|{}keyJson[0]
+        final fun <get-keyJson>(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbRecord.keyJson.<get-keyJson>|<get-keyJson>(){}[0]
+    final val primaryKeyJson // io.github.l2hyunwoo.ait/IndexedDbRecord.primaryKeyJson|{}primaryKeyJson[0]
+        final fun <get-primaryKeyJson>(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbRecord.primaryKeyJson.<get-primaryKeyJson>|<get-primaryKeyJson>(){}[0]
+    final val valueJson // io.github.l2hyunwoo.ait/IndexedDbRecord.valueJson|{}valueJson[0]
+        final fun <get-valueJson>(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbRecord.valueJson.<get-valueJson>|<get-valueJson>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbRecord.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbRecord.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbRecord.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/IndexedDbRecord // io.github.l2hyunwoo.ait/IndexedDbRecord.copy|copy(kotlin.String;kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/IndexedDbRecord.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/IndexedDbRecord.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/IndexedDbRecord.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/Location { // io.github.l2hyunwoo.ait/Location|null[0]
+    constructor <init>(io.github.l2hyunwoo.ait/AccessLocation?, kotlin/Double, io.github.l2hyunwoo.ait/LocationCoords) // io.github.l2hyunwoo.ait/Location.<init>|<init>(io.github.l2hyunwoo.ait.AccessLocation?;kotlin.Double;io.github.l2hyunwoo.ait.LocationCoords){}[0]
+
+    final val accessLocation // io.github.l2hyunwoo.ait/Location.accessLocation|{}accessLocation[0]
+        final fun <get-accessLocation>(): io.github.l2hyunwoo.ait/AccessLocation? // io.github.l2hyunwoo.ait/Location.accessLocation.<get-accessLocation>|<get-accessLocation>(){}[0]
+    final val coords // io.github.l2hyunwoo.ait/Location.coords|{}coords[0]
+        final fun <get-coords>(): io.github.l2hyunwoo.ait/LocationCoords // io.github.l2hyunwoo.ait/Location.coords.<get-coords>|<get-coords>(){}[0]
+    final val timestamp // io.github.l2hyunwoo.ait/Location.timestamp|{}timestamp[0]
+        final fun <get-timestamp>(): kotlin/Double // io.github.l2hyunwoo.ait/Location.timestamp.<get-timestamp>|<get-timestamp>(){}[0]
+
+    final fun component1(): io.github.l2hyunwoo.ait/AccessLocation? // io.github.l2hyunwoo.ait/Location.component1|component1(){}[0]
+    final fun component2(): kotlin/Double // io.github.l2hyunwoo.ait/Location.component2|component2(){}[0]
+    final fun component3(): io.github.l2hyunwoo.ait/LocationCoords // io.github.l2hyunwoo.ait/Location.component3|component3(){}[0]
+    final fun copy(io.github.l2hyunwoo.ait/AccessLocation? = ..., kotlin/Double = ..., io.github.l2hyunwoo.ait/LocationCoords = ...): io.github.l2hyunwoo.ait/Location // io.github.l2hyunwoo.ait/Location.copy|copy(io.github.l2hyunwoo.ait.AccessLocation?;kotlin.Double;io.github.l2hyunwoo.ait.LocationCoords){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/Location.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/Location.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/Location.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/LocationApi { // io.github.l2hyunwoo.ait/LocationApi|null[0]
+    final fun subscribeLocation(io.github.l2hyunwoo.ait/Accuracy, kotlin/Long, kotlin/Double): kotlinx.coroutines.flow/Flow<io.github.l2hyunwoo.ait/PermissionResult<io.github.l2hyunwoo.ait/Location>> // io.github.l2hyunwoo.ait/LocationApi.subscribeLocation|subscribeLocation(io.github.l2hyunwoo.ait.Accuracy;kotlin.Long;kotlin.Double){}[0]
+    final suspend fun getLocation(io.github.l2hyunwoo.ait/Accuracy): io.github.l2hyunwoo.ait/PermissionResult<io.github.l2hyunwoo.ait/Location> // io.github.l2hyunwoo.ait/LocationApi.getLocation|getLocation(io.github.l2hyunwoo.ait.Accuracy){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/LocationCoords { // io.github.l2hyunwoo.ait/LocationCoords|null[0]
+    constructor <init>(kotlin/Double, kotlin/Double, kotlin/Double, kotlin/Double, kotlin/Double, kotlin/Double) // io.github.l2hyunwoo.ait/LocationCoords.<init>|<init>(kotlin.Double;kotlin.Double;kotlin.Double;kotlin.Double;kotlin.Double;kotlin.Double){}[0]
+
+    final val accuracy // io.github.l2hyunwoo.ait/LocationCoords.accuracy|{}accuracy[0]
+        final fun <get-accuracy>(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.accuracy.<get-accuracy>|<get-accuracy>(){}[0]
+    final val altitude // io.github.l2hyunwoo.ait/LocationCoords.altitude|{}altitude[0]
+        final fun <get-altitude>(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.altitude.<get-altitude>|<get-altitude>(){}[0]
+    final val altitudeAccuracy // io.github.l2hyunwoo.ait/LocationCoords.altitudeAccuracy|{}altitudeAccuracy[0]
+        final fun <get-altitudeAccuracy>(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.altitudeAccuracy.<get-altitudeAccuracy>|<get-altitudeAccuracy>(){}[0]
+    final val heading // io.github.l2hyunwoo.ait/LocationCoords.heading|{}heading[0]
+        final fun <get-heading>(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.heading.<get-heading>|<get-heading>(){}[0]
+    final val latitude // io.github.l2hyunwoo.ait/LocationCoords.latitude|{}latitude[0]
+        final fun <get-latitude>(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.latitude.<get-latitude>|<get-latitude>(){}[0]
+    final val longitude // io.github.l2hyunwoo.ait/LocationCoords.longitude|{}longitude[0]
+        final fun <get-longitude>(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.longitude.<get-longitude>|<get-longitude>(){}[0]
+
+    final fun component1(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.component1|component1(){}[0]
+    final fun component2(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.component2|component2(){}[0]
+    final fun component3(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.component3|component3(){}[0]
+    final fun component4(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.component4|component4(){}[0]
+    final fun component5(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.component5|component5(){}[0]
+    final fun component6(): kotlin/Double // io.github.l2hyunwoo.ait/LocationCoords.component6|component6(){}[0]
+    final fun copy(kotlin/Double = ..., kotlin/Double = ..., kotlin/Double = ..., kotlin/Double = ..., kotlin/Double = ..., kotlin/Double = ...): io.github.l2hyunwoo.ait/LocationCoords // io.github.l2hyunwoo.ait/LocationCoords.copy|copy(kotlin.Double;kotlin.Double;kotlin.Double;kotlin.Double;kotlin.Double;kotlin.Double){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/LocationCoords.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/LocationCoords.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/LocationCoords.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/MediaApi { // io.github.l2hyunwoo.ait/MediaApi|null[0]
+    final suspend fun getAlbumItems(kotlin.collections/Set<io.github.l2hyunwoo.ait/AlbumItemType> = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Boolean = ...): io.github.l2hyunwoo.ait/PermissionResult<kotlin.collections/List<io.github.l2hyunwoo.ait/AlbumItemResponse>> // io.github.l2hyunwoo.ait/MediaApi.getAlbumItems|getAlbumItems(kotlin.collections.Set<io.github.l2hyunwoo.ait.AlbumItemType>;kotlin.Int;kotlin.Int;kotlin.Boolean){}[0]
+    final suspend fun getPhotos(kotlin/Int = ..., kotlin/Int = ..., kotlin/Boolean = ...): io.github.l2hyunwoo.ait/PermissionResult<kotlin.collections/List<io.github.l2hyunwoo.ait/ImageResponse>> // io.github.l2hyunwoo.ait/MediaApi.getPhotos|getPhotos(kotlin.Int;kotlin.Int;kotlin.Boolean){}[0]
+    final suspend fun openCamera(kotlin/Boolean = ..., kotlin/Int = ...): io.github.l2hyunwoo.ait/PermissionResult<io.github.l2hyunwoo.ait/ImageResponse> // io.github.l2hyunwoo.ait/MediaApi.openCamera|openCamera(kotlin.Boolean;kotlin.Int){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/MigrationApi { // io.github.l2hyunwoo.ait/MigrationApi|null[0]
+    final suspend fun getOriginStorage(): io.github.l2hyunwoo.ait/OriginStorage // io.github.l2hyunwoo.ait/MigrationApi.getOriginStorage|getOriginStorage(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/NavigationBarApi { // io.github.l2hyunwoo.ait/NavigationBarApi|null[0]
+    final suspend fun setOptions(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., io.github.l2hyunwoo.ait/NavigationBarBackground? = ..., io.github.l2hyunwoo.ait/NavigationBarTheme? = ...) // io.github.l2hyunwoo.ait/NavigationBarApi.setOptions|setOptions(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;io.github.l2hyunwoo.ait.NavigationBarBackground?;io.github.l2hyunwoo.ait.NavigationBarTheme?){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/NotificationApi { // io.github.l2hyunwoo.ait/NotificationApi|null[0]
+    final suspend fun requestAgreement(kotlin/String): io.github.l2hyunwoo.ait/NotificationAgreementResult // io.github.l2hyunwoo.ait/NotificationApi.requestAgreement|requestAgreement(kotlin.String){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/OpfsFile { // io.github.l2hyunwoo.ait/OpfsFile|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/Long, kotlin/String) // io.github.l2hyunwoo.ait/OpfsFile.<init>|<init>(kotlin.String;kotlin.String;kotlin.Long;kotlin.String){}[0]
+
+    final val data // io.github.l2hyunwoo.ait/OpfsFile.data|{}data[0]
+        final fun <get-data>(): kotlin/String // io.github.l2hyunwoo.ait/OpfsFile.data.<get-data>|<get-data>(){}[0]
+    final val lastModified // io.github.l2hyunwoo.ait/OpfsFile.lastModified|{}lastModified[0]
+        final fun <get-lastModified>(): kotlin/Long // io.github.l2hyunwoo.ait/OpfsFile.lastModified.<get-lastModified>|<get-lastModified>(){}[0]
+    final val path // io.github.l2hyunwoo.ait/OpfsFile.path|{}path[0]
+        final fun <get-path>(): kotlin/String // io.github.l2hyunwoo.ait/OpfsFile.path.<get-path>|<get-path>(){}[0]
+    final val type // io.github.l2hyunwoo.ait/OpfsFile.type|{}type[0]
+        final fun <get-type>(): kotlin/String // io.github.l2hyunwoo.ait/OpfsFile.type.<get-type>|<get-type>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/OpfsFile.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/OpfsFile.component2|component2(){}[0]
+    final fun component3(): kotlin/Long // io.github.l2hyunwoo.ait/OpfsFile.component3|component3(){}[0]
+    final fun component4(): kotlin/String // io.github.l2hyunwoo.ait/OpfsFile.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Long = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/OpfsFile // io.github.l2hyunwoo.ait/OpfsFile.copy|copy(kotlin.String;kotlin.String;kotlin.Long;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/OpfsFile.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/OpfsFile.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/OpfsFile.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/OpfsSnapshot { // io.github.l2hyunwoo.ait/OpfsSnapshot|null[0]
+    constructor <init>(kotlin.collections/List<kotlin/String>, kotlin.collections/List<io.github.l2hyunwoo.ait/OpfsFile>) // io.github.l2hyunwoo.ait/OpfsSnapshot.<init>|<init>(kotlin.collections.List<kotlin.String>;kotlin.collections.List<io.github.l2hyunwoo.ait.OpfsFile>){}[0]
+
+    final val directories // io.github.l2hyunwoo.ait/OpfsSnapshot.directories|{}directories[0]
+        final fun <get-directories>(): kotlin.collections/List<kotlin/String> // io.github.l2hyunwoo.ait/OpfsSnapshot.directories.<get-directories>|<get-directories>(){}[0]
+    final val files // io.github.l2hyunwoo.ait/OpfsSnapshot.files|{}files[0]
+        final fun <get-files>(): kotlin.collections/List<io.github.l2hyunwoo.ait/OpfsFile> // io.github.l2hyunwoo.ait/OpfsSnapshot.files.<get-files>|<get-files>(){}[0]
+
+    final fun component1(): kotlin.collections/List<kotlin/String> // io.github.l2hyunwoo.ait/OpfsSnapshot.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/List<io.github.l2hyunwoo.ait/OpfsFile> // io.github.l2hyunwoo.ait/OpfsSnapshot.component2|component2(){}[0]
+    final fun copy(kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<io.github.l2hyunwoo.ait/OpfsFile> = ...): io.github.l2hyunwoo.ait/OpfsSnapshot // io.github.l2hyunwoo.ait/OpfsSnapshot.copy|copy(kotlin.collections.List<kotlin.String>;kotlin.collections.List<io.github.l2hyunwoo.ait.OpfsFile>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/OpfsSnapshot.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/OpfsSnapshot.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/OpfsSnapshot.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/OriginStorage { // io.github.l2hyunwoo.ait/OriginStorage|null[0]
+    constructor <init>(io.github.l2hyunwoo.ait/OriginStorageDump, io.github.l2hyunwoo.ait/OriginStorageDump) // io.github.l2hyunwoo.ait/OriginStorage.<init>|<init>(io.github.l2hyunwoo.ait.OriginStorageDump;io.github.l2hyunwoo.ait.OriginStorageDump){}[0]
+
+    final val current // io.github.l2hyunwoo.ait/OriginStorage.current|{}current[0]
+        final fun <get-current>(): io.github.l2hyunwoo.ait/OriginStorageDump // io.github.l2hyunwoo.ait/OriginStorage.current.<get-current>|<get-current>(){}[0]
+    final val previous // io.github.l2hyunwoo.ait/OriginStorage.previous|{}previous[0]
+        final fun <get-previous>(): io.github.l2hyunwoo.ait/OriginStorageDump // io.github.l2hyunwoo.ait/OriginStorage.previous.<get-previous>|<get-previous>(){}[0]
+
+    final fun component1(): io.github.l2hyunwoo.ait/OriginStorageDump // io.github.l2hyunwoo.ait/OriginStorage.component1|component1(){}[0]
+    final fun component2(): io.github.l2hyunwoo.ait/OriginStorageDump // io.github.l2hyunwoo.ait/OriginStorage.component2|component2(){}[0]
+    final fun copy(io.github.l2hyunwoo.ait/OriginStorageDump = ..., io.github.l2hyunwoo.ait/OriginStorageDump = ...): io.github.l2hyunwoo.ait/OriginStorage // io.github.l2hyunwoo.ait/OriginStorage.copy|copy(io.github.l2hyunwoo.ait.OriginStorageDump;io.github.l2hyunwoo.ait.OriginStorageDump){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/OriginStorage.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/OriginStorage.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/OriginStorage.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/OriginStorageDump { // io.github.l2hyunwoo.ait/OriginStorageDump|null[0]
+    constructor <init>(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String?>, kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbDatabase>, io.github.l2hyunwoo.ait/OpfsSnapshot, kotlin.collections/List<io.github.l2hyunwoo.ait/OriginStorageError>) // io.github.l2hyunwoo.ait/OriginStorageDump.<init>|<init>(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String?>;kotlin.collections.List<io.github.l2hyunwoo.ait.IndexedDbDatabase>;io.github.l2hyunwoo.ait.OpfsSnapshot;kotlin.collections.List<io.github.l2hyunwoo.ait.OriginStorageError>){}[0]
+
+    final val errors // io.github.l2hyunwoo.ait/OriginStorageDump.errors|{}errors[0]
+        final fun <get-errors>(): kotlin.collections/List<io.github.l2hyunwoo.ait/OriginStorageError> // io.github.l2hyunwoo.ait/OriginStorageDump.errors.<get-errors>|<get-errors>(){}[0]
+    final val indexedDB // io.github.l2hyunwoo.ait/OriginStorageDump.indexedDB|{}indexedDB[0]
+        final fun <get-indexedDB>(): kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbDatabase> // io.github.l2hyunwoo.ait/OriginStorageDump.indexedDB.<get-indexedDB>|<get-indexedDB>(){}[0]
+    final val localStorage // io.github.l2hyunwoo.ait/OriginStorageDump.localStorage|{}localStorage[0]
+        final fun <get-localStorage>(): kotlin.collections/Map<kotlin/String, kotlin/String?> // io.github.l2hyunwoo.ait/OriginStorageDump.localStorage.<get-localStorage>|<get-localStorage>(){}[0]
+    final val opfs // io.github.l2hyunwoo.ait/OriginStorageDump.opfs|{}opfs[0]
+        final fun <get-opfs>(): io.github.l2hyunwoo.ait/OpfsSnapshot // io.github.l2hyunwoo.ait/OriginStorageDump.opfs.<get-opfs>|<get-opfs>(){}[0]
+    final val origin // io.github.l2hyunwoo.ait/OriginStorageDump.origin|{}origin[0]
+        final fun <get-origin>(): kotlin/String // io.github.l2hyunwoo.ait/OriginStorageDump.origin.<get-origin>|<get-origin>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/OriginStorageDump.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/Map<kotlin/String, kotlin/String?> // io.github.l2hyunwoo.ait/OriginStorageDump.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbDatabase> // io.github.l2hyunwoo.ait/OriginStorageDump.component3|component3(){}[0]
+    final fun component4(): io.github.l2hyunwoo.ait/OpfsSnapshot // io.github.l2hyunwoo.ait/OriginStorageDump.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/List<io.github.l2hyunwoo.ait/OriginStorageError> // io.github.l2hyunwoo.ait/OriginStorageDump.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., kotlin.collections/Map<kotlin/String, kotlin/String?> = ..., kotlin.collections/List<io.github.l2hyunwoo.ait/IndexedDbDatabase> = ..., io.github.l2hyunwoo.ait/OpfsSnapshot = ..., kotlin.collections/List<io.github.l2hyunwoo.ait/OriginStorageError> = ...): io.github.l2hyunwoo.ait/OriginStorageDump // io.github.l2hyunwoo.ait/OriginStorageDump.copy|copy(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String?>;kotlin.collections.List<io.github.l2hyunwoo.ait.IndexedDbDatabase>;io.github.l2hyunwoo.ait.OpfsSnapshot;kotlin.collections.List<io.github.l2hyunwoo.ait.OriginStorageError>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/OriginStorageDump.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/OriginStorageDump.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/OriginStorageDump.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/OriginStorageError { // io.github.l2hyunwoo.ait/OriginStorageError|null[0]
+    constructor <init>(kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/OriginStorageError.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+    final val message // io.github.l2hyunwoo.ait/OriginStorageError.message|{}message[0]
+        final fun <get-message>(): kotlin/String // io.github.l2hyunwoo.ait/OriginStorageError.message.<get-message>|<get-message>(){}[0]
+    final val storage // io.github.l2hyunwoo.ait/OriginStorageError.storage|{}storage[0]
+        final fun <get-storage>(): kotlin/String // io.github.l2hyunwoo.ait/OriginStorageError.storage.<get-storage>|<get-storage>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/OriginStorageError.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/OriginStorageError.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/OriginStorageError // io.github.l2hyunwoo.ait/OriginStorageError.copy|copy(kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/OriginStorageError.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/OriginStorageError.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/OriginStorageError.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/PendingOrder { // io.github.l2hyunwoo.ait/PendingOrder|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/PendingOrder.<init>|<init>(kotlin.String;kotlin.String;kotlin.String){}[0]
+
+    final val orderId // io.github.l2hyunwoo.ait/PendingOrder.orderId|{}orderId[0]
+        final fun <get-orderId>(): kotlin/String // io.github.l2hyunwoo.ait/PendingOrder.orderId.<get-orderId>|<get-orderId>(){}[0]
+    final val paymentCompletedDate // io.github.l2hyunwoo.ait/PendingOrder.paymentCompletedDate|{}paymentCompletedDate[0]
+        final fun <get-paymentCompletedDate>(): kotlin/String // io.github.l2hyunwoo.ait/PendingOrder.paymentCompletedDate.<get-paymentCompletedDate>|<get-paymentCompletedDate>(){}[0]
+    final val sku // io.github.l2hyunwoo.ait/PendingOrder.sku|{}sku[0]
+        final fun <get-sku>(): kotlin/String // io.github.l2hyunwoo.ait/PendingOrder.sku.<get-sku>|<get-sku>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/PendingOrder.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/PendingOrder.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.l2hyunwoo.ait/PendingOrder.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/PendingOrder // io.github.l2hyunwoo.ait/PendingOrder.copy|copy(kotlin.String;kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/PendingOrder.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/PendingOrder.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/PendingOrder.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/PermissionsApi { // io.github.l2hyunwoo.ait/PermissionsApi|null[0]
+    final suspend fun getPermission(io.github.l2hyunwoo.ait/Permission): io.github.l2hyunwoo.ait/PermissionStatus // io.github.l2hyunwoo.ait/PermissionsApi.getPermission|getPermission(io.github.l2hyunwoo.ait.Permission){}[0]
+    final suspend fun openPermissionDialog(io.github.l2hyunwoo.ait/Permission): io.github.l2hyunwoo.ait/PermissionDialogResult // io.github.l2hyunwoo.ait/PermissionsApi.openPermissionDialog|openPermissionDialog(io.github.l2hyunwoo.ait.Permission){}[0]
+    final suspend fun requestPermission(io.github.l2hyunwoo.ait/Permission): io.github.l2hyunwoo.ait/PermissionDialogResult // io.github.l2hyunwoo.ait/PermissionsApi.requestPermission|requestPermission(io.github.l2hyunwoo.ait.Permission){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/PromotionApi { // io.github.l2hyunwoo.ait/PromotionApi|null[0]
+    final suspend fun grantReward(kotlin/String, kotlin/Long): io.github.l2hyunwoo.ait/PromotionRewardResult // io.github.l2hyunwoo.ait/PromotionApi.grantReward|grantReward(kotlin.String;kotlin.Long){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/PurchaseOrder { // io.github.l2hyunwoo.ait/PurchaseOrder|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/Double, kotlin/String, kotlin/Int, kotlin/String?) // io.github.l2hyunwoo.ait/PurchaseOrder.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.Double;kotlin.String;kotlin.Int;kotlin.String?){}[0]
+
+    final val amount // io.github.l2hyunwoo.ait/PurchaseOrder.amount|{}amount[0]
+        final fun <get-amount>(): kotlin/Double // io.github.l2hyunwoo.ait/PurchaseOrder.amount.<get-amount>|<get-amount>(){}[0]
+    final val currency // io.github.l2hyunwoo.ait/PurchaseOrder.currency|{}currency[0]
+        final fun <get-currency>(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseOrder.currency.<get-currency>|<get-currency>(){}[0]
+    final val displayAmount // io.github.l2hyunwoo.ait/PurchaseOrder.displayAmount|{}displayAmount[0]
+        final fun <get-displayAmount>(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseOrder.displayAmount.<get-displayAmount>|<get-displayAmount>(){}[0]
+    final val displayName // io.github.l2hyunwoo.ait/PurchaseOrder.displayName|{}displayName[0]
+        final fun <get-displayName>(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseOrder.displayName.<get-displayName>|<get-displayName>(){}[0]
+    final val fraction // io.github.l2hyunwoo.ait/PurchaseOrder.fraction|{}fraction[0]
+        final fun <get-fraction>(): kotlin/Int // io.github.l2hyunwoo.ait/PurchaseOrder.fraction.<get-fraction>|<get-fraction>(){}[0]
+    final val miniAppIconUrl // io.github.l2hyunwoo.ait/PurchaseOrder.miniAppIconUrl|{}miniAppIconUrl[0]
+        final fun <get-miniAppIconUrl>(): kotlin/String? // io.github.l2hyunwoo.ait/PurchaseOrder.miniAppIconUrl.<get-miniAppIconUrl>|<get-miniAppIconUrl>(){}[0]
+    final val orderId // io.github.l2hyunwoo.ait/PurchaseOrder.orderId|{}orderId[0]
+        final fun <get-orderId>(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseOrder.orderId.<get-orderId>|<get-orderId>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseOrder.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseOrder.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseOrder.component3|component3(){}[0]
+    final fun component4(): kotlin/Double // io.github.l2hyunwoo.ait/PurchaseOrder.component4|component4(){}[0]
+    final fun component5(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseOrder.component5|component5(){}[0]
+    final fun component6(): kotlin/Int // io.github.l2hyunwoo.ait/PurchaseOrder.component6|component6(){}[0]
+    final fun component7(): kotlin/String? // io.github.l2hyunwoo.ait/PurchaseOrder.component7|component7(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Double = ..., kotlin/String = ..., kotlin/Int = ..., kotlin/String? = ...): io.github.l2hyunwoo.ait/PurchaseOrder // io.github.l2hyunwoo.ait/PurchaseOrder.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.Double;kotlin.String;kotlin.Int;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/PurchaseOrder.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/PurchaseOrder.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/PurchaseOrder.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/ReviewApi { // io.github.l2hyunwoo.ait/ReviewApi|null[0]
+    final suspend fun request() // io.github.l2hyunwoo.ait/ReviewApi.request|request(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/SafeAreaInsets { // io.github.l2hyunwoo.ait/SafeAreaInsets|null[0]
+    constructor <init>(kotlin/Double, kotlin/Double, kotlin/Double, kotlin/Double) // io.github.l2hyunwoo.ait/SafeAreaInsets.<init>|<init>(kotlin.Double;kotlin.Double;kotlin.Double;kotlin.Double){}[0]
+
+    final val bottom // io.github.l2hyunwoo.ait/SafeAreaInsets.bottom|{}bottom[0]
+        final fun <get-bottom>(): kotlin/Double // io.github.l2hyunwoo.ait/SafeAreaInsets.bottom.<get-bottom>|<get-bottom>(){}[0]
+    final val left // io.github.l2hyunwoo.ait/SafeAreaInsets.left|{}left[0]
+        final fun <get-left>(): kotlin/Double // io.github.l2hyunwoo.ait/SafeAreaInsets.left.<get-left>|<get-left>(){}[0]
+    final val right // io.github.l2hyunwoo.ait/SafeAreaInsets.right|{}right[0]
+        final fun <get-right>(): kotlin/Double // io.github.l2hyunwoo.ait/SafeAreaInsets.right.<get-right>|<get-right>(){}[0]
+    final val top // io.github.l2hyunwoo.ait/SafeAreaInsets.top|{}top[0]
+        final fun <get-top>(): kotlin/Double // io.github.l2hyunwoo.ait/SafeAreaInsets.top.<get-top>|<get-top>(){}[0]
+
+    final fun component1(): kotlin/Double // io.github.l2hyunwoo.ait/SafeAreaInsets.component1|component1(){}[0]
+    final fun component2(): kotlin/Double // io.github.l2hyunwoo.ait/SafeAreaInsets.component2|component2(){}[0]
+    final fun component3(): kotlin/Double // io.github.l2hyunwoo.ait/SafeAreaInsets.component3|component3(){}[0]
+    final fun component4(): kotlin/Double // io.github.l2hyunwoo.ait/SafeAreaInsets.component4|component4(){}[0]
+    final fun copy(kotlin/Double = ..., kotlin/Double = ..., kotlin/Double = ..., kotlin/Double = ...): io.github.l2hyunwoo.ait/SafeAreaInsets // io.github.l2hyunwoo.ait/SafeAreaInsets.copy|copy(kotlin.Double;kotlin.Double;kotlin.Double;kotlin.Double){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/SafeAreaInsets.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/SafeAreaInsets.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/SafeAreaInsets.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/ScreenApi { // io.github.l2hyunwoo.ait/ScreenApi|null[0]
+    final suspend fun close() // io.github.l2hyunwoo.ait/ScreenApi.close|close(){}[0]
+    final suspend fun setAwakeMode(kotlin/Boolean): kotlin/Boolean // io.github.l2hyunwoo.ait/ScreenApi.setAwakeMode|setAwakeMode(kotlin.Boolean){}[0]
+    final suspend fun setIosSwipeBack(kotlin/Boolean) // io.github.l2hyunwoo.ait/ScreenApi.setIosSwipeBack|setIosSwipeBack(kotlin.Boolean){}[0]
+    final suspend fun setOrientation(io.github.l2hyunwoo.ait/DeviceOrientation) // io.github.l2hyunwoo.ait/ScreenApi.setOrientation|setOrientation(io.github.l2hyunwoo.ait.DeviceOrientation){}[0]
+    final suspend fun setSecure(kotlin/Boolean): kotlin/Boolean // io.github.l2hyunwoo.ait/ScreenApi.setSecure|setSecure(kotlin.Boolean){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/ShareApi { // io.github.l2hyunwoo.ait/ShareApi|null[0]
+    final suspend fun createLink(kotlin/String, kotlin/String? = ...): kotlin/String // io.github.l2hyunwoo.ait/ShareApi.createLink|createLink(kotlin.String;kotlin.String?){}[0]
+    final suspend fun sendMessage(kotlin/String) // io.github.l2hyunwoo.ait/ShareApi.sendMessage|sendMessage(kotlin.String){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/StorageApi { // io.github.l2hyunwoo.ait/StorageApi|null[0]
+    final suspend fun clearItems() // io.github.l2hyunwoo.ait/StorageApi.clearItems|clearItems(){}[0]
+    final suspend fun getItem(kotlin/String): kotlin/String? // io.github.l2hyunwoo.ait/StorageApi.getItem|getItem(kotlin.String){}[0]
+    final suspend fun getItems(kotlin.collections/List<kotlin/String>): kotlin.collections/Map<kotlin/String, kotlin/String?> // io.github.l2hyunwoo.ait/StorageApi.getItems|getItems(kotlin.collections.List<kotlin.String>){}[0]
+    final suspend fun removeItem(kotlin/String) // io.github.l2hyunwoo.ait/StorageApi.removeItem|removeItem(kotlin.String){}[0]
+    final suspend fun setItem(kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/StorageApi.setItem|setItem(kotlin.String;kotlin.String){}[0]
+    final suspend fun setItems(kotlin.collections/Map<kotlin/String, kotlin/String>) // io.github.l2hyunwoo.ait/StorageApi.setItems|setItems(kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/SubscriptionInfo { // io.github.l2hyunwoo.ait/SubscriptionInfo|null[0]
+    constructor <init>(kotlin/Long, kotlin/String, kotlin/String?, kotlin/Boolean, kotlin/String?, kotlin/Boolean) // io.github.l2hyunwoo.ait/SubscriptionInfo.<init>|<init>(kotlin.Long;kotlin.String;kotlin.String?;kotlin.Boolean;kotlin.String?;kotlin.Boolean){}[0]
+
+    final val catalogId // io.github.l2hyunwoo.ait/SubscriptionInfo.catalogId|{}catalogId[0]
+        final fun <get-catalogId>(): kotlin/Long // io.github.l2hyunwoo.ait/SubscriptionInfo.catalogId.<get-catalogId>|<get-catalogId>(){}[0]
+    final val expiresAt // io.github.l2hyunwoo.ait/SubscriptionInfo.expiresAt|{}expiresAt[0]
+        final fun <get-expiresAt>(): kotlin/String? // io.github.l2hyunwoo.ait/SubscriptionInfo.expiresAt.<get-expiresAt>|<get-expiresAt>(){}[0]
+    final val gracePeriodExpiresAt // io.github.l2hyunwoo.ait/SubscriptionInfo.gracePeriodExpiresAt|{}gracePeriodExpiresAt[0]
+        final fun <get-gracePeriodExpiresAt>(): kotlin/String? // io.github.l2hyunwoo.ait/SubscriptionInfo.gracePeriodExpiresAt.<get-gracePeriodExpiresAt>|<get-gracePeriodExpiresAt>(){}[0]
+    final val isAccessible // io.github.l2hyunwoo.ait/SubscriptionInfo.isAccessible|{}isAccessible[0]
+        final fun <get-isAccessible>(): kotlin/Boolean // io.github.l2hyunwoo.ait/SubscriptionInfo.isAccessible.<get-isAccessible>|<get-isAccessible>(){}[0]
+    final val isAutoRenew // io.github.l2hyunwoo.ait/SubscriptionInfo.isAutoRenew|{}isAutoRenew[0]
+        final fun <get-isAutoRenew>(): kotlin/Boolean // io.github.l2hyunwoo.ait/SubscriptionInfo.isAutoRenew.<get-isAutoRenew>|<get-isAutoRenew>(){}[0]
+    final val status // io.github.l2hyunwoo.ait/SubscriptionInfo.status|{}status[0]
+        final fun <get-status>(): kotlin/String // io.github.l2hyunwoo.ait/SubscriptionInfo.status.<get-status>|<get-status>(){}[0]
+
+    final fun component1(): kotlin/Long // io.github.l2hyunwoo.ait/SubscriptionInfo.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/SubscriptionInfo.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // io.github.l2hyunwoo.ait/SubscriptionInfo.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // io.github.l2hyunwoo.ait/SubscriptionInfo.component4|component4(){}[0]
+    final fun component5(): kotlin/String? // io.github.l2hyunwoo.ait/SubscriptionInfo.component5|component5(){}[0]
+    final fun component6(): kotlin/Boolean // io.github.l2hyunwoo.ait/SubscriptionInfo.component6|component6(){}[0]
+    final fun copy(kotlin/Long = ..., kotlin/String = ..., kotlin/String? = ..., kotlin/Boolean = ..., kotlin/String? = ..., kotlin/Boolean = ...): io.github.l2hyunwoo.ait/SubscriptionInfo // io.github.l2hyunwoo.ait/SubscriptionInfo.copy|copy(kotlin.Long;kotlin.String;kotlin.String?;kotlin.Boolean;kotlin.String?;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/SubscriptionInfo.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/SubscriptionInfo.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/SubscriptionInfo.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/TossAdsApi { // io.github.l2hyunwoo.ait/TossAdsApi|null[0]
+    final fun attachBanner(kotlinx.coroutines/CoroutineScope, kotlin/String, io.github.l2hyunwoo.ait/BannerBounds, io.github.l2hyunwoo.ait/BannerTheme? = ..., io.github.l2hyunwoo.ait/BannerTone? = ..., io.github.l2hyunwoo.ait/BannerVariant? = ..., kotlin/Function1<io.github.l2hyunwoo.ait/AppsInTossException, kotlin/Unit> = ..., kotlin/Function1<io.github.l2hyunwoo.ait/BannerEvent, kotlin/Unit> = ...): io.github.l2hyunwoo.ait/BannerHandle // io.github.l2hyunwoo.ait/TossAdsApi.attachBanner|attachBanner(kotlinx.coroutines.CoroutineScope;kotlin.String;io.github.l2hyunwoo.ait.BannerBounds;io.github.l2hyunwoo.ait.BannerTheme?;io.github.l2hyunwoo.ait.BannerTone?;io.github.l2hyunwoo.ait.BannerVariant?;kotlin.Function1<io.github.l2hyunwoo.ait.AppsInTossException,kotlin.Unit>;kotlin.Function1<io.github.l2hyunwoo.ait.BannerEvent,kotlin.Unit>){}[0]
+    final suspend fun destroy(kotlin/String) // io.github.l2hyunwoo.ait/TossAdsApi.destroy|destroy(kotlin.String){}[0]
+    final suspend fun destroyAll() // io.github.l2hyunwoo.ait/TossAdsApi.destroyAll|destroyAll(){}[0]
+    final suspend fun initialize() // io.github.l2hyunwoo.ait/TossAdsApi.initialize|initialize(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/TossLoginAuthorization { // io.github.l2hyunwoo.ait/TossLoginAuthorization|null[0]
+    constructor <init>(kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/TossLoginAuthorization.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+    final val authorizationCode // io.github.l2hyunwoo.ait/TossLoginAuthorization.authorizationCode|{}authorizationCode[0]
+        final fun <get-authorizationCode>(): kotlin/String // io.github.l2hyunwoo.ait/TossLoginAuthorization.authorizationCode.<get-authorizationCode>|<get-authorizationCode>(){}[0]
+    final val referrer // io.github.l2hyunwoo.ait/TossLoginAuthorization.referrer|{}referrer[0]
+        final fun <get-referrer>(): kotlin/String // io.github.l2hyunwoo.ait/TossLoginAuthorization.referrer.<get-referrer>|<get-referrer>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.l2hyunwoo.ait/TossLoginAuthorization.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.l2hyunwoo.ait/TossLoginAuthorization.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ...): io.github.l2hyunwoo.ait/TossLoginAuthorization // io.github.l2hyunwoo.ait/TossLoginAuthorization.copy|copy(kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/TossLoginAuthorization.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/TossLoginAuthorization.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/TossLoginAuthorization.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/TossPayApi { // io.github.l2hyunwoo.ait/TossPayApi|null[0]
+    final suspend fun authorize(kotlin/String): io.github.l2hyunwoo.ait/TossPayAuthorization // io.github.l2hyunwoo.ait/TossPayApi.authorize|authorize(kotlin.String){}[0]
+    final suspend fun authorizeSubscription(kotlin/String): io.github.l2hyunwoo.ait/TossPayAuthorization // io.github.l2hyunwoo.ait/TossPayApi.authorizeSubscription|authorizeSubscription(kotlin.String){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/TossPayAuthorization { // io.github.l2hyunwoo.ait/TossPayAuthorization|null[0]
+    constructor <init>(kotlin/Boolean, kotlin/String?) // io.github.l2hyunwoo.ait/TossPayAuthorization.<init>|<init>(kotlin.Boolean;kotlin.String?){}[0]
+
+    final val reason // io.github.l2hyunwoo.ait/TossPayAuthorization.reason|{}reason[0]
+        final fun <get-reason>(): kotlin/String? // io.github.l2hyunwoo.ait/TossPayAuthorization.reason.<get-reason>|<get-reason>(){}[0]
+    final val success // io.github.l2hyunwoo.ait/TossPayAuthorization.success|{}success[0]
+        final fun <get-success>(): kotlin/Boolean // io.github.l2hyunwoo.ait/TossPayAuthorization.success.<get-success>|<get-success>(){}[0]
+
+    final fun component1(): kotlin/Boolean // io.github.l2hyunwoo.ait/TossPayAuthorization.component1|component1(){}[0]
+    final fun component2(): kotlin/String? // io.github.l2hyunwoo.ait/TossPayAuthorization.component2|component2(){}[0]
+    final fun copy(kotlin/Boolean = ..., kotlin/String? = ...): io.github.l2hyunwoo.ait/TossPayAuthorization // io.github.l2hyunwoo.ait/TossPayAuthorization.copy|copy(kotlin.Boolean;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.l2hyunwoo.ait/TossPayAuthorization.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.l2hyunwoo.ait/TossPayAuthorization.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.l2hyunwoo.ait/TossPayAuthorization.toString|toString(){}[0]
+}
+
+final class io.github.l2hyunwoo.ait/UserApi { // io.github.l2hyunwoo.ait/UserApi|null[0]
+    final suspend fun createAnonymousKeyAuthCode(): io.github.l2hyunwoo.ait/AnonymousKeyAuthCode // io.github.l2hyunwoo.ait/UserApi.createAnonymousKeyAuthCode|createAnonymousKeyAuthCode(){}[0]
+    final suspend fun getAnonymousKey(): kotlin/String // io.github.l2hyunwoo.ait/UserApi.getAnonymousKey|getAnonymousKey(){}[0]
+    final suspend fun getConsentedData(kotlin/String, kotlin/Boolean? = ...): io.github.l2hyunwoo.ait/ConsentedDataResult // io.github.l2hyunwoo.ait/UserApi.getConsentedData|getConsentedData(kotlin.String;kotlin.Boolean?){}[0]
+    final suspend fun getDeclaredAgeRange(kotlin.collections/List<kotlin/Int>): io.github.l2hyunwoo.ait/DeclaredAgeRange // io.github.l2hyunwoo.ait/UserApi.getDeclaredAgeRange|getDeclaredAgeRange(kotlin.collections.List<kotlin.Int>){}[0]
+}
+
+final fun io.github.l2hyunwoo.ait/createAppsInTossClient(): io.github.l2hyunwoo.ait/AppsInTossClient // io.github.l2hyunwoo.ait/createAppsInTossClient|createAppsInTossClient(){}[0]

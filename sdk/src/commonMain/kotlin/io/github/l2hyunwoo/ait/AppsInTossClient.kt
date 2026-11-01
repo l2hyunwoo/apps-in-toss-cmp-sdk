@@ -13,45 +13,45 @@ import kotlinx.coroutines.withTimeoutOrNull
 import kotlinx.serialization.json.*
 
 /** UI 호스트마다 client를 하나씩 둔다. 메서드와 close()는 호스트 UI 스레드에서 호출한다. */
-class AppsInTossClient(private val transport: AppsInTossTransport, private val timeoutMillis: Long = 60_000) {
+public class AppsInTossClient(private val transport: AppsInTossTransport, private val timeoutMillis: Long = 60_000) {
     init {
         require(timeoutMillis > 0)
     }
-    val host: RuntimeHost get() = transport.host
+    public val host: RuntimeHost get() = transport.host
     private var closed = false
     private val pending = mutableSetOf<() -> Unit>()
-    fun supports(capability: Capability): Boolean = !closed && transport.supports(capability)
+    public fun supports(capability: Capability): Boolean = !closed && transport.supports(capability)
 
-    val auth = AuthApi(this)
-    val user = UserApi(this)
-    val share = ShareApi(this)
-    val screen = ScreenApi(this)
-    val navigationBar = NavigationBarApi(this)
-    val storage = StorageApi(this)
-    val device = DeviceApi(this)
-    val media = MediaApi(this)
-    val contacts = ContactsApi(this)
-    val location = LocationApi(this)
-    val permissions = PermissionsApi(this)
-    val clipboard = ClipboardApi(this)
-    val environment = EnvironmentApi(this)
-    val game = GameApi(this)
-    val iap = IapApi(this)
-    val tossPay = TossPayApi(this)
-    val ads = AdsApi(this)
-    val promotion = PromotionApi(this)
-    val analytics = AnalyticsApi(this)
-    val review = ReviewApi(this)
-    val notification = NotificationApi(this)
-    val file = FileApi(this)
-    val migration = MigrationApi(this)
+    public val auth: AuthApi = AuthApi(this)
+    public val user: UserApi = UserApi(this)
+    public val share: ShareApi = ShareApi(this)
+    public val screen: ScreenApi = ScreenApi(this)
+    public val navigationBar: NavigationBarApi = NavigationBarApi(this)
+    public val storage: StorageApi = StorageApi(this)
+    public val device: DeviceApi = DeviceApi(this)
+    public val media: MediaApi = MediaApi(this)
+    public val contacts: ContactsApi = ContactsApi(this)
+    public val location: LocationApi = LocationApi(this)
+    public val permissions: PermissionsApi = PermissionsApi(this)
+    public val clipboard: ClipboardApi = ClipboardApi(this)
+    public val environment: EnvironmentApi = EnvironmentApi(this)
+    public val game: GameApi = GameApi(this)
+    public val iap: IapApi = IapApi(this)
+    public val tossPay: TossPayApi = TossPayApi(this)
+    public val ads: AdsApi = AdsApi(this)
+    public val promotion: PromotionApi = PromotionApi(this)
+    public val analytics: AnalyticsApi = AnalyticsApi(this)
+    public val review: ReviewApi = ReviewApi(this)
+    public val notification: NotificationApi = NotificationApi(this)
+    public val file: FileApi = FileApi(this)
+    public val migration: MigrationApi = MigrationApi(this)
 
     /** 뒤로 가기, 홈, safe-area 이벤트다. [Capability.HOST_EVENTS]가 필요하다. */
-    val events: Flow<HostEvent> = stream("hostEvents").map { event ->
+    public val events: Flow<HostEvent> = stream("hostEvents").map { event ->
         decode("host event") { decodeEvent(event) }
     }
 
-    fun close() {
+    public fun close() {
         if (closed) return
         closed = true
         pending.toList().forEach { it() }

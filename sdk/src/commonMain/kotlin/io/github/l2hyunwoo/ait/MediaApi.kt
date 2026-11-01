@@ -2,9 +2,9 @@ package io.github.l2hyunwoo.ait
 
 import kotlinx.serialization.json.*
 
-class MediaApi internal constructor(private val client: AppsInTossClient) {
+public class MediaApi internal constructor(private val client: AppsInTossClient) {
     /** 앨범에서 사진을 읽는다. [base64]를 켜면 `dataUri`에 base64 데이터가 담긴다. [Capability.PHOTOS]가 필요하다. */
-    suspend fun getPhotos(maxCount: Int = 10, maxWidth: Int = 1024, base64: Boolean = false): PermissionResult<List<ImageResponse>> {
+    public suspend fun getPhotos(maxCount: Int = 10, maxWidth: Int = 1024, base64: Boolean = false): PermissionResult<List<ImageResponse>> {
         require(maxCount > 0 && maxWidth > 0)
         val result = client.call(
             "photosGet",
@@ -18,7 +18,7 @@ class MediaApi internal constructor(private val client: AppsInTossClient) {
     }
 
     /** 사용자가 앨범 항목을 고르게 한다. 선택을 취소하면 빈 목록을 반환한다. [Capability.ALBUM]가 필요하다. */
-    suspend fun getAlbumItems(
+    public suspend fun getAlbumItems(
         types: Set<AlbumItemType> = setOf(AlbumItemType.PHOTO),
         maxCount: Int = 10,
         maxWidth: Int = 1024,
@@ -45,7 +45,7 @@ class MediaApi internal constructor(private val client: AppsInTossClient) {
     }
 
     /** 카메라를 열고 촬영한 이미지를 반환한다. [Capability.CAMERA]가 필요하다. */
-    suspend fun openCamera(base64: Boolean = false, maxWidth: Int = 1024): PermissionResult<ImageResponse> {
+    public suspend fun openCamera(base64: Boolean = false, maxWidth: Int = 1024): PermissionResult<ImageResponse> {
         require(maxWidth > 0)
         val result = client.call(
             "cameraOpen",
@@ -60,6 +60,6 @@ class MediaApi internal constructor(private val client: AppsInTossClient) {
     private fun JsonObject.image() = ImageResponse(string("id"), string("dataUri"))
 }
 
-data class ImageResponse(val id: String, val dataUri: String)
-data class AlbumItemResponse(val id: String, val dataUri: String, val type: AlbumItemType)
-enum class AlbumItemType { PHOTO, VIDEO }
+public data class ImageResponse(val id: String, val dataUri: String)
+public data class AlbumItemResponse(val id: String, val dataUri: String, val type: AlbumItemType)
+public enum class AlbumItemType { PHOTO, VIDEO }

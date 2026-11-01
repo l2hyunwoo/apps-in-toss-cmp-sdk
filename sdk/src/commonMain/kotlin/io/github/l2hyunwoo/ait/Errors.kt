@@ -4,8 +4,8 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
-enum class ErrorCode { UNSUPPORTED, PERMISSION_DENIED, USER_CANCELLED, TIMEOUT, HOST_UNAVAILABLE, INVALID_RESPONSE, SDK_FAILURE, IN_PROGRESS }
-class AppsInTossException(val code: ErrorCode, message: String) : Exception(message)
+public enum class ErrorCode { UNSUPPORTED, PERMISSION_DENIED, USER_CANCELLED, TIMEOUT, HOST_UNAVAILABLE, INVALID_RESPONSE, SDK_FAILURE, IN_PROGRESS }
+public class AppsInTossException(public val code: ErrorCode, message: String) : Exception(message)
 
 internal fun decodeError(raw: String): AppsInTossException {
     val code = runCatching { Json.parseToJsonElement(raw).jsonObject["code"]?.jsonPrimitive?.content }.getOrNull()
