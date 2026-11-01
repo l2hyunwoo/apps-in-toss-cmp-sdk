@@ -34,6 +34,16 @@ Kotlin SDK는 JS·Wasm에서 앱인토스 기능을 제공합니다. Android·iO
 
 실제 토스앱의 인증·WebView 동작·검수는 별도 검증이 필요합니다.
 
+## SDK 변경 검증
+
+공개 선언에는 가시성과 필요한 반환 타입을 명시합니다. CI는 Kotlin 린트·JVM 테스트와 JS·Wasm 컴파일, 세 타깃의 ABI 검사를 실행합니다.
+
+```bash
+./gradlew ktlintCheck :sdk:jvmTest :sample:shared-core:jvmTest :sdk:compileKotlinJs :sdk:compileKotlinWasmJs :sdk:checkKotlinAbi
+```
+
+공개 API를 의도적으로 바꿀 때는 `./gradlew :sdk:updateKotlinAbi`로 `sdk/api/`의 기준 덤프를 갱신하고, 소스와 덤프의 변경을 함께 검토합니다. 덤프 갱신 자체가 호환성을 보장하지는 않습니다. ABI 검사는 Kotlin Gradle 플러그인의 실험 기능을 사용합니다.
+
 ## 라이선스
 
 코드는 [MIT](LICENSE), 예제 폰트는 [SIL Open Font License](licenses/NotoSansKR-OFL.txt)를 따릅니다.
