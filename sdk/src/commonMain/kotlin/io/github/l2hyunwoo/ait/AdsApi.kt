@@ -11,12 +11,12 @@ import kotlinx.coroutines.flow.transformWhile
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.*
 
-class AdsApi internal constructor(private val client: AppsInTossClient) {
-    val admob = AdMobApi(client)
-    val tossAds = TossAdsApi(client)
+public class AdsApi internal constructor(private val client: AppsInTossClient) {
+    public val admob: AdMobApi = AdMobApi(client)
+    public val tossAds: TossAdsApi = TossAdsApi(client)
 
     /** 전면 광고를 미리 불러오고 `loaded` 이벤트 뒤에 반환한다. [Capability.FULL_SCREEN_AD]가 필요하다. */
-    suspend fun loadFullScreenAd(adGroupId: String) {
+    public suspend fun loadFullScreenAd(adGroupId: String) {
         client.stream("loadFullScreenAd", adGroupPayload(adGroupId)).first { decode("full-screen ad load") { it.string("type") } == "loaded" }
     }
 
@@ -25,13 +25,13 @@ class AdsApi internal constructor(private val client: AppsInTossClient) {
      * 수집을 취소하면 공식 콜백을 해제한다. 보상은 [FullScreenAdEvent.UserEarnedReward]에서만 지급한다.
      * [Capability.FULL_SCREEN_AD]가 필요하다.
      */
-    fun showFullScreenAd(adGroupId: String): Flow<FullScreenAdEvent> = client.adEvents("showFullScreenAd", adGroupPayload(adGroupId))
+    public fun showFullScreenAd(adGroupId: String): Flow<FullScreenAdEvent> = client.adEvents("showFullScreenAd", adGroupPayload(adGroupId))
 }
 
 /** AdMob용 공식 v2 호환 별칭이다. [AdsApi.loadFullScreenAd]와 [AdsApi.showFullScreenAd]를 우선 쓴다. */
-class AdMobApi internal constructor(private val client: AppsInTossClient) {
+public class AdMobApi internal constructor(private val client: AppsInTossClient) {
     /** AdMob 광고를 미리 불러오고 `loaded` 이벤트 뒤에 반환한다. [Capability.ADMOB]가 필요하다. */
-    suspend fun loadAppsInTossAdMob(adGroupId: String, referrer: String? = null): AdMobLoadResult {
+    public suspend fun loadAppsInTossAdMob(adGroupId: String, referrer: String? = null): AdMobLoadResult {
         val payload = JsonObject(adGroupPayload(adGroupId) + ("referrer" to JsonPrimitive(referrer)))
         val event = client.stream("admobLoad", payload).first { decode("AdMob load") { it.string("type") } == "loaded" }
         return decode("AdMob load") {
@@ -50,18 +50,18 @@ class AdMobApi internal constructor(private val client: AppsInTossClient) {
     }
 
     /** 미리 불러온 AdMob 광고를 보여 준다. 완료 규칙은 [AdsApi.showFullScreenAd]와 같다. [Capability.ADMOB]가 필요하다. */
-    fun showAppsInTossAdMob(adGroupId: String): Flow<FullScreenAdEvent> = client.adEvents("admobShow", adGroupPayload(adGroupId))
+    public fun showAppsInTossAdMob(adGroupId: String): Flow<FullScreenAdEvent> = client.adEvents("admobShow", adGroupPayload(adGroupId))
 
     /** [Capability.ADMOB]가 필요하다. */
-    suspend fun isAppsInTossAdMobLoaded(adGroupId: String): Boolean {
+    public suspend fun isAppsInTossAdMobLoaded(adGroupId: String): Boolean {
         val result = client.call("admobLoaded", adGroupPayload(adGroupId))
         return decode("AdMob loaded") { Json.parseToJsonElement(result).jsonPrimitive.also { require(!it.isString) }.boolean }
     }
 }
 
-class TossAdsApi internal constructor(private val client: AppsInTossClient) {
+public class TossAdsApi internal constructor(private val client: AppsInTossClient) {
     /** [attachBanner] 전에 배너 SDK를 한 번 초기화한다. [Capability.BANNER_AD]가 필요하다. */
-    suspend fun initialize() {
+    public suspend fun initialize() {
         client.call("bannerInitialize")
     }
 
@@ -71,7 +71,7 @@ class TossAdsApi internal constructor(private val client: AppsInTossClient) {
      * 취소 때까지 유지된다. [onEvent]와 [onError]는 [scope]에서 실행되고, bridge가 실패하면 배너가 끝난다.
      * [Capability.BANNER_AD]가 필요하다.
      */
-    fun attachBanner(
+    public fun attachBanner(
         scope: CoroutineScope,
         adGroupId: String,
         bounds: BannerBounds,
@@ -105,69 +105,69 @@ class TossAdsApi internal constructor(private val client: AppsInTossClient) {
     }
 
     /** [BannerEvent]의 [slotId]에 해당하는 배너 slot을 제거한다. [Capability.BANNER_AD]가 필요하다. */
-    suspend fun destroy(slotId: String) {
+    public suspend fun destroy(slotId: String) {
         require(slotId.isNotEmpty()) { "slotId is required" }
         client.call("bannerDestroy", buildJsonObject { put("slotId", slotId) })
     }
 
     /** 모든 배너 slot을 제거한다. [Capability.BANNER_AD]가 필요하다. */
-    suspend fun destroyAll() {
+    public suspend fun destroyAll() {
         client.call("bannerDestroyAll")
     }
 }
 
 /** [TossAdsApi.attachBanner]로 붙인 배너다. 호스트 UI 스레드에서 호출한다. */
-class BannerHandle internal constructor(initial: BannerBounds) {
+public class BannerHandle internal constructor(initial: BannerBounds) {
     internal val bounds = MutableStateFlow(initial)
     internal var job: Job? = null
 
     /** 배너 요소를 옮긴다. [Capability.BANNER_AD]가 필요하다. */
-    fun updateBounds(bounds: BannerBounds) {
+    public fun updateBounds(bounds: BannerBounds) {
         this.bounds.value = bounds
     }
 
     /** 배너를 제거하고 그 요소를 DOM에서 뺀다. [Capability.BANNER_AD]가 필요하다. */
-    fun destroy() {
+    public fun destroy() {
         job?.cancel()
     }
 }
 
 /** viewport 왼쪽 위 모서리 기준의 배너 위치(CSS px)다. 웹에서는 Compose dp가 CSS px와 같다. */
-data class BannerBounds(val left: Double, val top: Double, val width: Double, val height: Double) {
+public data class BannerBounds(val left: Double, val top: Double, val width: Double, val height: Double) {
     init {
         require(listOf(left, top, width, height).all { it.isFinite() } && width >= 0 && height >= 0) { "Bounds must be finite with non-negative size" }
     }
 }
 
-enum class BannerTheme(internal val value: String) { AUTO("auto"), LIGHT("light"), DARK("dark") }
-enum class BannerTone(internal val value: String) { BLACK_AND_WHITE("blackAndWhite"), GREY("grey") }
-enum class BannerVariant(internal val value: String) { CARD("card"), EXPANDED("expanded") }
+public enum class BannerTheme(internal val value: String) { AUTO("auto"), LIGHT("light"), DARK("dark") }
+public enum class BannerTone(internal val value: String) { BLACK_AND_WHITE("blackAndWhite"), GREY("grey") }
+public enum class BannerVariant(internal val value: String) { CARD("card"), EXPANDED("expanded") }
 
-sealed interface BannerEvent {
-    val slotId: String
-    val adGroupId: String
+public sealed interface BannerEvent {
+    public val slotId: String
+    public val adGroupId: String
 
-    data class Rendered(override val slotId: String, override val adGroupId: String, val creativeId: String, val requestId: String) : BannerEvent
-    data class Viewable(override val slotId: String, override val adGroupId: String, val creativeId: String, val requestId: String) : BannerEvent
-    data class Clicked(override val slotId: String, override val adGroupId: String, val creativeId: String, val requestId: String) : BannerEvent
-    data class Impression(override val slotId: String, override val adGroupId: String, val creativeId: String, val requestId: String) : BannerEvent
-    data class FailedToRender(override val slotId: String, override val adGroupId: String, val errorCode: Int) : BannerEvent
-    data class NoFill(override val slotId: String, override val adGroupId: String) : BannerEvent
+    public data class Rendered(override val slotId: String, override val adGroupId: String, val creativeId: String, val requestId: String) : BannerEvent
+    public data class Viewable(override val slotId: String, override val adGroupId: String, val creativeId: String, val requestId: String) : BannerEvent
+    public data class Clicked(override val slotId: String, override val adGroupId: String, val creativeId: String, val requestId: String) : BannerEvent
+    public data class Impression(override val slotId: String, override val adGroupId: String, val creativeId: String, val requestId: String) : BannerEvent
+    public data class FailedToRender(override val slotId: String, override val adGroupId: String, val errorCode: Int) : BannerEvent
+    public data class NoFill(override val slotId: String, override val adGroupId: String) : BannerEvent
 }
 
-sealed interface FullScreenAdEvent {
-    data object Requested : FullScreenAdEvent
-    data object Show : FullScreenAdEvent
-    data object Impression : FullScreenAdEvent
-    data object Clicked : FullScreenAdEvent
-    data object Dismissed : FullScreenAdEvent
-    data object FailedToShow : FullScreenAdEvent
-    data class UserEarnedReward(val unitType: String, val unitAmount: Double) : FullScreenAdEvent
+public sealed interface FullScreenAdEvent {
+    public data object Requested : FullScreenAdEvent
+    public data object Show : FullScreenAdEvent
+    public data object Impression : FullScreenAdEvent
+    public data object Clicked : FullScreenAdEvent
+    public data object Dismissed : FullScreenAdEvent
+    public data object FailedToShow : FullScreenAdEvent
+    public data class UserEarnedReward(val unitType: String, val unitAmount: Double) : FullScreenAdEvent
 }
 
-data class AdMobLoadResult(val adGroupId: String, val adUnitId: String, val responseInfo: AdMobResponseInfo)
-data class AdMobResponseInfo(val adNetworkInfoArray: List<AdNetworkInfo>, val loadedAdNetworkInfo: AdNetworkInfo?, val responseId: String?)
-data class AdNetworkInfo(
+public data class AdMobLoadResult(val adGroupId: String, val adUnitId: String, val responseInfo: AdMobResponseInfo)
+public data class AdMobResponseInfo(val adNetworkInfoArray: List<AdNetworkInfo>, val loadedAdNetworkInfo: AdNetworkInfo?, val responseId: String?)
+public data class AdNetworkInfo(
     val adSourceId: String,
     val adSourceName: String,
     val adSourceInstanceId: String,

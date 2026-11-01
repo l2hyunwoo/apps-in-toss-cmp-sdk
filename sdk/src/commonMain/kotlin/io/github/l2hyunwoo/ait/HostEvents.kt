@@ -4,11 +4,11 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.double
 import kotlinx.serialization.json.jsonPrimitive
 
-data class SafeAreaInsets(val top: Double, val left: Double, val right: Double, val bottom: Double)
-sealed interface HostEvent {
-    data object Back : HostEvent
-    data object Home : HostEvent
-    data class SafeArea(val insets: SafeAreaInsets) : HostEvent
+public data class SafeAreaInsets(val top: Double, val left: Double, val right: Double, val bottom: Double)
+public sealed interface HostEvent {
+    public data object Back : HostEvent
+    public data object Home : HostEvent
+    public data class SafeArea(val insets: SafeAreaInsets) : HostEvent
 }
 
 internal fun decodeEvent(obj: JsonObject): HostEvent {

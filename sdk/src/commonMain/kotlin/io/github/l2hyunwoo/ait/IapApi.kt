@@ -8,15 +8,15 @@ import kotlinx.serialization.json.*
  * `grant`가 false를 반환하거나 예외를 던지거나 끝나지 않으면(취소 또는 [AppsInTossClient.close]) 호스트는
  * 지급 실패로 기록한다. 이런 주문은 [getPendingOrders]와 [completeProductGrant]로 복구한다.
  */
-class IapApi internal constructor(private val client: AppsInTossClient) {
+public class IapApi internal constructor(private val client: AppsInTossClient) {
     /** 단건 주문 페이지를 연다. 앱 서버가 주문을 지급하면 [grant]가 true를 반환한다. [Capability.IAP]가 필요하다. */
-    suspend fun createOneTimePurchaseOrder(sku: String, grant: suspend (orderId: String) -> Boolean): PurchaseResult {
+    public suspend fun createOneTimePurchaseOrder(sku: String, grant: suspend (orderId: String) -> Boolean): PurchaseResult {
         require(sku.isNotBlank()) { "SKU cannot be blank" }
         return order("iapOneTimeOrder", buildJsonObject { put("sku", sku) }) { grant(it.string("orderId")) }
     }
 
     /** 구독 주문 페이지를 연다. [offerId]가 null이면 기본 가격을 쓴다. [Capability.IAP_SUBSCRIPTION]가 필요하다. */
-    suspend fun createSubscriptionPurchaseOrder(
+    public suspend fun createSubscriptionPurchaseOrder(
         sku: String,
         offerId: String? = null,
         grant: suspend (orderId: String, subscriptionId: String?) -> Boolean,
@@ -31,7 +31,7 @@ class IapApi internal constructor(private val client: AppsInTossClient) {
     }
 
     /** [Capability.IAP]가 필요하다. */
-    suspend fun getProductItemList(): List<IapProduct> {
+    public suspend fun getProductItemList(): List<IapProduct> {
         val result = client.call("iapProducts")
         return decode("product list") {
             Json.parseToJsonElement(result).jsonObject.getValue("products").jsonArray.map { it.jsonObject.toProduct() }
@@ -39,7 +39,7 @@ class IapApi internal constructor(private val client: AppsInTossClient) {
     }
 
     /** 결제는 됐지만 아직 지급 완료를 보고하지 않은 주문이다. [Capability.IAP]가 필요하다. */
-    suspend fun getPendingOrders(): List<PendingOrder> {
+    public suspend fun getPendingOrders(): List<PendingOrder> {
         val result = client.call("iapPendingOrders")
         return decode("pending orders") {
             Json.parseToJsonElement(result).jsonObject.getValue("orders").jsonArray.map {
@@ -50,7 +50,7 @@ class IapApi internal constructor(private val client: AppsInTossClient) {
     }
 
     /** 이전 페이지의 [CompletedOrRefundedOrders.nextKey]를 [key]로 넘긴다. null이면 첫 페이지를 읽는다. [Capability.IAP]가 필요하다. */
-    suspend fun getCompletedOrRefundedOrders(key: String? = null): CompletedOrRefundedOrders {
+    public suspend fun getCompletedOrRefundedOrders(key: String? = null): CompletedOrRefundedOrders {
         require(key == null || key.isNotBlank()) { "Page key cannot be blank" }
         val result = client.call("iapCompletedOrders", buildJsonObject { put("key", key) })
         return decode("completed orders") {
@@ -67,14 +67,14 @@ class IapApi internal constructor(private val client: AppsInTossClient) {
     }
 
     /** 앱 서버가 [orderId]를 지급했음을 보고하고 호스트의 결과를 반환한다. [Capability.IAP]가 필요하다. */
-    suspend fun completeProductGrant(orderId: String): Boolean {
+    public suspend fun completeProductGrant(orderId: String): Boolean {
         require(orderId.isNotBlank()) { "Order id cannot be blank" }
         val result = client.call("iapCompleteGrant", buildJsonObject { put("orderId", orderId) })
         return decode("grant completion") { Json.parseToJsonElement(result).jsonPrimitive.boolean }
     }
 
     /** [Capability.IAP_SUBSCRIPTION]가 필요하다. */
-    suspend fun getSubscriptionInfo(orderId: String): SubscriptionInfo {
+    public suspend fun getSubscriptionInfo(orderId: String): SubscriptionInfo {
         require(orderId.isNotBlank()) { "Order id cannot be blank" }
         val result = client.call("iapSubscriptionInfo", buildJsonObject { put("orderId", orderId) })
         return decode("subscription info") {
@@ -132,13 +132,13 @@ private fun JsonObject.toProduct(): IapProduct {
     )
 }
 
-sealed interface PurchaseResult {
-    data class Success(val order: PurchaseOrder) : PurchaseResult
-    data class Failure(val error: PurchaseError) : PurchaseResult
+public sealed interface PurchaseResult {
+    public data class Success(val order: PurchaseOrder) : PurchaseResult
+    public data class Failure(val error: PurchaseError) : PurchaseResult
 }
 
 /** 문서화된 주문 오류 코드다. [PRODUCT_NOT_GRANTED_BY_PARTNER]는 지급이 false이거나 실패한 뒤에 온다. */
-enum class PurchaseError {
+public enum class PurchaseError {
     INVALID_PRODUCT_ID,
     PAYMENT_PENDING,
     NETWORK_ERROR,
@@ -152,7 +152,7 @@ enum class PurchaseError {
     PRODUCT_NOT_GRANTED_BY_PARTNER,
 }
 
-data class PurchaseOrder(
+public data class PurchaseOrder(
     val orderId: String,
     val displayName: String,
     val displayAmount: String,
@@ -162,12 +162,12 @@ data class PurchaseOrder(
     val miniAppIconUrl: String?,
 )
 
-enum class IapProductType { CONSUMABLE, NON_CONSUMABLE, SUBSCRIPTION }
-enum class RenewalCycle { WEEKLY, MONTHLY, YEARLY }
-enum class IapOfferType { FREE_TRIAL, NEW_SUBSCRIPTION, RETURNING }
+public enum class IapProductType { CONSUMABLE, NON_CONSUMABLE, SUBSCRIPTION }
+public enum class RenewalCycle { WEEKLY, MONTHLY, YEARLY }
+public enum class IapOfferType { FREE_TRIAL, NEW_SUBSCRIPTION, RETURNING }
 
 /** [renewalCycle]은 [IapProductType.SUBSCRIPTION]에서만 값이 있다. */
-data class IapProduct(
+public data class IapProduct(
     val sku: String,
     val type: IapProductType,
     val displayName: String,
@@ -179,16 +179,16 @@ data class IapProduct(
 )
 
 /** [IapOfferType.FREE_TRIAL]에서는 [displayAmount]가 null이다. */
-data class IapOffer(val type: IapOfferType, val offerId: String, val period: String, val displayAmount: String?)
+public data class IapOffer(val type: IapOfferType, val offerId: String, val period: String, val displayAmount: String?)
 
-data class PendingOrder(val orderId: String, val sku: String, val paymentCompletedDate: String)
+public data class PendingOrder(val orderId: String, val sku: String, val paymentCompletedDate: String)
 
-enum class OrderStatus { COMPLETED, REFUNDED }
-data class CompletedOrRefundedOrder(val orderId: String, val sku: String, val status: OrderStatus, val date: String)
-data class CompletedOrRefundedOrders(val hasNext: Boolean, val nextKey: String?, val orders: List<CompletedOrRefundedOrder>)
+public enum class OrderStatus { COMPLETED, REFUNDED }
+public data class CompletedOrRefundedOrder(val orderId: String, val sku: String, val status: OrderStatus, val date: String)
+public data class CompletedOrRefundedOrders(val hasNext: Boolean, val nextKey: String?, val orders: List<CompletedOrRefundedOrder>)
 
 /** 공식 타입이 문서에 없는 값도 허용하므로 [status]는 문자열로 둔다. */
-data class SubscriptionInfo(
+public data class SubscriptionInfo(
     val catalogId: Long,
     val status: String,
     val expiresAt: String?,

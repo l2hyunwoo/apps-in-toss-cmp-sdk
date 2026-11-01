@@ -3,9 +3,9 @@ package io.github.l2hyunwoo.ait
 import kotlinx.serialization.json.*
 
 /** 로그 파라미터 값은 String, 유한한 Number, Boolean 또는 null이어야 한다. */
-class AnalyticsApi internal constructor(private val client: AppsInTossClient) {
+public class AnalyticsApi internal constructor(private val client: AppsInTossClient) {
     /** [Capability.ANALYTICS]가 필요하다. */
-    suspend fun log(logName: String, logType: LogType, params: Map<String, Any?> = emptyMap()) {
+    public suspend fun log(logName: String, logType: LogType, params: Map<String, Any?> = emptyMap()) {
         require(logName.isNotBlank()) { "Log name cannot be blank" }
         client.call(
             "analyticsLog",
@@ -18,13 +18,13 @@ class AnalyticsApi internal constructor(private val client: AppsInTossClient) {
     }
 
     /** 화면 조회를 기록한다. [logName]이 null이면 호스트가 현재 경로로 이름을 붙인다. [Capability.ANALYTICS]가 필요하다. */
-    suspend fun screen(logName: String? = null, params: Map<String, Any?> = emptyMap()) = logger("analyticsScreen", logName, params)
+    public suspend fun screen(logName: String? = null, params: Map<String, Any?> = emptyMap()): Unit = logger("analyticsScreen", logName, params)
 
     /** [Capability.ANALYTICS]가 필요하다. */
-    suspend fun impression(logName: String? = null, params: Map<String, Any?> = emptyMap()) = logger("analyticsImpression", logName, params)
+    public suspend fun impression(logName: String? = null, params: Map<String, Any?> = emptyMap()): Unit = logger("analyticsImpression", logName, params)
 
     /** [Capability.ANALYTICS]가 필요하다. */
-    suspend fun click(logName: String? = null, params: Map<String, Any?> = emptyMap()) = logger("analyticsClick", logName, params)
+    public suspend fun click(logName: String? = null, params: Map<String, Any?> = emptyMap()): Unit = logger("analyticsClick", logName, params)
 
     private suspend fun logger(method: String, logName: String?, params: Map<String, Any?>) {
         require(logName == null || logName.isNotBlank()) { "Log name cannot be blank" }
@@ -39,7 +39,7 @@ class AnalyticsApi internal constructor(private val client: AppsInTossClient) {
     }
 }
 
-enum class LogType { DEBUG, INFO, WARN, ERROR, EVENT, SCREEN, IMPRESSION, CLICK, POPUP }
+public enum class LogType { DEBUG, INFO, WARN, ERROR, EVENT, SCREEN, IMPRESSION, CLICK, POPUP }
 
 private fun Map<String, Any?>.toLogParams() = JsonObject(
     mapValues { (key, value) ->

@@ -1,0 +1,1398 @@
+public final class io/github/l2hyunwoo/ait/AccessLocation : java/lang/Enum {
+	public static final field COARSE Lio/github/l2hyunwoo/ait/AccessLocation;
+	public static final field FINE Lio/github/l2hyunwoo/ait/AccessLocation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/AccessLocation;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/AccessLocation;
+}
+
+public final class io/github/l2hyunwoo/ait/Accuracy : java/lang/Enum {
+	public static final field BALANCED Lio/github/l2hyunwoo/ait/Accuracy;
+	public static final field BEST_FOR_NAVIGATION Lio/github/l2hyunwoo/ait/Accuracy;
+	public static final field HIGH Lio/github/l2hyunwoo/ait/Accuracy;
+	public static final field HIGHEST Lio/github/l2hyunwoo/ait/Accuracy;
+	public static final field LOW Lio/github/l2hyunwoo/ait/Accuracy;
+	public static final field LOWEST Lio/github/l2hyunwoo/ait/Accuracy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/Accuracy;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/Accuracy;
+}
+
+public final class io/github/l2hyunwoo/ait/AdMobApi {
+	public final fun isAppsInTossAdMobLoaded (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun loadAppsInTossAdMob (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun loadAppsInTossAdMob$default (Lio/github/l2hyunwoo/ait/AdMobApi;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun showAppsInTossAdMob (Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class io/github/l2hyunwoo/ait/AdMobLoadResult {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/AdMobResponseInfo;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lio/github/l2hyunwoo/ait/AdMobResponseInfo;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/AdMobResponseInfo;)Lio/github/l2hyunwoo/ait/AdMobLoadResult;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/AdMobLoadResult;Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/AdMobResponseInfo;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/AdMobLoadResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAdGroupId ()Ljava/lang/String;
+	public final fun getAdUnitId ()Ljava/lang/String;
+	public final fun getResponseInfo ()Lio/github/l2hyunwoo/ait/AdMobResponseInfo;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/AdMobResponseInfo {
+	public fun <init> (Ljava/util/List;Lio/github/l2hyunwoo/ait/AdNetworkInfo;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Lio/github/l2hyunwoo/ait/AdNetworkInfo;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Lio/github/l2hyunwoo/ait/AdNetworkInfo;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/AdMobResponseInfo;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/AdMobResponseInfo;Ljava/util/List;Lio/github/l2hyunwoo/ait/AdNetworkInfo;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/AdMobResponseInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAdNetworkInfoArray ()Ljava/util/List;
+	public final fun getLoadedAdNetworkInfo ()Lio/github/l2hyunwoo/ait/AdNetworkInfo;
+	public final fun getResponseId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/AdNetworkInfo {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/AdNetworkInfo;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/AdNetworkInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/AdNetworkInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAdNetworkClassName ()Ljava/lang/String;
+	public final fun getAdSourceId ()Ljava/lang/String;
+	public final fun getAdSourceInstanceId ()Ljava/lang/String;
+	public final fun getAdSourceInstanceName ()Ljava/lang/String;
+	public final fun getAdSourceName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/AdsApi {
+	public final fun getAdmob ()Lio/github/l2hyunwoo/ait/AdMobApi;
+	public final fun getTossAds ()Lio/github/l2hyunwoo/ait/TossAdsApi;
+	public final fun loadFullScreenAd (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun showFullScreenAd (Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class io/github/l2hyunwoo/ait/AlbumItemResponse {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/AlbumItemType;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lio/github/l2hyunwoo/ait/AlbumItemType;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/AlbumItemType;)Lio/github/l2hyunwoo/ait/AlbumItemResponse;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/AlbumItemResponse;Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/AlbumItemType;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/AlbumItemResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDataUri ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getType ()Lio/github/l2hyunwoo/ait/AlbumItemType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/AlbumItemType : java/lang/Enum {
+	public static final field PHOTO Lio/github/l2hyunwoo/ait/AlbumItemType;
+	public static final field VIDEO Lio/github/l2hyunwoo/ait/AlbumItemType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/AlbumItemType;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/AlbumItemType;
+}
+
+public final class io/github/l2hyunwoo/ait/AnalyticsApi {
+	public final fun click (Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun click$default (Lio/github/l2hyunwoo/ait/AnalyticsApi;Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun impression (Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun impression$default (Lio/github/l2hyunwoo/ait/AnalyticsApi;Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun log (Ljava/lang/String;Lio/github/l2hyunwoo/ait/LogType;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun log$default (Lio/github/l2hyunwoo/ait/AnalyticsApi;Ljava/lang/String;Lio/github/l2hyunwoo/ait/LogType;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun screen (Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun screen$default (Lio/github/l2hyunwoo/ait/AnalyticsApi;Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/AnonymousKeyAuthCode {
+	public fun <init> (Ljava/lang/String;I)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun copy (Ljava/lang/String;I)Lio/github/l2hyunwoo/ait/AnonymousKeyAuthCode;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/AnonymousKeyAuthCode;Ljava/lang/String;IILjava/lang/Object;)Lio/github/l2hyunwoo/ait/AnonymousKeyAuthCode;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getExpiresIn ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/AppsInTossClient {
+	public fun <init> (Lio/github/l2hyunwoo/ait/AppsInTossTransport;J)V
+	public synthetic fun <init> (Lio/github/l2hyunwoo/ait/AppsInTossTransport;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun close ()V
+	public final fun getAds ()Lio/github/l2hyunwoo/ait/AdsApi;
+	public final fun getAnalytics ()Lio/github/l2hyunwoo/ait/AnalyticsApi;
+	public final fun getAuth ()Lio/github/l2hyunwoo/ait/AuthApi;
+	public final fun getClipboard ()Lio/github/l2hyunwoo/ait/ClipboardApi;
+	public final fun getContacts ()Lio/github/l2hyunwoo/ait/ContactsApi;
+	public final fun getDevice ()Lio/github/l2hyunwoo/ait/DeviceApi;
+	public final fun getEnvironment ()Lio/github/l2hyunwoo/ait/EnvironmentApi;
+	public final fun getEvents ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getFile ()Lio/github/l2hyunwoo/ait/FileApi;
+	public final fun getGame ()Lio/github/l2hyunwoo/ait/GameApi;
+	public final fun getHost ()Lio/github/l2hyunwoo/ait/RuntimeHost;
+	public final fun getIap ()Lio/github/l2hyunwoo/ait/IapApi;
+	public final fun getLocation ()Lio/github/l2hyunwoo/ait/LocationApi;
+	public final fun getMedia ()Lio/github/l2hyunwoo/ait/MediaApi;
+	public final fun getMigration ()Lio/github/l2hyunwoo/ait/MigrationApi;
+	public final fun getNavigationBar ()Lio/github/l2hyunwoo/ait/NavigationBarApi;
+	public final fun getNotification ()Lio/github/l2hyunwoo/ait/NotificationApi;
+	public final fun getPermissions ()Lio/github/l2hyunwoo/ait/PermissionsApi;
+	public final fun getPromotion ()Lio/github/l2hyunwoo/ait/PromotionApi;
+	public final fun getReview ()Lio/github/l2hyunwoo/ait/ReviewApi;
+	public final fun getScreen ()Lio/github/l2hyunwoo/ait/ScreenApi;
+	public final fun getShare ()Lio/github/l2hyunwoo/ait/ShareApi;
+	public final fun getStorage ()Lio/github/l2hyunwoo/ait/StorageApi;
+	public final fun getTossPay ()Lio/github/l2hyunwoo/ait/TossPayApi;
+	public final fun getUser ()Lio/github/l2hyunwoo/ait/UserApi;
+	public final fun supports (Lio/github/l2hyunwoo/ait/Capability;)Z
+}
+
+public final class io/github/l2hyunwoo/ait/AppsInTossException : java/lang/Exception {
+	public fun <init> (Lio/github/l2hyunwoo/ait/ErrorCode;Ljava/lang/String;)V
+	public final fun getCode ()Lio/github/l2hyunwoo/ait/ErrorCode;
+}
+
+public abstract interface class io/github/l2hyunwoo/ait/AppsInTossTransport {
+	public abstract fun call (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lkotlin/jvm/functions/Function0;
+	public abstract fun getHost ()Lio/github/l2hyunwoo/ait/RuntimeHost;
+	public abstract fun stream (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lkotlin/jvm/functions/Function0;
+	public fun supports (Lio/github/l2hyunwoo/ait/Capability;)Z
+}
+
+public final class io/github/l2hyunwoo/ait/AppsInTossTransport$DefaultImpls {
+	public static fun supports (Lio/github/l2hyunwoo/ait/AppsInTossTransport;Lio/github/l2hyunwoo/ait/Capability;)Z
+}
+
+public final class io/github/l2hyunwoo/ait/AuthApi {
+	public final fun isIntegrated (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun login (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun sign (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/BannerBounds {
+	public fun <init> (DDDD)V
+	public final fun component1 ()D
+	public final fun component2 ()D
+	public final fun component3 ()D
+	public final fun component4 ()D
+	public final fun copy (DDDD)Lio/github/l2hyunwoo/ait/BannerBounds;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/BannerBounds;DDDDILjava/lang/Object;)Lio/github/l2hyunwoo/ait/BannerBounds;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeight ()D
+	public final fun getLeft ()D
+	public final fun getTop ()D
+	public final fun getWidth ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class io/github/l2hyunwoo/ait/BannerEvent {
+	public abstract fun getAdGroupId ()Ljava/lang/String;
+	public abstract fun getSlotId ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/BannerEvent$Clicked : io/github/l2hyunwoo/ait/BannerEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/BannerEvent$Clicked;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/BannerEvent$Clicked;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/BannerEvent$Clicked;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAdGroupId ()Ljava/lang/String;
+	public final fun getCreativeId ()Ljava/lang/String;
+	public final fun getRequestId ()Ljava/lang/String;
+	public fun getSlotId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/BannerEvent$FailedToRender : io/github/l2hyunwoo/ait/BannerEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;I)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()I
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;I)Lio/github/l2hyunwoo/ait/BannerEvent$FailedToRender;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/BannerEvent$FailedToRender;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lio/github/l2hyunwoo/ait/BannerEvent$FailedToRender;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAdGroupId ()Ljava/lang/String;
+	public final fun getErrorCode ()I
+	public fun getSlotId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/BannerEvent$Impression : io/github/l2hyunwoo/ait/BannerEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/BannerEvent$Impression;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/BannerEvent$Impression;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/BannerEvent$Impression;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAdGroupId ()Ljava/lang/String;
+	public final fun getCreativeId ()Ljava/lang/String;
+	public final fun getRequestId ()Ljava/lang/String;
+	public fun getSlotId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/BannerEvent$NoFill : io/github/l2hyunwoo/ait/BannerEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/BannerEvent$NoFill;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/BannerEvent$NoFill;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/BannerEvent$NoFill;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAdGroupId ()Ljava/lang/String;
+	public fun getSlotId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/BannerEvent$Rendered : io/github/l2hyunwoo/ait/BannerEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/BannerEvent$Rendered;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/BannerEvent$Rendered;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/BannerEvent$Rendered;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAdGroupId ()Ljava/lang/String;
+	public final fun getCreativeId ()Ljava/lang/String;
+	public final fun getRequestId ()Ljava/lang/String;
+	public fun getSlotId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/BannerEvent$Viewable : io/github/l2hyunwoo/ait/BannerEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/BannerEvent$Viewable;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/BannerEvent$Viewable;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/BannerEvent$Viewable;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAdGroupId ()Ljava/lang/String;
+	public final fun getCreativeId ()Ljava/lang/String;
+	public final fun getRequestId ()Ljava/lang/String;
+	public fun getSlotId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/BannerHandle {
+	public final fun destroy ()V
+	public final fun updateBounds (Lio/github/l2hyunwoo/ait/BannerBounds;)V
+}
+
+public final class io/github/l2hyunwoo/ait/BannerTheme : java/lang/Enum {
+	public static final field AUTO Lio/github/l2hyunwoo/ait/BannerTheme;
+	public static final field DARK Lio/github/l2hyunwoo/ait/BannerTheme;
+	public static final field LIGHT Lio/github/l2hyunwoo/ait/BannerTheme;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/BannerTheme;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/BannerTheme;
+}
+
+public final class io/github/l2hyunwoo/ait/BannerTone : java/lang/Enum {
+	public static final field BLACK_AND_WHITE Lio/github/l2hyunwoo/ait/BannerTone;
+	public static final field GREY Lio/github/l2hyunwoo/ait/BannerTone;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/BannerTone;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/BannerTone;
+}
+
+public final class io/github/l2hyunwoo/ait/BannerVariant : java/lang/Enum {
+	public static final field CARD Lio/github/l2hyunwoo/ait/BannerVariant;
+	public static final field EXPANDED Lio/github/l2hyunwoo/ait/BannerVariant;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/BannerVariant;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/BannerVariant;
+}
+
+public final class io/github/l2hyunwoo/ait/Capability : java/lang/Enum {
+	public static final field ADMOB Lio/github/l2hyunwoo/ait/Capability;
+	public static final field ALBUM Lio/github/l2hyunwoo/ait/Capability;
+	public static final field ANALYTICS Lio/github/l2hyunwoo/ait/Capability;
+	public static final field BANNER_AD Lio/github/l2hyunwoo/ait/Capability;
+	public static final field CAMERA Lio/github/l2hyunwoo/ait/Capability;
+	public static final field CLIPBOARD Lio/github/l2hyunwoo/ait/Capability;
+	public static final field CLOSE Lio/github/l2hyunwoo/ait/Capability;
+	public static final field CONSENTED_DATA Lio/github/l2hyunwoo/ait/Capability;
+	public static final field CONTACTS Lio/github/l2hyunwoo/ait/Capability;
+	public static final field DECLARED_AGE_RANGE Lio/github/l2hyunwoo/ait/Capability;
+	public static final field DEVICE_INFO Lio/github/l2hyunwoo/ait/Capability;
+	public static final field ENVIRONMENT_INFO Lio/github/l2hyunwoo/ait/Capability;
+	public static final field FULL_SCREEN_AD Lio/github/l2hyunwoo/ait/Capability;
+	public static final field GAME_INFO_OVERLAY Lio/github/l2hyunwoo/ait/Capability;
+	public static final field GAME_PROFILE Lio/github/l2hyunwoo/ait/Capability;
+	public static final field HAPTIC Lio/github/l2hyunwoo/ait/Capability;
+	public static final field HOST_EVENTS Lio/github/l2hyunwoo/ait/Capability;
+	public static final field IAP Lio/github/l2hyunwoo/ait/Capability;
+	public static final field IAP_SUBSCRIPTION Lio/github/l2hyunwoo/ait/Capability;
+	public static final field IOS_SWIPE_BACK Lio/github/l2hyunwoo/ait/Capability;
+	public static final field LEADERBOARD Lio/github/l2hyunwoo/ait/Capability;
+	public static final field LOCATION Lio/github/l2hyunwoo/ait/Capability;
+	public static final field LOCATION_UPDATES Lio/github/l2hyunwoo/ait/Capability;
+	public static final field NAVIGATION_BAR Lio/github/l2hyunwoo/ait/Capability;
+	public static final field NETWORK_STATUS Lio/github/l2hyunwoo/ait/Capability;
+	public static final field NOTIFICATION_AGREEMENT Lio/github/l2hyunwoo/ait/Capability;
+	public static final field OPEN_URL Lio/github/l2hyunwoo/ait/Capability;
+	public static final field ORIENTATION Lio/github/l2hyunwoo/ait/Capability;
+	public static final field ORIGIN_STORAGE_MIGRATION Lio/github/l2hyunwoo/ait/Capability;
+	public static final field PDF_VIEWER Lio/github/l2hyunwoo/ait/Capability;
+	public static final field PERMISSIONS Lio/github/l2hyunwoo/ait/Capability;
+	public static final field PHOTOS Lio/github/l2hyunwoo/ait/Capability;
+	public static final field PROMOTION_REWARD Lio/github/l2hyunwoo/ait/Capability;
+	public static final field REVIEW Lio/github/l2hyunwoo/ait/Capability;
+	public static final field SAVE_FILE Lio/github/l2hyunwoo/ait/Capability;
+	public static final field SCREEN_AWAKE Lio/github/l2hyunwoo/ait/Capability;
+	public static final field SECURE_SCREEN Lio/github/l2hyunwoo/ait/Capability;
+	public static final field SERVER_TIME Lio/github/l2hyunwoo/ait/Capability;
+	public static final field SHARE Lio/github/l2hyunwoo/ait/Capability;
+	public static final field SHARE_LINK Lio/github/l2hyunwoo/ait/Capability;
+	public static final field STORAGE Lio/github/l2hyunwoo/ait/Capability;
+	public static final field STORAGE_BATCH Lio/github/l2hyunwoo/ait/Capability;
+	public static final field TOSS_LOGIN Lio/github/l2hyunwoo/ait/Capability;
+	public static final field TOSS_LOGIN_INTEGRATION Lio/github/l2hyunwoo/ait/Capability;
+	public static final field TOSS_PAY Lio/github/l2hyunwoo/ait/Capability;
+	public static final field TOSS_PAY_SUBSCRIPTION Lio/github/l2hyunwoo/ait/Capability;
+	public static final field TOSS_SIGN Lio/github/l2hyunwoo/ait/Capability;
+	public static final field USER_ID Lio/github/l2hyunwoo/ait/Capability;
+	public static final field USER_KEY_AUTH_CODE Lio/github/l2hyunwoo/ait/Capability;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/Capability;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/Capability;
+}
+
+public final class io/github/l2hyunwoo/ait/ClipboardApi {
+	public final fun getText (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setText (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/CompletedOrRefundedOrder {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/OrderStatus;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lio/github/l2hyunwoo/ait/OrderStatus;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/OrderStatus;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/CompletedOrRefundedOrder;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/CompletedOrRefundedOrder;Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/OrderStatus;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/CompletedOrRefundedOrder;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDate ()Ljava/lang/String;
+	public final fun getOrderId ()Ljava/lang/String;
+	public final fun getSku ()Ljava/lang/String;
+	public final fun getStatus ()Lio/github/l2hyunwoo/ait/OrderStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/CompletedOrRefundedOrders {
+	public fun <init> (ZLjava/lang/String;Ljava/util/List;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (ZLjava/lang/String;Ljava/util/List;)Lio/github/l2hyunwoo/ait/CompletedOrRefundedOrders;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/CompletedOrRefundedOrders;ZLjava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/CompletedOrRefundedOrders;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHasNext ()Z
+	public final fun getNextKey ()Ljava/lang/String;
+	public final fun getOrders ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/ConsentedDataError : java/lang/Enum {
+	public static final field CANCELED Lio/github/l2hyunwoo/ait/ConsentedDataError;
+	public static final field CONSENTED_USER_DATA_AGREEMENT_FAILED Lio/github/l2hyunwoo/ait/ConsentedDataError;
+	public static final field CONSENTED_USER_DATA_INVALID_DATA Lio/github/l2hyunwoo/ait/ConsentedDataError;
+	public static final field INVALID_REQUEST Lio/github/l2hyunwoo/ait/ConsentedDataError;
+	public static final field TERMS_NOT_SET Lio/github/l2hyunwoo/ait/ConsentedDataError;
+	public static final field UNAVAILABLE Lio/github/l2hyunwoo/ait/ConsentedDataError;
+	public static final field USER_DECLINED Lio/github/l2hyunwoo/ait/ConsentedDataError;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/ConsentedDataError;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/ConsentedDataError;
+}
+
+public abstract interface class io/github/l2hyunwoo/ait/ConsentedDataResult {
+}
+
+public final class io/github/l2hyunwoo/ait/ConsentedDataResult$Consented : io/github/l2hyunwoo/ait/ConsentedDataResult {
+	public fun <init> (Ljava/util/Map;)V
+	public final fun component1 ()Ljava/util/Map;
+	public final fun copy (Ljava/util/Map;)Lio/github/l2hyunwoo/ait/ConsentedDataResult$Consented;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/ConsentedDataResult$Consented;Ljava/util/Map;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/ConsentedDataResult$Consented;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getData ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/ConsentedDataResult$Failed : io/github/l2hyunwoo/ait/ConsentedDataResult {
+	public fun <init> (Lio/github/l2hyunwoo/ait/ConsentedDataError;)V
+	public final fun component1 ()Lio/github/l2hyunwoo/ait/ConsentedDataError;
+	public final fun copy (Lio/github/l2hyunwoo/ait/ConsentedDataError;)Lio/github/l2hyunwoo/ait/ConsentedDataResult$Failed;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/ConsentedDataResult$Failed;Lio/github/l2hyunwoo/ait/ConsentedDataError;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/ConsentedDataResult$Failed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Lio/github/l2hyunwoo/ait/ConsentedDataError;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/ContactEntity {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/ContactEntity;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/ContactEntity;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/ContactEntity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getPhoneNumber ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/ContactResult {
+	public fun <init> (Ljava/util/List;Ljava/lang/Integer;Z)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/Integer;
+	public final fun component3 ()Z
+	public final fun copy (Ljava/util/List;Ljava/lang/Integer;Z)Lio/github/l2hyunwoo/ait/ContactResult;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/ContactResult;Ljava/util/List;Ljava/lang/Integer;ZILjava/lang/Object;)Lio/github/l2hyunwoo/ait/ContactResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDone ()Z
+	public final fun getNextOffset ()Ljava/lang/Integer;
+	public final fun getResult ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/ContactsApi {
+	public final fun getContacts (IILjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getContacts$default (Lio/github/l2hyunwoo/ait/ContactsApi;IILjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/DeclaredAgeRange {
+	public fun <init> (Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;)V
+	public final fun component1 ()Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;
+	public final fun component2 ()Ljava/lang/Integer;
+	public final fun component3 ()Ljava/lang/Integer;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/DeclaredAgeRange;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/DeclaredAgeRange;Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/DeclaredAgeRange;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActiveParentalControls ()Ljava/util/List;
+	public final fun getAgeRangeDeclaration ()Ljava/lang/String;
+	public final fun getErrorCode ()Ljava/lang/String;
+	public final fun getLowerBound ()Ljava/lang/Integer;
+	public final fun getStatus ()Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;
+	public final fun getUpperBound ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public final fun isEligibleForAgeFeatures ()Ljava/lang/Boolean;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/DeclaredAgeRangeStatus : java/lang/Enum {
+	public static final field DECLINED_SHARING Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;
+	public static final field FAILED Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;
+	public static final field INVALID_REQUEST Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;
+	public static final field NOT_AVAILABLE Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;
+	public static final field SHARING Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;
+	public static final field UNSUPPORTED_OS Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/DeclaredAgeRangeStatus;
+}
+
+public final class io/github/l2hyunwoo/ait/DeviceApi {
+	public final fun locale (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun openURL (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun os (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun triggerHaptic (Lio/github/l2hyunwoo/ait/HapticType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/DeviceOrientation : java/lang/Enum {
+	public static final field LANDSCAPE Lio/github/l2hyunwoo/ait/DeviceOrientation;
+	public static final field PORTRAIT Lio/github/l2hyunwoo/ait/DeviceOrientation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/DeviceOrientation;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/DeviceOrientation;
+}
+
+public final class io/github/l2hyunwoo/ait/DeviceOs : java/lang/Enum {
+	public static final field ANDROID Lio/github/l2hyunwoo/ait/DeviceOs;
+	public static final field IOS Lio/github/l2hyunwoo/ait/DeviceOs;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/DeviceOs;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/DeviceOs;
+}
+
+public final class io/github/l2hyunwoo/ait/EnvironmentApi {
+	public final fun deploymentId (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun deviceId (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun environment (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getNetworkStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getServerTime (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun groupId (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun initialURL (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun isMinVersionSupported (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun tossAppVersion (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/ErrorCode : java/lang/Enum {
+	public static final field HOST_UNAVAILABLE Lio/github/l2hyunwoo/ait/ErrorCode;
+	public static final field INVALID_RESPONSE Lio/github/l2hyunwoo/ait/ErrorCode;
+	public static final field IN_PROGRESS Lio/github/l2hyunwoo/ait/ErrorCode;
+	public static final field PERMISSION_DENIED Lio/github/l2hyunwoo/ait/ErrorCode;
+	public static final field SDK_FAILURE Lio/github/l2hyunwoo/ait/ErrorCode;
+	public static final field TIMEOUT Lio/github/l2hyunwoo/ait/ErrorCode;
+	public static final field UNSUPPORTED Lio/github/l2hyunwoo/ait/ErrorCode;
+	public static final field USER_CANCELLED Lio/github/l2hyunwoo/ait/ErrorCode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/ErrorCode;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/ErrorCode;
+}
+
+public final class io/github/l2hyunwoo/ait/FileApi {
+	public final fun openPDFViewer (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun openPDFViewer$default (Lio/github/l2hyunwoo/ait/FileApi;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun saveBase64 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class io/github/l2hyunwoo/ait/FullScreenAdEvent {
+}
+
+public final class io/github/l2hyunwoo/ait/FullScreenAdEvent$Clicked : io/github/l2hyunwoo/ait/FullScreenAdEvent {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/FullScreenAdEvent$Clicked;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/FullScreenAdEvent$Dismissed : io/github/l2hyunwoo/ait/FullScreenAdEvent {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/FullScreenAdEvent$Dismissed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/FullScreenAdEvent$FailedToShow : io/github/l2hyunwoo/ait/FullScreenAdEvent {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/FullScreenAdEvent$FailedToShow;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/FullScreenAdEvent$Impression : io/github/l2hyunwoo/ait/FullScreenAdEvent {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/FullScreenAdEvent$Impression;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/FullScreenAdEvent$Requested : io/github/l2hyunwoo/ait/FullScreenAdEvent {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/FullScreenAdEvent$Requested;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/FullScreenAdEvent$Show : io/github/l2hyunwoo/ait/FullScreenAdEvent {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/FullScreenAdEvent$Show;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/FullScreenAdEvent$UserEarnedReward : io/github/l2hyunwoo/ait/FullScreenAdEvent {
+	public fun <init> (Ljava/lang/String;D)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()D
+	public final fun copy (Ljava/lang/String;D)Lio/github/l2hyunwoo/ait/FullScreenAdEvent$UserEarnedReward;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/FullScreenAdEvent$UserEarnedReward;Ljava/lang/String;DILjava/lang/Object;)Lio/github/l2hyunwoo/ait/FullScreenAdEvent$UserEarnedReward;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getUnitAmount ()D
+	public final fun getUnitType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/GameApi {
+	public final fun getUserProfile (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun openLeaderboard (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setLeaderboardScore (DLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun subscribeInfoOverlayHidden ()Lkotlinx/coroutines/flow/Flow;
+}
+
+public abstract interface class io/github/l2hyunwoo/ait/GameProfile {
+}
+
+public final class io/github/l2hyunwoo/ait/GameProfile$Found : io/github/l2hyunwoo/ait/GameProfile {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/GameProfile$Found;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/GameProfile$Found;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/GameProfile$Found;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNickname ()Ljava/lang/String;
+	public final fun getProfileImageUri ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/GameProfile$NotFound : io/github/l2hyunwoo/ait/GameProfile {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/GameProfile$NotFound;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/HapticType : java/lang/Enum {
+	public static final field BASIC_MEDIUM Lio/github/l2hyunwoo/ait/HapticType;
+	public static final field BASIC_WEAK Lio/github/l2hyunwoo/ait/HapticType;
+	public static final field CONFETTI Lio/github/l2hyunwoo/ait/HapticType;
+	public static final field ERROR Lio/github/l2hyunwoo/ait/HapticType;
+	public static final field SOFT_MEDIUM Lio/github/l2hyunwoo/ait/HapticType;
+	public static final field SUCCESS Lio/github/l2hyunwoo/ait/HapticType;
+	public static final field TAP Lio/github/l2hyunwoo/ait/HapticType;
+	public static final field TICK_MEDIUM Lio/github/l2hyunwoo/ait/HapticType;
+	public static final field TICK_WEAK Lio/github/l2hyunwoo/ait/HapticType;
+	public static final field WIGGLE Lio/github/l2hyunwoo/ait/HapticType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/HapticType;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/HapticType;
+}
+
+public abstract interface class io/github/l2hyunwoo/ait/HostEvent {
+}
+
+public final class io/github/l2hyunwoo/ait/HostEvent$Back : io/github/l2hyunwoo/ait/HostEvent {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/HostEvent$Back;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/HostEvent$Home : io/github/l2hyunwoo/ait/HostEvent {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/HostEvent$Home;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/HostEvent$SafeArea : io/github/l2hyunwoo/ait/HostEvent {
+	public fun <init> (Lio/github/l2hyunwoo/ait/SafeAreaInsets;)V
+	public final fun component1 ()Lio/github/l2hyunwoo/ait/SafeAreaInsets;
+	public final fun copy (Lio/github/l2hyunwoo/ait/SafeAreaInsets;)Lio/github/l2hyunwoo/ait/HostEvent$SafeArea;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/HostEvent$SafeArea;Lio/github/l2hyunwoo/ait/SafeAreaInsets;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/HostEvent$SafeArea;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInsets ()Lio/github/l2hyunwoo/ait/SafeAreaInsets;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/IapApi {
+	public final fun completeProductGrant (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun createOneTimePurchaseOrder (Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun createSubscriptionPurchaseOrder (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun createSubscriptionPurchaseOrder$default (Lio/github/l2hyunwoo/ait/IapApi;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getCompletedOrRefundedOrders (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getCompletedOrRefundedOrders$default (Lio/github/l2hyunwoo/ait/IapApi;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getPendingOrders (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getProductItemList (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getSubscriptionInfo (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/IapOffer {
+	public fun <init> (Lio/github/l2hyunwoo/ait/IapOfferType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Lio/github/l2hyunwoo/ait/IapOfferType;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Lio/github/l2hyunwoo/ait/IapOfferType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/IapOffer;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/IapOffer;Lio/github/l2hyunwoo/ait/IapOfferType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/IapOffer;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDisplayAmount ()Ljava/lang/String;
+	public final fun getOfferId ()Ljava/lang/String;
+	public final fun getPeriod ()Ljava/lang/String;
+	public final fun getType ()Lio/github/l2hyunwoo/ait/IapOfferType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/IapOfferType : java/lang/Enum {
+	public static final field FREE_TRIAL Lio/github/l2hyunwoo/ait/IapOfferType;
+	public static final field NEW_SUBSCRIPTION Lio/github/l2hyunwoo/ait/IapOfferType;
+	public static final field RETURNING Lio/github/l2hyunwoo/ait/IapOfferType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/IapOfferType;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/IapOfferType;
+}
+
+public final class io/github/l2hyunwoo/ait/IapProduct {
+	public fun <init> (Ljava/lang/String;Lio/github/l2hyunwoo/ait/IapProductType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/RenewalCycle;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lio/github/l2hyunwoo/ait/IapProductType;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Lio/github/l2hyunwoo/ait/RenewalCycle;
+	public final fun component8 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Lio/github/l2hyunwoo/ait/IapProductType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/RenewalCycle;Ljava/util/List;)Lio/github/l2hyunwoo/ait/IapProduct;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/IapProduct;Ljava/lang/String;Lio/github/l2hyunwoo/ait/IapProductType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lio/github/l2hyunwoo/ait/RenewalCycle;Ljava/util/List;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/IapProduct;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getDisplayAmount ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getIconUrl ()Ljava/lang/String;
+	public final fun getOffers ()Ljava/util/List;
+	public final fun getRenewalCycle ()Lio/github/l2hyunwoo/ait/RenewalCycle;
+	public final fun getSku ()Ljava/lang/String;
+	public final fun getType ()Lio/github/l2hyunwoo/ait/IapProductType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/IapProductType : java/lang/Enum {
+	public static final field CONSUMABLE Lio/github/l2hyunwoo/ait/IapProductType;
+	public static final field NON_CONSUMABLE Lio/github/l2hyunwoo/ait/IapProductType;
+	public static final field SUBSCRIPTION Lio/github/l2hyunwoo/ait/IapProductType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/IapProductType;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/IapProductType;
+}
+
+public final class io/github/l2hyunwoo/ait/ImageResponse {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/ImageResponse;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/ImageResponse;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/ImageResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDataUri ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/IndexedDbDatabase {
+	public fun <init> (Ljava/lang/String;JLjava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;JLjava/util/List;)Lio/github/l2hyunwoo/ait/IndexedDbDatabase;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/IndexedDbDatabase;Ljava/lang/String;JLjava/util/List;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/IndexedDbDatabase;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getObjectStores ()Ljava/util/List;
+	public final fun getVersion ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/IndexedDbIndex {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;ZZ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;ZZ)Lio/github/l2hyunwoo/ait/IndexedDbIndex;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/IndexedDbIndex;Ljava/lang/String;Ljava/lang/String;ZZILjava/lang/Object;)Lio/github/l2hyunwoo/ait/IndexedDbIndex;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKeyPathJson ()Ljava/lang/String;
+	public final fun getMultiEntry ()Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getUnique ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/IndexedDbObjectStore {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Z
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;)Lio/github/l2hyunwoo/ait/IndexedDbObjectStore;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/IndexedDbObjectStore;Ljava/lang/String;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/IndexedDbObjectStore;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAutoIncrement ()Z
+	public final fun getIndexes ()Ljava/util/List;
+	public final fun getKeyPathJson ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getRecords ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/IndexedDbRecord {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/IndexedDbRecord;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/IndexedDbRecord;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/IndexedDbRecord;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKeyJson ()Ljava/lang/String;
+	public final fun getPrimaryKeyJson ()Ljava/lang/String;
+	public final fun getValueJson ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/LeaderboardSubmitResult : java/lang/Enum {
+	public static final field LEADERBOARD_NOT_FOUND Lio/github/l2hyunwoo/ait/LeaderboardSubmitResult;
+	public static final field PROFILE_NOT_FOUND Lio/github/l2hyunwoo/ait/LeaderboardSubmitResult;
+	public static final field SUCCESS Lio/github/l2hyunwoo/ait/LeaderboardSubmitResult;
+	public static final field UNPARSABLE_SCORE Lio/github/l2hyunwoo/ait/LeaderboardSubmitResult;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/LeaderboardSubmitResult;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/LeaderboardSubmitResult;
+}
+
+public final class io/github/l2hyunwoo/ait/Location {
+	public fun <init> (Lio/github/l2hyunwoo/ait/AccessLocation;DLio/github/l2hyunwoo/ait/LocationCoords;)V
+	public final fun component1 ()Lio/github/l2hyunwoo/ait/AccessLocation;
+	public final fun component2 ()D
+	public final fun component3 ()Lio/github/l2hyunwoo/ait/LocationCoords;
+	public final fun copy (Lio/github/l2hyunwoo/ait/AccessLocation;DLio/github/l2hyunwoo/ait/LocationCoords;)Lio/github/l2hyunwoo/ait/Location;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/Location;Lio/github/l2hyunwoo/ait/AccessLocation;DLio/github/l2hyunwoo/ait/LocationCoords;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/Location;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccessLocation ()Lio/github/l2hyunwoo/ait/AccessLocation;
+	public final fun getCoords ()Lio/github/l2hyunwoo/ait/LocationCoords;
+	public final fun getTimestamp ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/LocationApi {
+	public final fun getLocation (Lio/github/l2hyunwoo/ait/Accuracy;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun subscribeLocation (Lio/github/l2hyunwoo/ait/Accuracy;JD)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class io/github/l2hyunwoo/ait/LocationCoords {
+	public fun <init> (DDDDDD)V
+	public final fun component1 ()D
+	public final fun component2 ()D
+	public final fun component3 ()D
+	public final fun component4 ()D
+	public final fun component5 ()D
+	public final fun component6 ()D
+	public final fun copy (DDDDDD)Lio/github/l2hyunwoo/ait/LocationCoords;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/LocationCoords;DDDDDDILjava/lang/Object;)Lio/github/l2hyunwoo/ait/LocationCoords;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccuracy ()D
+	public final fun getAltitude ()D
+	public final fun getAltitudeAccuracy ()D
+	public final fun getHeading ()D
+	public final fun getLatitude ()D
+	public final fun getLongitude ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/LogType : java/lang/Enum {
+	public static final field CLICK Lio/github/l2hyunwoo/ait/LogType;
+	public static final field DEBUG Lio/github/l2hyunwoo/ait/LogType;
+	public static final field ERROR Lio/github/l2hyunwoo/ait/LogType;
+	public static final field EVENT Lio/github/l2hyunwoo/ait/LogType;
+	public static final field IMPRESSION Lio/github/l2hyunwoo/ait/LogType;
+	public static final field INFO Lio/github/l2hyunwoo/ait/LogType;
+	public static final field POPUP Lio/github/l2hyunwoo/ait/LogType;
+	public static final field SCREEN Lio/github/l2hyunwoo/ait/LogType;
+	public static final field WARN Lio/github/l2hyunwoo/ait/LogType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/LogType;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/LogType;
+}
+
+public final class io/github/l2hyunwoo/ait/MediaApi {
+	public final fun getAlbumItems (Ljava/util/Set;IIZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getAlbumItems$default (Lio/github/l2hyunwoo/ait/MediaApi;Ljava/util/Set;IIZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getPhotos (IIZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getPhotos$default (Lio/github/l2hyunwoo/ait/MediaApi;IIZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun openCamera (ZILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun openCamera$default (Lio/github/l2hyunwoo/ait/MediaApi;ZILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/MigrationApi {
+	public final fun getOriginStorage (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/NavigationBarApi {
+	public final fun setOptions (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lio/github/l2hyunwoo/ait/NavigationBarBackground;Lio/github/l2hyunwoo/ait/NavigationBarTheme;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun setOptions$default (Lio/github/l2hyunwoo/ait/NavigationBarApi;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lio/github/l2hyunwoo/ait/NavigationBarBackground;Lio/github/l2hyunwoo/ait/NavigationBarTheme;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class io/github/l2hyunwoo/ait/NavigationBarBackground {
+}
+
+public final class io/github/l2hyunwoo/ait/NavigationBarBackground$Color : io/github/l2hyunwoo/ait/NavigationBarBackground {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/NavigationBarBackground$Color;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/NavigationBarBackground$Color;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/NavigationBarBackground$Color;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHex ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/NavigationBarBackground$ThemeDefault : io/github/l2hyunwoo/ait/NavigationBarBackground {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/NavigationBarBackground$ThemeDefault;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/NavigationBarTheme : java/lang/Enum {
+	public static final field DARK Lio/github/l2hyunwoo/ait/NavigationBarTheme;
+	public static final field LIGHT Lio/github/l2hyunwoo/ait/NavigationBarTheme;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/NavigationBarTheme;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/NavigationBarTheme;
+}
+
+public final class io/github/l2hyunwoo/ait/NetworkStatus : java/lang/Enum {
+	public static final field CELLULAR_2G Lio/github/l2hyunwoo/ait/NetworkStatus;
+	public static final field CELLULAR_3G Lio/github/l2hyunwoo/ait/NetworkStatus;
+	public static final field CELLULAR_4G Lio/github/l2hyunwoo/ait/NetworkStatus;
+	public static final field CELLULAR_5G Lio/github/l2hyunwoo/ait/NetworkStatus;
+	public static final field OFFLINE Lio/github/l2hyunwoo/ait/NetworkStatus;
+	public static final field UNKNOWN Lio/github/l2hyunwoo/ait/NetworkStatus;
+	public static final field WIFI Lio/github/l2hyunwoo/ait/NetworkStatus;
+	public static final field WWAN Lio/github/l2hyunwoo/ait/NetworkStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/NetworkStatus;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/NetworkStatus;
+}
+
+public final class io/github/l2hyunwoo/ait/NotificationAgreementResult : java/lang/Enum {
+	public static final field AGREEMENT_REJECTED Lio/github/l2hyunwoo/ait/NotificationAgreementResult;
+	public static final field ALREADY_AGREED Lio/github/l2hyunwoo/ait/NotificationAgreementResult;
+	public static final field NEW_AGREEMENT Lio/github/l2hyunwoo/ait/NotificationAgreementResult;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/NotificationAgreementResult;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/NotificationAgreementResult;
+}
+
+public final class io/github/l2hyunwoo/ait/NotificationApi {
+	public final fun requestAgreement (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/OperationalEnvironment : java/lang/Enum {
+	public static final field SANDBOX Lio/github/l2hyunwoo/ait/OperationalEnvironment;
+	public static final field TOSS Lio/github/l2hyunwoo/ait/OperationalEnvironment;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/OperationalEnvironment;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/OperationalEnvironment;
+}
+
+public final class io/github/l2hyunwoo/ait/OpfsFile {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;)Lio/github/l2hyunwoo/ait/OpfsFile;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/OpfsFile;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/OpfsFile;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getData ()Ljava/lang/String;
+	public final fun getLastModified ()J
+	public final fun getPath ()Ljava/lang/String;
+	public final fun getType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/OpfsSnapshot {
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;Ljava/util/List;)Lio/github/l2hyunwoo/ait/OpfsSnapshot;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/OpfsSnapshot;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/OpfsSnapshot;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDirectories ()Ljava/util/List;
+	public final fun getFiles ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/OrderStatus : java/lang/Enum {
+	public static final field COMPLETED Lio/github/l2hyunwoo/ait/OrderStatus;
+	public static final field REFUNDED Lio/github/l2hyunwoo/ait/OrderStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/OrderStatus;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/OrderStatus;
+}
+
+public final class io/github/l2hyunwoo/ait/OriginStorage {
+	public fun <init> (Lio/github/l2hyunwoo/ait/OriginStorageDump;Lio/github/l2hyunwoo/ait/OriginStorageDump;)V
+	public final fun component1 ()Lio/github/l2hyunwoo/ait/OriginStorageDump;
+	public final fun component2 ()Lio/github/l2hyunwoo/ait/OriginStorageDump;
+	public final fun copy (Lio/github/l2hyunwoo/ait/OriginStorageDump;Lio/github/l2hyunwoo/ait/OriginStorageDump;)Lio/github/l2hyunwoo/ait/OriginStorage;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/OriginStorage;Lio/github/l2hyunwoo/ait/OriginStorageDump;Lio/github/l2hyunwoo/ait/OriginStorageDump;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/OriginStorage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCurrent ()Lio/github/l2hyunwoo/ait/OriginStorageDump;
+	public final fun getPrevious ()Lio/github/l2hyunwoo/ait/OriginStorageDump;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/OriginStorageDump {
+	public fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/util/List;Lio/github/l2hyunwoo/ait/OpfsSnapshot;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/Map;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Lio/github/l2hyunwoo/ait/OpfsSnapshot;
+	public final fun component5 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/Map;Ljava/util/List;Lio/github/l2hyunwoo/ait/OpfsSnapshot;Ljava/util/List;)Lio/github/l2hyunwoo/ait/OriginStorageDump;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/OriginStorageDump;Ljava/lang/String;Ljava/util/Map;Ljava/util/List;Lio/github/l2hyunwoo/ait/OpfsSnapshot;Ljava/util/List;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/OriginStorageDump;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getErrors ()Ljava/util/List;
+	public final fun getIndexedDB ()Ljava/util/List;
+	public final fun getLocalStorage ()Ljava/util/Map;
+	public final fun getOpfs ()Lio/github/l2hyunwoo/ait/OpfsSnapshot;
+	public final fun getOrigin ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/OriginStorageError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/OriginStorageError;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/OriginStorageError;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/OriginStorageError;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getStorage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/PendingOrder {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/PendingOrder;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/PendingOrder;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/PendingOrder;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOrderId ()Ljava/lang/String;
+	public final fun getPaymentCompletedDate ()Ljava/lang/String;
+	public final fun getSku ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/Permission : java/lang/Enum {
+	public static final field CAMERA Lio/github/l2hyunwoo/ait/Permission;
+	public static final field CLIPBOARD_READ Lio/github/l2hyunwoo/ait/Permission;
+	public static final field CLIPBOARD_WRITE Lio/github/l2hyunwoo/ait/Permission;
+	public static final field CONTACTS_READ Lio/github/l2hyunwoo/ait/Permission;
+	public static final field CONTACTS_WRITE Lio/github/l2hyunwoo/ait/Permission;
+	public static final field GEOLOCATION Lio/github/l2hyunwoo/ait/Permission;
+	public static final field MICROPHONE Lio/github/l2hyunwoo/ait/Permission;
+	public static final field PHOTOS_READ Lio/github/l2hyunwoo/ait/Permission;
+	public static final field PHOTOS_WRITE Lio/github/l2hyunwoo/ait/Permission;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/Permission;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/Permission;
+}
+
+public final class io/github/l2hyunwoo/ait/PermissionDialogResult : java/lang/Enum {
+	public static final field ALLOWED Lio/github/l2hyunwoo/ait/PermissionDialogResult;
+	public static final field DENIED Lio/github/l2hyunwoo/ait/PermissionDialogResult;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/PermissionDialogResult;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/PermissionDialogResult;
+}
+
+public abstract interface class io/github/l2hyunwoo/ait/PermissionResult {
+}
+
+public final class io/github/l2hyunwoo/ait/PermissionResult$Denied : io/github/l2hyunwoo/ait/PermissionResult {
+	public static final field INSTANCE Lio/github/l2hyunwoo/ait/PermissionResult$Denied;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/PermissionResult$Granted : io/github/l2hyunwoo/ait/PermissionResult {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun copy (Ljava/lang/Object;)Lio/github/l2hyunwoo/ait/PermissionResult$Granted;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/PermissionResult$Granted;Ljava/lang/Object;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/PermissionResult$Granted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/PermissionStatus : java/lang/Enum {
+	public static final field ALLOWED Lio/github/l2hyunwoo/ait/PermissionStatus;
+	public static final field DENIED Lio/github/l2hyunwoo/ait/PermissionStatus;
+	public static final field NOT_DETERMINED Lio/github/l2hyunwoo/ait/PermissionStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/PermissionStatus;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/PermissionStatus;
+}
+
+public final class io/github/l2hyunwoo/ait/PermissionsApi {
+	public final fun getPermission (Lio/github/l2hyunwoo/ait/Permission;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun openPermissionDialog (Lio/github/l2hyunwoo/ait/Permission;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun requestPermission (Lio/github/l2hyunwoo/ait/Permission;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/PromotionApi {
+	public final fun grantReward (Ljava/lang/String;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class io/github/l2hyunwoo/ait/PromotionRewardResult {
+}
+
+public final class io/github/l2hyunwoo/ait/PromotionRewardResult$Failed : io/github/l2hyunwoo/ait/PromotionRewardResult {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/PromotionRewardResult$Failed;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/PromotionRewardResult$Failed;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/PromotionRewardResult$Failed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getErrorCode ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/PromotionRewardResult$Granted : io/github/l2hyunwoo/ait/PromotionRewardResult {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/PromotionRewardResult$Granted;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/PromotionRewardResult$Granted;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/PromotionRewardResult$Granted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/PurchaseError : java/lang/Enum {
+	public static final field APP_MARKET_VERIFICATION_FAILED Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static final field INTERNAL_ERROR Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static final field INVALID_PRODUCT_ID Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static final field INVALID_USER_ENVIRONMENT Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static final field ITEM_ALREADY_OWNED Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static final field KOREAN_ACCOUNT_ONLY Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static final field NETWORK_ERROR Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static final field PAYMENT_PENDING Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static final field PRODUCT_NOT_GRANTED_BY_PARTNER Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static final field TOSS_SERVER_VERIFICATION_FAILED Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static final field USER_CANCELED Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/PurchaseError;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/PurchaseError;
+}
+
+public final class io/github/l2hyunwoo/ait/PurchaseOrder {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;DLjava/lang/String;ILjava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()D
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()I
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;DLjava/lang/String;ILjava/lang/String;)Lio/github/l2hyunwoo/ait/PurchaseOrder;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/PurchaseOrder;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;DLjava/lang/String;ILjava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/PurchaseOrder;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmount ()D
+	public final fun getCurrency ()Ljava/lang/String;
+	public final fun getDisplayAmount ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getFraction ()I
+	public final fun getMiniAppIconUrl ()Ljava/lang/String;
+	public final fun getOrderId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class io/github/l2hyunwoo/ait/PurchaseResult {
+}
+
+public final class io/github/l2hyunwoo/ait/PurchaseResult$Failure : io/github/l2hyunwoo/ait/PurchaseResult {
+	public fun <init> (Lio/github/l2hyunwoo/ait/PurchaseError;)V
+	public final fun component1 ()Lio/github/l2hyunwoo/ait/PurchaseError;
+	public final fun copy (Lio/github/l2hyunwoo/ait/PurchaseError;)Lio/github/l2hyunwoo/ait/PurchaseResult$Failure;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/PurchaseResult$Failure;Lio/github/l2hyunwoo/ait/PurchaseError;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/PurchaseResult$Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Lio/github/l2hyunwoo/ait/PurchaseError;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/PurchaseResult$Success : io/github/l2hyunwoo/ait/PurchaseResult {
+	public fun <init> (Lio/github/l2hyunwoo/ait/PurchaseOrder;)V
+	public final fun component1 ()Lio/github/l2hyunwoo/ait/PurchaseOrder;
+	public final fun copy (Lio/github/l2hyunwoo/ait/PurchaseOrder;)Lio/github/l2hyunwoo/ait/PurchaseResult$Success;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/PurchaseResult$Success;Lio/github/l2hyunwoo/ait/PurchaseOrder;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/PurchaseResult$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOrder ()Lio/github/l2hyunwoo/ait/PurchaseOrder;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/RenewalCycle : java/lang/Enum {
+	public static final field MONTHLY Lio/github/l2hyunwoo/ait/RenewalCycle;
+	public static final field WEEKLY Lio/github/l2hyunwoo/ait/RenewalCycle;
+	public static final field YEARLY Lio/github/l2hyunwoo/ait/RenewalCycle;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/RenewalCycle;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/RenewalCycle;
+}
+
+public final class io/github/l2hyunwoo/ait/ReviewApi {
+	public final fun request (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/RuntimeHost : java/lang/Enum {
+	public static final field APPS_IN_TOSS Lio/github/l2hyunwoo/ait/RuntimeHost;
+	public static final field BROWSER Lio/github/l2hyunwoo/ait/RuntimeHost;
+	public static final field MOCK Lio/github/l2hyunwoo/ait/RuntimeHost;
+	public static final field SANDBOX Lio/github/l2hyunwoo/ait/RuntimeHost;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/l2hyunwoo/ait/RuntimeHost;
+	public static fun values ()[Lio/github/l2hyunwoo/ait/RuntimeHost;
+}
+
+public final class io/github/l2hyunwoo/ait/SafeAreaInsets {
+	public fun <init> (DDDD)V
+	public final fun component1 ()D
+	public final fun component2 ()D
+	public final fun component3 ()D
+	public final fun component4 ()D
+	public final fun copy (DDDD)Lio/github/l2hyunwoo/ait/SafeAreaInsets;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/SafeAreaInsets;DDDDILjava/lang/Object;)Lio/github/l2hyunwoo/ait/SafeAreaInsets;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBottom ()D
+	public final fun getLeft ()D
+	public final fun getRight ()D
+	public final fun getTop ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/ScreenApi {
+	public final fun close (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setAwakeMode (ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setIosSwipeBack (ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setOrientation (Lio/github/l2hyunwoo/ait/DeviceOrientation;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setSecure (ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/ShareApi {
+	public final fun createLink (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun createLink$default (Lio/github/l2hyunwoo/ait/ShareApi;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun sendMessage (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/StorageApi {
+	public final fun clearItems (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getItem (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getItems (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun removeItem (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setItem (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setItems (Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/SubscriptionInfo {
+	public fun <init> (JLjava/lang/String;Ljava/lang/String;ZLjava/lang/String;Z)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Z
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Z
+	public final fun copy (JLjava/lang/String;Ljava/lang/String;ZLjava/lang/String;Z)Lio/github/l2hyunwoo/ait/SubscriptionInfo;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/SubscriptionInfo;JLjava/lang/String;Ljava/lang/String;ZLjava/lang/String;ZILjava/lang/Object;)Lio/github/l2hyunwoo/ait/SubscriptionInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCatalogId ()J
+	public final fun getExpiresAt ()Ljava/lang/String;
+	public final fun getGracePeriodExpiresAt ()Ljava/lang/String;
+	public final fun getStatus ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isAccessible ()Z
+	public final fun isAutoRenew ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/TossAdsApi {
+	public final fun attachBanner (Lkotlinx/coroutines/CoroutineScope;Ljava/lang/String;Lio/github/l2hyunwoo/ait/BannerBounds;Lio/github/l2hyunwoo/ait/BannerTheme;Lio/github/l2hyunwoo/ait/BannerTone;Lio/github/l2hyunwoo/ait/BannerVariant;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lio/github/l2hyunwoo/ait/BannerHandle;
+	public static synthetic fun attachBanner$default (Lio/github/l2hyunwoo/ait/TossAdsApi;Lkotlinx/coroutines/CoroutineScope;Ljava/lang/String;Lio/github/l2hyunwoo/ait/BannerBounds;Lio/github/l2hyunwoo/ait/BannerTheme;Lio/github/l2hyunwoo/ait/BannerTone;Lio/github/l2hyunwoo/ait/BannerVariant;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/BannerHandle;
+	public final fun destroy (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun destroyAll (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun initialize (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/TossLoginAuthorization {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lio/github/l2hyunwoo/ait/TossLoginAuthorization;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/TossLoginAuthorization;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/TossLoginAuthorization;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthorizationCode ()Ljava/lang/String;
+	public final fun getReferrer ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/TossPayApi {
+	public final fun authorize (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun authorizeSubscription (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/l2hyunwoo/ait/TossPayAuthorization {
+	public fun <init> (ZLjava/lang/String;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (ZLjava/lang/String;)Lio/github/l2hyunwoo/ait/TossPayAuthorization;
+	public static synthetic fun copy$default (Lio/github/l2hyunwoo/ait/TossPayAuthorization;ZLjava/lang/String;ILjava/lang/Object;)Lio/github/l2hyunwoo/ait/TossPayAuthorization;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReason ()Ljava/lang/String;
+	public final fun getSuccess ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/l2hyunwoo/ait/UserApi {
+	public final fun createAnonymousKeyAuthCode (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getAnonymousKey (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getConsentedData (Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getConsentedData$default (Lio/github/l2hyunwoo/ait/UserApi;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getDeclaredAgeRange (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

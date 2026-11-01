@@ -56,3 +56,5 @@ jobs:
         run: ./gradlew ktlintCheck --no-daemon --console=plain
       - name: Kotlin JVM 테스트
         run: ./gradlew :sdk:jvmTest :sample:shared-core:jvmTest --no-daemon --console=plain
+      - name: Kotlin JS·Wasm 컴파일 및 ABI 검사
+        run: ./gradlew :sdk:compileKotlinJs :sdk:compileKotlinWasmJs :sdk:checkKotlinAbi --no-daemon --console=plain

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
@@ -6,6 +8,9 @@ plugins {
 group = "io.github.l2hyunwoo"
 version = providers.gradleProperty("releaseVersion").orElse(providers.gradleProperty("sdkVersion")).get()
 kotlin {
+    explicitApi()
+    @OptIn(ExperimentalAbiValidation::class)
+    abiValidation()
     jvm()
     js { browser() }
     wasmJs { browser() }

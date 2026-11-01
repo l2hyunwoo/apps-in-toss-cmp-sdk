@@ -5,7 +5,7 @@ internal expect fun bridgeSupports(capability: String): Boolean
 internal expect fun bridgeCall(method: String, payload: String, success: (String) -> Unit, failure: (String) -> Unit): () -> Unit
 internal expect fun bridgeStream(method: String, payload: String, onEvent: (String) -> Unit, failure: (String) -> Unit): () -> Unit
 
-fun createAppsInTossClient(): AppsInTossClient = AppsInTossClient(object : AppsInTossTransport {
+public fun createAppsInTossClient(): AppsInTossClient = AppsInTossClient(object : AppsInTossTransport {
     override val host get() = when (bridgeHost()) {
         "toss" -> RuntimeHost.APPS_IN_TOSS
         "sandbox" -> RuntimeHost.SANDBOX

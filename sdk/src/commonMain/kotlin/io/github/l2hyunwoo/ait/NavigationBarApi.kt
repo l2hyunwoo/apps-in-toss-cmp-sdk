@@ -2,9 +2,9 @@ package io.github.l2hyunwoo.ait
 
 import kotlinx.serialization.json.*
 
-class NavigationBarApi internal constructor(private val client: AppsInTossClient) {
+public class NavigationBarApi internal constructor(private val client: AppsInTossClient) {
     /** 넘긴 옵션만 바꾼다. null 인자는 마지막에 적용한 값을 유지한다. [Capability.NAVIGATION_BAR]가 필요하다. */
-    suspend fun setOptions(
+    public suspend fun setOptions(
         withBackButton: Boolean? = null,
         withHomeButton: Boolean? = null,
         withTitle: Boolean? = null,
@@ -35,12 +35,12 @@ class NavigationBarApi internal constructor(private val client: AppsInTossClient
     }
 }
 
-sealed interface NavigationBarBackground {
+public sealed interface NavigationBarBackground {
     /** `#RRGGBB` 또는 `#RRGGBBAA`다. 배경이 투명한 동안에는 적용되지 않는다. */
-    data class Color(val hex: String) : NavigationBarBackground
+    public data class Color(val hex: String) : NavigationBarBackground
 
     /** 테마의 기본 배경으로 되돌린다(공식 `null`). */
-    data object ThemeDefault : NavigationBarBackground
+    public data object ThemeDefault : NavigationBarBackground
 }
 
-enum class NavigationBarTheme { LIGHT, DARK }
+public enum class NavigationBarTheme { LIGHT, DARK }
