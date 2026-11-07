@@ -25,7 +25,10 @@ await mkdir(join(dest,'_github/workflows'),{recursive:true});
 const ci=(await readFile('.github/workflows/ci.yml','utf8'))
   .replace('      - name: JS 테스트\n        run: yarn test\n','')
   .replace('name: JS 린트·테스트','name: JS 린트')
-  .replace(':sdk:jvmTest :sample:shared-core:jvmTest',':shared-core:jvmTest');
+  .replace(':sdk:jvmTest :sample:shared-core:jvmTest',':shared-core:jvmTest')
+  .replace(/ {6}- name: Kotlin JS·Wasm 컴파일 및 ABI 검사\n {8}run: \.\/gradlew :sdk:[^\n]*\n/,'');
+// 생성 앱에는 :sdk 모듈이 없다. SDK 전용 단계가 새로 생기면 여기서 걸러야 한다.
+if (ci.includes(':sdk:')) throw new Error('Template CI must not run :sdk tasks');
 await writeFile(join(dest,'_github/workflows/ci.yml'),ci);
 for(const module of ['shared-core','shared-ui','appsInTossApp','webApp','androidApp','iosApp']) {
   await cp(join(root,'sample',module),join(dest,module),{recursive:true,filter:p=>!p.split('/').some(s=>['build','.gradle','xcuserdata'].includes(s))});
