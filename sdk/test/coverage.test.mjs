@@ -49,7 +49,7 @@ async function loadManifest() {
 const bridge = createBridge(base());
 const bridgeMethods = [...bridge.methods.calls, ...bridge.methods.streams];
 
-test('공식 3.9.0 export를 모두 분류한다', async () => {
+test('공식 3.10.0 export를 모두 분류한다', async () => {
   const manifest = await loadManifest();
   const names = officialNames(await import('@apps-in-toss/web-framework'));
   assert.deepEqual(checkCoverage(manifest, names, bridgeMethods), []);

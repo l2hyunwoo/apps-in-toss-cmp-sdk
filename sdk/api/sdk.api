@@ -355,6 +355,7 @@ public final class io/github/l2hyunwoo/ait/Capability : java/lang/Enum {
 	public static final field LOCATION Lio/github/l2hyunwoo/ait/Capability;
 	public static final field LOCATION_UPDATES Lio/github/l2hyunwoo/ait/Capability;
 	public static final field NAVIGATION_BAR Lio/github/l2hyunwoo/ait/Capability;
+	public static final field NAVIGATION_BAR_ACCESSORY_BUTTON Lio/github/l2hyunwoo/ait/Capability;
 	public static final field NETWORK_STATUS Lio/github/l2hyunwoo/ait/Capability;
 	public static final field NOTIFICATION_AGREEMENT Lio/github/l2hyunwoo/ait/Capability;
 	public static final field OPEN_URL Lio/github/l2hyunwoo/ait/Capability;
@@ -946,6 +947,9 @@ public final class io/github/l2hyunwoo/ait/MigrationApi {
 }
 
 public final class io/github/l2hyunwoo/ait/NavigationBarApi {
+	public final fun accessoryButtonClicks ()Lkotlinx/coroutines/flow/Flow;
+	public final fun addAccessoryButton (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun removeAccessoryButton (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun setOptions (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lio/github/l2hyunwoo/ait/NavigationBarBackground;Lio/github/l2hyunwoo/ait/NavigationBarTheme;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun setOptions$default (Lio/github/l2hyunwoo/ait/NavigationBarApi;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lio/github/l2hyunwoo/ait/NavigationBarBackground;Lio/github/l2hyunwoo/ait/NavigationBarTheme;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 }

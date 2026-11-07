@@ -47,6 +47,9 @@ class PublicApiShapeTest {
         expect("screenIosSwipeBack") { client.screen.setIosSwipeBack(false) }
         expect("screenOrientation") { client.screen.setOrientation(DeviceOrientation.LANDSCAPE) }
         expect("navigationBarOptions") { client.navigationBar.setOptions(withTitle = true, theme = NavigationBarTheme.DARK) }
+        expect("navigationBarAccessoryAdd") { client.navigationBar.addAccessoryButton("찜하기", "icon-heart-mono") }
+        expect("navigationBarAccessoryRemove") { client.navigationBar.removeAccessoryButton() }
+        expectFlow("navigationBarAccessoryClicks") { client.navigationBar.accessoryButtonClicks() }
 
         expect("storageGet") { client.storage.getItem("k") }
         expect("storageGetItems") { client.storage.getItems(listOf("k")) }
@@ -124,6 +127,6 @@ class PublicApiShapeTest {
         expect("migrationOriginStorage") { client.migration.getOriginStorage() }
 
         // 커버리지 매니페스트의 브리지 method 수(reply 제외)와 같아야 한다. deviceValue·environmentValue는 여러 메서드가 공유한다.
-        assertEquals(72, reached.size)
+        assertEquals(75, reached.size)
     }
 }

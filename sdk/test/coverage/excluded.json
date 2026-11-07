@@ -45,7 +45,7 @@
     "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
   },
   "appsInTossEvent.addEventListener": {
-    "excluded": "event map is empty in 3.9.0"
+    "excluded": "event map is empty in 3.10.0"
   },
   "contactsViral": {
     "excluded": "deprecated without replacement; not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
@@ -63,15 +63,6 @@
     "excluded": "framework internal helper"
   },
   "onVisibilityChangedByTransparentServiceWeb": {
-    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
-  },
-  "partner.addAccessoryButton": {
-    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
-  },
-  "partner.removeAccessoryButton": {
-    "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
-  },
-  "tdsEvent.addEventListener": {
     "excluded": "not in the official API reference (llms.txt /documentation/sdk, 2026-10-29)"
   }
 }
