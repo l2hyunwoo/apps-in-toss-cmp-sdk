@@ -25,9 +25,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apps-in-toss/cli@npm:3.9.0":
-  version: 3.9.0
-  resolution: "@apps-in-toss/cli@npm:3.9.0"
+"@apps-in-toss/cli@npm:3.10.0":
+  version: 3.10.0
+  resolution: "@apps-in-toss/cli@npm:3.10.0"
   dependencies:
     "@apps-in-toss/ait-format": "npm:1.0.0"
     "@clack/prompts": "npm:^1.3.0"
@@ -38,21 +38,21 @@ __metadata:
     uuidv7: "npm:^1.2.1"
   bin:
     ait: dist/index.js
-  checksum: 10c0/2ab205621ad949f576c35ac61a60d398abced6563560938f828a393490043b986932030c72cec33531452dcf1b03cd3b3937de7f4d0bc9ccd09d1216dce26561
+  checksum: 10c0/785e4a6caa8afbf32aba446b9a802ee1803e75e7788867b4fe17fdee2d783965a0f65fc66dceaf2246a7fe6035caf1a1ba4cca2661993932205296b0e9e1d2c2
   languageName: node
   linkType: hard
 
-"@apps-in-toss/web-framework@npm:3.9.0":
-  version: 3.9.0
-  resolution: "@apps-in-toss/web-framework@npm:3.9.0"
+"@apps-in-toss/web-framework@npm:3.10.0":
+  version: 3.10.0
+  resolution: "@apps-in-toss/web-framework@npm:3.10.0"
   dependencies:
-    "@apps-in-toss/cli": "npm:3.9.0"
+    "@apps-in-toss/cli": "npm:3.10.0"
     "@webview-bridge/web": "npm:1.7.10"
     semver: "npm:^7.8.5"
     valibot: "npm:^1.4.2"
   bin:
     ait: bin/ait.js
-  checksum: 10c0/1157420d035d377894a5a398ada7940284d76fe7860956e7c2015c8ebcd53b2d1b8548a4adc92b6f29fcf049e21b3472ef8a5f98559a493a2ad69413bcf1e814
+  checksum: 10c0/826a44a0e816fb603844a6069d18a72934abb5b38151810342f0398ed1988dc399ec3247b0aad1f034311aafdc9a17d2fa5b8accec46903e7a030b562264f999
   languageName: node
   linkType: hard
 
@@ -1150,7 +1150,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ait-cmp-template@workspace:."
   dependencies:
-    "@apps-in-toss/web-framework": "npm:3.9.0"
+    "@apps-in-toss/web-framework": "npm:3.10.0"
     "@eslint/js": "npm:10.0.1"
     esbuild: "npm:0.28.2"
     eslint: "npm:10.12.0"

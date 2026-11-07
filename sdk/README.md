@@ -29,7 +29,10 @@
 |  | `client.screen.setSecure()` | `SECURE_SCREEN` |
 |  | `client.screen.setIosSwipeBack()` | `IOS_SWIPE_BACK` |
 |  | `client.screen.setOrientation()` | `ORIENTATION` |
-| `client.navigationBar` 내비게이션 바 설정 | `client.navigationBar.setOptions()` | `NAVIGATION_BAR` |
+| `client.navigationBar` 내비게이션 바 설정·액세서리 버튼 | `client.navigationBar.setOptions()` | `NAVIGATION_BAR` |
+|  | `client.navigationBar.addAccessoryButton()` | `NAVIGATION_BAR_ACCESSORY_BUTTON` |
+|  | `client.navigationBar.removeAccessoryButton()` | `NAVIGATION_BAR_ACCESSORY_BUTTON` |
+|  | `client.navigationBar.accessoryButtonClicks()` | `NAVIGATION_BAR_ACCESSORY_BUTTON` |
 | `client.storage` 토스앱 로컬 저장소 | `client.storage.getItem()` | `STORAGE` |
 |  | `client.storage.getItems()` | `STORAGE_BATCH` |
 |  | `client.storage.setItem()` | `STORAGE` |

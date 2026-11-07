@@ -102,6 +102,7 @@ final enum class io.github.l2hyunwoo.ait/Capability : kotlin/Enum<io.github.l2hy
     enum entry LOCATION // io.github.l2hyunwoo.ait/Capability.LOCATION|null[0]
     enum entry LOCATION_UPDATES // io.github.l2hyunwoo.ait/Capability.LOCATION_UPDATES|null[0]
     enum entry NAVIGATION_BAR // io.github.l2hyunwoo.ait/Capability.NAVIGATION_BAR|null[0]
+    enum entry NAVIGATION_BAR_ACCESSORY_BUTTON // io.github.l2hyunwoo.ait/Capability.NAVIGATION_BAR_ACCESSORY_BUTTON|null[0]
     enum entry NETWORK_STATUS // io.github.l2hyunwoo.ait/Capability.NETWORK_STATUS|null[0]
     enum entry NOTIFICATION_AGREEMENT // io.github.l2hyunwoo.ait/Capability.NOTIFICATION_AGREEMENT|null[0]
     enum entry OPEN_URL // io.github.l2hyunwoo.ait/Capability.OPEN_URL|null[0]
@@ -1393,6 +1394,9 @@ final class io.github.l2hyunwoo.ait/MigrationApi { // io.github.l2hyunwoo.ait/Mi
 }
 
 final class io.github.l2hyunwoo.ait/NavigationBarApi { // io.github.l2hyunwoo.ait/NavigationBarApi|null[0]
+    final fun accessoryButtonClicks(): kotlinx.coroutines.flow/Flow<kotlin/Unit> // io.github.l2hyunwoo.ait/NavigationBarApi.accessoryButtonClicks|accessoryButtonClicks(){}[0]
+    final suspend fun addAccessoryButton(kotlin/String, kotlin/String) // io.github.l2hyunwoo.ait/NavigationBarApi.addAccessoryButton|addAccessoryButton(kotlin.String;kotlin.String){}[0]
+    final suspend fun removeAccessoryButton() // io.github.l2hyunwoo.ait/NavigationBarApi.removeAccessoryButton|removeAccessoryButton(){}[0]
     final suspend fun setOptions(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., io.github.l2hyunwoo.ait/NavigationBarBackground? = ..., io.github.l2hyunwoo.ait/NavigationBarTheme? = ...) // io.github.l2hyunwoo.ait/NavigationBarApi.setOptions|setOptions(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;io.github.l2hyunwoo.ait.NavigationBarBackground?;io.github.l2hyunwoo.ait.NavigationBarTheme?){}[0]
 }
 

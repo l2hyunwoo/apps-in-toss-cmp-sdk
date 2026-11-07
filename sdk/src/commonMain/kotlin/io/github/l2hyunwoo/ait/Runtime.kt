@@ -28,6 +28,7 @@ public enum class Capability {
     IOS_SWIPE_BACK,
     ORIENTATION,
     NAVIGATION_BAR,
+    NAVIGATION_BAR_ACCESSORY_BUTTON,
 
     // storage
     STORAGE,

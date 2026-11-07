@@ -26,3 +26,20 @@ test('mock bridge는 모든 메서드에 결과나 UNSUPPORTED로 답한다', as
     console.info = info;
   }
 });
+
+test('mock bridge는 액세서리 버튼 API를 지원한다', async () => {
+  const info = console.info; console.info = () => {};
+  try {
+    const {bridge} = await import('../src/webMain/resources/ait-cmp-bridge/mock.mjs');
+    assert.equal(bridge.supports('NAVIGATION_BAR_ACCESSORY_BUTTON'), true);
+    for (const [method, payload] of [['navigationBarAccessoryAdd', {accessibilityLabel: '찜하기', icon: {name: 'icon-heart-mono'}}], ['navigationBarAccessoryRemove', {}]]) {
+      const outcome = await new Promise(resolve => bridge.call(method, JSON.stringify(payload), () => resolve('ok'), e => resolve(JSON.parse(e).code)));
+      assert.equal(outcome, 'ok', method);
+    }
+    const stop = bridge.stream('navigationBarAccessoryClicks', '{}', () => assert.fail(), () => assert.fail());
+    await tick();
+    stop();
+  } finally {
+    console.info = info;
+  }
+});

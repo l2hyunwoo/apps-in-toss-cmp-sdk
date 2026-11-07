@@ -57,3 +57,13 @@ test('번들된 SDK 리소스는 host를 초기화하고 production에 mock을 �
     }
   }
 });
+
+test('최소 SDK에서 액세서리 버튼 API는 UNSUPPORTED로 실패한다', async () => {
+  const min = await import('toss-sdk-min');
+  const b = createBridge({...min, Environment: {environment: 'sandbox'}});
+  await assert.rejects(callBridge(b, 'navigationBarAccessoryAdd', {accessibilityLabel: '찜하기', icon: {name: 'icon-heart-mono'}}), {code: 'UNSUPPORTED'});
+  await assert.rejects(callBridge(b, 'navigationBarAccessoryRemove', {}), {code: 'UNSUPPORTED'});
+  let error;
+  b.stream('navigationBarAccessoryClicks', '{}', () => assert.fail(), e => { error = JSON.parse(e); });
+  assert.equal(error.code, 'UNSUPPORTED');
+});

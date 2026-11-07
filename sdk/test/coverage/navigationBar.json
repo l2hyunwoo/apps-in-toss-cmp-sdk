@@ -2,5 +2,26 @@
   "NavigationBar.setOptions": {
     "bridge": "navigationBarOptions",
     "capability": "NAVIGATION_BAR"
+  },
+  "NavigationBar.addAccessoryButton": {
+    "bridge": "navigationBarAccessoryAdd",
+    "capability": "NAVIGATION_BAR_ACCESSORY_BUTTON"
+  },
+  "NavigationBar.removeAccessoryButton": {
+    "bridge": "navigationBarAccessoryRemove",
+    "capability": "NAVIGATION_BAR_ACCESSORY_BUTTON"
+  },
+  "NavigationBar.subscribeAccessoryButton": {
+    "bridge": "navigationBarAccessoryClicks",
+    "capability": "NAVIGATION_BAR_ACCESSORY_BUTTON"
+  },
+  "partner.addAccessoryButton": {
+    "replaced": "NavigationBar.addAccessoryButton"
+  },
+  "partner.removeAccessoryButton": {
+    "replaced": "NavigationBar.removeAccessoryButton"
+  },
+  "tdsEvent.addEventListener": {
+    "replaced": "NavigationBar.subscribeAccessoryButton"
   }
 }
