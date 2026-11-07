@@ -78,7 +78,7 @@ if (file("webApp").isDirectory) include(":webApp")
 if (file("androidApp").isDirectory) include(":androidApp")
 `);
 await writeFile(join(dest,'apps-in-toss.config.ts'),`import { defineConfig } from '@apps-in-toss/web-framework/config';
-export default defineConfig({appName:"__APP_NAME__",brand:{primaryColor:"#3469D9"},permissions:[],navigationBar:{withBackButton:true,withHomeButton:true,theme:"light"},webBundleDir:"dist/apps-in-toss"});
+export default defineConfig({appName:"__APP_NAME__",permissions:[],navigationBar:{withBackButton:true,withHomeButton:true,theme:"light"},webBundleDir:"dist/apps-in-toss"});
 `);
 await writeFile(join(dest,'README.md'),`# __DISPLAY_NAME__
 
